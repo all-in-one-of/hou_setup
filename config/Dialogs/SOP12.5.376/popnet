@@ -1,0 +1,256 @@
+// Magic: 7ab3fa24
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 16:08:08 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+timestart.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timestart.label = PARM_LABEL("Start Time", "timestart") WIDTH(1.5);
+ PARM(float, 1, "timestart", none, none) RANGE(0,5)
+	 LABELREF(timestart.label) HSTRETCH;
+
+}
+
+timepreroll.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timepreroll.label = PARM_LABEL("Preroll Time", "timepreroll") WIDTH(1.5);
+ PARM(float, 1, "timepreroll", none, none) RANGE(0,5)
+	 LABELREF(timepreroll.label) HSTRETCH;
+
+}
+
+initialstate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ initialstate.label = PARM_LABEL("Initial State", "initialstate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "initialstate") LABELREF(initialstate.label)
+	VALUE(initialstate.val) HSTRETCH;
+
+ initialstate.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(initialstate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Random Seed", "seed") WIDTH(1.5);
+ PARM(integer, 1, "seed", none, none) RANGE(0,200)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+oversample.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ oversample.label = PARM_LABEL("Oversampling", "oversample") WIDTH(1.5);
+ PARM(integer, 1, "oversample", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(oversample.label) HSTRETCH;
+
+}
+
+maxparticles.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxparticles.label = PARM_LABEL("Max # of Particles", "maxparticles") WIDTH(1.5);
+ PARM(integer, 1, "maxparticles", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(maxparticles.label) HSTRETCH;
+
+}
+
+rmunused.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("rmunused", "Remove Unused Points") toggle VALUE(rmunused.val);
+
+}
+
+path1.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ path1.label = PARM_LABEL("SOP 1", "path1") WIDTH(1.5);
+ PARM_FIELD(pathstring, "path1") VALUE(path1.val) 
+	LABELREF(path1.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(path1.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(path1.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+path2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ path2.label = PARM_LABEL("SOP 2", "path2") WIDTH(1.5);
+ PARM_FIELD(pathstring, "path2") VALUE(path2.val) 
+	LABELREF(path2.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(path2.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(path2.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+path3.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ path3.label = PARM_LABEL("SOP 3", "path3") WIDTH(1.5);
+ PARM_FIELD(pathstring, "path3") VALUE(path3.val) 
+	LABELREF(path3.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(path3.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(path3.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+path4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ path4.label = PARM_LABEL("SOP 4", "path4") WIDTH(1.5);
+ PARM_FIELD(pathstring, "path4") VALUE(path4.val) 
+	LABELREF(path4.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(path4.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(path4.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+doppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ doppath.label = PARM_LABEL("DOP Network", "doppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "doppath") VALUE(doppath.val) 
+	LABELREF(doppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(doppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(doppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+objpattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    objpattern.label = PARM_LABEL("Object Mask", "objpattern") WIDTH(1.5);
+    PARM_FIELD(string, "objpattern") VALUE(objpattern.val) 
+	LABELREF(objpattern.label) HSTRETCH;
+
+}
+
+geodatapath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    geodatapath.label = PARM_LABEL("Geometry Data Path", "geodatapath") WIDTH(1.5);
+    PARM_FIELD(string, "geodatapath") VALUE(geodatapath.val) 
+	LABELREF(geodatapath.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Standard"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    timestart.gad;		
+	    timepreroll.gad;		
+	    initialstate.gad;		
+	    seed.gad;		
+	    oversample.gad;		
+	    maxparticles.gad;		
+	    rmunused.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Input Geo"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    path1.gad;		
+	    path2.gad;		
+	    path3.gad;		
+	    path4.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "DOP Import"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    doppath.gad;		
+	    objpattern.gad;		
+	    geodatapath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

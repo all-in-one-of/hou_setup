@@ -1,0 +1,163 @@
+// Magic: d5119fbc
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:40:32 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+vexsrc.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Vex Source", "vexsrc") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vexsrc.menu;
+
+}
+
+vexshoppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ vexshoppath.label = PARM_LABEL("Shop Path", "vexshoppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "vexshoppath") VALUE(vexshoppath.val) 
+	LABELREF(vexshoppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(vexshoppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(vexshoppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+vexscript.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ vexscript.label = PARM_LABEL("Script", "vexscript") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "vexscript") LABELREF(vexscript.label)
+	VALUE(vexscript.val) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(vexscript.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vexclear.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vexclear", "Re-load VEX Functions") push VALUE(vexclear.val);
+}
+
+vop_compiler.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vop_compiler.label = PARM_LABEL("Compiler", "vop_compiler") WIDTH(1.5);
+    PARM_FIELD(string, "vop_compiler") VALUE(vop_compiler.val) 
+	LABELREF(vop_compiler.label) HSTRETCH;
+
+}
+
+vop_forcecompile.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vop_forcecompile", "Force Compile") push VALUE(vop_forcecompile.val);
+}
+activation.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+activation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activation.label = PARM_LABEL("Activation", "activation") WIDTH(1.5);
+ PARM(integer, 1, "activation", none, none) RANGE(0,10)
+	 LABELREF(activation.label) HSTRETCH;
+
+}
+
+activationrules.gad = activationrules.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+
+sharedata.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Data Sharing", "sharedata") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    sharedata.menu;
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    vexsrc.gad; 
+    vexshoppath.gad; 
+    vexscript.gad; 
+    vexclear.gad; 
+    vop_compiler.gad; 
+    vop_forcecompile.gad; 
+    activation.join; 
+    sharedata.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

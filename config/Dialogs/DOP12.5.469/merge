@@ -1,0 +1,64 @@
+// Magic: e4bd9e1d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 15:59:59 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+activation.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+activation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activation.label = PARM_LABEL("Activation", "activation") WIDTH(1.5);
+ PARM(integer, 1, "activation", none, none) RANGE(0,10)
+	 LABELREF(activation.label) HSTRETCH;
+
+}
+
+activationrules.gad = activationrules.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+
+affectortype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Affector Relationship", "affectortype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    affectortype.menu;
+
+}
+
+relationship.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Relationship", "relationship") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    relationship.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activation.join; 
+    affectortype.gad; 
+    relationship.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,396 @@
+// Magic: 59f918d6
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 12:20:54 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+groupA.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    groupA.label = PARM_LABEL("Group A", "groupA") WIDTH(1.5);
+    PARM_FIELD(string, "groupA") VALUE(groupA.val) 
+	LABELREF(groupA.label) HSTRETCH;
+
+    groupA.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+groupB.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    groupB.label = PARM_LABEL("Group B", "groupB") WIDTH(1.5);
+    PARM_FIELD(string, "groupB") VALUE(groupB.val) 
+	LABELREF(groupB.label) HSTRETCH;
+
+    groupB.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+tol3d.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tol3d.label = PARM_LABEL("3D Tolerance", "tol3d") WIDTH(1.5);
+ PARM(float, 1, "tol3d", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE LABELREF(tol3d.label) HSTRETCH;
+
+}
+
+convex.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("convex", "Pre-Convex Geometry") toggle VALUE(convex.val);
+
+}
+
+boolop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "boolop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    boolop.menu;
+
+}
+
+insideA.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("insideA", "Keep Inside A") toggle VALUE(insideA.val);
+
+}
+
+insideB.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("insideB", "Keep Inside B") toggle VALUE(insideB.val);
+
+}
+
+outsideA.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("outsideA", "Keep Outside A") toggle VALUE(outsideA.val);
+
+}
+
+outsideB.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("outsideB", "Keep Outside B") toggle VALUE(outsideB.val);
+
+}
+
+overlapA.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overlapA", "Keep Overlap A") toggle VALUE(overlapA.val);
+
+}
+
+overlapB.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overlapB", "Keep Overlap B") toggle VALUE(overlapB.val);
+
+}
+
+insidetest.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("insidetest", "Check for Full Enclosure") toggle VALUE(insidetest.val);
+
+}
+
+closedA.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("closedA", "Assume Input A is Closed") toggle VALUE(closedA.val);
+
+}
+
+closedB.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("closedB", "Assume Input B is Closed") toggle VALUE(closedB.val);
+
+}
+
+createGroup.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createGroup", "Create Groups") toggle VALUE(createGroup.val);
+
+}
+
+insideAGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    insideAGroup.label = PARM_LABEL("Inside A", "insideAGroup") WIDTH(1.5);
+    PARM_FIELD(string, "insideAGroup") VALUE(insideAGroup.val) 
+	LABELREF(insideAGroup.label) HSTRETCH;
+
+}
+
+insideBGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    insideBGroup.label = PARM_LABEL("Inside B", "insideBGroup") WIDTH(1.5);
+    PARM_FIELD(string, "insideBGroup") VALUE(insideBGroup.val) 
+	LABELREF(insideBGroup.label) HSTRETCH;
+
+}
+
+outsideAGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    outsideAGroup.label = PARM_LABEL("Outside A", "outsideAGroup") WIDTH(1.5);
+    PARM_FIELD(string, "outsideAGroup") VALUE(outsideAGroup.val) 
+	LABELREF(outsideAGroup.label) HSTRETCH;
+
+}
+
+outsideBGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    outsideBGroup.label = PARM_LABEL("Outside B", "outsideBGroup") WIDTH(1.5);
+    PARM_FIELD(string, "outsideBGroup") VALUE(outsideBGroup.val) 
+	LABELREF(outsideBGroup.label) HSTRETCH;
+
+}
+
+overlapAGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    overlapAGroup.label = PARM_LABEL("Overlap A", "overlapAGroup") WIDTH(1.5);
+    PARM_FIELD(string, "overlapAGroup") VALUE(overlapAGroup.val) 
+	LABELREF(overlapAGroup.label) HSTRETCH;
+
+}
+
+overlapBGroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    overlapBGroup.label = PARM_LABEL("Overlap B", "overlapBGroup") WIDTH(1.5);
+    PARM_FIELD(string, "overlapBGroup") VALUE(overlapBGroup.val) 
+	LABELREF(overlapBGroup.label) HSTRETCH;
+
+}
+
+consolidateedge.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("consolidateedge", "Consolidate Edges") toggle VALUE(consolidateedge.val);
+
+}
+
+consolidatetol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ consolidatetol.label = PARM_LABEL("Consolidate Tol", "consolidatetol") WIDTH(1.5);
+ PARM(float, 1, "consolidatetol", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE LABELREF(consolidatetol.label) HSTRETCH;
+
+}
+
+keepsource.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepsource", "Keep Source") toggle VALUE(keepsource.val);
+
+}
+
+autojoin.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("autojoin", "Autojoin Creases") toggle VALUE(autojoin.val);
+
+}
+
+dojitter.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dojitter", "Do Jitter") toggle VALUE(dojitter.val);
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Jitter Seed", "seed") WIDTH(1.5);
+ PARM(integer, 1, "seed", none, none) RANGE(0,10)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+jitteramount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitteramount.label = PARM_LABEL("Amount of Jitter", "jitteramount") WIDTH(1.5);
+ PARM(float, 1, "jitteramount", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE LABELREF(jitteramount.label) HSTRETCH;
+
+}
+
+groupswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(groupswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Type"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    boolop.gad;		
+	    insideA.gad;		
+	    insideB.gad;		
+	    outsideA.gad;		
+	    outsideB.gad;		
+	    overlapA.gad;		
+	    overlapB.gad;		
+	    insidetest.gad;		
+	    closedA.gad;		
+	    closedB.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Groups"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    createGroup.gad;		
+	    insideAGroup.gad;		
+	    insideBGroup.gad;		
+	    outsideAGroup.gad;		
+	    outsideBGroup.gad;		
+	    overlapAGroup.gad;		
+	    overlapBGroup.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Boolean"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    groupswitcher.gad;		
+	    consolidateedge.gad;		
+	    consolidatetol.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Crease"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    keepsource.gad;		
+	    autojoin.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    groupA.gad; 
+    groupB.gad; 
+    tol3d.gad; 
+    convex.gad; 
+    stdswitcher.gad; 
+    dojitter.gad; 
+    seed.gad; 
+    jitteramount.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

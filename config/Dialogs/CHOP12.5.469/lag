@@ -1,0 +1,239 @@
+// Magic: 4a90a98f
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:55:18 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+lagmethod.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "lagmethod") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    lagmethod.menu;
+
+}
+
+lag.gad = ROW
+{
+   HSTRETCH
+
+   lag.label = PARM_LABEL("Lag", "lag") WIDTH(1.5);
+
+   PARM(float, 2, "lag", none, none, "#1,#2") LABELREF(lag.label)
+	HSTRETCH;
+
+}
+
+overshoot.gad = ROW
+{
+   HSTRETCH
+
+   overshoot.label = PARM_LABEL("Overshoot", "overshoot") WIDTH(1.5);
+
+   PARM(float, 2, "overshoot", none, none, "#1,#2") LABELREF(overshoot.label)
+	HSTRETCH;
+
+}
+
+clamp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("clamp", "Clamp Slope") toggle VALUE(clamp.val);
+
+}
+
+slope.gad = ROW
+{
+   HSTRETCH
+
+   slope.label = PARM_LABEL("Max Slope", "slope") WIDTH(1.5);
+
+   PARM(float, 2, "slope", none, none, "#1,#2") LABELREF(slope.label)
+	HSTRETCH;
+
+}
+
+aclamp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("aclamp", "Clamp Acceleration") toggle VALUE(aclamp.val);
+
+}
+
+accel.gad = ROW
+{
+   HSTRETCH
+
+   accel.label = PARM_LABEL("Max Acceleration", "accel") WIDTH(1.5);
+
+   PARM(float, 2, "accel", none, none, "#1,#2") LABELREF(accel.label)
+	HSTRETCH;
+
+}
+
+scope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    scope.label = PARM_LABEL("Scope", "scope") WIDTH(1.5);
+    PARM_FIELD(string, "scope") VALUE(scope.val) 
+	LABELREF(scope.label) HSTRETCH;
+
+    scope.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+srselect.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Sample Rate Match", "srselect") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srselect.menu;
+
+}
+
+units.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Units", "units") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    units.menu;
+
+}
+
+timeslice.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeslice", "Time Slice") toggle VALUE(timeslice.val);
+
+}
+
+unload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unload", "Unload") toggle VALUE(unload.val);
+
+}
+
+export.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ export.label = PARM_LABEL("Export Prefix", "export") WIDTH(1.5);
+ PARM_FIELD(pathstring, "export") VALUE(export.val) 
+	LABELREF(export.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(export.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(export.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+gcolor.gad =
+{
+ LAYOUT(horizontal) HSTRETCH
+
+     PARM_LABEL_SIMPLE("Graph Color", "gcolor") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+ COLORPALETTE "$HSC/colorPalette.def" 
+       VALUE(gcolor.val[0], gcolor.val[1], gcolor.val[2]) 
+       HSTRETCH MIN_HEIGHT(0.62);
+}
+
+gcolorstep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gcolorstep.label = PARM_LABEL("Graph Color Step", "gcolorstep") WIDTH(1.5);
+ PARM(float, 1, "gcolorstep", none, none) RANGE(0,0.20000000000000001)
+	 LABELREF(gcolorstep.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Lag"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    lagmethod.gad;		
+	    lag.gad;		
+	    overshoot.gad;		
+	    clamp.gad;		
+	    slope.gad;		
+	    aclamp.gad;		
+	    accel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Common"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    scope.gad;		
+	    srselect.gad;		
+	    units.gad;		
+	    timeslice.gad;		
+	    unload.gad;		
+	    export.gad;		
+	    gcolor.gad;		
+	    gcolorstep.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

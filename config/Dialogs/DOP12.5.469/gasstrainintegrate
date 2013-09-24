@@ -1,0 +1,211 @@
+// Magic: 5d6ef2d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 19:14:09 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+parmop_strain.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_strain.gad = parmop_strain.menu WIDTH(1.3);
+
+strain.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    strain.label = PARM_LABEL("Strain", "strain") WIDTH(1.5);
+    PARM_FIELD(string, "strain") VALUE(strain.val) 
+	LABELREF(strain.label) HSTRETCH;
+
+}
+}	
+parmop_surface.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_surface.gad = parmop_surface.menu WIDTH(1.3);
+
+surface.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    surface.label = PARM_LABEL("Surface", "surface") WIDTH(1.5);
+    PARM_FIELD(string, "surface") VALUE(surface.val) 
+	LABELREF(surface.label) HSTRETCH;
+
+}
+}	
+parmop_velocity.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_velocity.gad = parmop_velocity.menu WIDTH(1.3);
+
+velocity.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    velocity.label = PARM_LABEL("Velocity Field", "velocity") WIDTH(1.5);
+    PARM_FIELD(string, "velocity") VALUE(velocity.val) 
+	LABELREF(velocity.label) HSTRETCH;
+
+}
+}	
+parmop_alpha.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_alpha.gad = parmop_alpha.menu WIDTH(1.3);
+
+alpha.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ alpha.label = PARM_LABEL("Alpha", "alpha") WIDTH(1.5);
+ PARM(float, 1, "alpha", none, none) RANGE(0,1)
+	 LABELREF(alpha.label) HSTRETCH;
+
+}
+}	
+parmop_gamma.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_gamma.gad = parmop_gamma.menu WIDTH(1.3);
+
+gamma.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gamma.label = PARM_LABEL("Gamma", "gamma") WIDTH(1.5);
+ PARM(float, 1, "gamma", none, none) RANGE(0,1)
+	 LABELREF(gamma.label) HSTRETCH;
+
+}
+}	
+parmop_usetimestep.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_usetimestep.gad = parmop_usetimestep.menu WIDTH(1.3);
+
+usetimestep.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usetimestep", "Use Timestep") toggle VALUE(usetimestep.val);
+
+}
+}	
+parmop_timescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_timescale.gad = parmop_timescale.menu WIDTH(1.3);
+
+timescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timescale.label = PARM_LABEL("Time Scale", "timescale") WIDTH(1.5);
+ PARM(float, 1, "timescale", none, none) RANGE(0,1)
+	 LABELREF(timescale.label) HSTRETCH;
+
+}
+}	
+
+defaultparmop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Default Operation", "defaultparmop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    defaultparmop.menu;
+
+}
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmop_strain.join; 
+    parmop_surface.join; 
+    parmop_velocity.join; 
+    parmop_alpha.join; 
+    parmop_gamma.join; 
+    parmop_usetimestep.join; 
+    parmop_timescale.join; 
+    defaultparmop.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

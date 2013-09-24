@@ -1,0 +1,242 @@
+// Magic: bfa699a0
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:30:57 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+forcepath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ forcepath.label = PARM_LABEL("Reference Object", "forcepath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "forcepath") VALUE(forcepath.val) 
+	LABELREF(forcepath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(forcepath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(forcepath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+force.gad = ROW
+{
+   HSTRETCH
+
+   force.label = PARM_LABEL("Force", "force") WIDTH(1.5);
+
+   PARM(float, 3, "force", none, none, "X,Y,Z") LABELREF(force.label)
+	HSTRETCH;
+
+}
+
+scale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale.label = PARM_LABEL("Scale", "scale") WIDTH(1.5);
+ PARM(float, 1, "scale", none, none) RANGE(0,1)
+	 LABELREF(scale.label) HSTRETCH;
+
+}
+
+ignoremass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignoremass", "Ignore Mass") toggle VALUE(ignoremass.val);
+
+}
+
+overridemass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridemass", "Override Mass") toggle VALUE(overridemass.val);
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass") WIDTH(1.5);
+ PARM(float, 1, "mass", none, none) RANGE(0.0010000000474974513,5)
+	LOCK_RANGE_MIN LABELREF(mass.label) HSTRETCH;
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Seed", "seed") WIDTH(1.5);
+ PARM(integer, 1, "seed", none, none) RANGE(0,10)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+turb.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ turb.label = PARM_LABEL("Turbulence", "turb") WIDTH(1.5);
+ PARM(integer, 1, "turb", none, none) RANGE(0,10)
+	 LABELREF(turb.label) HSTRETCH;
+
+}
+
+rough.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rough.label = PARM_LABEL("Roughness", "rough") WIDTH(1.5);
+ PARM(float, 1, "rough", none, none) RANGE(0.0010000000474974513,1)
+	LOCK_RANGE_MIN LABELREF(rough.label) HSTRETCH;
+
+}
+
+atten.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten.label = PARM_LABEL("Exponent", "atten") WIDTH(1.5);
+ PARM(float, 1, "atten", none, none) RANGE(0.0010000000474974513,5)
+	LOCK_RANGE_MIN LABELREF(atten.label) HSTRETCH;
+
+}
+
+freq.gad = ROW
+{
+   HSTRETCH
+
+   freq.label = PARM_LABEL("Frequency", "freq") WIDTH(1.5);
+
+   PARM(float, 3, "freq", none, none, "X,Y,Z") LABELREF(freq.label)
+	HSTRETCH;
+
+}
+
+amp.gad = ROW
+{
+   HSTRETCH
+
+   amp.label = PARM_LABEL("Amplitude", "amp") WIDTH(1.5);
+
+   PARM(float, 3, "amp", none, none, "X,Y,Z") LABELREF(amp.label)
+	HSTRETCH;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "X,Y,Z") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+ntype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Noise Type", "ntype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    ntype.menu;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Force"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    forcepath.gad;		
+	    force.gad;		
+	    scale.gad;		
+	    ignoremass.gad;		
+	    overridemass.gad;		
+	    mass.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Noise"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    seed.gad;		
+	    turb.gad;		
+	    rough.gad;		
+	    atten.gad;		
+	    freq.gad;		
+	    amp.gad;		
+	    offset.gad;		
+	    ntype.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    source.gad; 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

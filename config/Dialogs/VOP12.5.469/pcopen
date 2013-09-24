@@ -1,0 +1,150 @@
+// Magic: 69006c45
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:46:47 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("Point Cloud Texture", "file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	file.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(file.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pchannel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    pchannel.label = PARM_LABEL("Position Channel", "pchannel") WIDTH(1.5);
+    PARM_FIELD(string, "pchannel") VALUE(pchannel.val) 
+	LABELREF(pchannel.label) HSTRETCH;
+
+	pchannel.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pchannel.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+P.gad = ROW
+{
+   HSTRETCH
+
+   P.label = PARM_LABEL("Query Position", "P") WIDTH(1.5);
+
+   PARM(float, 3, "P", none, none, "#1,#2,#3") LABELREF(P.label)
+	HSTRETCH;
+
+	P.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(P.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+nchannel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    nchannel.label = PARM_LABEL("Normal Channel", "nchannel") WIDTH(1.5);
+    PARM_FIELD(string, "nchannel") VALUE(nchannel.val) 
+	LABELREF(nchannel.label) HSTRETCH;
+
+	nchannel.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(nchannel.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+N.gad = ROW
+{
+   HSTRETCH
+
+   N.label = PARM_LABEL("Query Normal", "N") WIDTH(1.5);
+
+   PARM(float, 3, "N", none, none, "#1,#2,#3") LABELREF(N.label)
+	HSTRETCH;
+
+	N.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(N.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Search radius", "radius") WIDTH(1.5);
+ PARM(float, 1, "radius", none, none) RANGE(0,1)
+	 LABELREF(radius.label) HSTRETCH;
+
+	radius.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(radius.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+maxpoints.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxpoints.label = PARM_LABEL("Number of points", "maxpoints") WIDTH(1.5);
+ PARM(integer, 1, "maxpoints", none, none) RANGE(0,10)
+	 LABELREF(maxpoints.label) HSTRETCH;
+
+	maxpoints.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(maxpoints.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+cone.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cone.label = PARM_LABEL("Cone Angle", "cone") WIDTH(1.5);
+ PARM(float, 1, "cone", none, none) RANGE(0,1)
+	 LABELREF(cone.label) HSTRETCH;
+
+	cone.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(cone.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+preload.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("preload", "Preload Map") toggle VALUE(preload.val);
+
+	{ HSTRETCH } preload.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(preload.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    file.gad; 
+    pchannel.gad; 
+    P.gad; 
+    nchannel.gad; 
+    N.gad; 
+    radius.gad; 
+    maxpoints.gad; 
+    cone.gad; 
+    preload.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

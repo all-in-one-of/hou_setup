@@ -1,0 +1,46 @@
+// Magic: bf501945
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:11:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Solid Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Radius", "radius");
+ PARM(float, 1, "radius", none, field) RANGE(0,10)
+	 LABELREF(radius.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    radius.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

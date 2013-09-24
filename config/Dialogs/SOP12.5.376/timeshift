@@ -1,0 +1,68 @@
+// Magic: be6120f1
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 05:03:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+frame.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frame.label = PARM_LABEL("Frame", "frame") WIDTH(1.5);
+    PARM_FIELD(float, "frame") VALUE(frame.val) 
+	LABELREF(frame.label) HSTRETCH;
+
+}
+
+integerframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("integerframe", "Integer Frames") toggle VALUE(integerframe.val);
+
+}
+
+time.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    time.label = PARM_LABEL("Time", "time") WIDTH(1.5);
+    PARM_FIELD(float, "time") VALUE(time.val) 
+	LABELREF(time.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    method.gad; 
+    frame.gad; 
+    integerframe.gad; 
+    time.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,899 @@
+// Magic: 96e68c21
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 15:09:59 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+grouptype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Group Type", "grouptype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    grouptype.menu;
+
+}
+xOrd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+xOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Transform Order", "xOrd") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    xOrd.menu;
+
+}
+
+rOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    rOrd.menu;
+
+}
+}	
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Translate", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+r.gad = ROW
+{
+   HSTRETCH
+
+   r.label = PARM_LABEL("Rotate", "r") WIDTH(1.5);
+
+   PARM(float, 3, "r", none, none, "X,Y,Z") LABELREF(r.label)
+	HSTRETCH;
+
+}
+
+s.gad = ROW
+{
+   HSTRETCH
+
+   s.label = PARM_LABEL("Scale", "s") WIDTH(1.5);
+
+   PARM(float, 3, "s", none, none, "X,Y,Z") LABELREF(s.label)
+	HSTRETCH;
+
+}
+
+shear.gad = ROW
+{
+   HSTRETCH
+
+   shear.label = PARM_LABEL("Shear", "shear") WIDTH(1.5);
+
+   PARM(float, 3, "shear", none, none, "#1,#2,#3") LABELREF(shear.label)
+	HSTRETCH;
+
+}
+
+p.gad = ROW
+{
+   HSTRETCH
+
+   p.label = PARM_LABEL("Pivot", "p") WIDTH(1.5);
+
+   PARM(float, 3, "p", none, none, "X,Y,Z") LABELREF(p.label)
+	HSTRETCH;
+
+}
+
+vlength.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vlength", "Preserve Normal Length") toggle VALUE(vlength.val);
+
+}
+
+localspace.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("localspace", "Local Space") toggle VALUE(localspace.val);
+
+}
+
+localspaceupvector.gad = ROW
+{
+   HSTRETCH
+
+   localspaceupvector.label = PARM_LABEL("Up Vector", "localspaceupvector") WIDTH(1.5);
+
+   PARM(float, 3, "localspaceupvector", none, none, "X,Y,Z") LABELREF(localspaceupvector.label)
+	HSTRETCH;
+
+}
+
+dist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dist.label = PARM_LABEL("Distance", "dist") WIDTH(1.5);
+ PARM(float, 1, "dist", none, none) RANGE(-10,10)
+	 LABELREF(dist.label) HSTRETCH;
+
+}
+
+leadnml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("leadnml", "Translate Along Lead Normal") toggle VALUE(leadnml.val);
+
+}
+
+apply.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("apply", "Commit Transform/Peak Changes") push VALUE(apply.val);
+}
+
+rad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rad.label = PARM_LABEL("Soft Radius", "rad") WIDTH(1.5);
+ PARM(float, 1, "rad", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(rad.label) HSTRETCH;
+
+}
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Soft Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+tandeg.gad = ROW
+{
+   HSTRETCH
+
+   tandeg.label = PARM_LABEL( "Tangent Angles", "tandeg" ) WIDTH(1.5);
+
+   PARM(float, 2, "tandeg", none, none) RANGE(0, 360)
+	LABELREF( tandeg.label ) HSTRETCH;
+
+}
+
+kernel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Kernel Function", "kernel") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    kernel.menu;
+
+}
+
+global.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("global", "Ignore Point Connectivity") toggle VALUE(global.val);
+
+}
+
+op.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Goal", "op") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    op.menu;
+
+}
+
+axis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Axis", "axis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    axis.menu;
+
+}
+
+vector.gad = ROW
+{
+   HSTRETCH
+
+   vector.label = PARM_LABEL("Vector", "vector") WIDTH(1.5);
+
+   PARM(float, 3, "vector", none, none, "#1,#2,#3") LABELREF(vector.label)
+	HSTRETCH;
+
+}
+
+stencilaccum.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("stencilaccum", "Accumulate To Stencil") toggle VALUE(stencilaccum.val);
+
+}
+
+stencilclear.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("stencilclear", "Apply And Clear Stencil") push VALUE(stencilclear.val);
+}
+
+resetnormal.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("resetnormal", "Update Displacement Normals") push VALUE(resetnormal.val);
+}
+
+flood.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("flood", "Apply To All") push VALUE(flood.val);
+}
+
+fd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fd.label = PARM_LABEL("FD", "fd") WIDTH(1.5);
+ PARM(float, 1, "fd", none, none) RANGE(-1,1)
+	 LABELREF(fd.label) HSTRETCH;
+
+}
+
+bd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bd.label = PARM_LABEL("BD", "bd") WIDTH(1.5);
+ PARM(float, 1, "bd", none, none) RANGE(-1,1)
+	 LABELREF(bd.label) HSTRETCH;
+
+}
+
+shape.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Shape", "shape") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    shape.menu;
+
+}
+
+bitmap.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ bitmap.label = PARM_LABEL("Bitmap", "bitmap") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "bitmap") LABELREF(bitmap.label)
+	VALUE(bitmap.val) HSTRETCH;
+
+ bitmap.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(bitmap.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+bmpchan.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bitmap Channel", "bmpchan") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    bmpchan.menu;
+
+}
+
+sculptrad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sculptrad.label = PARM_LABEL("Radius", "sculptrad") WIDTH(1.5);
+ PARM(float, 1, "sculptrad", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(sculptrad.label) HSTRETCH;
+
+}
+
+uvradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ uvradius.label = PARM_LABEL("UV Radius", "uvradius") WIDTH(1.5);
+ PARM(float, 1, "uvradius", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(uvradius.label) HSTRETCH;
+
+}
+
+radiuspressure.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiuspressure.label = PARM_LABEL("Radius Pressure", "radiuspressure") WIDTH(1.5);
+ PARM(float, 1, "radiuspressure", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(radiuspressure.label) HSTRETCH;
+
+}
+usedepth.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usedepth.gad = PARM_BUTTON("usedepth", "") toggle VALUE(usedepth.val);
+
+depth.gad = ROW
+{
+   HSTRETCH
+
+   depth.label = PARM_LABEL("Depth", "depth") WIDTH(1.27);
+
+   PARM(float, 2, "depth", none, none, "#1,#2") LABELREF(depth.label)
+	HSTRETCH;
+
+}
+}	
+
+brushangle.gad = ROW
+{
+   HSTRETCH
+
+   brushangle.label = PARM_LABEL( "Brush Angle", "brushangle" ) WIDTH(1.5);
+
+   PARM(float, 1, "brushangle", none, none) RANGE(0, 360)
+	LABELREF( brushangle.label ) HSTRETCH;
+
+}
+
+squash.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ squash.label = PARM_LABEL("Brush Squash", "squash") WIDTH(1.5);
+ PARM(float, 1, "squash", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(squash.label) HSTRETCH;
+
+}
+
+opacity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ opacity.label = PARM_LABEL("Opacity", "opacity") WIDTH(1.5);
+ PARM(float, 1, "opacity", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(opacity.label) HSTRETCH;
+
+}
+
+opacitypresure.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ opacitypresure.label = PARM_LABEL("Opacity Pressure", "opacitypresure") WIDTH(1.5);
+ PARM(float, 1, "opacitypresure", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(opacitypresure.label) HSTRETCH;
+
+}
+
+brushsplatter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ brushsplatter.label = PARM_LABEL("Brush Splatter", "brushsplatter") WIDTH(1.5);
+ PARM(float, 1, "brushsplatter", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(brushsplatter.label) HSTRETCH;
+
+}
+
+papergrain.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ papergrain.label = PARM_LABEL("Paper Grain", "papergrain") WIDTH(1.5);
+ PARM(float, 1, "papergrain", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(papergrain.label) HSTRETCH;
+
+}
+
+softedge.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ softedge.label = PARM_LABEL("Soft Edge", "softedge") WIDTH(1.5);
+ PARM(float, 1, "softedge", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(softedge.label) HSTRETCH;
+
+}
+
+sculptkernel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Kernel", "sculptkernel") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    sculptkernel.menu;
+
+}
+
+uptype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Up Vector Type", "uptype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uptype.menu;
+
+}
+
+upvector.gad = ROW
+{
+   HSTRETCH
+
+   upvector.label = PARM_LABEL("Up Vector", "upvector") WIDTH(1.5);
+
+   PARM(float, 3, "upvector", none, none, "X,Y,Z") LABELREF(upvector.label)
+	HSTRETCH;
+
+}
+
+projtype.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("projtype", "Orient Brush To Surface") toggle VALUE(projtype.val);
+
+}
+
+useconnectivity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useconnectivity", "Use Connectivity") toggle VALUE(useconnectivity.val);
+
+}
+
+realtime.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("realtime", "Realtime Mode") toggle VALUE(realtime.val);
+
+}
+
+dir.gad = ROW 
+{
+    HSTRETCH
+
+    dir.label = PARM_LABEL("Direction", "dir") WIDTH(1.5);
+
+    PARM(float, 3, "dir", none, none) LABELREF(dir.label)
+	HSTRETCH;
+
+}
+
+hitpos.gad = ROW
+{
+   HSTRETCH
+
+   hitpos.label = PARM_LABEL("Hit Location", "hitpos") WIDTH(1.5);
+
+   PARM(float, 3, "hitpos", none, none, "X,Y,Z") LABELREF(hitpos.label)
+	HSTRETCH;
+
+}
+
+hitprim.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hitprim.label = PARM_LABEL("Hit Primitive", "hitprim") WIDTH(1.5);
+ PARM(integer, 1, "hitprim", none, none) RANGE(0,10)
+	 LABELREF(hitprim.label) HSTRETCH;
+
+}
+
+hituv.gad = ROW
+{
+   HSTRETCH
+
+   hituv.label = PARM_LABEL("Hit UV", "hituv") WIDTH(1.5);
+
+   PARM(float, 2, "hituv", none, none, "#1,#2") LABELREF(hituv.label)
+	HSTRETCH;
+
+}
+
+hitpressure.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hitpressure.label = PARM_LABEL("Hit Pressure", "hitpressure") WIDTH(1.5);
+ PARM(float, 1, "hitpressure", none, none) RANGE(0,1)
+	 LABELREF(hitpressure.label) HSTRETCH;
+
+}
+
+hitpt.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hitpt.label = PARM_LABEL("Hit Point", "hitpt") WIDTH(1.5);
+ PARM(integer, 1, "hitpt", none, none) RANGE(0,10)
+	 LABELREF(hitpt.label) HSTRETCH;
+
+}
+
+event.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Event", "event") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    event.menu;
+
+}
+
+useorient.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useorient", "Use Orient Attribute") toggle VALUE(useorient.val);
+
+}
+
+doreflect.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doreflect", "Use Mirror") toggle VALUE(doreflect.val);
+
+}
+
+symaxis.gad = ROW 
+{
+    HSTRETCH
+
+    symaxis.label = PARM_LABEL("Axis", "symaxis") WIDTH(1.5);
+
+    PARM(float, 3, "symaxis", none, none) LABELREF(symaxis.label)
+	HSTRETCH;
+
+}
+
+symorig.gad = ROW
+{
+   HSTRETCH
+
+   symorig.label = PARM_LABEL("Origin", "symorig") WIDTH(1.5);
+
+   PARM(float, 3, "symorig", none, none, "X,Y,Z") LABELREF(symorig.label)
+	HSTRETCH;
+
+}
+
+symdist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ symdist.label = PARM_LABEL("Distance", "symdist") WIDTH(1.5);
+ PARM(float, 1, "symdist", none, none) RANGE(0,10)
+	 LABELREF(symdist.label) HSTRETCH;
+
+}
+
+symthreshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ symthreshold.label = PARM_LABEL("Threshold", "symthreshold") WIDTH(1.5);
+ PARM(float, 1, "symthreshold", none, none) RANGE(0,10)
+	 LABELREF(symthreshold.label) HSTRETCH;
+
+}
+
+updatenmls.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("updatenmls", "Recompute Point Normals") toggle VALUE(updatenmls.val);
+
+}
+
+clearall.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("clearall", "Reset All Changes") push VALUE(clearall.val);
+}
+
+color.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(color.gad.val) STRETCH(1,0)
+
+	TAB "LMB Displacement"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    fd.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "MMB Displacement"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    bd.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+sculptswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(sculptswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Operation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    op.gad;		
+	    axis.gad;		
+	    vector.gad;		
+	    stencilaccum.gad;		
+	    stencilclear.gad;		
+	    resetnormal.gad;		
+	    flood.gad;		
+	    color.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Brush"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    shape.gad;		
+	    bitmap.gad;		
+	    bmpchan.gad;		
+	    sculptrad.gad;		
+	    uvradius.gad;		
+	    radiuspressure.gad;		
+	    usedepth.join;		
+	    brushangle.gad;		
+	    squash.gad;		
+	    opacity.gad;		
+	    opacitypresure.gad;		
+	    brushsplatter.gad;		
+	    papergrain.gad;		
+	    softedge.gad;		
+	    sculptkernel.gad;		
+	    uptype.gad;		
+	    upvector.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Stroke"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    projtype.gad;		
+	    useconnectivity.gad;		
+	    realtime.gad;		
+	    dir.gad;		
+	    hitpos.gad;		
+	    hitprim.gad;		
+	    hituv.gad;		
+	    hitpressure.gad;		
+	    hitpt.gad;		
+	    event.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+switcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(switcher.gad.val) STRETCH(1,0)
+
+	TAB "Transform"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    xOrd.join;		
+	    t.gad;		
+	    r.gad;		
+	    s.gad;		
+	    shear.gad;		
+	    p.gad;		
+	    vlength.gad;		
+	    localspace.gad;		
+	    localspaceupvector.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Peak"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    dist.gad;		
+	    leadnml.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+modeswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(modeswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Edit"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    switcher.gad;		
+	    apply.gad;		
+	    rad.gad;		
+	    type.gad;		
+	    tandeg.gad;		
+	    kernel.gad;		
+	    global.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sculpt"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    sculptswitcher.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    grouptype.gad; 
+    modeswitcher.gad; 
+    useorient.gad; 
+    doreflect.gad; 
+    symaxis.gad; 
+    symorig.gad; 
+    symdist.gad; 
+    symthreshold.gad; 
+    updatenmls.gad; 
+    clearall.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

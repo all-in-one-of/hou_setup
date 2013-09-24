@@ -1,0 +1,41 @@
+// Magic: a5d9a2cc
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 15:49:54 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+animategeo.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("animategeo", "Use Deforming Geometry") toggle VALUE(animategeo.val);
+
+}
+
+display.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("display", "Display Geometry") toggle VALUE(display.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    animategeo.gad; 
+    display.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

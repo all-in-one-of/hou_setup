@@ -1,0 +1,451 @@
+// Magic: 478b645b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 16:08:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+emittype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Emission Type", "emittype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    emittype.menu;
+
+}
+
+usecontextgeo.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Source", "usecontextgeo") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usecontextgeo.menu;
+
+}
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("SOP", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+ignorexform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignorexform", "Ignore Transform Object") toggle VALUE(ignorexform.val);
+
+}
+
+samplethreshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ samplethreshold.label = PARM_LABEL("Sample Threshold", "samplethreshold") WIDTH(1.5);
+ PARM(integer, 1, "samplethreshold", none, none) RANGE(100,100000)
+	LOCK_RANGE_MIN LABELREF(samplethreshold.label) HSTRETCH;
+
+}
+
+distributionattrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    distributionattrib.label = PARM_LABEL("Distribution Attribute", "distributionattrib") WIDTH(1.5);
+    PARM_FIELD(string, "distributionattrib") VALUE(distributionattrib.val) 
+	LABELREF(distributionattrib.label) HSTRETCH;
+
+}
+
+threshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ threshold.label = PARM_LABEL("Density Threshold", "threshold") WIDTH(1.5);
+ PARM(float, 1, "threshold", none, none) RANGE(0,1)
+	 LABELREF(threshold.label) HSTRETCH;
+
+}
+
+densitymin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ densitymin.label = PARM_LABEL("Density Minimum", "densitymin") WIDTH(1.5);
+ PARM(float, 1, "densitymin", none, none) RANGE(0,1)
+	 LABELREF(densitymin.label) HSTRETCH;
+
+}
+
+usedensity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usedensity", "Use Metaball Density") toggle VALUE(usedensity.val);
+
+}
+
+impulseactivate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ impulseactivate.label = PARM_LABEL("Impulse Activation", "impulseactivate") WIDTH(1.5);
+ PARM(float, 1, "impulseactivate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(impulseactivate.label) HSTRETCH;
+
+}
+
+impulserate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ impulserate.label = PARM_LABEL("Impulse Birth Rate", "impulserate") WIDTH(1.5);
+ PARM(float, 1, "impulserate", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(impulserate.label) HSTRETCH;
+
+}
+
+constantactivate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ constantactivate.label = PARM_LABEL("Const. Activation", "constantactivate") WIDTH(1.5);
+ PARM(float, 1, "constantactivate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(constantactivate.label) HSTRETCH;
+
+}
+
+constantrate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ constantrate.label = PARM_LABEL("Const. Birth Rate", "constantrate") WIDTH(1.5);
+ PARM(float, 1, "constantrate", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(constantrate.label) HSTRETCH;
+
+}
+
+prob.gad = ROW
+{
+   HSTRETCH
+
+   prob.label = PARM_LABEL("Birth Probability", "prob") WIDTH(1.5);
+
+   PARM(float, 2, "prob", none, none, "Min,Max") LABELREF(prob.label)
+	HSTRETCH;
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Birth Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+}
+
+preservegroup.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("preservegroup", "Preserve Group") toggle VALUE(preservegroup.val);
+
+}
+
+life.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ life.label = PARM_LABEL("Life Expectancy", "life") WIDTH(1.5);
+ PARM(float, 1, "life", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(life.label) HSTRETCH;
+
+}
+
+lifevar.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lifevar.label = PARM_LABEL("Life Variance", "lifevar") WIDTH(1.5);
+ PARM(float, 1, "lifevar", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(lifevar.label) HSTRETCH;
+
+}
+
+accuratebirths.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("accuratebirths", "Accurate Births") toggle VALUE(accuratebirths.val);
+
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Inherit Attributes", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+    attrib.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+createlocalvar.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createlocalvar", "Create Local Variables") toggle VALUE(createlocalvar.val);
+
+}
+
+initvel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Initial Velocity", "initvel") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    initvel.menu;
+
+}
+
+inheritvel.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inheritvel.label = PARM_LABEL("Inherit Velocity", "inheritvel") WIDTH(1.5);
+ PARM(float, 1, "inheritvel", none, none) RANGE(0,1)
+	 LABELREF(inheritvel.label) HSTRETCH;
+
+}
+
+vel.gad = ROW
+{
+   HSTRETCH
+
+   vel.label = PARM_LABEL("Velocity", "vel") WIDTH(1.5);
+
+   PARM(float, 3, "vel", none, none, "X,Y,Z") LABELREF(vel.label)
+	HSTRETCH;
+
+}
+
+var.gad = ROW
+{
+   HSTRETCH
+
+   var.label = PARM_LABEL("Variance", "var") WIDTH(1.5);
+
+   PARM(float, 3, "var", none, none, "X,Y,Z") LABELREF(var.label)
+	HSTRETCH;
+
+}
+
+doellipse.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doellipse", "Ellipsoid Distribution") toggle VALUE(doellipse.val);
+
+}
+
+doid.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doid", "Add ID Attributes") toggle VALUE(doid.val);
+
+}
+
+dogen.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dogen", "Add Generation Attribute") toggle VALUE(dogen.val);
+
+}
+
+doorigin.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doorigin", "Add Origin Attribute") toggle VALUE(doorigin.val);
+
+}
+
+originuse.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Use as Origin", "originuse") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    originuse.menu;
+
+}
+
+originindex.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ originindex.label = PARM_LABEL("Origin Index", "originindex") WIDTH(1.5);
+ PARM(integer, 1, "originindex", none, none) RANGE(0,10)
+	 LABELREF(originindex.label) HSTRETCH;
+
+}
+
+dospeed.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dospeed", "Add Speed Attribute") toggle VALUE(dospeed.val);
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Source"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    emittype.gad;		
+	    usecontextgeo.gad;		
+	    soppath.gad;		
+	    source.gad;		
+	    ignorexform.gad;		
+	    samplethreshold.gad;		
+	    distributionattrib.gad;		
+	    threshold.gad;		
+	    densitymin.gad;		
+	    usedensity.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Birth"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    impulseactivate.gad;		
+	    impulserate.gad;		
+	    constantactivate.gad;		
+	    constantrate.gad;		
+	    prob.gad;		
+	    group.gad;		
+	    preservegroup.gad;		
+	    life.gad;		
+	    lifevar.gad;		
+	    accuratebirths.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Attributes"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    attrib.gad;		
+	    createlocalvar.gad;		
+	    initvel.gad;		
+	    inheritvel.gad;		
+	    vel.gad;		
+	    var.gad;		
+	    doellipse.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Add Attributes"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    doid.gad;		
+	    dogen.gad;		
+	    doorigin.gad;		
+	    originuse.gad;		
+	    originindex.gad;		
+	    dospeed.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

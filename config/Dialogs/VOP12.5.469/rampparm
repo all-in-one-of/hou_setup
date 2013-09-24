@@ -1,0 +1,201 @@
+// Magic: 5606932e
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 17:27:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+parmname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    parmname.label = PARM_LABEL("Name", "parmname") WIDTH(1.5);
+    PARM_FIELD(string, "parmname") VALUE(parmname.val) 
+	LABELREF(parmname.label) HSTRETCH;
+
+	parmname.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmname.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+parmlabel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    parmlabel.label = PARM_LABEL("Label", "parmlabel") WIDTH(1.5);
+    PARM_FIELD(string, "parmlabel") VALUE(parmlabel.val) 
+	LABELREF(parmlabel.label) HSTRETCH;
+
+	parmlabel.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmlabel.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+ramptype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Ramp Type", "ramptype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    ramptype.menu;
+
+	{ HSTRETCH } ramptype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(ramptype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rampcolortype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Color Type", "rampcolortype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    rampcolortype.menu;
+
+	{ HSTRETCH } rampcolortype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rampcolortype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rampbasisdefault.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Default Interpolation", "rampbasisdefault") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    rampbasisdefault.menu;
+
+	{ HSTRETCH } rampbasisdefault.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rampbasisdefault.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+separator1.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+useasparmdefiner.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useasparmdefiner", "Use This Node to Set Parameter Attributes") toggle VALUE(useasparmdefiner.val);
+
+	{ HSTRETCH } useasparmdefiner.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(useasparmdefiner.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+separator2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+rampshowcontrolsdefault.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("rampshowcontrolsdefault", "Show UI Controls By Default") toggle VALUE(rampshowcontrolsdefault.val);
+
+	{ HSTRETCH } rampshowcontrolsdefault.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rampshowcontrolsdefault.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+disablewhen.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    disablewhen.label = PARM_LABEL("Disable When", "disablewhen") WIDTH(1.5);
+    PARM_FIELD(string, "disablewhen") VALUE(disablewhen.val) 
+	LABELREF(disablewhen.label) HSTRETCH;
+
+	disablewhen.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(disablewhen.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hidewhen.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hidewhen.label = PARM_LABEL("Hide When", "hidewhen") WIDTH(1.5);
+    PARM_FIELD(string, "hidewhen") VALUE(hidewhen.val) 
+	LABELREF(hidewhen.label) HSTRETCH;
+
+	hidewhen.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(hidewhen.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+callback.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    callback.label = PARM_LABEL("Callback Script", "callback") WIDTH(1.5);
+    PARM_FIELD(string, "callback") VALUE(callback.val) 
+	LABELREF(callback.label) HSTRETCH;
+
+	callback.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(callback.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+help.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    help.label = PARM_LABEL("Help", "help") WIDTH(1.5);
+    PARM_FIELD(string, "help") VALUE(help.val) 
+	LABELREF(help.label) HSTRETCH;
+
+	help.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(help.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmname.gad; 
+    parmlabel.gad; 
+    ramptype.gad; 
+    rampcolortype.gad; 
+    rampbasisdefault.gad; 
+    separator1.gad; 
+    useasparmdefiner.gad; 
+    separator2.gad; 
+    rampshowcontrolsdefault.gad; 
+    disablewhen.gad; 
+    hidewhen.gad; 
+    callback.gad; 
+    help.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

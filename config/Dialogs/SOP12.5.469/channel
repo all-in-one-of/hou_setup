@@ -1,0 +1,99 @@
+// Magic: fe816aa4
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:48:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+choppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ choppath.label = PARM_LABEL("CHOP", "choppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "choppath") VALUE(choppath.val) 
+	LABELREF(choppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(choppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(choppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+chanscope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    chanscope.label = PARM_LABEL("Channel Scope", "chanscope") WIDTH(1.5);
+    PARM_FIELD(string, "chanscope") VALUE(chanscope.val) 
+	LABELREF(chanscope.label) HSTRETCH;
+
+}
+
+attscope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attscope.label = PARM_LABEL("Attribute Scope", "attscope") WIDTH(1.5);
+    PARM_FIELD(string, "attscope") VALUE(attscope.val) 
+	LABELREF(attscope.label) HSTRETCH;
+
+}
+
+organize.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    organize.label = PARM_LABEL("Organize by Attribute", "organize") WIDTH(1.5);
+    PARM_FIELD(string, "organize") VALUE(organize.val) 
+	LABELREF(organize.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    choppath.gad; 
+    method.gad; 
+    chanscope.gad; 
+    attscope.gad; 
+    organize.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

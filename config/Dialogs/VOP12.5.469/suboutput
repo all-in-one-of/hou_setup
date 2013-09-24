@@ -1,0 +1,279 @@
+// Magic: 5a7a836f
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:46:52 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+name1.gad = NULL { }
+label1.gad = NULL { }
+name2.gad = NULL { }
+label2.gad = NULL { }
+name3.gad = NULL { }
+label3.gad = NULL { }
+name4.gad = NULL { }
+label4.gad = NULL { }
+name5.gad = NULL { }
+label5.gad = NULL { }
+name6.gad = NULL { }
+label6.gad = NULL { }
+name7.gad = NULL { }
+label7.gad = NULL { }
+name8.gad = NULL { }
+label8.gad = NULL { }
+name9.gad = NULL { }
+label9.gad = NULL { }
+name10.gad = NULL { }
+label10.gad = NULL { }
+name11.gad = NULL { }
+label11.gad = NULL { }
+name12.gad = NULL { }
+label12.gad = NULL { }
+name13.gad = NULL { }
+label13.gad = NULL { }
+name14.gad = NULL { }
+label14.gad = NULL { }
+name15.gad = NULL { }
+label15.gad = NULL { }
+name16.gad = NULL { }
+label16.gad = NULL { }
+name17.gad = NULL { }
+label17.gad = NULL { }
+name18.gad = NULL { }
+label18.gad = NULL { }
+name19.gad = NULL { }
+label19.gad = NULL { }
+name20.gad = NULL { }
+label20.gad = NULL { }
+name21.gad = NULL { }
+label21.gad = NULL { }
+name22.gad = NULL { }
+label22.gad = NULL { }
+name23.gad = NULL { }
+label23.gad = NULL { }
+name24.gad = NULL { }
+label24.gad = NULL { }
+name25.gad = NULL { }
+label25.gad = NULL { }
+name26.gad = NULL { }
+label26.gad = NULL { }
+name27.gad = NULL { }
+label27.gad = NULL { }
+name28.gad = NULL { }
+label28.gad = NULL { }
+name29.gad = NULL { }
+label29.gad = NULL { }
+name30.gad = NULL { }
+label30.gad = NULL { }
+name31.gad = NULL { }
+label31.gad = NULL { }
+name32.gad = NULL { }
+label32.gad = NULL { }
+name33.gad = NULL { }
+label33.gad = NULL { }
+name34.gad = NULL { }
+label34.gad = NULL { }
+name35.gad = NULL { }
+label35.gad = NULL { }
+name36.gad = NULL { }
+label36.gad = NULL { }
+name37.gad = NULL { }
+label37.gad = NULL { }
+name38.gad = NULL { }
+label38.gad = NULL { }
+name39.gad = NULL { }
+label39.gad = NULL { }
+name40.gad = NULL { }
+label40.gad = NULL { }
+name41.gad = NULL { }
+label41.gad = NULL { }
+name42.gad = NULL { }
+label42.gad = NULL { }
+name43.gad = NULL { }
+label43.gad = NULL { }
+name44.gad = NULL { }
+label44.gad = NULL { }
+name45.gad = NULL { }
+label45.gad = NULL { }
+name46.gad = NULL { }
+label46.gad = NULL { }
+name47.gad = NULL { }
+label47.gad = NULL { }
+name48.gad = NULL { }
+label48.gad = NULL { }
+name49.gad = NULL { }
+label49.gad = NULL { }
+name50.gad = NULL { }
+label50.gad = NULL { }
+name51.gad = NULL { }
+label51.gad = NULL { }
+name52.gad = NULL { }
+label52.gad = NULL { }
+name53.gad = NULL { }
+label53.gad = NULL { }
+name54.gad = NULL { }
+label54.gad = NULL { }
+name55.gad = NULL { }
+label55.gad = NULL { }
+name56.gad = NULL { }
+label56.gad = NULL { }
+name57.gad = NULL { }
+label57.gad = NULL { }
+name58.gad = NULL { }
+label58.gad = NULL { }
+name59.gad = NULL { }
+label59.gad = NULL { }
+name60.gad = NULL { }
+label60.gad = NULL { }
+name61.gad = NULL { }
+label61.gad = NULL { }
+name62.gad = NULL { }
+label62.gad = NULL { }
+name63.gad = NULL { }
+label63.gad = NULL { }
+name64.gad = NULL { }
+label64.gad = NULL { }
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    name1.gad; 
+    label1.gad; 
+    name2.gad; 
+    label2.gad; 
+    name3.gad; 
+    label3.gad; 
+    name4.gad; 
+    label4.gad; 
+    name5.gad; 
+    label5.gad; 
+    name6.gad; 
+    label6.gad; 
+    name7.gad; 
+    label7.gad; 
+    name8.gad; 
+    label8.gad; 
+    name9.gad; 
+    label9.gad; 
+    name10.gad; 
+    label10.gad; 
+    name11.gad; 
+    label11.gad; 
+    name12.gad; 
+    label12.gad; 
+    name13.gad; 
+    label13.gad; 
+    name14.gad; 
+    label14.gad; 
+    name15.gad; 
+    label15.gad; 
+    name16.gad; 
+    label16.gad; 
+    name17.gad; 
+    label17.gad; 
+    name18.gad; 
+    label18.gad; 
+    name19.gad; 
+    label19.gad; 
+    name20.gad; 
+    label20.gad; 
+    name21.gad; 
+    label21.gad; 
+    name22.gad; 
+    label22.gad; 
+    name23.gad; 
+    label23.gad; 
+    name24.gad; 
+    label24.gad; 
+    name25.gad; 
+    label25.gad; 
+    name26.gad; 
+    label26.gad; 
+    name27.gad; 
+    label27.gad; 
+    name28.gad; 
+    label28.gad; 
+    name29.gad; 
+    label29.gad; 
+    name30.gad; 
+    label30.gad; 
+    name31.gad; 
+    label31.gad; 
+    name32.gad; 
+    label32.gad; 
+    name33.gad; 
+    label33.gad; 
+    name34.gad; 
+    label34.gad; 
+    name35.gad; 
+    label35.gad; 
+    name36.gad; 
+    label36.gad; 
+    name37.gad; 
+    label37.gad; 
+    name38.gad; 
+    label38.gad; 
+    name39.gad; 
+    label39.gad; 
+    name40.gad; 
+    label40.gad; 
+    name41.gad; 
+    label41.gad; 
+    name42.gad; 
+    label42.gad; 
+    name43.gad; 
+    label43.gad; 
+    name44.gad; 
+    label44.gad; 
+    name45.gad; 
+    label45.gad; 
+    name46.gad; 
+    label46.gad; 
+    name47.gad; 
+    label47.gad; 
+    name48.gad; 
+    label48.gad; 
+    name49.gad; 
+    label49.gad; 
+    name50.gad; 
+    label50.gad; 
+    name51.gad; 
+    label51.gad; 
+    name52.gad; 
+    label52.gad; 
+    name53.gad; 
+    label53.gad; 
+    name54.gad; 
+    label54.gad; 
+    name55.gad; 
+    label55.gad; 
+    name56.gad; 
+    label56.gad; 
+    name57.gad; 
+    label57.gad; 
+    name58.gad; 
+    label58.gad; 
+    name59.gad; 
+    label59.gad; 
+    name60.gad; 
+    label60.gad; 
+    name61.gad; 
+    label61.gad; 
+    name62.gad; 
+    label62.gad; 
+    name63.gad; 
+    label63.gad; 
+    name64.gad; 
+    label64.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

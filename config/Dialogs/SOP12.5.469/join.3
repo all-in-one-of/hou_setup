@@ -1,0 +1,41 @@
+// Magic: ed22f425
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:44:15 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+blend.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("blend", "Blend") toggle VALUE(blend.val);
+
+}
+
+loop.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("loop", "Wrap Last to First") toggle VALUE(loop.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    blend.gad; 
+    loop.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

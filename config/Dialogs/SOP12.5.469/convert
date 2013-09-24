@@ -1,0 +1,252 @@
+// Magic: 52edc6a0
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:34:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+fromtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("From Type", "fromtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    fromtype.menu;
+
+}
+
+totype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Convert To", "totype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    totype.menu;
+
+}
+
+surftype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Connectivity", "surftype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surftype.menu;
+
+}
+
+lodu.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lodu.label = PARM_LABEL("U", "lodu") WIDTH(1.5);
+ PARM(float, 1, "lodu", none, none) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lodu.label) HSTRETCH;
+
+}
+
+lodv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lodv.label = PARM_LABEL("V", "lodv") WIDTH(1.5);
+ PARM(float, 1, "lodv", none, none) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lodv.label) HSTRETCH;
+
+}
+
+lodtrim.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lodtrim.label = PARM_LABEL("Trim-Curve", "lodtrim") WIDTH(1.5);
+ PARM(float, 1, "lodtrim", none, none) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lodtrim.label) HSTRETCH;
+
+}
+
+divu.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divu.label = PARM_LABEL("U", "divu") WIDTH(1.5);
+ PARM(integer, 1, "divu", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(divu.label) HSTRETCH;
+
+}
+
+divv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divv.label = PARM_LABEL("V", "divv") WIDTH(1.5);
+ PARM(integer, 1, "divv", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(divv.label) HSTRETCH;
+
+}
+
+divtrim.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divtrim.label = PARM_LABEL("Trim-Curve", "divtrim") WIDTH(1.5);
+ PARM(integer, 1, "divtrim", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(divtrim.label) HSTRETCH;
+
+}
+
+orderu.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ orderu.label = PARM_LABEL("U Order", "orderu") WIDTH(1.5);
+ PARM(integer, 1, "orderu", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(orderu.label) HSTRETCH;
+
+}
+
+orderv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ orderv.label = PARM_LABEL("V Order", "orderv") WIDTH(1.5);
+ PARM(integer, 1, "orderv", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(orderv.label) HSTRETCH;
+
+}
+
+pastecoord.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Paste Coordinates", "pastecoord") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    pastecoord.menu;
+
+}
+
+pasteattrib.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Paste Attributes", "pasteattrib") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    pasteattrib.menu;
+
+}
+
+new.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("new", "Preserve Original") toggle VALUE(new.val);
+
+}
+
+interphull.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("interphull", "Interpolate Through Hulls") toggle VALUE(interphull.val);
+
+}
+
+offset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset.label = PARM_LABEL("Volume Offset", "offset") WIDTH(1.5);
+ PARM(float, 1, "offset", none, none) RANGE(-1,1)
+	 LABELREF(offset.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Level of Detail"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    lodu.gad;		
+	    lodv.gad;		
+	    lodtrim.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Divisions per Span"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    divu.gad;		
+	    divv.gad;		
+	    divtrim.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    fromtype.gad; 
+    totype.gad; 
+    surftype.gad; 
+    stdswitcher.gad; 
+    orderu.gad; 
+    orderv.gad; 
+    pastecoord.gad; 
+    pasteattrib.gad; 
+    new.gad; 
+    interphull.gad; 
+    offset.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

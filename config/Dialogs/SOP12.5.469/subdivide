@@ -1,0 +1,209 @@
+// Magic: 94562f33
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 16:49:00 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+subdivide.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    subdivide.label = PARM_LABEL("Group", "subdivide") WIDTH(1.5);
+    PARM_FIELD(string, "subdivide") VALUE(subdivide.val) 
+	LABELREF(subdivide.label) HSTRETCH;
+
+    subdivide.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+creases.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    creases.label = PARM_LABEL("Creases", "creases") WIDTH(1.5);
+    PARM_FIELD(string, "creases") VALUE(creases.val) 
+	LABELREF(creases.label) HSTRETCH;
+
+    creases.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+iterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iterations.label = PARM_LABEL("Depth", "iterations") WIDTH(1.5);
+ PARM(integer, 1, "iterations", none, none) RANGE(0,3)
+	LOCK_RANGE_MIN LABELREF(iterations.label) HSTRETCH;
+
+}
+
+overridecrease.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridecrease", "Override Crease Weight Attribute") toggle VALUE(overridecrease.val);
+
+}
+
+creaseweight.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ creaseweight.label = PARM_LABEL("Crease Weight", "creaseweight") WIDTH(1.5);
+ PARM(float, 1, "creaseweight", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(creaseweight.label) HSTRETCH;
+
+}
+
+outputcrease.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("outputcrease", "Generate Resulting Creases") toggle VALUE(outputcrease.val);
+
+}
+
+outcreasegroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    outcreasegroup.label = PARM_LABEL("New Group", "outcreasegroup") WIDTH(1.5);
+    PARM_FIELD(string, "outcreasegroup") VALUE(outcreasegroup.val) 
+	LABELREF(outcreasegroup.label) HSTRETCH;
+
+}
+
+closeholes.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Close Cracks", "closeholes") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    closeholes.menu;
+
+}
+
+surroundpoly.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Boundary", "surroundpoly") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surroundpoly.menu;
+
+}
+
+bias.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bias.label = PARM_LABEL("Bias", "bias") WIDTH(1.5);
+ PARM(float, 1, "bias", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(bias.label) HSTRETCH;
+
+}
+
+updatenmls.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("updatenmls", "Recompute Point Normals") toggle VALUE(updatenmls.val);
+
+}
+
+smoothvertex.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("smoothvertex", "Smooth Vertex Attributes") toggle VALUE(smoothvertex.val);
+
+}
+
+consisttopology.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("consisttopology", "Enforce Consistent Topology") toggle VALUE(consisttopology.val);
+
+}
+
+linearcreases.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("linearcreases", "Linear Creases") toggle VALUE(linearcreases.val);
+
+}
+
+mantrastyle.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("mantrastyle", "Mantra-compatible Subdivision") toggle VALUE(mantrastyle.val);
+
+}
+
+buildpolysoups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("buildpolysoups", "Build Polygon Soups") toggle VALUE(buildpolysoups.val);
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    subdivide.gad; 
+    creases.gad; 
+    iterations.gad; 
+    overridecrease.gad; 
+    creaseweight.gad; 
+    outputcrease.gad; 
+    outcreasegroup.gad; 
+    closeholes.gad; 
+    surroundpoly.gad; 
+    bias.gad; 
+    updatenmls.gad; 
+    smoothvertex.gad; 
+    consisttopology.gad; 
+    linearcreases.gad; 
+    mantrastyle.gad; 
+    buildpolysoups.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,547 @@
+// Magic: 51aa6228
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:45:00 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+matchbyattribute.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("matchbyattribute", "Match by Attribute") toggle VALUE(matchbyattribute.val);
+
+}
+
+attributetomatch.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attributetomatch.label = PARM_LABEL("Attribute to Match", "attributetomatch") WIDTH(1.5);
+    PARM_FIELD(string, "attributetomatch") VALUE(attributetomatch.val) 
+	LABELREF(attributetomatch.label) HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Position", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+doweight.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doweight.menu;
+
+}
+
+weight.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ weight.label = PARM_LABEL("Weight", "weight") WIDTH(1.5);
+ PARM(float, 1, "weight", none, none) RANGE(0.0001,1000)
+	LOCK_RANGE_MIN LABELREF(weight.label) HSTRETCH;
+
+}
+
+doclr.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doclr.menu;
+
+}
+
+diff.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    diff.label = PARM_LABEL("Color", "diff") WIDTH(1.5);
+
+    PARM(float, 3, "diff", none, COLOR, "R,G,B") 
+	LABELREF(diff.label) HSTRETCH;
+
+}
+
+doalpha.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doalpha.menu;
+
+}
+
+alpha.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ alpha.label = PARM_LABEL("Alpha", "alpha") WIDTH(1.5);
+ PARM(float, 1, "alpha", none, none) RANGE(0,1)
+	 LABELREF(alpha.label) HSTRETCH;
+
+}
+
+donml.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    donml.menu;
+
+}
+
+n.gad = ROW
+{
+   HSTRETCH
+
+   n.label = PARM_LABEL("Normal", "n") WIDTH(1.5);
+
+   PARM(float, 3, "n", none, none, "X,Y,Z") LABELREF(n.label)
+	HSTRETCH;
+
+}
+
+douvw.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    douvw.menu;
+
+}
+
+map.gad = ROW
+{
+   HSTRETCH
+
+   map.label = PARM_LABEL("Texture", "map") WIDTH(1.5);
+
+   PARM(float, 3, "map", none, none, "U,V,W") LABELREF(map.label)
+	HSTRETCH;
+
+}
+
+domass.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    domass.menu;
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass") WIDTH(1.5);
+ PARM(float, 1, "mass", none, none) RANGE(0,1)
+	 LABELREF(mass.label) HSTRETCH;
+
+}
+
+drag.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ drag.label = PARM_LABEL("Drag", "drag") WIDTH(1.5);
+ PARM(float, 1, "drag", none, none) RANGE(0,1)
+	 LABELREF(drag.label) HSTRETCH;
+
+}
+
+dotension.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    dotension.menu;
+
+}
+
+tension.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tension.label = PARM_LABEL("Tension", "tension") WIDTH(1.5);
+ PARM(float, 1, "tension", none, none) RANGE(0.0001,5)
+	LOCK_RANGE_MIN LABELREF(tension.label) HSTRETCH;
+
+}
+
+dospringk.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    dospringk.menu;
+
+}
+
+springk.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ springk.label = PARM_LABEL("Spring K", "springk") WIDTH(1.5);
+ PARM(float, 1, "springk", none, none) RANGE(0.0001,100)
+	LOCK_RANGE_MIN LABELREF(springk.label) HSTRETCH;
+
+}
+
+dovel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    dovel.menu;
+
+}
+
+v.gad = ROW
+{
+   HSTRETCH
+
+   v.label = PARM_LABEL("Velocity", "v") WIDTH(1.5);
+
+   PARM(float, 3, "v", none, none, "X,Y,Z") LABELREF(v.label)
+	HSTRETCH;
+
+}
+
+doup.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doup.menu;
+
+}
+
+up.gad = ROW
+{
+   HSTRETCH
+
+   up.label = PARM_LABEL("Up Vector", "up") WIDTH(1.5);
+
+   PARM(float, 3, "up", none, none, "X,Y,Z") LABELREF(up.label)
+	HSTRETCH;
+
+}
+
+dopscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    dopscale.menu;
+
+}
+
+pscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pscale.label = PARM_LABEL("Scale", "pscale") WIDTH(1.5);
+ PARM(float, 1, "pscale", none, none) RANGE(0,1)
+	 LABELREF(pscale.label) HSTRETCH;
+
+}
+
+doinstance.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doinstance.menu;
+
+}
+
+instancepath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ instancepath.label = PARM_LABEL("Instance", "instancepath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "instancepath") VALUE(instancepath.val) 
+	LABELREF(instancepath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(instancepath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(instancepath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+doradius.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doradius.menu;
+
+}
+
+radiusf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiusf.label = PARM_LABEL("Radius", "radiusf") WIDTH(1.5);
+ PARM(float, 1, "radiusf", none, none) RANGE(0.0001,25)
+	LOCK_RANGE_MIN LABELREF(radiusf.label) HSTRETCH;
+
+}
+
+doscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doscale.menu;
+
+}
+
+scalef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scalef.label = PARM_LABEL("Force Scale", "scalef") WIDTH(1.5);
+ PARM(float, 1, "scalef", none, none) RANGE(-10,10)
+	 LABELREF(scalef.label) HSTRETCH;
+
+}
+
+doradialf.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doradialf.menu;
+
+}
+
+radialf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radialf.label = PARM_LABEL("Radial Force", "radialf") WIDTH(1.5);
+ PARM(float, 1, "radialf", none, none) RANGE(0,1)
+	 LABELREF(radialf.label) HSTRETCH;
+
+}
+
+donormalf.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    donormalf.menu;
+
+}
+
+normalf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ normalf.label = PARM_LABEL("Normal Force", "normalf") WIDTH(1.5);
+ PARM(float, 1, "normalf", none, none) RANGE(0,1)
+	 LABELREF(normalf.label) HSTRETCH;
+
+}
+
+doedgef.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doedgef.menu;
+
+}
+
+edgef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ edgef.label = PARM_LABEL("Edge Force", "edgef") WIDTH(1.5);
+ PARM(float, 1, "edgef", none, none) RANGE(0,1)
+	 LABELREF(edgef.label) HSTRETCH;
+
+}
+
+dodirf.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    dodirf.menu;
+
+}
+
+dirf.gad = ROW
+{
+   HSTRETCH
+
+   dirf.label = PARM_LABEL("Dir. Force", "dirf") WIDTH(1.5);
+
+   PARM(float, 3, "dirf", none, none, "X,Y,Z") LABELREF(dirf.label)
+	HSTRETCH;
+
+}
+
+numcustom.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Attributes", "numcustom") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numcustom.val)
+
+        numcustom.field = PARM_FIELD (integer, "numcustom")
+				VALUE(numcustom.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numcustom.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numcustom.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numcustom.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numcustom.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numcustom.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numcustom.parm;
+    numcustom.multilist;
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Standard"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    t.gad;		
+	    doweight.gad;		
+	    weight.gad;		
+	    doclr.gad;		
+	    diff.gad;		
+	    doalpha.gad;		
+	    alpha.gad;		
+	    donml.gad;		
+	    n.gad;		
+	    douvw.gad;		
+	    map.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Particle"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    domass.gad;		
+	    mass.gad;		
+	    drag.gad;		
+	    dotension.gad;		
+	    tension.gad;		
+	    dospringk.gad;		
+	    springk.gad;		
+	    dovel.gad;		
+	    v.gad;		
+	    doup.gad;		
+	    up.gad;		
+	    dopscale.gad;		
+	    pscale.gad;		
+	    doinstance.gad;		
+	    instancepath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Force"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    doradius.gad;		
+	    radiusf.gad;		
+	    doscale.gad;		
+	    scalef.gad;		
+	    doradialf.gad;		
+	    radialf.gad;		
+	    donormalf.gad;		
+	    normalf.gad;		
+	    doedgef.gad;		
+	    edgef.gad;		
+	    dodirf.gad;		
+	    dirf.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Custom"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    numcustom.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    matchbyattribute.gad; 
+    attributetomatch.gad; 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,219 @@
+// Magic: 66d72883
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 01:19:58 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pos.label = PARM_LABEL("Position", "pos") WIDTH(1.5);
+ PARM(float, 1, "pos", none, none) RANGE(0,1)
+	 LABELREF(pos.label) HSTRETCH;
+
+	pos.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_i.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pos_i.label = PARM_LABEL("Position", "pos_i") WIDTH(1.5);
+ PARM(integer, 1, "pos_i", none, none) RANGE(0,10)
+	 LABELREF(pos_i.label) HSTRETCH;
+
+	pos_i.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_i.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_v1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_v1d.label = PARM_LABEL("Position", "pos_v1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_v1d", none, none, "#1,#2,#3") LABELREF(pos_v1d.label)
+	HSTRETCH;
+
+	pos_v1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_v1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_p1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_p1d.label = PARM_LABEL("Position", "pos_p1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_p1d", none, none, "#1,#2,#3") LABELREF(pos_p1d.label)
+	HSTRETCH;
+
+	pos_p1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_p1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_n1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_n1d.label = PARM_LABEL("Position", "pos_n1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_n1d", none, none, "#1,#2,#3") LABELREF(pos_n1d.label)
+	HSTRETCH;
+
+	pos_n1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_n1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_c1d.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    pos_c1d.label = PARM_LABEL("Position", "pos_c1d") WIDTH(1.5);
+
+    PARM(float, 3, "pos_c1d", none, COLOR, "R,G,B") 
+	LABELREF(pos_c1d.label) HSTRETCH;
+
+	pos_c1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_c1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_v41d.gad = ROW
+{
+   HSTRETCH
+
+   pos_v41d.label = PARM_LABEL("Position", "pos_v41d") WIDTH(1.5);
+
+   PARM(float, 4, "pos_v41d", none, none, "#1,#2,#3,#4") LABELREF(pos_v41d.label)
+	HSTRETCH;
+
+	pos_v41d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_v41d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_uf1d.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pos_uf1d.label = PARM_LABEL("Position", "pos_uf1d") WIDTH(1.5);
+ PARM(float, 1, "pos_uf1d", none, none) RANGE(0,1)
+	 LABELREF(pos_uf1d.label) HSTRETCH;
+
+	pos_uf1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_uf1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_uv1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_uv1d.label = PARM_LABEL("Position", "pos_uv1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_uv1d", none, none, "#1,#2,#3") LABELREF(pos_uv1d.label)
+	HSTRETCH;
+
+	pos_uv1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_uv1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_up1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_up1d.label = PARM_LABEL("Position", "pos_up1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_up1d", none, none, "#1,#2,#3") LABELREF(pos_up1d.label)
+	HSTRETCH;
+
+	pos_up1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_up1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_un1d.gad = ROW
+{
+   HSTRETCH
+
+   pos_un1d.label = PARM_LABEL("Position", "pos_un1d") WIDTH(1.5);
+
+   PARM(float, 3, "pos_un1d", none, none, "#1,#2,#3") LABELREF(pos_un1d.label)
+	HSTRETCH;
+
+	pos_un1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_un1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_uc1d.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    pos_uc1d.label = PARM_LABEL("Position", "pos_uc1d") WIDTH(1.5);
+
+    PARM(float, 3, "pos_uc1d", none, COLOR, "R,G,B") 
+	LABELREF(pos_uc1d.label) HSTRETCH;
+
+	pos_uc1d.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_uc1d.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+roundtoint.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("roundtoint", "Clamp Position to Integer") toggle VALUE(roundtoint.val);
+
+	{ HSTRETCH } roundtoint.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(roundtoint.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    pos.gad; 
+    pos_i.gad; 
+    pos_v1d.gad; 
+    pos_p1d.gad; 
+    pos_n1d.gad; 
+    pos_c1d.gad; 
+    pos_v41d.gad; 
+    pos_uf1d.gad; 
+    pos_uv1d.gad; 
+    pos_up1d.gad; 
+    pos_un1d.gad; 
+    pos_uc1d.gad; 
+    roundtoint.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

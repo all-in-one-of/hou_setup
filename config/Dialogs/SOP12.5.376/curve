@@ -1,0 +1,185 @@
+// Magic: c8da0ba6
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 18:21:51 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+coords.gad = 
+{
+ LAYOUT(vertical) STRETCH(1,0)
+
+ PARM_FIELD (string, "coords") VALUE(coords.val) HSTRETCH;
+
+}
+
+close.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("close", "Close") toggle VALUE(close.val);
+
+}
+
+reverse.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("reverse", "Reverse") toggle VALUE(reverse.val);
+
+}
+
+normalize.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normalize", "Normalize Basis") toggle VALUE(normalize.val);
+
+}
+
+order.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ order.label = PARM_LABEL("Order", "order") WIDTH(1.5);
+ PARM(integer, 1, "order", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(order.label) HSTRETCH;
+
+}
+
+param.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Parameterization", "param") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    param.menu;
+
+}
+
+tolerance.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tolerance.label = PARM_LABEL("Tolerance", "tolerance") WIDTH(1.5);
+ PARM(float, 1, "tolerance", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(tolerance.label) HSTRETCH;
+
+}
+
+smooth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ smooth.label = PARM_LABEL("Smoothness", "smooth") WIDTH(1.5);
+ PARM(float, 1, "smooth", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(smooth.label) HSTRETCH;
+
+}
+
+csharp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("csharp", "Preserve Sharp Corners") toggle VALUE(csharp.val);
+
+}
+
+keepgeo.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepgeo", "Keep Input Geometry") toggle VALUE(keepgeo.val);
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Curve Properties"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    close.gad;		
+	    reverse.gad;		
+	    normalize.gad;		
+	    order.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Fitting Properties"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    param.gad;		
+	    tolerance.gad;		
+	    smooth.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    type.gad; 
+    method.gad; 
+    coords.gad; 
+    stdswitcher.gad; 
+    csharp.gad; 
+    keepgeo.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

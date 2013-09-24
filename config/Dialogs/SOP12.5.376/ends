@@ -1,0 +1,106 @@
+// Magic: 22ced410
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 12:20:28 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Source Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+pshapeu.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pshapeu", "Preserve Shape U") toggle VALUE(pshapeu.val);
+
+}
+
+pshapev.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pshapev", "Preserve Shape V") toggle VALUE(pshapev.val);
+
+}
+
+closeu.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Close U", "closeu") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    closeu.menu;
+
+}
+
+closev.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Close V", "closev") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    closev.menu;
+
+}
+
+clampu.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Clamp U", "clampu") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    clampu.menu;
+
+}
+
+clampv.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Clamp V", "clampv") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    clampv.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    pshapeu.gad; 
+    pshapev.gad; 
+    closeu.gad; 
+    closev.gad; 
+    clampu.gad; 
+    clampv.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

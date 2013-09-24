@@ -1,0 +1,303 @@
+// Magic: 88ad0107
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:28:54 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+keep.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keep", "Delete Geometry But Keep the Points") toggle VALUE(keep.val);
+
+}
+
+points.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Points", "points") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(points.val)
+
+        points.field = PARM_FIELD (integer, "points")
+				VALUE(points.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(points.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(points.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(points.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+points.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+points.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    points.parm;
+    points.multilist;
+}
+
+remove.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("remove", "Remove Unused Points") toggle VALUE(remove.val);
+
+}
+
+prims.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Primitives", "prims") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(prims.val)
+
+        prims.field = PARM_FIELD (integer, "prims")
+				VALUE(prims.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(prims.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(prims.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(prims.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+prims.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+prims.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    prims.parm;
+    prims.multilist;
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+add.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Add", "add") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    add.menu;
+
+}
+
+inc.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inc.label = PARM_LABEL("N", "inc") WIDTH(1.5);
+ PARM(integer, 1, "inc", none, none) RANGE(1,20)
+	LOCK_RANGE_MIN LABELREF(inc.label) HSTRETCH;
+
+}
+
+attrname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrname.label = PARM_LABEL("Attribute Name", "attrname") WIDTH(1.5);
+    PARM_FIELD(string, "attrname") VALUE(attrname.val) 
+	LABELREF(attrname.label) HSTRETCH;
+
+}
+
+closedall.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("closedall", "Closed") toggle VALUE(closedall.val);
+
+}
+
+addparticlesystem.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addparticlesystem", "Add Particle System") toggle VALUE(addparticlesystem.val);
+
+}
+
+particlegroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    particlegroup.label = PARM_LABEL("Particle Group", "particlegroup") WIDTH(1.5);
+    PARM_FIELD(string, "particlegroup") VALUE(particlegroup.val) 
+	LABELREF(particlegroup.label) HSTRETCH;
+
+    particlegroup.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+appendunusedtoparticlesystem.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("appendunusedtoparticlesystem", "Append Unused Points to Particle System") toggle VALUE(appendunusedtoparticlesystem.val);
+
+}
+
+switcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(switcher.gad.val) STRETCH(1,0)
+
+	TAB "By Pattern"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    prims.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "By Group"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    group.gad;		
+	    add.gad;		
+	    inc.gad;		
+	    attrname.gad;		
+	    closedall.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Points"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    keep.gad;		
+	    points.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Polygons"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    remove.gad;		
+	    switcher.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Particles"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    addparticlesystem.gad;		
+	    particlegroup.gad;		
+	    appendunusedtoparticlesystem.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

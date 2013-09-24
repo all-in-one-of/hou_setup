@@ -1,0 +1,66 @@
+// Magic: 439ea3fc
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 15:09:37 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") ;
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+divrate.gad = ROW
+{
+   HSTRETCH
+
+   divrate.label = PARM_LABEL("Axis Divisions", "divrate") ;
+
+   PARM(integer, 3, "divrate", none, none, "#1,#2,#3") LABELREF(divrate.label)
+	HSTRETCH;
+
+}
+
+consolidatepts.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("consolidatepts", "Consolidate Corner Points") toggle VALUE(consolidatepts.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    size.gad; 
+    divrate.gad; 
+    consolidatepts.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

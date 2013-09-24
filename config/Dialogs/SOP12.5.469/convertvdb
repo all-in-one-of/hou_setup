@@ -1,0 +1,176 @@
+// Magic: f8f66d25
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:39:32 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+conversion.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Convert To", "conversion") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    conversion.menu;
+
+}
+
+vdbclass.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("VDB Class", "vdbclass") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vdbclass.menu;
+
+}
+
+isovalue.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ isovalue.label = PARM_LABEL("Iso Value", "isovalue") WIDTH(1.5);
+ PARM(float, 1, "isovalue", none, none) RANGE(-1,1)
+	 LABELREF(isovalue.label) HSTRETCH;
+
+}
+
+adaptivity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ adaptivity.label = PARM_LABEL("Adaptivity", "adaptivity") WIDTH(1.5);
+ PARM(float, 1, "adaptivity", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(adaptivity.label) HSTRETCH;
+
+}
+
+computenormals.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("computenormals", "Compute Vertex Normals") toggle VALUE(computenormals.val);
+
+}
+
+internaladaptivity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ internaladaptivity.label = PARM_LABEL("Internal Adaptivity", "internaladaptivity") WIDTH(1.5);
+ PARM(float, 1, "internaladaptivity", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(internaladaptivity.label) HSTRETCH;
+
+}
+
+transferattributes.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("transferattributes", "Transfer Surface Attributes") toggle VALUE(transferattributes.val);
+
+}
+
+surfacegroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    surfacegroup.label = PARM_LABEL("Surface Group", "surfacegroup") WIDTH(1.5);
+    PARM_FIELD(string, "surfacegroup") VALUE(surfacegroup.val) 
+	LABELREF(surfacegroup.label) HSTRETCH;
+
+}
+
+interiorgroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    interiorgroup.label = PARM_LABEL("Interior Group", "interiorgroup") WIDTH(1.5);
+    PARM_FIELD(string, "interiorgroup") VALUE(interiorgroup.val) 
+	LABELREF(interiorgroup.label) HSTRETCH;
+
+}
+
+seamlinegroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    seamlinegroup.label = PARM_LABEL("Seam Line Group", "seamlinegroup") WIDTH(1.5);
+    PARM_FIELD(string, "seamlinegroup") VALUE(seamlinegroup.val) 
+	LABELREF(seamlinegroup.label) HSTRETCH;
+
+}
+prune.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+prune.gad = PARM_BUTTON("prune", "") toggle VALUE(prune.val);
+
+tolerance.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tolerance.label = PARM_LABEL("Prune Tolerance", "tolerance") WIDTH(1.27);
+ PARM(float, 1, "tolerance", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(tolerance.label) HSTRETCH;
+
+}
+}	
+
+flood.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("flood", "Signed-Flood Fill Output") toggle VALUE(flood.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    conversion.gad; 
+    vdbclass.gad; 
+    isovalue.gad; 
+    adaptivity.gad; 
+    computenormals.gad; 
+    internaladaptivity.gad; 
+    transferattributes.gad; 
+    surfacegroup.gad; 
+    interiorgroup.gad; 
+    seamlinegroup.gad; 
+    prune.join; 
+    flood.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,117 @@
+// Magic: b49d98ed
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:08:47 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+resimulate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("resimulate", "Reset Simulation") push VALUE(resimulate.val);
+}
+useinitialsop.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+useinitialsop.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+useinitialsop.gad = PARM_BUTTON("useinitialsop", "") toggle VALUE(useinitialsop.val);
+
+initialsop.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ initialsop.label = PARM_LABEL("Initial State", "initialsop") WIDTH(1.27);
+ PARM_FIELD(pathstring, "initialsop") VALUE(initialsop.val) 
+	LABELREF(initialsop.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(initialsop.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(initialsop.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+}	
+}	// Template join.bot
+
+
+startframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ startframe.label = PARM_LABEL("Start Frame", "startframe") WIDTH(1.5);
+ PARM(integer, 1, "startframe", none, none) RANGE(1,240)
+	 LABELREF(startframe.label) HSTRETCH;
+
+}
+
+substep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ substep.label = PARM_LABEL("Sub Steps", "substep") WIDTH(1.5);
+ PARM(integer, 1, "substep", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(substep.label) HSTRETCH;
+
+}
+
+cacheenabled.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cacheenabled", "Cache Simulation") toggle VALUE(cacheenabled.val);
+
+}
+
+cachetodisk.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cachetodisk", "Allow Caching To Disk") toggle VALUE(cachetodisk.val);
+
+}
+
+cachemaxsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cachemaxsize.label = PARM_LABEL("Cache Memory (MB)", "cachemaxsize") WIDTH(1.5);
+ PARM(integer, 1, "cachemaxsize", none, none) RANGE(0,1000)
+	LOCK_RANGE_MIN LABELREF(cachemaxsize.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    resimulate.gad; 
+    useinitialsop.row.join; 
+    startframe.gad; 
+    substep.gad; 
+    cacheenabled.gad; 
+    cachetodisk.gad; 
+    cachemaxsize.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

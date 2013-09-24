@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <shelfSet name="shelf_set_2" label="Lights, Camera, Action">
+    <memberToolshelf name="lights_and_cameras"/>
+    <memberToolshelf name="create_particles"/>
+    <memberToolshelf name="drive_particles"/>
+    <memberToolshelf name="rbd_dynamics"/>
+    <memberToolshelf name="liquid_dynamics"/>
+    <memberToolshelf name="volume_creation_dynamics"/>
+    <memberToolshelf name="volume_sourcing_dynamics"/>
+    <memberToolshelf name="volume_tools_dynamics"/>
+    <memberToolshelf name="pyro_dynamics"/>
+    <memberToolshelf name="wire_dynamics"/>
+    <memberToolshelf name="fur"/>
+    <memberToolshelf name="drive_simulation"/>
+    <memberToolshelf name="mine"/>
+    <memberToolshelf name="tdtools"/>
+    <memberToolshelf name="cloud"/>
+  </shelfSet>
+
+  <toolshelf name="mine" label="mine">
+    <memberTool name="makeOut"/>
+    <memberTool name="456"/>
+  </toolshelf>
+
+  <tool name="makeOut" label="make out" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import g
+g.makeOut()]]></script>
+  </tool>
+
+  <tool name="456" label="456" icon="PLASMA_App">
+    <script scriptType="hscript"><![CDATA[source $HOME/houdini12.5/scripts/456.cmd]]></script>
+  </tool>
+</shelfDocument>

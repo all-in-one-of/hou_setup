@@ -1,0 +1,949 @@
+// Magic: 51f08bcb
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 19:15:40 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+parmop_fielddst.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_fielddst.gad = parmop_fielddst.menu WIDTH(1.3);
+
+fielddst.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fielddst.label = PARM_LABEL("Dest Field", "fielddst") WIDTH(1.5);
+    PARM_FIELD(string, "fielddst") VALUE(fielddst.val) 
+	LABELREF(fielddst.label) HSTRETCH;
+
+}
+}	
+parmop_fieldsrc.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_fieldsrc.gad = parmop_fieldsrc.menu WIDTH(1.3);
+
+fieldsrc.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fieldsrc.label = PARM_LABEL("Source Field", "fieldsrc") WIDTH(1.5);
+    PARM_FIELD(string, "fieldsrc") VALUE(fieldsrc.val) 
+	LABELREF(fieldsrc.label) HSTRETCH;
+
+}
+}	
+parmop_indexsrc.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_indexsrc.gad = parmop_indexsrc.menu WIDTH(1.3);
+
+indexsrc.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    indexsrc.label = PARM_LABEL("Source Index", "indexsrc") WIDTH(1.5);
+    PARM_FIELD(string, "indexsrc") VALUE(indexsrc.val) 
+	LABELREF(indexsrc.label) HSTRETCH;
+
+}
+}	
+parmop_property.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_property.gad = parmop_property.menu WIDTH(1.3);
+
+property.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Property", "property") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    property.menu;
+
+}
+}	
+parmop_dstblend.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstblend.gad = parmop_dstblend.menu WIDTH(1.3);
+
+dstblend.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dstblend.label = PARM_LABEL("Dest Blend", "dstblend") WIDTH(1.5);
+    PARM_FIELD(string, "dstblend") VALUE(dstblend.val) 
+	LABELREF(dstblend.label) HSTRETCH;
+
+}
+}	
+parmop_srcblend.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcblend.gad = parmop_srcblend.menu WIDTH(1.3);
+
+srcblend.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    srcblend.label = PARM_LABEL("Source Blend", "srcblend") WIDTH(1.5);
+    PARM_FIELD(string, "srcblend") VALUE(srcblend.val) 
+	LABELREF(srcblend.label) HSTRETCH;
+
+}
+}	
+parmop_calculationtype.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_calculationtype.gad = parmop_calculationtype.menu WIDTH(1.3);
+
+calculationtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Calculation", "calculationtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    calculationtype.menu;
+
+}
+}	
+parmop_blendmethod.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_blendmethod.gad = parmop_blendmethod.menu WIDTH(1.3);
+
+blendmethod.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Blend Method", "blendmethod") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    blendmethod.menu;
+
+}
+}	
+
+dstlabel.sval := 1;
+
+dstlabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(dstlabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Processing" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Processing":1.5;
+
+	     LABEL VALUE(dstlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Processing":1.5;
+
+	     LABEL VALUE(dstlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Processing":1.5;
+
+	     LABEL VALUE(dstlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Processing":1.5;
+
+	     LABEL VALUE(dstlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstlabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+parmop_dsttimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dsttimescale.gad = parmop_dsttimescale.menu WIDTH(1.3);
+
+dsttimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Time Scale", "dsttimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dsttimescale.menu;
+
+}
+}	
+parmop_dstpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstpreadd.gad = parmop_dstpreadd.menu WIDTH(1.3);
+
+dstpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstpreadd.label = PARM_LABEL("Dest Pre-Add", "dstpreadd") WIDTH(1.5);
+ PARM(float, 1, "dstpreadd", none, none) RANGE(0,1)
+	 LABELREF(dstpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_dstpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstpremul.gad = parmop_dstpremul.menu WIDTH(1.3);
+
+dstpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstpremul.label = PARM_LABEL("Dest Pre-Mult", "dstpremul") WIDTH(1.5);
+ PARM(float, 1, "dstpremul", none, none) RANGE(0,1)
+	 LABELREF(dstpremul.label) HSTRETCH;
+
+}
+}	
+parmop_dstconvert.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstconvert.gad = parmop_dstconvert.menu WIDTH(1.3);
+
+dstconvert.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Conversion", "dstconvert") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dstconvert.menu;
+
+}
+}	
+parmop_dstscale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstscale.gad = parmop_dstscale.menu WIDTH(1.3);
+
+dstscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Scale", "dstscale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dstscale.menu;
+
+}
+}	
+
+srclabel.sval := 0;
+
+srclabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(srclabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Processing" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Processing":1.5;
+
+	     LABEL VALUE(srclabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Processing":1.5;
+
+	     LABEL VALUE(srclabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Processing":1.5;
+
+	     LABEL VALUE(srclabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Processing":1.5;
+
+	     LABEL VALUE(srclabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srclabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+parmop_srctimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srctimescale.gad = parmop_srctimescale.menu WIDTH(1.3);
+
+srctimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Time Scale", "srctimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srctimescale.menu;
+
+}
+}	
+parmop_srcpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcpreadd.gad = parmop_srcpreadd.menu WIDTH(1.3);
+
+srcpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcpreadd.label = PARM_LABEL("Source Pre-Add", "srcpreadd") WIDTH(1.5);
+ PARM(float, 1, "srcpreadd", none, none) RANGE(0,1)
+	 LABELREF(srcpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_srcpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcpremul.gad = parmop_srcpremul.menu WIDTH(1.3);
+
+srcpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcpremul.label = PARM_LABEL("Source Pre-Mult", "srcpremul") WIDTH(1.5);
+ PARM(float, 1, "srcpremul", none, none) RANGE(0,1)
+	 LABELREF(srcpremul.label) HSTRETCH;
+
+}
+}	
+parmop_srcconvert.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcconvert.gad = parmop_srcconvert.menu WIDTH(1.3);
+
+srcconvert.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Conversion", "srcconvert") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srcconvert.menu;
+
+}
+}	
+parmop_srcscale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcscale.gad = parmop_srcscale.menu WIDTH(1.3);
+
+srcscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Scale", "srcscale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srcscale.menu;
+
+}
+}	
+
+postlabel.sval := 0;
+
+postlabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(postlabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Post Processing" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Post Processing":1.5;
+
+	     LABEL VALUE(postlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Post Processing":1.5;
+
+	     LABEL VALUE(postlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Post Processing":1.5;
+
+	     LABEL VALUE(postlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Post Processing":1.5;
+
+	     LABEL VALUE(postlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(postlabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+parmop_posttimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_posttimescale.gad = parmop_posttimescale.menu WIDTH(1.3);
+
+posttimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Time Scale", "posttimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    posttimescale.menu;
+
+}
+}	
+parmop_postadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postadd.gad = parmop_postadd.menu WIDTH(1.3);
+
+postadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ postadd.label = PARM_LABEL("Post-Add", "postadd") WIDTH(1.5);
+ PARM(float, 1, "postadd", none, none) RANGE(0,1)
+	 LABELREF(postadd.label) HSTRETCH;
+
+}
+}	
+parmop_postmul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postmul.gad = parmop_postmul.menu WIDTH(1.3);
+
+postmul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ postmul.label = PARM_LABEL("Post-Mult", "postmul") WIDTH(1.5);
+ PARM(float, 1, "postmul", none, none) RANGE(0,1)
+	 LABELREF(postmul.label) HSTRETCH;
+
+}
+}	
+parmop_postconvert.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postconvert.gad = parmop_postconvert.menu WIDTH(1.3);
+
+postconvert.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Conversion", "postconvert") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postconvert.menu;
+
+}
+}	
+parmop_postscale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postscale.gad = parmop_postscale.menu WIDTH(1.3);
+
+postscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Scale", "postscale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postscale.menu;
+
+}
+}	
+
+dstblendlabel.sval := 0;
+
+dstblendlabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(dstblendlabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Blend Processing" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Blend Processing":1.5;
+
+	     LABEL VALUE(dstblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Blend Processing":1.5;
+
+	     LABEL VALUE(dstblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Blend Processing":1.5;
+
+	     LABEL VALUE(dstblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Dest Blend Processing":1.5;
+
+	     LABEL VALUE(dstblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(dstblendlabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+parmop_dstblendpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstblendpreadd.gad = parmop_dstblendpreadd.menu WIDTH(1.3);
+
+dstblendpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstblendpreadd.label = PARM_LABEL("Dest Blend Pre-Add", "dstblendpreadd") WIDTH(1.5);
+ PARM(float, 1, "dstblendpreadd", none, none) RANGE(0,1)
+	 LABELREF(dstblendpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_dstblendpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstblendpremul.gad = parmop_dstblendpremul.menu WIDTH(1.3);
+
+dstblendpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstblendpremul.label = PARM_LABEL("Dest Blend Pre-Mult", "dstblendpremul") WIDTH(1.5);
+ PARM(float, 1, "dstblendpremul", none, none) RANGE(0,1)
+	 LABELREF(dstblendpremul.label) HSTRETCH;
+
+}
+}	
+parmop_dstblendconvert.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstblendconvert.gad = parmop_dstblendconvert.menu WIDTH(1.3);
+
+dstblendconvert.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Blend Conversion", "dstblendconvert") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dstblendconvert.menu;
+
+}
+}	
+parmop_dstblendscale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstblendscale.gad = parmop_dstblendscale.menu WIDTH(1.3);
+
+dstblendscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Blend Scale", "dstblendscale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dstblendscale.menu;
+
+}
+}	
+
+srcblendlabel.sval := 0;
+
+srcblendlabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(srcblendlabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Blend Processing" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Blend Processing":1.5;
+
+	     LABEL VALUE(srcblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Blend Processing":1.5;
+
+	     LABEL VALUE(srcblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Blend Processing":1.5;
+
+	     LABEL VALUE(srcblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Source Blend Processing":1.5;
+
+	     LABEL VALUE(srcblendlabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(srcblendlabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+parmop_srcblendpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcblendpreadd.gad = parmop_srcblendpreadd.menu WIDTH(1.3);
+
+srcblendpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcblendpreadd.label = PARM_LABEL("Source Blend Pre-Add", "srcblendpreadd") WIDTH(1.5);
+ PARM(float, 1, "srcblendpreadd", none, none) RANGE(0,1)
+	 LABELREF(srcblendpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_srcblendpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcblendpremul.gad = parmop_srcblendpremul.menu WIDTH(1.3);
+
+srcblendpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcblendpremul.label = PARM_LABEL("Source Blend Pre-Mult", "srcblendpremul") WIDTH(1.5);
+ PARM(float, 1, "srcblendpremul", none, none) RANGE(0,1)
+	 LABELREF(srcblendpremul.label) HSTRETCH;
+
+}
+}	
+parmop_srcblendconvert.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcblendconvert.gad = parmop_srcblendconvert.menu WIDTH(1.3);
+
+srcblendconvert.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Blend Conversion", "srcblendconvert") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srcblendconvert.menu;
+
+}
+}	
+parmop_srcblendscale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcblendscale.gad = parmop_srcblendscale.menu WIDTH(1.3);
+
+srcblendscale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Blend Scale", "srcblendscale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srcblendscale.menu;
+
+}
+}	
+parmop_usetimestep.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_usetimestep.gad = parmop_usetimestep.menu WIDTH(1.3);
+
+usetimestep.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usetimestep", "Use Timestep") toggle VALUE(usetimestep.val);
+
+}
+}	
+parmop_timescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_timescale.gad = parmop_timescale.menu WIDTH(1.3);
+
+timescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timescale.label = PARM_LABEL("Time Scale", "timescale") WIDTH(1.5);
+ PARM(float, 1, "timescale", none, none) RANGE(0,1)
+	 LABELREF(timescale.label) HSTRETCH;
+
+}
+}	
+
+defaultparmop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Default Operation", "defaultparmop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    defaultparmop.menu;
+
+}
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmop_fielddst.join; 
+    parmop_fieldsrc.join; 
+    parmop_indexsrc.join; 
+    parmop_property.join; 
+    parmop_dstblend.join; 
+    parmop_srcblend.join; 
+    parmop_calculationtype.join; 
+    parmop_blendmethod.join; 
+    dstlabel.gad; 
+    parmop_dsttimescale.join; 
+    parmop_dstpreadd.join; 
+    parmop_dstpremul.join; 
+    parmop_dstconvert.join; 
+    parmop_dstscale.join; 
+    srclabel.gad; 
+    parmop_srctimescale.join; 
+    parmop_srcpreadd.join; 
+    parmop_srcpremul.join; 
+    parmop_srcconvert.join; 
+    parmop_srcscale.join; 
+    postlabel.gad; 
+    parmop_posttimescale.join; 
+    parmop_postadd.join; 
+    parmop_postmul.join; 
+    parmop_postconvert.join; 
+    parmop_postscale.join; 
+    dstblendlabel.gad; 
+    parmop_dstblendpreadd.join; 
+    parmop_dstblendpremul.join; 
+    parmop_dstblendconvert.join; 
+    parmop_dstblendscale.join; 
+    srcblendlabel.gad; 
+    parmop_srcblendpreadd.join; 
+    parmop_srcblendpremul.join; 
+    parmop_srcblendconvert.join; 
+    parmop_srcblendscale.join; 
+    parmop_usetimestep.join; 
+    parmop_timescale.join; 
+    defaultparmop.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

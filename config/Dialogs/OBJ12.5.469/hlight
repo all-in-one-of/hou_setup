@@ -1,0 +1,1515 @@
+// Magic: 30a50f18
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:07:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+keeppos.gad = NULL { }
+pre_xform.gad = NULL { }
+xOrd.gad = NULL { }
+rOrd.gad = NULL { }
+t.gad = NULL { }
+r.gad = NULL { }
+s.gad = NULL { }
+p.gad = NULL { }
+scale.gad = NULL { }
+lookatpath.gad = NULL { }
+lookup.gad = NULL { }
+pathobjpath.gad = NULL { }
+roll.gad = NULL { }
+pos.gad = NULL { }
+uparmtype.gad = NULL { }
+pathorient.gad = NULL { }
+up.gad = NULL { }
+bank.gad = NULL { }
+tdisplay.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+tdisplay.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+tdisplay.gad = NULL { }
+display.gad = NULL { }
+}	
+}	// Template join.bot
+
+dimmer.gad = NULL { }
+picking.gad = NULL { }
+pickscript.gad = NULL { }
+caching.gad = NULL { }
+use_dcolor.gad = NULL { }
+dcolor.gad = NULL { }
+l_keeppos.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+l_keeppos.gad = ROW
+{
+
+    PARM_BUTTON("l_keeppos", "Keep position when parenting") toggle VALUE(l_keeppos.val);
+
+}
+
+l_pre_xform.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    l_pre_xform.menu;
+}
+}	// Template join.bot
+
+l_xOrd.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+l_xOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Transform Order", "l_xOrd") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    l_xOrd.menu;
+
+}
+
+l_rOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    l_rOrd.menu;
+
+}
+}	// Template join.bot
+
+
+l_t.gad = ROW
+{
+   HSTRETCH
+
+   l_t.label = PARM_LABEL("Translate", "l_t") WIDTH(1.5);
+
+   PARM(float, 3, "l_t", none, none, "X,Y,Z") LABELREF(l_t.label)
+	HSTRETCH;
+
+}
+
+l_r.gad = ROW
+{
+   HSTRETCH
+
+   l_r.label = PARM_LABEL("Rotate", "l_r") WIDTH(1.5);
+
+   PARM(float, 3, "l_r", none, none, "X,Y,Z") LABELREF(l_r.label)
+	HSTRETCH;
+
+}
+l_enabledisplay.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+l_enabledisplay.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+l_enabledisplay.gad = PARM_BUTTON("l_enabledisplay", "") toggle VALUE(l_enabledisplay.val);
+
+l_display.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ l_display.label = PARM_LABEL("Display", "l_display") WIDTH(1.27);
+ PARM(integer, 1, "l_display", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(l_display.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+l_iconscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ l_iconscale.label = PARM_LABEL("Icon Scale", "l_iconscale") WIDTH(1.5);
+ PARM(float, 1, "l_iconscale", none, none) RANGE(0,10)
+	 LABELREF(l_iconscale.label) HSTRETCH;
+
+}
+
+l_caching.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("l_caching", "Cache Object Transform") toggle VALUE(l_caching.val);
+
+}
+
+l_picking.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("l_picking", "Viewport Selecting Enabled") toggle VALUE(l_picking.val);
+
+}
+
+l_pickscript.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ l_pickscript.label = PARM_LABEL("Select Script", "l_pickscript") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "l_pickscript") LABELREF(l_pickscript.label)
+	VALUE(l_pickscript.val) HSTRETCH;
+
+ l_pickscript.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(l_pickscript.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+l_lookatpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ l_lookatpath.label = PARM_LABEL("Look At", "l_lookatpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "l_lookatpath") VALUE(l_lookatpath.val) 
+	LABELREF(l_lookatpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(l_lookatpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(l_lookatpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+l_lookup.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Look At Up Vector", "l_lookup") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    l_lookup.menu;
+
+}
+
+l_pathobjpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ l_pathobjpath.label = PARM_LABEL("Path Object", "l_pathobjpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "l_pathobjpath") VALUE(l_pathobjpath.val) 
+	LABELREF(l_pathobjpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(l_pathobjpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(l_pathobjpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+l_pathroll.gad = ROW
+{
+   HSTRETCH
+
+   l_pathroll.label = PARM_LABEL( "Roll", "l_pathroll" ) WIDTH(1.5);
+
+   PARM(float, 1, "l_pathroll", none, none) RANGE(-360, 360)
+	LABELREF( l_pathroll.label ) HSTRETCH;
+
+}
+
+l_pathpos.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ l_pathpos.label = PARM_LABEL("Position", "l_pathpos") WIDTH(1.5);
+ PARM(float, 1, "l_pathpos", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(l_pathpos.label) HSTRETCH;
+
+}
+
+l_pathparmtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Parameterization", "l_pathparmtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    l_pathparmtype.menu;
+
+}
+
+l_pathorient.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ l_pathorient.label = PARM_LABEL("Orient Along Path", "l_pathorient") WIDTH(1.5);
+ PARM(integer, 1, "l_pathorient", none, none) RANGE(0,1)
+	 LABELREF(l_pathorient.label) HSTRETCH;
+
+}
+
+l_pathup.gad = ROW 
+{
+    HSTRETCH
+
+    l_pathup.label = PARM_LABEL("Orient Up Vector", "l_pathup") WIDTH(1.5);
+
+    PARM(float, 3, "l_pathup", none, none) LABELREF(l_pathup.label)
+	HSTRETCH;
+
+}
+
+l_pathbank.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ l_pathbank.label = PARM_LABEL("Auto-Bank factor", "l_pathbank") WIDTH(1.5);
+ PARM(float, 1, "l_pathbank", none, none) RANGE(-1,1)
+	 LABELREF(l_pathbank.label) HSTRETCH;
+
+}
+
+light_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Light Type", "light_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    light_type.menu;
+
+}
+
+light_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    light_color.label = PARM_LABEL("Light Color", "light_color") WIDTH(1.5);
+
+    PARM(float, 3, "light_color", none, COLOR, "R,G,B") 
+	LABELREF(light_color.label) HSTRETCH;
+
+}
+
+light_intensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ light_intensity.label = PARM_LABEL("Light Intensity", "light_intensity") WIDTH(1.5);
+ PARM(float, 1, "light_intensity", none, none) RANGE(0,10)
+	 LABELREF(light_intensity.label) HSTRETCH;
+
+}
+
+light_enable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_enable", "Light Enabled") toggle VALUE(light_enable.val);
+
+}
+
+ogl_enablelight.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ogl_enablelight", "Enable Light In Viewport") toggle VALUE(ogl_enablelight.val);
+
+}
+
+light_contribdiff.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribdiff", "Diffuse Contribution") toggle VALUE(light_contribdiff.val);
+
+}
+
+light_contribspec.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribspec", "Specular Contribution") toggle VALUE(light_contribspec.val);
+
+}
+
+categories.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    categories.label = PARM_LABEL("Categories", "categories") WIDTH(1.5);
+    PARM_FIELD(string, "categories") VALUE(categories.val) 
+	LABELREF(categories.label) HSTRETCH;
+
+}
+
+vm_samplingquality.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vm_samplingquality.label = PARM_LABEL("Sampling Quality", "vm_samplingquality") WIDTH(1.5);
+ PARM(float, 1, "vm_samplingquality", none, none) RANGE(0,10)
+	 LABELREF(vm_samplingquality.label) HSTRETCH;
+
+}
+
+light_contribprimary.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribprimary", "Render Light Geometry") toggle VALUE(light_contribprimary.val);
+
+}
+
+coneenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("coneenable", "Enable Spot Light") toggle VALUE(coneenable.val);
+
+}
+
+light_conefov.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_conefov", "Use cone angle for field of view") toggle VALUE(light_conefov.val);
+
+}
+
+light_fov.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ light_fov.label = PARM_LABEL("Projection Angle", "light_fov") WIDTH(1.5);
+ PARM(float, 1, "light_fov", none, none) RANGE(0.050000000000000003,90)
+	 LABELREF(light_fov.label) HSTRETCH;
+
+}
+
+coneangle.gad = ROW
+{
+   HSTRETCH
+
+   coneangle.label = PARM_LABEL( "Cone Angle", "coneangle" ) WIDTH(1.5);
+
+   PARM(float, 1, "coneangle", none, none) RANGE(0, 180)
+	LABELREF( coneangle.label ) HSTRETCH;
+
+}
+
+conedelta.gad = ROW
+{
+   HSTRETCH
+
+   conedelta.label = PARM_LABEL( "Cone Delta", "conedelta" ) WIDTH(1.5);
+
+   PARM(float, 1, "conedelta", none, none) RANGE(0, 180)
+	LABELREF( conedelta.label ) HSTRETCH;
+
+}
+
+coneroll.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ coneroll.label = PARM_LABEL("Cone Rolloff", "coneroll") WIDTH(1.5);
+ PARM(float, 1, "coneroll", none, none) RANGE(0.001,10)
+	 LABELREF(coneroll.label) HSTRETCH;
+
+}
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+projmap.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ projmap.label = PARM_LABEL("Projection Map", "projmap") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "projmap") LABELREF(projmap.label)
+	VALUE(projmap.val) HSTRETCH;
+
+ projmap.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(projmap.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+near.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ near.label = PARM_LABEL("Near Clipping", "near") WIDTH(1.5);
+ PARM(float, 1, "near", none, none) RANGE(0,10000)
+	 LABELREF(near.label) HSTRETCH;
+
+}
+
+far.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ far.label = PARM_LABEL("Far Clipping", "far") WIDTH(1.5);
+ PARM(float, 1, "far", none, none) RANGE(0,10000)
+	 LABELREF(far.label) HSTRETCH;
+
+}
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+areamap.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ areamap.label = PARM_LABEL("Environment/IES Map", "areamap") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "areamap") LABELREF(areamap.label)
+	VALUE(areamap.val) HSTRETCH;
+
+ areamap.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(areamap.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+areamapspace.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Environment Space", "areamapspace") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    areamapspace.menu;
+
+}
+
+areamapnull.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ areamapnull.label = PARM_LABEL("Environment Null", "areamapnull") WIDTH(1.5);
+ PARM_FIELD(pathstring, "areamapnull") VALUE(areamapnull.val) 
+	LABELREF(areamapnull.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(areamapnull.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(areamapnull.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+areamapblur.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ areamapblur.label = PARM_LABEL("Map Blur Angle", "areamapblur") WIDTH(1.5);
+ PARM(float, 1, "areamapblur", none, none) RANGE(0,90)
+	 LABELREF(areamapblur.label) HSTRETCH;
+
+}
+
+areamapscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ areamapscale.label = PARM_LABEL("Map Angle Scale", "areamapscale") WIDTH(1.5);
+ PARM(float, 1, "areamapscale", none, none) RANGE(0.10000000000000001,2)
+	 LABELREF(areamapscale.label) HSTRETCH;
+
+}
+
+areasize.gad = ROW
+{
+   HSTRETCH
+
+   areasize.label = PARM_LABEL("Area Size", "areasize") WIDTH(1.5);
+
+   PARM(float, 2, "areasize", none, none, "#1,#2") LABELREF(areasize.label)
+	HSTRETCH;
+
+}
+
+normalizearea.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normalizearea", "Normalize Light Intensity to Area") toggle VALUE(normalizearea.val);
+
+}
+
+singlesided.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("singlesided", "Single Sided") toggle VALUE(singlesided.val);
+
+}
+
+reverse.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("reverse", "Reverse Emission Direction") toggle VALUE(reverse.val);
+
+}
+
+sharpspot.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("sharpspot", "Sharp Spot Light") toggle VALUE(sharpspot.val);
+
+}
+
+selfshadow.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("selfshadow", "Self Shadow") toggle VALUE(selfshadow.val);
+
+}
+
+shop_materialpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ shop_materialpath.label = PARM_LABEL("Material", "shop_materialpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "shop_materialpath") VALUE(shop_materialpath.val) 
+	LABELREF(shop_materialpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(shop_materialpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(shop_materialpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+light_texture.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ light_texture.label = PARM_LABEL("Texture Map", "light_texture") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "light_texture") LABELREF(light_texture.label)
+	VALUE(light_texture.val) HSTRETCH;
+
+ light_texture.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(light_texture.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+edgeenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("edgeenable", "Enable Edge Falloff") toggle VALUE(edgeenable.val);
+
+}
+
+edgewidth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ edgewidth.label = PARM_LABEL("Edge Width", "edgewidth") WIDTH(1.5);
+ PARM(float, 1, "edgewidth", none, none) RANGE(0,1)
+	 LABELREF(edgewidth.label) HSTRETCH;
+
+}
+
+edgerolloff.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ edgerolloff.label = PARM_LABEL("Edge Rolloff", "edgerolloff") WIDTH(1.5);
+ PARM(float, 1, "edgerolloff", none, none) RANGE(0.001,10)
+	 LABELREF(edgerolloff.label) HSTRETCH;
+
+}
+
+areageometry.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ areageometry.label = PARM_LABEL("Geometry Object", "areageometry") WIDTH(1.5);
+ PARM_FIELD(pathstring, "areageometry") VALUE(areageometry.val) 
+	LABELREF(areageometry.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(areageometry.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(areageometry.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+intothisobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("intothisobject", "Transform Into This Object") toggle VALUE(intothisobject.val);
+
+}
+
+sepparm4.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+pc_enable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pc_enable", "Enable Point Cloud") toggle VALUE(pc_enable.val);
+
+}
+
+pc_samples.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pc_samples.label = PARM_LABEL("Point Samples", "pc_samples") WIDTH(1.5);
+ PARM(integer, 1, "pc_samples", none, none) RANGE(1,128)
+	 LABELREF(pc_samples.label) HSTRETCH;
+
+}
+
+pc_file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ pc_file.label = PARM_LABEL("Point Cloud File", "pc_file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "pc_file") LABELREF(pc_file.label)
+	VALUE(pc_file.val) HSTRETCH;
+
+ pc_file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(pc_file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+render_pointcloud.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("render_pointcloud", "Auto-generate Point Cloud") toggle VALUE(render_pointcloud.val);
+
+}
+
+vm_shadingfactor.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vm_shadingfactor.label = PARM_LABEL("Shading Quality", "vm_shadingfactor") WIDTH(1.5);
+ PARM(float, 1, "vm_shadingfactor", none, none) RANGE(0.10000000000000001,1)
+	 LABELREF(vm_shadingfactor.label) HSTRETCH;
+
+}
+
+pc_camera_override.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pc_camera_override", "Override Dicing Camera") toggle VALUE(pc_camera_override.val);
+
+}
+
+pc_camera.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ pc_camera.label = PARM_LABEL("Dicing Camera", "pc_camera") WIDTH(1.5);
+ PARM_FIELD(pathstring, "pc_camera") VALUE(pc_camera.val) 
+	LABELREF(pc_camera.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(pc_camera.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(pc_camera.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+orthowidth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ orthowidth.label = PARM_LABEL("Orthographic Width", "orthowidth") WIDTH(1.5);
+ PARM(float, 1, "orthowidth", none, none) RANGE(1,10)
+	 LABELREF(orthowidth.label) HSTRETCH;
+
+}
+
+vm_envangle.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vm_envangle.label = PARM_LABEL("Sun Angle", "vm_envangle") WIDTH(1.5);
+ PARM(float, 1, "vm_envangle", none, none) RANGE(0,90)
+	 LABELREF(vm_envangle.label) HSTRETCH;
+
+}
+
+atten_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Attenuation", "atten_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    atten_type.menu;
+
+}
+
+atten_dist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten_dist.label = PARM_LABEL("Half Distance", "atten_dist") WIDTH(1.5);
+ PARM(float, 1, "atten_dist", none, none) RANGE(0,100)
+	 LABELREF(atten_dist.label) HSTRETCH;
+
+}
+
+atten_start.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten_start.label = PARM_LABEL("Attenuation Start", "atten_start") WIDTH(1.5);
+ PARM(float, 1, "atten_start", none, none) RANGE(0,100)
+	 LABELREF(atten_start.label) HSTRETCH;
+
+}
+activeradiusenable.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+activeradiusenable.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+activeradiusenable.gad = PARM_BUTTON("activeradiusenable", "") toggle VALUE(activeradiusenable.val);
+
+activeradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activeradius.label = PARM_LABEL("Active Radius", "activeradius") WIDTH(1.27);
+ PARM(float, 1, "activeradius", none, none) RANGE(0,100)
+	 LABELREF(activeradius.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+attenrampenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("attenrampenable", "Use Attenuation Ramp Multiplier") toggle VALUE(attenrampenable.val);
+
+}
+
+atten_rampstart.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten_rampstart.label = PARM_LABEL("Ramp Start Distance", "atten_rampstart") WIDTH(1.5);
+ PARM(float, 1, "atten_rampstart", none, none) RANGE(0,100)
+	 LABELREF(atten_rampstart.label) HSTRETCH;
+
+}
+
+atten_rampend.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten_rampend.label = PARM_LABEL("Ramp End Distance", "atten_rampend") WIDTH(1.5);
+ PARM(float, 1, "atten_rampend", none, none) RANGE(0,100)
+	 LABELREF(atten_rampend.label) HSTRETCH;
+
+}
+
+attenramp.si_rampedit = COLOR_RAMP VALUE(attenramp.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+attenramp.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+
+    ROW
+    {
+	LOOK(plain) JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	attenramp.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(attenramp.pointno.val) HSTRETCH;
+    }
+}
+
+attenramp.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(attenramp.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(attenramp.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    attenramp.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls")
+	VALUE(attenramp.toggle.val)
+	SENDSKEY("h.pane.parms.toggle_ramp_parms")
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+attenramp.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    attenramp.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	attenramp.buttons.gad VSTRETCH;
+
+	attenramp.si_rampedit HSTRETCH;
+    }
+}
+
+attenramp.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+
+    PARM_LABEL_SIMPLE("Attenuation Ramp Multiplier", "attenramp");
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) LOOK(lightline) HSTRETCH
+
+	attenramp.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(attenramp.hideparms.val) HSTRETCH
+	    attenramp.multiramp;
+	    {}
+	}
+    }
+}
+
+shadow_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Shadow Type", "shadow_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    shadow_type.menu;
+
+}
+
+shadowmask.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadowmask.label = PARM_LABEL("Shadow Mask", "shadowmask") WIDTH(1.5);
+ PARM_FIELD (pathstring, "shadowmask") LABELREF(shadowmask.label) 
+	VALUE(shadowmask.val) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(shadowmask.plus) LOOKFLAT
+    HELP("Open floating bundle chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+shadow_intensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_intensity.label = PARM_LABEL("Shadow Intensity", "shadow_intensity") WIDTH(1.5);
+ PARM(float, 1, "shadow_intensity", none, none) RANGE(0,1)
+	 LABELREF(shadow_intensity.label) HSTRETCH;
+
+}
+
+shadow_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    shadow_color.label = PARM_LABEL("Shadow Color", "shadow_color") WIDTH(1.5);
+
+    PARM(float, 3, "shadow_color", none, COLOR, "R,G,B") 
+	LABELREF(shadow_color.label) HSTRETCH;
+
+}
+
+shadow_transparent.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadow_transparent", "Transparent Shadows") toggle VALUE(shadow_transparent.val);
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+shadow_bias.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_bias.label = PARM_LABEL("Shadow Bias", "shadow_bias") WIDTH(1.5);
+ PARM(float, 1, "shadow_bias", none, none) RANGE(0,1)
+	 LABELREF(shadow_bias.label) HSTRETCH;
+
+}
+
+shadow_quality.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_quality.label = PARM_LABEL("Shadow Quality", "shadow_quality") WIDTH(1.5);
+ PARM(float, 1, "shadow_quality", none, none) RANGE(0.10000000000000001,10)
+	 LABELREF(shadow_quality.label) HSTRETCH;
+
+}
+
+shadow_softness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_softness.label = PARM_LABEL("Shadow Softness", "shadow_softness") WIDTH(1.5);
+ PARM(float, 1, "shadow_softness", none, none) RANGE(0,1)
+	 LABELREF(shadow_softness.label) HSTRETCH;
+
+}
+
+shadow_blur.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_blur.label = PARM_LABEL("Shadow Blur", "shadow_blur") WIDTH(1.5);
+ PARM(float, 1, "shadow_blur", none, none) RANGE(0,1)
+	 LABELREF(shadow_blur.label) HSTRETCH;
+
+}
+
+render_shadowmap.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("render_shadowmap", "Auto-generate Shadow Map") toggle VALUE(render_shadowmap.val);
+
+}
+
+labelparm.sval := 1;
+
+labelparm.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(labelparm.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Field Of View" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Field Of View":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Field Of View":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Field Of View":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Field Of View":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+
+shadowmap_file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ shadowmap_file.label = PARM_LABEL("Shadow Map", "shadowmap_file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "shadowmap_file") LABELREF(shadowmap_file.label)
+	VALUE(shadowmap_file.val) HSTRETCH;
+
+ shadowmap_file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(shadowmap_file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+res.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+res.gad = ROW
+{
+   HSTRETCH
+
+   res.label = PARM_LABEL("Resolution", "res") WIDTH(1.5);
+
+   PARM(integer, 2, "res", none, none, "X,Y") LABELREF(res.label)
+	HSTRETCH;
+
+}
+
+shadowmap_resMenu.gad = shadowmap_resMenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	// Template join.bot
+
+
+shadowmap_samples.gad = ROW
+{
+   HSTRETCH
+
+   shadowmap_samples.label = PARM_LABEL("Pixel Samples", "shadowmap_samples") WIDTH(1.5);
+
+   PARM(integer, 2, "shadowmap_samples", none, none, "X,Y") LABELREF(shadowmap_samples.label)
+	HSTRETCH;
+
+}
+
+shadowmotionblur.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadowmotionblur", "Depth Map Motion Blur") toggle VALUE(shadowmotionblur.val);
+
+}
+
+shadow_autofit.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadow_autofit", "Fit Shadow Map to Shadow Mask") toggle VALUE(shadow_autofit.val);
+
+}
+focal.gad = NULL { }
+aperture.gad = NULL { }
+projection.gad = NULL { }
+focus.gad = NULL { }
+winmask.gad = NULL { }
+light_wrangler.gad = NULL { }
+clampprojmap.gad = NULL { }
+areafullsphere.gad = NULL { }
+
+atten_folder_1.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(atten_folder_1.gad.val) STRETCH(1,0)
+
+	TAB "Spot Light Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    coneenable.gad;		
+	    light_conefov.gad;		
+	    light_fov.gad;		
+	    coneangle.gad;		
+	    conedelta.gad;		
+	    coneroll.gad;		
+	    sepparm2.gad;		
+	    projmap.gad;		
+	    near.gad;		
+	    far.gad;		
+	    sepparm3.gad;		
+	    areamap.gad;		
+	    areamapspace.gad;		
+	    areamapnull.gad;		
+	    areamapblur.gad;		
+	    areamapscale.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Area Light Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    areasize.gad;		
+	    normalizearea.gad;		
+	    singlesided.gad;		
+	    reverse.gad;		
+	    sharpspot.gad;		
+	    selfshadow.gad;		
+	    shop_materialpath.gad;		
+	    light_texture.gad;		
+	    edgeenable.gad;		
+	    edgewidth.gad;		
+	    edgerolloff.gad;		
+	    areageometry.gad;		
+	    intothisobject.gad;		
+	    sepparm4.gad;		
+	    pc_enable.gad;		
+	    pc_samples.gad;		
+	    pc_file.gad;		
+	    render_pointcloud.gad;		
+	    vm_shadingfactor.gad;		
+	    pc_camera_override.gad;		
+	    pc_camera.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Distant Light Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    orthowidth.gad;		
+	    vm_envangle.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Attenuation Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    atten_type.gad;		
+	    atten_dist.gad;		
+	    atten_start.gad;		
+	    activeradiusenable.row.join;		
+	    attenrampenable.gad;		
+	    atten_rampstart.gad;		
+	    atten_rampend.gad;		
+	    attenramp.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder1_2.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder1_2.gad.val) STRETCH(1,0)
+
+	TAB "Viewing Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    l_enabledisplay.row.join;		
+	    l_iconscale.gad;		
+	    l_caching.gad;		
+	    l_picking.gad;		
+	    l_pickscript.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Lookat Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    l_lookatpath.gad;		
+	    l_lookup.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Path Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    l_pathobjpath.gad;		
+	    l_pathroll.gad;		
+	    l_pathpos.gad;		
+	    l_pathparmtype.gad;		
+	    l_pathorient.gad;		
+	    l_pathup.gad;		
+	    l_pathbank.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Transform"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    l_keeppos.row.join;		
+	    l_xOrd.row.join;		
+	    l_t.gad;		
+	    l_r.gad;		
+	    folder1_2.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Light"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    light_type.gad;		
+	    light_color.gad;		
+	    light_intensity.gad;		
+	    light_enable.gad;		
+	    ogl_enablelight.gad;		
+	    light_contribdiff.gad;		
+	    light_contribspec.gad;		
+	    categories.gad;		
+	    vm_samplingquality.gad;		
+	    light_contribprimary.gad;		
+	    atten_folder_1.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Shadow"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    shadow_type.gad;		
+	    shadowmask.gad;		
+	    shadow_intensity.gad;		
+	    shadow_color.gad;		
+	    shadow_transparent.gad;		
+	    sepparm.gad;		
+	    shadow_bias.gad;		
+	    shadow_quality.gad;		
+	    shadow_softness.gad;		
+	    shadow_blur.gad;		
+	    render_shadowmap.gad;		
+	    labelparm.gad;		
+	    shadowmap_file.gad;		
+	    res.row.join;		
+	    shadowmap_samples.gad;		
+	    shadowmotionblur.gad;		
+	    shadow_autofit.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher4.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher4.gad.val) STRETCH(1,0)
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    keeppos.gad; 
+    pre_xform.gad; 
+    xOrd.gad; 
+    rOrd.gad; 
+    t.gad; 
+    r.gad; 
+    s.gad; 
+    p.gad; 
+    scale.gad; 
+    lookatpath.gad; 
+    lookup.gad; 
+    pathobjpath.gad; 
+    roll.gad; 
+    pos.gad; 
+    uparmtype.gad; 
+    pathorient.gad; 
+    up.gad; 
+    bank.gad; 
+    tdisplay.row.join; 
+    dimmer.gad; 
+    picking.gad; 
+    pickscript.gad; 
+    caching.gad; 
+    use_dcolor.gad; 
+    dcolor.gad; 
+    folder0.gad; 
+    focal.gad; 
+    aperture.gad; 
+    projection.gad; 
+    focus.gad; 
+    winmask.gad; 
+    light_wrangler.gad; 
+    clampprojmap.gad; 
+    areafullsphere.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

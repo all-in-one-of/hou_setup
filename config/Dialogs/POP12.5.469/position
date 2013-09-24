@@ -1,0 +1,257 @@
+// Magic: 1b1aafd7
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:21:42 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+applymotion.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Apply Motion", "applymotion") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    applymotion.menu;
+
+}
+
+postype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Position Type", "postype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postype.menu;
+
+}
+posv.join = SWITCHER		 
+{
+  LAYOUT(overlap) HSTRETCH LOOK(none) VALUE(postype.val)
+
+posv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    posv.label = PARM_LABEL("", "posv") WIDTH(1.5);
+    PARM_FIELD(string, "posv") VALUE(posv.val) 
+	LABELREF(posv.label) HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Position", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+}	
+
+usecontextgeo.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Source", "usecontextgeo") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usecontextgeo.menu;
+
+}
+
+pathpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ pathpath.label = PARM_LABEL("Object", "pathpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "pathpath") VALUE(pathpath.val) 
+	LABELREF(pathpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(pathpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(pathpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+ignorexform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignorexform", "Ignore Transform Object") toggle VALUE(ignorexform.val);
+
+}
+
+pathpos.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pathpos.label = PARM_LABEL("Position", "pathpos") WIDTH(1.5);
+ PARM(float, 1, "pathpos", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(pathpos.label) HSTRETCH;
+
+}
+
+endopt.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("End Option", "endopt") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    endopt.menu;
+
+}
+
+refpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ refpath.label = PARM_LABEL("Object", "refpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "refpath") VALUE(refpath.val) 
+	LABELREF(refpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(refpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(refpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+reftype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Offset Type", "reftype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    reftype.menu;
+
+}
+refposv.join = SWITCHER		 
+{
+  LAYOUT(overlap) HSTRETCH LOOK(none) VALUE(reftype.val)
+
+refposv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    refposv.label = PARM_LABEL("", "refposv") WIDTH(1.5);
+    PARM_FIELD(string, "refposv") VALUE(refposv.val) 
+	LABELREF(refposv.label) HSTRETCH;
+
+}
+
+reft.gad = ROW
+{
+   HSTRETCH
+
+   reft.label = PARM_LABEL("Offset", "reft") WIDTH(1.5);
+
+   PARM(float, 3, "reft", none, none, "X,Y,Z") LABELREF(reft.label)
+	HSTRETCH;
+
+}
+}	
+
+mswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(mswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Position"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    postype.gad;		
+	    posv.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Path"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    usecontextgeo.gad;		
+	    pathpath.gad;		
+	    ignorexform.gad;		
+	    pathpos.gad;		
+	    endopt.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Reference"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    refpath.gad;		
+	    reftype.gad;		
+	    refposv.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    source.gad; 
+    applymotion.gad; 
+    mswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

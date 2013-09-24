@@ -1,0 +1,59 @@
+// Magic: b0276a45
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:07:04 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+doclr.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doclr.menu;
+
+}
+
+doalpha.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doalpha.menu;
+
+}
+
+donml.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    donml.menu;
+
+}
+
+douvw.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    douvw.menu;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    doclr.gad; 
+    doalpha.gad; 
+    donml.gad; 
+    douvw.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

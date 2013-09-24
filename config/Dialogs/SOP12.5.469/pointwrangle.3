@@ -1,0 +1,34 @@
+// Magic: 39bcdca0
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 16:38:07 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+snippet.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ snippet.label = PARM_LABEL("VEX Snippet", "snippet");
+ PARM(string, 1, "snippet", none, field) RANGE(0,1)
+	 LABELREF(snippet.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    snippet.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

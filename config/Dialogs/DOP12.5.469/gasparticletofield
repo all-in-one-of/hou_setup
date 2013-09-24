@@ -1,0 +1,538 @@
+// Magic: 9778855b
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 15:59:26 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+parmop_field.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_field.gad = parmop_field.menu WIDTH(1.3);
+
+field.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    field.label = PARM_LABEL("Destination Field", "field") WIDTH(1.5);
+    PARM_FIELD(string, "field") VALUE(field.val) 
+	LABELREF(field.label) HSTRETCH;
+
+}
+}	
+parmop_geo.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_geo.gad = parmop_geo.menu WIDTH(1.3);
+
+geo.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    geo.label = PARM_LABEL("Particles", "geo") WIDTH(1.5);
+    PARM_FIELD(string, "geo") VALUE(geo.val) 
+	LABELREF(geo.label) HSTRETCH;
+
+}
+}	
+parmop_ptgroup.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_ptgroup.gad = parmop_ptgroup.menu WIDTH(1.3);
+
+ptgroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    ptgroup.label = PARM_LABEL("Particle Group", "ptgroup") WIDTH(1.5);
+    PARM_FIELD(string, "ptgroup") VALUE(ptgroup.val) 
+	LABELREF(ptgroup.label) HSTRETCH;
+
+}
+}	
+parmop_useattrib.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_useattrib.gad = parmop_useattrib.menu WIDTH(1.3);
+
+useattrib.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useattrib", "Use Attribute") toggle VALUE(useattrib.val);
+
+}
+}	
+parmop_attrib.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_attrib.gad = parmop_attrib.menu WIDTH(1.3);
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+}
+}	
+parmop_accumulate.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_accumulate.gad = parmop_accumulate.menu WIDTH(1.3);
+
+accumulate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("accumulate", "Accumulated") toggle VALUE(accumulate.val);
+
+}
+}	
+parmop_extrapolate.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_extrapolate.gad = parmop_extrapolate.menu WIDTH(1.3);
+
+extrapolate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("extrapolate", "Extrapolated") toggle VALUE(extrapolate.val);
+
+}
+}	
+parmop_usemaxextrapolate.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_usemaxextrapolate.gad = parmop_usemaxextrapolate.menu WIDTH(1.3);
+
+usemaxextrapolate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usemaxextrapolate", "Use Max Extrapolate Cells") toggle VALUE(usemaxextrapolate.val);
+
+}
+}	
+parmop_maxextrapolate.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_maxextrapolate.gad = parmop_maxextrapolate.menu WIDTH(1.3);
+
+maxextrapolate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxextrapolate.label = PARM_LABEL("Max Extrapolation Cells", "maxextrapolate") WIDTH(1.5);
+ PARM(float, 1, "maxextrapolate", none, none) RANGE(0,1)
+	 LABELREF(maxextrapolate.label) HSTRETCH;
+
+}
+}	
+parmop_usemaxextrapolatedist.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_usemaxextrapolatedist.gad = parmop_usemaxextrapolatedist.menu WIDTH(1.3);
+
+usemaxextrapolatedist.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usemaxextrapolatedist", "Use Max Extrapolate Distance") toggle VALUE(usemaxextrapolatedist.val);
+
+}
+}	
+parmop_maxextrapolatedist.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_maxextrapolatedist.gad = parmop_maxextrapolatedist.menu WIDTH(1.3);
+
+maxextrapolatedist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxextrapolatedist.label = PARM_LABEL("Max Extrapolation Distance", "maxextrapolatedist") WIDTH(1.5);
+ PARM(float, 1, "maxextrapolatedist", none, none) RANGE(0,1)
+	 LABELREF(maxextrapolatedist.label) HSTRETCH;
+
+}
+}	
+parmop_threshold.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_threshold.gad = parmop_threshold.menu WIDTH(1.3);
+
+threshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ threshold.label = PARM_LABEL("Threshold", "threshold") WIDTH(1.5);
+ PARM(float, 1, "threshold", none, none) RANGE(0,1)
+	 LABELREF(threshold.label) HSTRETCH;
+
+}
+}	
+parmop_bandwidth.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_bandwidth.gad = parmop_bandwidth.menu WIDTH(1.3);
+
+bandwidth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bandwidth.label = PARM_LABEL("Bandwidth", "bandwidth") WIDTH(1.5);
+ PARM(float, 1, "bandwidth", none, none) RANGE(0,1)
+	 LABELREF(bandwidth.label) HSTRETCH;
+
+}
+}	
+parmop_uniformradius.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_uniformradius.gad = parmop_uniformradius.menu WIDTH(1.3);
+
+uniformradius.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniformradius", "Assume Uniform Radius") toggle VALUE(uniformradius.val);
+
+}
+}	
+parmop_extrapolationindex.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_extrapolationindex.gad = parmop_extrapolationindex.menu WIDTH(1.3);
+
+extrapolationindex.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    extrapolationindex.label = PARM_LABEL("Extrapolation Index Field", "extrapolationindex") WIDTH(1.5);
+    PARM_FIELD(string, "extrapolationindex") VALUE(extrapolationindex.val) 
+	LABELREF(extrapolationindex.label) HSTRETCH;
+
+}
+}	
+parmop_calculationtype.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_calculationtype.gad = parmop_calculationtype.menu WIDTH(1.3);
+
+calculationtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Calculation", "calculationtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    calculationtype.menu;
+
+}
+}	
+parmop_dsttimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dsttimescale.gad = parmop_dsttimescale.menu WIDTH(1.3);
+
+dsttimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dest Time Scale", "dsttimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dsttimescale.menu;
+
+}
+}	
+parmop_dstpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstpreadd.gad = parmop_dstpreadd.menu WIDTH(1.3);
+
+dstpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstpreadd.label = PARM_LABEL("Dest Pre-Add", "dstpreadd") WIDTH(1.5);
+ PARM(float, 1, "dstpreadd", none, none) RANGE(0,1)
+	 LABELREF(dstpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_dstpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_dstpremul.gad = parmop_dstpremul.menu WIDTH(1.3);
+
+dstpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dstpremul.label = PARM_LABEL("Dest Pre-Mult", "dstpremul") WIDTH(1.5);
+ PARM(float, 1, "dstpremul", none, none) RANGE(0,1)
+	 LABELREF(dstpremul.label) HSTRETCH;
+
+}
+}	
+parmop_srctimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srctimescale.gad = parmop_srctimescale.menu WIDTH(1.3);
+
+srctimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Time Scale", "srctimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srctimescale.menu;
+
+}
+}	
+parmop_scalebyvolume.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_scalebyvolume.gad = parmop_scalebyvolume.menu WIDTH(1.3);
+
+scalebyvolume.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("scalebyvolume", "Scale by Voxel Volume") toggle VALUE(scalebyvolume.val);
+
+}
+}	
+parmop_srcpreadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcpreadd.gad = parmop_srcpreadd.menu WIDTH(1.3);
+
+srcpreadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcpreadd.label = PARM_LABEL("Source Pre-Add", "srcpreadd") WIDTH(1.5);
+ PARM(float, 1, "srcpreadd", none, none) RANGE(0,1)
+	 LABELREF(srcpreadd.label) HSTRETCH;
+
+}
+}	
+parmop_srcpremul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_srcpremul.gad = parmop_srcpremul.menu WIDTH(1.3);
+
+srcpremul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcpremul.label = PARM_LABEL("Source Pre-Mult", "srcpremul") WIDTH(1.5);
+ PARM(float, 1, "srcpremul", none, none) RANGE(0,1)
+	 LABELREF(srcpremul.label) HSTRETCH;
+
+}
+}	
+parmop_posttimescale.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_posttimescale.gad = parmop_posttimescale.menu WIDTH(1.3);
+
+posttimescale.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Time Scale", "posttimescale") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    posttimescale.menu;
+
+}
+}	
+parmop_postadd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postadd.gad = parmop_postadd.menu WIDTH(1.3);
+
+postadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ postadd.label = PARM_LABEL("Post-Add", "postadd") WIDTH(1.5);
+ PARM(float, 1, "postadd", none, none) RANGE(0,1)
+	 LABELREF(postadd.label) HSTRETCH;
+
+}
+}	
+parmop_postmul.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_postmul.gad = parmop_postmul.menu WIDTH(1.3);
+
+postmul.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ postmul.label = PARM_LABEL("Post-Mult", "postmul") WIDTH(1.5);
+ PARM(float, 1, "postmul", none, none) RANGE(0,1)
+	 LABELREF(postmul.label) HSTRETCH;
+
+}
+}	
+
+defaultparmop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Default Operation", "defaultparmop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    defaultparmop.menu;
+
+}
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmop_field.join; 
+    parmop_geo.join; 
+    parmop_ptgroup.join; 
+    parmop_useattrib.join; 
+    parmop_attrib.join; 
+    parmop_accumulate.join; 
+    parmop_extrapolate.join; 
+    parmop_usemaxextrapolate.join; 
+    parmop_maxextrapolate.join; 
+    parmop_usemaxextrapolatedist.join; 
+    parmop_maxextrapolatedist.join; 
+    parmop_threshold.join; 
+    parmop_bandwidth.join; 
+    parmop_uniformradius.join; 
+    parmop_extrapolationindex.join; 
+    parmop_calculationtype.join; 
+    parmop_dsttimescale.join; 
+    parmop_dstpreadd.join; 
+    parmop_dstpremul.join; 
+    parmop_srctimescale.join; 
+    parmop_scalebyvolume.join; 
+    parmop_srcpreadd.join; 
+    parmop_srcpremul.join; 
+    parmop_posttimescale.join; 
+    parmop_postadd.join; 
+    parmop_postmul.join; 
+    defaultparmop.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,184 @@
+// Magic: 46e14841
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:37:01 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+parmop_usesoppath.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_usesoppath.gad = parmop_usesoppath.menu WIDTH(1.3);
+
+usesoppath.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usesoppath", "Use External SOP") toggle VALUE(usesoppath.val);
+
+}
+}	
+parmop_soppath.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_soppath.gad = parmop_soppath.menu WIDTH(1.3);
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("SOP Path", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+}	
+parmop_datapath.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_datapath.gad = parmop_datapath.menu WIDTH(1.3);
+
+datapath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    datapath.label = PARM_LABEL("Data Name", "datapath") WIDTH(1.5);
+    PARM_FIELD(string, "datapath") VALUE(datapath.val) 
+	LABELREF(datapath.label) HSTRETCH;
+
+}
+}	
+parmop_transformsopoutput.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_transformsopoutput.gad = parmop_transformsopoutput.menu WIDTH(1.3);
+
+transformsopoutput.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("transformsopoutput", "SOP Output is in Simulation Space") toggle VALUE(transformsopoutput.val);
+
+}
+}	
+parmop_solveinitframe.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_solveinitframe.gad = parmop_solveinitframe.menu WIDTH(1.3);
+
+solveinitframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solveinitframe", "Solve Objects on Creation Frame") toggle VALUE(solveinitframe.val);
+
+}
+}	
+
+defaultparmop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Default Operation", "defaultparmop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    defaultparmop.menu;
+
+}
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmop_usesoppath.join; 
+    parmop_soppath.join; 
+    parmop_datapath.join; 
+    parmop_transformsopoutput.join; 
+    parmop_solveinitframe.join; 
+    defaultparmop.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,80 @@
+// Magic: aa609fbe
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 16:56:24 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Source Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+iso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iso.label = PARM_LABEL("Iso Surface", "iso") WIDTH(1.5);
+ PARM(float, 1, "iso", none, none) RANGE(0,1)
+	 LABELREF(iso.label) HSTRETCH;
+
+}
+
+invert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert", "Invert") toggle VALUE(invert.val);
+
+}
+
+usemaxdist.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usemaxdist", "Use Maximum Distance") toggle VALUE(usemaxdist.val);
+
+}
+
+maxdist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxdist.label = PARM_LABEL("Maximum Distance", "maxdist") WIDTH(1.5);
+ PARM(float, 1, "maxdist", none, none) RANGE(0,1)
+	 LABELREF(maxdist.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    iso.gad; 
+    invert.gad; 
+    usemaxdist.gad; 
+    maxdist.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

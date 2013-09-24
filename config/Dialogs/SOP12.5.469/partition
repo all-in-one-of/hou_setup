@@ -1,0 +1,73 @@
+// Magic: 65cd9ff1
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:25:17 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+entity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Entity", "entity") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    entity.menu;
+
+}
+
+geotype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Type", "geotype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    geotype.menu;
+
+}
+
+rule.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    rule.label = PARM_LABEL("Rule", "rule") WIDTH(1.5);
+    PARM_FIELD(string, "rule") VALUE(rule.val) 
+	LABELREF(rule.label) HSTRETCH;
+
+    rule.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    entity.gad; 
+    geotype.gad; 
+    rule.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

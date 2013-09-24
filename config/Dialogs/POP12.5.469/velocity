@@ -1,0 +1,97 @@
+// Magic: 4f171398
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:21:49 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+applymotion.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Apply Motion", "applymotion") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    applymotion.menu;
+
+}
+
+veltype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Type", "veltype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    veltype.menu;
+
+}
+velv.join = SWITCHER		 
+{
+  LAYOUT(overlap) HSTRETCH LOOK(none) VALUE(veltype.val)
+
+velv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    velv.label = PARM_LABEL("", "velv") WIDTH(1.5);
+    PARM_FIELD(string, "velv") VALUE(velv.val) 
+	LABELREF(velv.label) HSTRETCH;
+
+}
+
+v.gad = ROW
+{
+   HSTRETCH
+
+   v.label = PARM_LABEL("Velocity", "v") WIDTH(1.5);
+
+   PARM(float, 3, "v", none, none, "X,Y,Z") LABELREF(v.label)
+	HSTRETCH;
+
+}
+}	
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    source.gad; 
+    applymotion.gad; 
+    veltype.gad; 
+    velv.join; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

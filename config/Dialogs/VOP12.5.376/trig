@@ -1,0 +1,233 @@
+// Magic: 737c27f1
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:32:53 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+func.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Function", "func") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    func.menu;
+
+	{ HSTRETCH } func.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(func.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rad.label = PARM_LABEL("Radians", "rad") WIDTH(1.5);
+ PARM(float, 1, "rad", none, none) RANGE(0,1)
+	 LABELREF(rad.label) HSTRETCH;
+
+	rad.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_v.gad = ROW
+{
+   HSTRETCH
+
+   rad_v.label = PARM_LABEL("Radians", "rad_v") WIDTH(1.5);
+
+   PARM(float, 3, "rad_v", none, none, "#1,#2,#3") LABELREF(rad_v.label)
+	HSTRETCH;
+
+	rad_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_p.gad = ROW
+{
+   HSTRETCH
+
+   rad_p.label = PARM_LABEL("Radians", "rad_p") WIDTH(1.5);
+
+   PARM(float, 3, "rad_p", none, none, "#1,#2,#3") LABELREF(rad_p.label)
+	HSTRETCH;
+
+	rad_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_n.gad = ROW
+{
+   HSTRETCH
+
+   rad_n.label = PARM_LABEL("Radians", "rad_n") WIDTH(1.5);
+
+   PARM(float, 3, "rad_n", none, none, "#1,#2,#3") LABELREF(rad_n.label)
+	HSTRETCH;
+
+	rad_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_c.gad = ROW
+{
+   HSTRETCH
+
+   rad_c.label = PARM_LABEL("Radians", "rad_c") WIDTH(1.5);
+
+   PARM(float, 3, "rad_c", none, none, "#1,#2,#3") LABELREF(rad_c.label)
+	HSTRETCH;
+
+	rad_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_v4.gad = ROW
+{
+   HSTRETCH
+
+   rad_v4.label = PARM_LABEL("Radians", "rad_v4") WIDTH(1.5);
+
+   PARM(float, 4, "rad_v4", none, none, "#1,#2,#3,#4") LABELREF(rad_v4.label)
+	HSTRETCH;
+
+	rad_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rad_uf.label = PARM_LABEL("Radians", "rad_uf") WIDTH(1.5);
+ PARM(float, 1, "rad_uf", none, none) RANGE(0,1)
+	 LABELREF(rad_uf.label) HSTRETCH;
+
+	rad_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_uv.gad = ROW
+{
+   HSTRETCH
+
+   rad_uv.label = PARM_LABEL("Radians", "rad_uv") WIDTH(1.5);
+
+   PARM(float, 3, "rad_uv", none, none, "#1,#2,#3") LABELREF(rad_uv.label)
+	HSTRETCH;
+
+	rad_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_up.gad = ROW
+{
+   HSTRETCH
+
+   rad_up.label = PARM_LABEL("Radians", "rad_up") WIDTH(1.5);
+
+   PARM(float, 3, "rad_up", none, none, "#1,#2,#3") LABELREF(rad_up.label)
+	HSTRETCH;
+
+	rad_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_un.gad = ROW
+{
+   HSTRETCH
+
+   rad_un.label = PARM_LABEL("Radians", "rad_un") WIDTH(1.5);
+
+   PARM(float, 3, "rad_un", none, none, "#1,#2,#3") LABELREF(rad_un.label)
+	HSTRETCH;
+
+	rad_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rad_uc.gad = ROW
+{
+   HSTRETCH
+
+   rad_uc.label = PARM_LABEL("Radians", "rad_uc") WIDTH(1.5);
+
+   PARM(float, 3, "rad_uc", none, none, "#1,#2,#3") LABELREF(rad_uc.label)
+	HSTRETCH;
+
+	rad_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rad_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+freq.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ freq.label = PARM_LABEL("Frequency", "freq") WIDTH(1.5);
+ PARM(float, 1, "freq", none, none) RANGE(-5,5)
+	 LABELREF(freq.label) HSTRETCH;
+
+	freq.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(freq.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+offset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+ PARM(float, 1, "offset", none, none) RANGE(0,1)
+	 LABELREF(offset.label) HSTRETCH;
+
+	offset.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(offset.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    func.gad; 
+    rad.gad; 
+    rad_v.gad; 
+    rad_p.gad; 
+    rad_n.gad; 
+    rad_c.gad; 
+    rad_v4.gad; 
+    rad_uf.gad; 
+    rad_uv.gad; 
+    rad_up.gad; 
+    rad_un.gad; 
+    rad_uc.gad; 
+    freq.gad; 
+    offset.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

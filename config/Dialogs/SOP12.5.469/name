@@ -1,0 +1,160 @@
+// Magic: 859be61d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:45:21 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+attribname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attribname.label = PARM_LABEL("Attribute", "attribname") WIDTH(1.5);
+    PARM_FIELD(string, "attribname") VALUE(attribname.val) 
+	LABELREF(attribname.label) HSTRETCH;
+
+}
+
+class.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Class", "class") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    class.menu;
+
+}
+
+donamefromgroup.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("donamefromgroup", "Name from Group") toggle VALUE(donamefromgroup.val);
+
+}
+
+namefromgroupmask.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    namefromgroupmask.label = PARM_LABEL("Group Mask", "namefromgroupmask") WIDTH(1.5);
+    PARM_FIELD(string, "namefromgroupmask") VALUE(namefromgroupmask.val) 
+	LABELREF(namefromgroupmask.label) HSTRETCH;
+
+}
+
+numnames.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Namings", "numnames") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numnames.val)
+
+        numnames.field = PARM_FIELD (integer, "numnames")
+				VALUE(numnames.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numnames.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numnames.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numnames.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numnames.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numnames.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numnames.parm;
+    numnames.multilist;
+}
+
+numrenames.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Renames", "numrenames") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numrenames.val)
+
+        numrenames.field = PARM_FIELD (integer, "numrenames")
+				VALUE(numrenames.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numrenames.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numrenames.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numrenames.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numrenames.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numrenames.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numrenames.parm;
+    numrenames.multilist;
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    attribname.gad; 
+    class.gad; 
+    donamefromgroup.gad; 
+    namefromgroupmask.gad; 
+    numnames.gad; 
+    numrenames.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,46 @@
+// Magic: da15a605
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 17:00:15 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+emittype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Emission Type", "emittype") ;
+    { WIDTH(0.09) }
+
+    emittype.menu;
+
+}
+
+constantrate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ constantrate.label = PARM_LABEL("Const. Birth Rate", "constantrate");
+ PARM(float, 1, "constantrate", none, field) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(constantrate.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    emittype.gad; 
+    constantrate.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

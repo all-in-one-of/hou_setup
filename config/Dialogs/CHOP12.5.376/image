@@ -1,0 +1,490 @@
+// Magic: a7a1bfd4
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 02:52:03 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+coppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ coppath.label = PARM_LABEL("COP Path", "coppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "coppath") VALUE(coppath.val) 
+	LABELREF(coppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(coppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(coppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+frame.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ frame.label = PARM_LABEL("Frame", "frame") WIDTH(1.5);
+ PARM(float, 1, "frame", none, none) RANGE(0,1)
+	 LABELREF(frame.label) HSTRETCH;
+
+}
+copcolor.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+copcolor.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Planes", "copcolor") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    copcolor.menu;
+
+}
+
+copalpha.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    copalpha.menu;
+
+}
+}	
+
+r.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    r.label = PARM_LABEL("Red", "r") WIDTH(1.5);
+    PARM_FIELD(string, "r") VALUE(r.val) 
+	LABELREF(r.label) HSTRETCH;
+
+}
+
+g.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    g.label = PARM_LABEL("Green", "g") WIDTH(1.5);
+    PARM_FIELD(string, "g") VALUE(g.val) 
+	LABELREF(g.label) HSTRETCH;
+
+}
+
+b.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    b.label = PARM_LABEL("Blue", "b") WIDTH(1.5);
+    PARM_FIELD(string, "b") VALUE(b.val) 
+	LABELREF(b.label) HSTRETCH;
+
+}
+
+a.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    a.label = PARM_LABEL("Alpha", "a") WIDTH(1.5);
+    PARM_FIELD(string, "a") VALUE(a.val) 
+	LABELREF(a.label) HSTRETCH;
+
+}
+
+rgbaunit.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("RGBA Units", "rgbaunit") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    rgbaunit.menu;
+
+}
+
+crop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Crop", "crop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    crop.menu;
+
+}
+
+uvunits.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("UV Units", "uvunits") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uvunits.menu;
+
+}
+
+ustart.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ ustart.label = PARM_LABEL("U Start", "ustart") WIDTH(1.5);
+ PARM(float, 1, "ustart", none, none) RANGE(0,1)
+	 LABELREF(ustart.label) HSTRETCH;
+
+}
+
+uend.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ uend.label = PARM_LABEL("U End", "uend") WIDTH(1.5);
+ PARM(float, 1, "uend", none, none) RANGE(0,1)
+	 LABELREF(uend.label) HSTRETCH;
+
+}
+
+vstart.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vstart.label = PARM_LABEL("V Start", "vstart") WIDTH(1.5);
+ PARM(float, 1, "vstart", none, none) RANGE(0,1)
+	 LABELREF(vstart.label) HSTRETCH;
+
+}
+
+vend.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vend.label = PARM_LABEL("V End", "vend") WIDTH(1.5);
+ PARM(float, 1, "vend", none, none) RANGE(0,1)
+	 LABELREF(vend.label) HSTRETCH;
+
+}
+
+interp.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Interpolate", "interp") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    interp.menu;
+
+}
+
+imageleft.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Left", "imageleft") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    imageleft.menu;
+
+}
+
+imageright.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Right", "imageright") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    imageright.menu;
+
+}
+
+imagebottom.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Bottom", "imagebottom") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    imagebottom.menu;
+
+}
+
+imagetop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Top", "imagetop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    imagetop.menu;
+
+}
+
+defcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    defcolor.label = PARM_LABEL("Default Color", "defcolor") WIDTH(1.5);
+
+    PARM(float, 4, "defcolor", none, COLOR, "R,G,B,A") 
+	LABELREF(defcolor.label) HSTRETCH;
+
+}
+
+start.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ start.label = PARM_LABEL("Start", "start") WIDTH(1.5);
+ PARM(float, 1, "start", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(start.label) HSTRETCH;
+
+}
+
+rate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rate.label = PARM_LABEL("Sample Rate", "rate") WIDTH(1.5);
+ PARM(float, 1, "rate", none, none) RANGE(0,120)
+	LOCK_RANGE_MIN LABELREF(rate.label) HSTRETCH;
+
+}
+
+left.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Extend Left", "left") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    left.menu;
+
+}
+
+right.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Extend Right", "right") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    right.menu;
+
+}
+
+defval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ defval.label = PARM_LABEL("Default Value", "defval") WIDTH(1.5);
+ PARM(float, 1, "defval", none, none) RANGE(-10,10)
+	 LABELREF(defval.label) HSTRETCH;
+
+}
+
+scope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    scope.label = PARM_LABEL("Scope", "scope") WIDTH(1.5);
+    PARM_FIELD(string, "scope") VALUE(scope.val) 
+	LABELREF(scope.label) HSTRETCH;
+
+    scope.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+srselect.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Sample Rate Match", "srselect") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srselect.menu;
+
+}
+
+units.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Units", "units") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    units.menu;
+
+}
+
+timeslice.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeslice", "Time Slice") toggle VALUE(timeslice.val);
+
+}
+
+unload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unload", "Unload") toggle VALUE(unload.val);
+
+}
+
+export.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ export.label = PARM_LABEL("Export Prefix", "export") WIDTH(1.5);
+ PARM_FIELD(pathstring, "export") VALUE(export.val) 
+	LABELREF(export.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(export.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(export.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+gcolor.gad =
+{
+ LAYOUT(horizontal) HSTRETCH
+
+     PARM_LABEL_SIMPLE("Graph Color", "gcolor") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+ COLORPALETTE "$HSC/colorPalette.def" 
+       VALUE(gcolor.val[0], gcolor.val[1], gcolor.val[2]) 
+       HSTRETCH MIN_HEIGHT(0.62);
+}
+
+gcolorstep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gcolorstep.label = PARM_LABEL("Graph Color Step", "gcolorstep") WIDTH(1.5);
+ PARM(float, 1, "gcolorstep", none, none) RANGE(0,0.20000000000000001)
+	 LABELREF(gcolorstep.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Image"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    coppath.gad;		
+	    frame.gad;		
+	    copcolor.join;		
+	    r.gad;		
+	    g.gad;		
+	    b.gad;		
+	    a.gad;		
+	    rgbaunit.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Crop"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    crop.gad;		
+	    uvunits.gad;		
+	    ustart.gad;		
+	    uend.gad;		
+	    vstart.gad;		
+	    vend.gad;		
+	    interp.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Extend"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    imageleft.gad;		
+	    imageright.gad;		
+	    imagebottom.gad;		
+	    imagetop.gad;		
+	    defcolor.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Channel"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    start.gad;		
+	    rate.gad;		
+	    left.gad;		
+	    right.gad;		
+	    defval.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Common"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    scope.gad;		
+	    srselect.gad;		
+	    units.gad;		
+	    timeslice.gad;		
+	    unload.gad;		
+	    export.gad;		
+	    gcolor.gad;		
+	    gcolorstep.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

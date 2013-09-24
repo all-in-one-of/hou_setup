@@ -1,0 +1,231 @@
+// Magic: 4d3d71e3
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:48:16 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+springk.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ springk.label = PARM_LABEL("Spring Constant", "springk") WIDTH(1.5);
+ PARM(float, 1, "springk", none, none) RANGE(0,1000)
+	LOCK_RANGE_MIN LABELREF(springk.label) HSTRETCH;
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass") WIDTH(1.5);
+ PARM(float, 1, "mass", none, none) RANGE(0.10000000000000001,10)
+	 LABELREF(mass.label) HSTRETCH;
+
+}
+
+dampingk.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dampingk.label = PARM_LABEL("Damping Constant", "dampingk") WIDTH(1.5);
+ PARM(float, 1, "dampingk", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(dampingk.label) HSTRETCH;
+
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Input Effect", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+condfromchan.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("condfromchan", "Initial Conditions From Channel") toggle VALUE(condfromchan.val);
+
+}
+
+initpos.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ initpos.label = PARM_LABEL("Initial Position", "initpos") WIDTH(1.5);
+ PARM(float, 1, "initpos", none, none) RANGE(-10,10)
+	 LABELREF(initpos.label) HSTRETCH;
+
+}
+
+initspeed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ initspeed.label = PARM_LABEL("Initial Speed", "initspeed") WIDTH(1.5);
+ PARM(float, 1, "initspeed", none, none) RANGE(-100,100)
+	 LABELREF(initspeed.label) HSTRETCH;
+
+}
+
+scope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    scope.label = PARM_LABEL("Scope", "scope") WIDTH(1.5);
+    PARM_FIELD(string, "scope") VALUE(scope.val) 
+	LABELREF(scope.label) HSTRETCH;
+
+    scope.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+srselect.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Sample Rate Match", "srselect") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srselect.menu;
+
+}
+
+units.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Units", "units") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    units.menu;
+
+}
+
+timeslice.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeslice", "Time Slice") toggle VALUE(timeslice.val);
+
+}
+
+unload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unload", "Unload") toggle VALUE(unload.val);
+
+}
+
+export.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ export.label = PARM_LABEL("Export Prefix", "export") WIDTH(1.5);
+ PARM_FIELD(pathstring, "export") VALUE(export.val) 
+	LABELREF(export.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(export.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(export.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+gcolor.gad =
+{
+ LAYOUT(horizontal) HSTRETCH
+
+     PARM_LABEL_SIMPLE("Graph Color", "gcolor") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+ COLORPALETTE "$HSC/colorPalette.def" 
+       VALUE(gcolor.val[0], gcolor.val[1], gcolor.val[2]) 
+       HSTRETCH MIN_HEIGHT(0.62);
+}
+
+gcolorstep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gcolorstep.label = PARM_LABEL("Graph Color Step", "gcolorstep") WIDTH(1.5);
+ PARM(float, 1, "gcolorstep", none, none) RANGE(0,0.20000000000000001)
+	 LABELREF(gcolorstep.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Spring"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    springk.gad;		
+	    mass.gad;		
+	    dampingk.gad;		
+	    method.gad;		
+	    condfromchan.gad;		
+	    initpos.gad;		
+	    initspeed.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Common"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    scope.gad;		
+	    srselect.gad;		
+	    units.gad;		
+	    timeslice.gad;		
+	    unload.gad;		
+	    export.gad;		
+	    gcolor.gad;		
+	    gcolorstep.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

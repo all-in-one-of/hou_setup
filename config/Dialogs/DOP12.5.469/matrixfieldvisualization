@@ -1,0 +1,225 @@
+// Magic: c38cfeb1
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 15:59:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+showguide.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide", "Show Guide Geometry") toggle VALUE(showguide.val);
+
+}
+
+color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    color.label = PARM_LABEL("Color", "color") WIDTH(1.5);
+
+    PARM(float, 3, "color", none, COLOR, "R,G,B") 
+	LABELREF(color.label) HSTRETCH;
+
+}
+guideusebox.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+guideusebox.gad = ROW
+{
+
+    PARM_BUTTON("guideusebox", "Bounding Box") toggle VALUE(guideusebox.val);
+
+}
+
+guideuseboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guideuseboxhash", "Bounding Box Hash") toggle VALUE(guideuseboxhash.val);
+
+}
+}	
+
+guideusesmoke.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guideusesmoke", "Use Smoke") toggle VALUE(guideusesmoke.val);
+
+}
+guideuseplane.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("guideuseplane", "Use Plane") toggle VALUE(guideuseplane.val);
+
+}
+
+guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "guideplane") ;
+    { WIDTH(0.09) }
+
+    guideplane.menu;
+
+}
+}	
+guideplanepos.gad = NULL { }
+
+guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ guideplaneval.label = PARM_LABEL("Plane Position", "guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(guideplaneval.label) HSTRETCH;
+
+}
+
+guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    guidevismode.menu;
+
+}
+
+guiderange.gad = ROW
+{
+   HSTRETCH
+
+   guiderange.label = PARM_LABEL("Guide Range", "guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "guiderange", none, none, "#1,#2") LABELREF(guiderange.label)
+	HSTRETCH;
+
+}
+
+guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ guideiso.label = PARM_LABEL("Iso Offset", "guideiso") WIDTH(1.5);
+ PARM(float, 1, "guideiso", none, none) RANGE(0,1)
+	 LABELREF(guideiso.label) HSTRETCH;
+
+}
+
+guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guideinvert", "Invert Iso") toggle VALUE(guideinvert.val);
+
+}
+
+sharedata.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Data Sharing", "sharedata") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    sharedata.menu;
+
+}
+activation.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+activation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activation.label = PARM_LABEL("Activation", "activation") WIDTH(1.5);
+ PARM(integer, 1, "activation", none, none) RANGE(0,10)
+	 LABELREF(activation.label) HSTRETCH;
+
+}
+
+activationrules.gad = activationrules.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    showguide.gad; 
+    color.gad; 
+    guideusebox.join; 
+    guideusesmoke.gad; 
+    guideuseplane.join; 
+    guideplanepos.gad; 
+    guideplaneval.gad; 
+    guidevismode.gad; 
+    guiderange.gad; 
+    guideiso.gad; 
+    guideinvert.gad; 
+    sharedata.gad; 
+    activation.join; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

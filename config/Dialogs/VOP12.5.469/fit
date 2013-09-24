@@ -1,0 +1,647 @@
+// Magic: 11698f4d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 17:29:02 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcmin.label = PARM_LABEL("Source Min", "srcmin") WIDTH(1.5);
+ PARM(float, 1, "srcmin", none, none) RANGE(0,1)
+	 LABELREF(srcmin.label) HSTRETCH;
+
+	srcmin.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcmax.label = PARM_LABEL("Source Max", "srcmax") WIDTH(1.5);
+ PARM(float, 1, "srcmax", none, none) RANGE(0,1)
+	 LABELREF(srcmax.label) HSTRETCH;
+
+	srcmax.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ destmin.label = PARM_LABEL("Destination Min", "destmin") WIDTH(1.5);
+ PARM(float, 1, "destmin", none, none) RANGE(0,1)
+	 LABELREF(destmin.label) HSTRETCH;
+
+	destmin.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ destmax.label = PARM_LABEL("Destination Max", "destmax") WIDTH(1.5);
+ PARM(float, 1, "destmax", none, none) RANGE(0,1)
+	 LABELREF(destmax.label) HSTRETCH;
+
+	destmax.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_v.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_v.label = PARM_LABEL("Source Min", "srcmin_v") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_v", none, none, "#1,#2,#3") LABELREF(srcmin_v.label)
+	HSTRETCH;
+
+	srcmin_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_v.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_v.label = PARM_LABEL("Source Max", "srcmax_v") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_v", none, none, "#1,#2,#3") LABELREF(srcmax_v.label)
+	HSTRETCH;
+
+	srcmax_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_v.gad = ROW
+{
+   HSTRETCH
+
+   destmin_v.label = PARM_LABEL("Destination Min", "destmin_v") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_v", none, none, "#1,#2,#3") LABELREF(destmin_v.label)
+	HSTRETCH;
+
+	destmin_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_v.gad = ROW
+{
+   HSTRETCH
+
+   destmax_v.label = PARM_LABEL("Destination Max", "destmax_v") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_v", none, none, "#1,#2,#3") LABELREF(destmax_v.label)
+	HSTRETCH;
+
+	destmax_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_p.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_p.label = PARM_LABEL("Source Min", "srcmin_p") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_p", none, none, "#1,#2,#3") LABELREF(srcmin_p.label)
+	HSTRETCH;
+
+	srcmin_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_p.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_p.label = PARM_LABEL("Source Max", "srcmax_p") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_p", none, none, "#1,#2,#3") LABELREF(srcmax_p.label)
+	HSTRETCH;
+
+	srcmax_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_p.gad = ROW
+{
+   HSTRETCH
+
+   destmin_p.label = PARM_LABEL("Destination Min", "destmin_p") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_p", none, none, "#1,#2,#3") LABELREF(destmin_p.label)
+	HSTRETCH;
+
+	destmin_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_p.gad = ROW
+{
+   HSTRETCH
+
+   destmax_p.label = PARM_LABEL("Destination Max", "destmax_p") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_p", none, none, "#1,#2,#3") LABELREF(destmax_p.label)
+	HSTRETCH;
+
+	destmax_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_n.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_n.label = PARM_LABEL("Source Min", "srcmin_n") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_n", none, none, "#1,#2,#3") LABELREF(srcmin_n.label)
+	HSTRETCH;
+
+	srcmin_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_n.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_n.label = PARM_LABEL("Source Max", "srcmax_n") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_n", none, none, "#1,#2,#3") LABELREF(srcmax_n.label)
+	HSTRETCH;
+
+	srcmax_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_n.gad = ROW
+{
+   HSTRETCH
+
+   destmin_n.label = PARM_LABEL("Destination Min", "destmin_n") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_n", none, none, "#1,#2,#3") LABELREF(destmin_n.label)
+	HSTRETCH;
+
+	destmin_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_n.gad = ROW
+{
+   HSTRETCH
+
+   destmax_n.label = PARM_LABEL("Destination Max", "destmax_n") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_n", none, none, "#1,#2,#3") LABELREF(destmax_n.label)
+	HSTRETCH;
+
+	destmax_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    srcmin_c.label = PARM_LABEL("Source Min", "srcmin_c") WIDTH(1.5);
+
+    PARM(float, 3, "srcmin_c", none, COLOR, "R,G,B") 
+	LABELREF(srcmin_c.label) HSTRETCH;
+
+	srcmin_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    srcmax_c.label = PARM_LABEL("Source Max", "srcmax_c") WIDTH(1.5);
+
+    PARM(float, 3, "srcmax_c", none, COLOR, "R,G,B") 
+	LABELREF(srcmax_c.label) HSTRETCH;
+
+	srcmax_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    destmin_c.label = PARM_LABEL("Destination Min", "destmin_c") WIDTH(1.5);
+
+    PARM(float, 3, "destmin_c", none, COLOR, "R,G,B") 
+	LABELREF(destmin_c.label) HSTRETCH;
+
+	destmin_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    destmax_c.label = PARM_LABEL("Destination Max", "destmax_c") WIDTH(1.5);
+
+    PARM(float, 3, "destmax_c", none, COLOR, "R,G,B") 
+	LABELREF(destmax_c.label) HSTRETCH;
+
+	destmax_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_v4.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_v4.label = PARM_LABEL("Source Min", "srcmin_v4") WIDTH(1.5);
+
+   PARM(float, 4, "srcmin_v4", none, none, "#1,#2,#3,#4") LABELREF(srcmin_v4.label)
+	HSTRETCH;
+
+	srcmin_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_v4.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_v4.label = PARM_LABEL("Source Max", "srcmax_v4") WIDTH(1.5);
+
+   PARM(float, 4, "srcmax_v4", none, none, "#1,#2,#3,#4") LABELREF(srcmax_v4.label)
+	HSTRETCH;
+
+	srcmax_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_v4.gad = ROW
+{
+   HSTRETCH
+
+   destmin_v4.label = PARM_LABEL("Destination Min", "destmin_v4") WIDTH(1.5);
+
+   PARM(float, 4, "destmin_v4", none, none, "#1,#2,#3,#4") LABELREF(destmin_v4.label)
+	HSTRETCH;
+
+	destmin_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_v4.gad = ROW
+{
+   HSTRETCH
+
+   destmax_v4.label = PARM_LABEL("Destination Max", "destmax_v4") WIDTH(1.5);
+
+   PARM(float, 4, "destmax_v4", none, none, "#1,#2,#3,#4") LABELREF(destmax_v4.label)
+	HSTRETCH;
+
+	destmax_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcmin_uf.label = PARM_LABEL("Source Min", "srcmin_uf") WIDTH(1.5);
+ PARM(float, 1, "srcmin_uf", none, none) RANGE(0,1)
+	 LABELREF(srcmin_uf.label) HSTRETCH;
+
+	srcmin_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ srcmax_uf.label = PARM_LABEL("Source Max", "srcmax_uf") WIDTH(1.5);
+ PARM(float, 1, "srcmax_uf", none, none) RANGE(0,1)
+	 LABELREF(srcmax_uf.label) HSTRETCH;
+
+	srcmax_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ destmin_uf.label = PARM_LABEL("Destination Min", "destmin_uf") WIDTH(1.5);
+ PARM(float, 1, "destmin_uf", none, none) RANGE(0,1)
+	 LABELREF(destmin_uf.label) HSTRETCH;
+
+	destmin_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ destmax_uf.label = PARM_LABEL("Destination Max", "destmax_uf") WIDTH(1.5);
+ PARM(float, 1, "destmax_uf", none, none) RANGE(0,1)
+	 LABELREF(destmax_uf.label) HSTRETCH;
+
+	destmax_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_uv.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_uv.label = PARM_LABEL("Source Min", "srcmin_uv") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_uv", none, none, "#1,#2,#3") LABELREF(srcmin_uv.label)
+	HSTRETCH;
+
+	srcmin_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_uv.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_uv.label = PARM_LABEL("Source Max", "srcmax_uv") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_uv", none, none, "#1,#2,#3") LABELREF(srcmax_uv.label)
+	HSTRETCH;
+
+	srcmax_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_uv.gad = ROW
+{
+   HSTRETCH
+
+   destmin_uv.label = PARM_LABEL("Destination Min", "destmin_uv") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_uv", none, none, "#1,#2,#3") LABELREF(destmin_uv.label)
+	HSTRETCH;
+
+	destmin_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_uv.gad = ROW
+{
+   HSTRETCH
+
+   destmax_uv.label = PARM_LABEL("Destination Max", "destmax_uv") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_uv", none, none, "#1,#2,#3") LABELREF(destmax_uv.label)
+	HSTRETCH;
+
+	destmax_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_up.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_up.label = PARM_LABEL("Source Min", "srcmin_up") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_up", none, none, "#1,#2,#3") LABELREF(srcmin_up.label)
+	HSTRETCH;
+
+	srcmin_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_up.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_up.label = PARM_LABEL("Source Max", "srcmax_up") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_up", none, none, "#1,#2,#3") LABELREF(srcmax_up.label)
+	HSTRETCH;
+
+	srcmax_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_up.gad = ROW
+{
+   HSTRETCH
+
+   destmin_up.label = PARM_LABEL("Destination Min", "destmin_up") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_up", none, none, "#1,#2,#3") LABELREF(destmin_up.label)
+	HSTRETCH;
+
+	destmin_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_up.gad = ROW
+{
+   HSTRETCH
+
+   destmax_up.label = PARM_LABEL("Destination Max", "destmax_up") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_up", none, none, "#1,#2,#3") LABELREF(destmax_up.label)
+	HSTRETCH;
+
+	destmax_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_un.gad = ROW
+{
+   HSTRETCH
+
+   srcmin_un.label = PARM_LABEL("Source Min", "srcmin_un") WIDTH(1.5);
+
+   PARM(float, 3, "srcmin_un", none, none, "#1,#2,#3") LABELREF(srcmin_un.label)
+	HSTRETCH;
+
+	srcmin_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_un.gad = ROW
+{
+   HSTRETCH
+
+   srcmax_un.label = PARM_LABEL("Source Max", "srcmax_un") WIDTH(1.5);
+
+   PARM(float, 3, "srcmax_un", none, none, "#1,#2,#3") LABELREF(srcmax_un.label)
+	HSTRETCH;
+
+	srcmax_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_un.gad = ROW
+{
+   HSTRETCH
+
+   destmin_un.label = PARM_LABEL("Destination Min", "destmin_un") WIDTH(1.5);
+
+   PARM(float, 3, "destmin_un", none, none, "#1,#2,#3") LABELREF(destmin_un.label)
+	HSTRETCH;
+
+	destmin_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_un.gad = ROW
+{
+   HSTRETCH
+
+   destmax_un.label = PARM_LABEL("Destination Max", "destmax_un") WIDTH(1.5);
+
+   PARM(float, 3, "destmax_un", none, none, "#1,#2,#3") LABELREF(destmax_un.label)
+	HSTRETCH;
+
+	destmax_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmin_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    srcmin_uc.label = PARM_LABEL("Source Min", "srcmin_uc") WIDTH(1.5);
+
+    PARM(float, 3, "srcmin_uc", none, COLOR, "R,G,B") 
+	LABELREF(srcmin_uc.label) HSTRETCH;
+
+	srcmin_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmin_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcmax_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    srcmax_uc.label = PARM_LABEL("Source Max", "srcmax_uc") WIDTH(1.5);
+
+    PARM(float, 3, "srcmax_uc", none, COLOR, "R,G,B") 
+	LABELREF(srcmax_uc.label) HSTRETCH;
+
+	srcmax_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(srcmax_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmin_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    destmin_uc.label = PARM_LABEL("Destination Min", "destmin_uc") WIDTH(1.5);
+
+    PARM(float, 3, "destmin_uc", none, COLOR, "R,G,B") 
+	LABELREF(destmin_uc.label) HSTRETCH;
+
+	destmin_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmin_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+destmax_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    destmax_uc.label = PARM_LABEL("Destination Max", "destmax_uc") WIDTH(1.5);
+
+    PARM(float, 3, "destmax_uc", none, COLOR, "R,G,B") 
+	LABELREF(destmax_uc.label) HSTRETCH;
+
+	destmax_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(destmax_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    srcmin.gad; 
+    srcmax.gad; 
+    destmin.gad; 
+    destmax.gad; 
+    srcmin_v.gad; 
+    srcmax_v.gad; 
+    destmin_v.gad; 
+    destmax_v.gad; 
+    srcmin_p.gad; 
+    srcmax_p.gad; 
+    destmin_p.gad; 
+    destmax_p.gad; 
+    srcmin_n.gad; 
+    srcmax_n.gad; 
+    destmin_n.gad; 
+    destmax_n.gad; 
+    srcmin_c.gad; 
+    srcmax_c.gad; 
+    destmin_c.gad; 
+    destmax_c.gad; 
+    srcmin_v4.gad; 
+    srcmax_v4.gad; 
+    destmin_v4.gad; 
+    destmax_v4.gad; 
+    srcmin_uf.gad; 
+    srcmax_uf.gad; 
+    destmin_uf.gad; 
+    destmax_uf.gad; 
+    srcmin_uv.gad; 
+    srcmax_uv.gad; 
+    destmin_uv.gad; 
+    destmax_uv.gad; 
+    srcmin_up.gad; 
+    srcmax_up.gad; 
+    destmin_up.gad; 
+    destmax_up.gad; 
+    srcmin_un.gad; 
+    srcmax_un.gad; 
+    destmin_un.gad; 
+    destmax_un.gad; 
+    srcmin_uc.gad; 
+    srcmax_uc.gad; 
+    destmin_uc.gad; 
+    destmax_uc.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

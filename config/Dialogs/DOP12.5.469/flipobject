@@ -1,0 +1,2780 @@
+// Magic: 741095e
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 19:01:06 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+particlesep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ particlesep.label = PARM_LABEL("Particle Separation", "particlesep") WIDTH(1.5);
+ PARM(float, 1, "particlesep", none, none) RANGE(0,10)
+	 LABELREF(particlesep.label) HSTRETCH;
+
+}
+
+radiusscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiusscale.label = PARM_LABEL("Particle Radius Scale", "radiusscale") WIDTH(1.5);
+ PARM(float, 1, "radiusscale", none, none) RANGE(0,10)
+	 LABELREF(radiusscale.label) HSTRETCH;
+
+}
+
+gridscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gridscale.label = PARM_LABEL("Grid Scale", "gridscale") WIDTH(1.5);
+ PARM(float, 1, "gridscale", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(gridscale.label) HSTRETCH;
+
+}
+overridecollisionsep.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+overridecollisionsep.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+overridecollisionsep.gad = PARM_BUTTON("overridecollisionsep", "") toggle VALUE(overridecollisionsep.val);
+
+collisionsep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionsep.label = PARM_LABEL("Collision Separation", "collisionsep") WIDTH(1.27);
+ PARM(float, 1, "collisionsep", none, none) RANGE(0,10)
+	 LABELREF(collisionsep.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+usesimframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usesimframe", "Creation Frame Specifies Simulation Frame") toggle VALUE(usesimframe.val);
+
+}
+
+createframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ createframe.label = PARM_LABEL("Creation Frame", "createframe") WIDTH(1.5);
+ PARM(integer, 1, "createframe", none, none) RANGE(0,10)
+	 LABELREF(createframe.label) HSTRETCH;
+
+}
+
+numobjects.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ numobjects.label = PARM_LABEL("Number of Objects", "numobjects") WIDTH(1.5);
+ PARM(integer, 1, "numobjects", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(numobjects.label) HSTRETCH;
+
+}
+
+objname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    objname.label = PARM_LABEL("Object Name", "objname") WIDTH(1.5);
+    PARM_FIELD(string, "objname") VALUE(objname.val) 
+	LABELREF(objname.label) HSTRETCH;
+
+}
+
+solvefirstframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solvefirstframe", "Solve on Creation Frame") toggle VALUE(solvefirstframe.val);
+
+}
+
+allowcaching.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("allowcaching", "Allow Caching") toggle VALUE(allowcaching.val);
+
+}
+
+surfacetype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Input Type", "surfacetype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surfacetype.menu;
+
+}
+
+inittype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Initial Configuration", "inittype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    inittype.menu;
+
+}
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("SOP Path", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+fluid_geometry_file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ fluid_geometry_file.label = PARM_LABEL("Fluid Geometry File", "fluid_geometry_file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "fluid_geometry_file") LABELREF(fluid_geometry_file.label)
+	VALUE(fluid_geometry_file.val) HSTRETCH;
+
+ fluid_geometry_file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(fluid_geometry_file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+srcobject.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    srcobject.label = PARM_LABEL("Source Object", "srcobject") WIDTH(1.5);
+    PARM_FIELD(string, "srcobject") VALUE(srcobject.val) 
+	LABELREF(srcobject.label) HSTRETCH;
+
+}
+
+srcdataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    srcdataname.label = PARM_LABEL("Source Data Name", "srcdataname") WIDTH(1.5);
+    PARM_FIELD(string, "srcdataname") VALUE(srcdataname.val) 
+	LABELREF(srcdataname.label) HSTRETCH;
+
+}
+
+jitterseed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitterseed.label = PARM_LABEL("Jitter Seed", "jitterseed") WIDTH(1.5);
+ PARM(integer, 1, "jitterseed", none, none) RANGE(0,10)
+	 LABELREF(jitterseed.label) HSTRETCH;
+
+}
+
+jitterscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitterscale.label = PARM_LABEL("Jitter Scale", "jitterscale") WIDTH(1.5);
+ PARM(float, 1, "jitterscale", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(jitterscale.label) HSTRETCH;
+
+}
+
+usetransform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usetransform", "Use Object Transform") toggle VALUE(usetransform.val);
+
+}
+
+initfluidattribs.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("initfluidattribs", "Initialize Fluid Attributes") toggle VALUE(initfluidattribs.val);
+
+}
+
+initvel.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("initvel", "Initialize Velocity") toggle VALUE(initvel.val);
+
+}
+
+velocity.gad = ROW
+{
+   HSTRETCH
+
+   velocity.label = PARM_LABEL("Initial Velocity", "velocity") WIDTH(1.5);
+
+   PARM(float, 3, "velocity", none, none, "X,Y,Z") LABELREF(velocity.label)
+	HSTRETCH;
+
+}
+
+addviscosity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addviscosity", "Add Viscosity Attribute") toggle VALUE(addviscosity.val);
+
+}
+
+adddivergence.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("adddivergence", "Add Divergence Field") toggle VALUE(adddivergence.val);
+
+}
+closedends.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+closedends.gad = ROW
+{
+
+    PARM_BUTTON("closedends", "Closed Boundaries") toggle VALUE(closedends.val);
+
+}
+
+closexpos.gad = ROW
+{
+
+    PARM_BUTTON("closexpos", "+X") toggle VALUE(closexpos.val);
+
+}
+
+closexneg.gad = ROW
+{
+
+    PARM_BUTTON("closexneg", "-X") toggle VALUE(closexneg.val);
+
+}
+
+closeypos.gad = ROW
+{
+
+    PARM_BUTTON("closeypos", "+Y") toggle VALUE(closeypos.val);
+
+}
+
+closeyneg.gad = ROW
+{
+
+    PARM_BUTTON("closeyneg", "-Y") toggle VALUE(closeyneg.val);
+
+}
+
+closezpos.gad = ROW
+{
+
+    PARM_BUTTON("closezpos", "+Z") toggle VALUE(closezpos.val);
+
+}
+
+closezneg.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("closezneg", "-Z") toggle VALUE(closezneg.val);
+
+}
+}	// Template join.bot
+
+showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+showguide.gad = PARM_BUTTON("showguide", "") toggle VALUE(showguide.val);
+
+viscolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    viscolor.label = PARM_LABEL("Particles", "viscolor") WIDTH(1.27);
+
+    PARM(float, 3, "viscolor", none, COLOR, "R,G,B") 
+	LABELREF(viscolor.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+surface_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+surface_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+surface_showguide.gad = PARM_BUTTON("surface_showguide", "") toggle VALUE(surface_showguide.val);
+
+surface_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    surface_color.label = PARM_LABEL("Surface", "surface_color") WIDTH(1.27);
+
+    PARM(float, 3, "surface_color", none, COLOR, "R,G,B") 
+	LABELREF(surface_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+vel_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+vel_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vel_showguide.gad = PARM_BUTTON("vel_showguide", "") toggle VALUE(vel_showguide.val);
+
+vel_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vel_color.label = PARM_LABEL("Velocity", "vel_color") WIDTH(1.27);
+
+    PARM(float, 3, "vel_color", none, COLOR, "R,G,B") 
+	LABELREF(vel_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+collision_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+collision_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collision_showguide.gad = PARM_BUTTON("collision_showguide", "") toggle VALUE(collision_showguide.val);
+
+collision_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    collision_color.label = PARM_LABEL("Collision", "collision_color") WIDTH(1.27);
+
+    PARM(float, 3, "collision_color", none, COLOR, "R,G,B") 
+	LABELREF(collision_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+collisionvel_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+collisionvel_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collisionvel_showguide.gad = PARM_BUTTON("collisionvel_showguide", "") toggle VALUE(collisionvel_showguide.val);
+
+collisionvel_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    collisionvel_color.label = PARM_LABEL("Collision Velocity", "collisionvel_color") WIDTH(1.27);
+
+    PARM(float, 3, "collisionvel_color", none, COLOR, "R,G,B") 
+	LABELREF(collisionvel_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+pressure_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+pressure_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+pressure_showguide.gad = PARM_BUTTON("pressure_showguide", "") toggle VALUE(pressure_showguide.val);
+
+pressure_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    pressure_color.label = PARM_LABEL("Pressure", "pressure_color") WIDTH(1.27);
+
+    PARM(float, 3, "pressure_color", none, COLOR, "R,G,B") 
+	LABELREF(pressure_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+source_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+source_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_showguide.gad = PARM_BUTTON("source_showguide", "") toggle VALUE(source_showguide.val);
+
+source_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    source_color.label = PARM_LABEL("Source", "source_color") WIDTH(1.27);
+
+    PARM(float, 3, "source_color", none, COLOR, "R,G,B") 
+	LABELREF(source_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+density_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+density_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+density_showguide.gad = PARM_BUTTON("density_showguide", "") toggle VALUE(density_showguide.val);
+
+density_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    density_color.label = PARM_LABEL("Density", "density_color") WIDTH(1.27);
+
+    PARM(float, 3, "density_color", none, COLOR, "R,G,B") 
+	LABELREF(density_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+viscosity_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+viscosity_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+viscosity_showguide.gad = PARM_BUTTON("viscosity_showguide", "") toggle VALUE(viscosity_showguide.val);
+
+viscosity_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    viscosity_color.label = PARM_LABEL("Viscosity", "viscosity_color") WIDTH(1.27);
+
+    PARM(float, 3, "viscosity_color", none, COLOR, "R,G,B") 
+	LABELREF(viscosity_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+divergence_showguide.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+divergence_showguide.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+divergence_showguide.gad = PARM_BUTTON("divergence_showguide", "") toggle VALUE(divergence_showguide.val);
+
+divergence_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    divergence_color.label = PARM_LABEL("Divergence", "divergence_color") WIDTH(1.27);
+
+    PARM(float, 3, "divergence_color", none, COLOR, "R,G,B") 
+	LABELREF(divergence_color.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+visprim.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization", "visprim") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    visprim.menu;
+
+}
+
+visscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ visscale.label = PARM_LABEL("Scale", "visscale") WIDTH(1.5);
+ PARM(float, 1, "visscale", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(visscale.label) HSTRETCH;
+
+}
+
+spriteimage.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ spriteimage.label = PARM_LABEL("Sprite Image", "spriteimage") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "spriteimage") LABELREF(spriteimage.label)
+	VALUE(spriteimage.val) HSTRETCH;
+
+ spriteimage.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(spriteimage.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+guidevistype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Type", "guidevistype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    guidevistype.menu;
+
+}
+
+guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    guidevismode.menu;
+
+}
+
+guidevisramp.si_rampedit = COLOR_RAMP VALUE(guidevisramp.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+guidevisramp.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+
+    ROW
+    {
+	LOOK(plain) JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	guidevisramp.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(guidevisramp.pointno.val) HSTRETCH;
+    }
+}
+
+guidevisramp.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(guidevisramp.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(guidevisramp.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    guidevisramp.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls")
+	VALUE(guidevisramp.toggle.val)
+	SENDSKEY("h.pane.parms.toggle_ramp_parms")
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+guidevisramp.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    guidevisramp.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	guidevisramp.buttons.gad VSTRETCH;
+
+	guidevisramp.si_rampedit HSTRETCH;
+    }
+}
+
+guidevisramp.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+
+    PARM_LABEL_SIMPLE("Color Ramp", "guidevisramp");
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) LOOK(lightline) HSTRETCH
+
+	guidevisramp.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(guidevisramp.hideparms.val) HSTRETCH
+	    guidevisramp.multiramp;
+	    {}
+	}
+    }
+}
+
+guideattrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    guideattrib.label = PARM_LABEL("Visualization Attrib", "guideattrib") WIDTH(1.5);
+    PARM_FIELD(string, "guideattrib") VALUE(guideattrib.val) 
+	LABELREF(guideattrib.label) HSTRETCH;
+
+    guideattrib.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+guidevisscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ guidevisscale.label = PARM_LABEL("Visualization Scale", "guidevisscale") WIDTH(1.5);
+ PARM(float, 1, "guidevisscale", none, none) RANGE(0,10)
+	 LABELREF(guidevisscale.label) HSTRETCH;
+
+}
+
+guidedetectrange.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guidedetectrange", "Detect Range") toggle VALUE(guidedetectrange.val);
+
+}
+
+guiderange.gad = ROW
+{
+   HSTRETCH
+
+   guiderange.label = PARM_LABEL("Visualization Range", "guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "guiderange", none, none, "#1,#2") LABELREF(guiderange.label)
+	HSTRETCH;
+
+}
+surface_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+surface_usebox.gad = ROW
+{
+
+    PARM_BUTTON("surface_usebox", "Bounding Box") toggle VALUE(surface_usebox.val);
+
+}
+
+surface_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("surface_useboxhash", "Bounding Box Hash") toggle VALUE(surface_useboxhash.val);
+
+}
+}	// Template join.bot
+
+surface_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+surface_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("surface_usesmoke", "Use Smoke   ") toggle VALUE(surface_usesmoke.val);
+
+}
+
+surface_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("surface_guideremapsmoke", "Remap Smoke") toggle VALUE(surface_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+surface_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surface_guidesmokedensity.label = PARM_LABEL("Smoke Density", "surface_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "surface_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(surface_guidesmokedensity.label) HSTRETCH;
+
+}
+surface_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+surface_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("surface_guideuseplane", "Use Plane     ") toggle VALUE(surface_guideuseplane.val);
+
+}
+
+surface_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "surface_guideplane") ;
+    { WIDTH(0.09) }
+
+    surface_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+surface_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surface_guideplaneval.label = PARM_LABEL("Plane Position", "surface_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "surface_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(surface_guideplaneval.label) HSTRETCH;
+
+}
+surface_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+surface_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "surface_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surface_guidevismode.menu;
+
+}
+
+surface_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "surface_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    surface_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+surface_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("surface_guiderangemode", "Specify Range by Min/Max") toggle VALUE(surface_guiderangemode.val);
+
+}
+
+surface_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   surface_guiderange.label = PARM_LABEL("Guide Range", "surface_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "surface_guiderange", none, none, "#1,#2") LABELREF(surface_guiderange.label)
+	HSTRETCH;
+
+}
+
+surface_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surface_guiderangecenter.label = PARM_LABEL("Guide Range Center", "surface_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "surface_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(surface_guiderangecenter.label) HSTRETCH;
+
+}
+
+surface_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surface_guiderangesize.label = PARM_LABEL("Guide Range Width", "surface_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "surface_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(surface_guiderangesize.label) HSTRETCH;
+
+}
+
+surface_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surface_guideiso.label = PARM_LABEL("Iso Offset", "surface_guideiso") WIDTH(1.5);
+ PARM(float, 1, "surface_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(surface_guideiso.label) HSTRETCH;
+
+}
+
+surface_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("surface_guideinvert", "Invert Iso") toggle VALUE(surface_guideinvert.val);
+
+}
+vel_guideusebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vel_guideusebox.gad = ROW
+{
+
+    PARM_BUTTON("vel_guideusebox", "Bounding Box") toggle VALUE(vel_guideusebox.val);
+
+}
+
+vel_guideuseboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_guideuseboxhash", "Bounding Box Hash") toggle VALUE(vel_guideuseboxhash.val);
+
+}
+}	// Template join.bot
+
+
+vel_guideusesmoke.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_guideusesmoke", "Use Smoke") toggle VALUE(vel_guideusesmoke.val);
+
+}
+
+vel_guidescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vel_guidescale.label = PARM_LABEL("Scale", "vel_guidescale") WIDTH(1.5);
+ PARM(float, 1, "vel_guidescale", none, none) RANGE(0,10)
+	 LABELREF(vel_guidescale.label) HSTRETCH;
+
+}
+
+vel_guideoverridediv.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_guideoverridediv", "Override Divisions") toggle VALUE(vel_guideoverridediv.val);
+
+}
+
+vel_guidediv.gad = ROW
+{
+   HSTRETCH
+
+   vel_guidediv.label = PARM_LABEL("Divisions", "vel_guidediv") WIDTH(1.5);
+
+   PARM(integer, 3, "vel_guidediv", none, none, "X,Y,Z") LABELREF(vel_guidediv.label)
+	HSTRETCH;
+
+}
+
+vel_guidebarbs.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_guidebarbs", "Use Barbs on Vectors") toggle VALUE(vel_guidebarbs.val);
+
+}
+
+vel_guidepercomp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_guidepercomp", "Component Velocities") toggle VALUE(vel_guidepercomp.val);
+
+}
+vel_guideusestreamers.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vel_guideusestreamers.gad = ROW
+{
+
+    PARM_BUTTON("vel_guideusestreamers", "Use Streamers") toggle VALUE(vel_guideusestreamers.val);
+
+}
+
+vel_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("vel_guideuseplane", "Use Plane") toggle VALUE(vel_guideuseplane.val);
+
+}
+
+vel_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    vel_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+vel_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vel_guideplaneval.label = PARM_LABEL("Plane Position", "vel_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "vel_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(vel_guideplaneval.label) HSTRETCH;
+
+}
+
+vel_guidestreamerlen.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vel_guidestreamerlen.label = PARM_LABEL("Streamer Length", "vel_guidestreamerlen") WIDTH(1.5);
+ PARM(float, 1, "vel_guidestreamerlen", none, none) RANGE(0,10)
+	 LABELREF(vel_guidestreamerlen.label) HSTRETCH;
+
+}
+
+vel_guidestreamerminspeed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vel_guidestreamerminspeed.label = PARM_LABEL("Streamer Minimum Speed", "vel_guidestreamerminspeed") WIDTH(1.5);
+ PARM(float, 1, "vel_guidestreamerminspeed", none, none) RANGE(0,10)
+	 LABELREF(vel_guidestreamerminspeed.label) HSTRETCH;
+
+}
+
+vel_guidevistype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Type", "vel_guidevistype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vel_guidevistype.menu;
+
+}
+
+vel_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "vel_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vel_guidevismode.menu;
+
+}
+
+vel_guidevisscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vel_guidevisscale.label = PARM_LABEL("Visualization Scale", "vel_guidevisscale") WIDTH(1.5);
+ PARM(float, 1, "vel_guidevisscale", none, none) RANGE(0,10)
+	 LABELREF(vel_guidevisscale.label) HSTRETCH;
+
+}
+
+vel_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   vel_guiderange.label = PARM_LABEL("Visualization Range", "vel_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "vel_guiderange", none, none, "#1,#2") LABELREF(vel_guiderange.label)
+	HSTRETCH;
+
+}
+collision_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collision_usebox.gad = ROW
+{
+
+    PARM_BUTTON("collision_usebox", "Bounding Box") toggle VALUE(collision_usebox.val);
+
+}
+
+collision_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collision_useboxhash", "Bounding Box Hash") toggle VALUE(collision_useboxhash.val);
+
+}
+}	// Template join.bot
+
+collision_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collision_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("collision_usesmoke", "Use Smoke   ") toggle VALUE(collision_usesmoke.val);
+
+}
+
+collision_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collision_guideremapsmoke", "Remap Smoke") toggle VALUE(collision_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+collision_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collision_guidesmokedensity.label = PARM_LABEL("Smoke Density", "collision_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "collision_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(collision_guidesmokedensity.label) HSTRETCH;
+
+}
+collision_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collision_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("collision_guideuseplane", "Use Plane     ") toggle VALUE(collision_guideuseplane.val);
+
+}
+
+collision_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "collision_guideplane") ;
+    { WIDTH(0.09) }
+
+    collision_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+collision_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collision_guideplaneval.label = PARM_LABEL("Plane Position", "collision_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "collision_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(collision_guideplaneval.label) HSTRETCH;
+
+}
+collision_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collision_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "collision_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    collision_guidevismode.menu;
+
+}
+
+collision_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "collision_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    collision_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+collision_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collision_guiderangemode", "Specify Range by Min/Max") toggle VALUE(collision_guiderangemode.val);
+
+}
+
+collision_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   collision_guiderange.label = PARM_LABEL("Guide Range", "collision_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "collision_guiderange", none, none, "#1,#2") LABELREF(collision_guiderange.label)
+	HSTRETCH;
+
+}
+
+collision_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collision_guiderangecenter.label = PARM_LABEL("Guide Range Center", "collision_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "collision_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(collision_guiderangecenter.label) HSTRETCH;
+
+}
+
+collision_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collision_guiderangesize.label = PARM_LABEL("Guide Range Width", "collision_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "collision_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(collision_guiderangesize.label) HSTRETCH;
+
+}
+
+collision_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collision_guideiso.label = PARM_LABEL("Iso Offset", "collision_guideiso") WIDTH(1.5);
+ PARM(float, 1, "collision_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(collision_guideiso.label) HSTRETCH;
+
+}
+
+collision_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collision_guideinvert", "Invert Iso") toggle VALUE(collision_guideinvert.val);
+
+}
+collisionvel_guideusebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collisionvel_guideusebox.gad = ROW
+{
+
+    PARM_BUTTON("collisionvel_guideusebox", "Bounding Box") toggle VALUE(collisionvel_guideusebox.val);
+
+}
+
+collisionvel_guideuseboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guideuseboxhash", "Bounding Box Hash") toggle VALUE(collisionvel_guideuseboxhash.val);
+
+}
+}	// Template join.bot
+
+
+collisionvel_guideusesmoke.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guideusesmoke", "Use Smoke") toggle VALUE(collisionvel_guideusesmoke.val);
+
+}
+
+collisionvel_guidescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionvel_guidescale.label = PARM_LABEL("Scale", "collisionvel_guidescale") WIDTH(1.5);
+ PARM(float, 1, "collisionvel_guidescale", none, none) RANGE(0,10)
+	 LABELREF(collisionvel_guidescale.label) HSTRETCH;
+
+}
+
+collisionvel_guideoverridediv.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guideoverridediv", "Override Divisions") toggle VALUE(collisionvel_guideoverridediv.val);
+
+}
+
+collisionvel_guidediv.gad = ROW
+{
+   HSTRETCH
+
+   collisionvel_guidediv.label = PARM_LABEL("Divisions", "collisionvel_guidediv") WIDTH(1.5);
+
+   PARM(integer, 3, "collisionvel_guidediv", none, none, "X,Y,Z") LABELREF(collisionvel_guidediv.label)
+	HSTRETCH;
+
+}
+
+collisionvel_guidebarbs.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guidebarbs", "Use Barbs on Vectors") toggle VALUE(collisionvel_guidebarbs.val);
+
+}
+
+collisionvel_guidepercomp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guidepercomp", "Component Velocities") toggle VALUE(collisionvel_guidepercomp.val);
+
+}
+collisionvel_guideusestreamers.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+collisionvel_guideusestreamers.gad = ROW
+{
+
+    PARM_BUTTON("collisionvel_guideusestreamers", "Use Streamers") toggle VALUE(collisionvel_guideusestreamers.val);
+
+}
+
+collisionvel_guideuseplane.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collisionvel_guideuseplane", "Use Plane") toggle VALUE(collisionvel_guideuseplane.val);
+
+}
+}	// Template join.bot
+
+
+collisionvel_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "collisionvel_guideplane") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    collisionvel_guideplane.menu;
+
+}
+
+collisionvel_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionvel_guideplaneval.label = PARM_LABEL("Plane Position", "collisionvel_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "collisionvel_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(collisionvel_guideplaneval.label) HSTRETCH;
+
+}
+
+collisionvel_guidestreamerlen.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionvel_guidestreamerlen.label = PARM_LABEL("Streamer Length", "collisionvel_guidestreamerlen") WIDTH(1.5);
+ PARM(float, 1, "collisionvel_guidestreamerlen", none, none) RANGE(0,10)
+	 LABELREF(collisionvel_guidestreamerlen.label) HSTRETCH;
+
+}
+
+collisionvel_guidestreamerminspeed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionvel_guidestreamerminspeed.label = PARM_LABEL("Streamer Minimum Speed", "collisionvel_guidestreamerminspeed") WIDTH(1.5);
+ PARM(float, 1, "collisionvel_guidestreamerminspeed", none, none) RANGE(0,10)
+	 LABELREF(collisionvel_guidestreamerminspeed.label) HSTRETCH;
+
+}
+
+collisionvel_guidevistype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Type", "collisionvel_guidevistype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    collisionvel_guidevistype.menu;
+
+}
+
+collisionvel_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "collisionvel_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    collisionvel_guidevismode.menu;
+
+}
+
+collisionvel_guidevisscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisionvel_guidevisscale.label = PARM_LABEL("Visualization Scale", "collisionvel_guidevisscale") WIDTH(1.5);
+ PARM(float, 1, "collisionvel_guidevisscale", none, none) RANGE(0,10)
+	 LABELREF(collisionvel_guidevisscale.label) HSTRETCH;
+
+}
+
+collisionvel_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   collisionvel_guiderange.label = PARM_LABEL("Visualization Range", "collisionvel_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "collisionvel_guiderange", none, none, "#1,#2") LABELREF(collisionvel_guiderange.label)
+	HSTRETCH;
+
+}
+pressure_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+pressure_usebox.gad = ROW
+{
+
+    PARM_BUTTON("pressure_usebox", "Bounding Box") toggle VALUE(pressure_usebox.val);
+
+}
+
+pressure_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pressure_useboxhash", "Bounding Box Hash") toggle VALUE(pressure_useboxhash.val);
+
+}
+}	// Template join.bot
+
+pressure_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+pressure_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("pressure_usesmoke", "Use Smoke   ") toggle VALUE(pressure_usesmoke.val);
+
+}
+
+pressure_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pressure_guideremapsmoke", "Remap Smoke") toggle VALUE(pressure_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+pressure_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pressure_guidesmokedensity.label = PARM_LABEL("Smoke Density", "pressure_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "pressure_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(pressure_guidesmokedensity.label) HSTRETCH;
+
+}
+pressure_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+pressure_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("pressure_guideuseplane", "Use Plane     ") toggle VALUE(pressure_guideuseplane.val);
+
+}
+
+pressure_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "pressure_guideplane") ;
+    { WIDTH(0.09) }
+
+    pressure_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+pressure_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pressure_guideplaneval.label = PARM_LABEL("Plane Position", "pressure_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "pressure_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(pressure_guideplaneval.label) HSTRETCH;
+
+}
+pressure_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+pressure_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "pressure_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    pressure_guidevismode.menu;
+
+}
+
+pressure_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "pressure_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    pressure_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+pressure_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pressure_guiderangemode", "Specify Range by Min/Max") toggle VALUE(pressure_guiderangemode.val);
+
+}
+
+pressure_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   pressure_guiderange.label = PARM_LABEL("Guide Range", "pressure_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "pressure_guiderange", none, none, "#1,#2") LABELREF(pressure_guiderange.label)
+	HSTRETCH;
+
+}
+
+pressure_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pressure_guiderangecenter.label = PARM_LABEL("Guide Range Center", "pressure_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "pressure_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(pressure_guiderangecenter.label) HSTRETCH;
+
+}
+
+pressure_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pressure_guiderangesize.label = PARM_LABEL("Guide Range Width", "pressure_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "pressure_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(pressure_guiderangesize.label) HSTRETCH;
+
+}
+
+pressure_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pressure_guideiso.label = PARM_LABEL("Iso Offset", "pressure_guideiso") WIDTH(1.5);
+ PARM(float, 1, "pressure_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(pressure_guideiso.label) HSTRETCH;
+
+}
+
+pressure_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pressure_guideinvert", "Invert Iso") toggle VALUE(pressure_guideinvert.val);
+
+}
+source_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_usebox.gad = ROW
+{
+
+    PARM_BUTTON("source_usebox", "Bounding Box") toggle VALUE(source_usebox.val);
+
+}
+
+source_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("source_useboxhash", "Bounding Box Hash") toggle VALUE(source_useboxhash.val);
+
+}
+}	// Template join.bot
+
+source_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("source_usesmoke", "Use Smoke   ") toggle VALUE(source_usesmoke.val);
+
+}
+
+source_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("source_guideremapsmoke", "Remap Smoke") toggle VALUE(source_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+source_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ source_guidesmokedensity.label = PARM_LABEL("Smoke Density", "source_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "source_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(source_guidesmokedensity.label) HSTRETCH;
+
+}
+source_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("source_guideuseplane", "Use Plane     ") toggle VALUE(source_guideuseplane.val);
+
+}
+
+source_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "source_guideplane") ;
+    { WIDTH(0.09) }
+
+    source_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+source_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ source_guideplaneval.label = PARM_LABEL("Plane Position", "source_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "source_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(source_guideplaneval.label) HSTRETCH;
+
+}
+source_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "source_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    source_guidevismode.menu;
+
+}
+
+source_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "source_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    source_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+source_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("source_guiderangemode", "Specify Range by Min/Max") toggle VALUE(source_guiderangemode.val);
+
+}
+
+source_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   source_guiderange.label = PARM_LABEL("Guide Range", "source_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "source_guiderange", none, none, "#1,#2") LABELREF(source_guiderange.label)
+	HSTRETCH;
+
+}
+
+source_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ source_guiderangecenter.label = PARM_LABEL("Guide Range Center", "source_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "source_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(source_guiderangecenter.label) HSTRETCH;
+
+}
+
+source_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ source_guiderangesize.label = PARM_LABEL("Guide Range Width", "source_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "source_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(source_guiderangesize.label) HSTRETCH;
+
+}
+
+source_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ source_guideiso.label = PARM_LABEL("Iso Offset", "source_guideiso") WIDTH(1.5);
+ PARM(float, 1, "source_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(source_guideiso.label) HSTRETCH;
+
+}
+
+source_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("source_guideinvert", "Invert Iso") toggle VALUE(source_guideinvert.val);
+
+}
+density_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+density_usebox.gad = ROW
+{
+
+    PARM_BUTTON("density_usebox", "Bounding Box") toggle VALUE(density_usebox.val);
+
+}
+
+density_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("density_useboxhash", "Bounding Box Hash") toggle VALUE(density_useboxhash.val);
+
+}
+}	// Template join.bot
+
+density_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+density_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("density_usesmoke", "Use Smoke   ") toggle VALUE(density_usesmoke.val);
+
+}
+
+density_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("density_guideremapsmoke", "Remap Smoke") toggle VALUE(density_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+density_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density_guidesmokedensity.label = PARM_LABEL("Smoke Density", "density_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "density_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(density_guidesmokedensity.label) HSTRETCH;
+
+}
+density_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+density_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("density_guideuseplane", "Use Plane     ") toggle VALUE(density_guideuseplane.val);
+
+}
+
+density_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "density_guideplane") ;
+    { WIDTH(0.09) }
+
+    density_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+density_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density_guideplaneval.label = PARM_LABEL("Plane Position", "density_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "density_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(density_guideplaneval.label) HSTRETCH;
+
+}
+density_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+density_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "density_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    density_guidevismode.menu;
+
+}
+
+density_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "density_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    density_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+density_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("density_guiderangemode", "Specify Range by Min/Max") toggle VALUE(density_guiderangemode.val);
+
+}
+
+density_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   density_guiderange.label = PARM_LABEL("Guide Range", "density_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "density_guiderange", none, none, "#1,#2") LABELREF(density_guiderange.label)
+	HSTRETCH;
+
+}
+
+density_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density_guiderangecenter.label = PARM_LABEL("Guide Range Center", "density_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "density_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(density_guiderangecenter.label) HSTRETCH;
+
+}
+
+density_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density_guiderangesize.label = PARM_LABEL("Guide Range Width", "density_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "density_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(density_guiderangesize.label) HSTRETCH;
+
+}
+
+density_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density_guideiso.label = PARM_LABEL("Iso Offset", "density_guideiso") WIDTH(1.5);
+ PARM(float, 1, "density_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(density_guideiso.label) HSTRETCH;
+
+}
+
+density_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("density_guideinvert", "Invert Iso") toggle VALUE(density_guideinvert.val);
+
+}
+viscosity_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+viscosity_usebox.gad = ROW
+{
+
+    PARM_BUTTON("viscosity_usebox", "Bounding Box") toggle VALUE(viscosity_usebox.val);
+
+}
+
+viscosity_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("viscosity_useboxhash", "Bounding Box Hash") toggle VALUE(viscosity_useboxhash.val);
+
+}
+}	// Template join.bot
+
+viscosity_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+viscosity_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("viscosity_usesmoke", "Use Smoke   ") toggle VALUE(viscosity_usesmoke.val);
+
+}
+
+viscosity_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("viscosity_guideremapsmoke", "Remap Smoke") toggle VALUE(viscosity_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+viscosity_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity_guidesmokedensity.label = PARM_LABEL("Smoke Density", "viscosity_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "viscosity_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(viscosity_guidesmokedensity.label) HSTRETCH;
+
+}
+viscosity_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+viscosity_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("viscosity_guideuseplane", "Use Plane     ") toggle VALUE(viscosity_guideuseplane.val);
+
+}
+
+viscosity_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "viscosity_guideplane") ;
+    { WIDTH(0.09) }
+
+    viscosity_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+viscosity_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity_guideplaneval.label = PARM_LABEL("Plane Position", "viscosity_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "viscosity_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(viscosity_guideplaneval.label) HSTRETCH;
+
+}
+viscosity_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+viscosity_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "viscosity_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    viscosity_guidevismode.menu;
+
+}
+
+viscosity_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "viscosity_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    viscosity_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+viscosity_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("viscosity_guiderangemode", "Specify Range by Min/Max") toggle VALUE(viscosity_guiderangemode.val);
+
+}
+
+viscosity_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   viscosity_guiderange.label = PARM_LABEL("Guide Range", "viscosity_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "viscosity_guiderange", none, none, "#1,#2") LABELREF(viscosity_guiderange.label)
+	HSTRETCH;
+
+}
+
+viscosity_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity_guiderangecenter.label = PARM_LABEL("Guide Range Center", "viscosity_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "viscosity_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(viscosity_guiderangecenter.label) HSTRETCH;
+
+}
+
+viscosity_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity_guiderangesize.label = PARM_LABEL("Guide Range Width", "viscosity_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "viscosity_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(viscosity_guiderangesize.label) HSTRETCH;
+
+}
+
+viscosity_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity_guideiso.label = PARM_LABEL("Iso Offset", "viscosity_guideiso") WIDTH(1.5);
+ PARM(float, 1, "viscosity_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(viscosity_guideiso.label) HSTRETCH;
+
+}
+
+viscosity_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("viscosity_guideinvert", "Invert Iso") toggle VALUE(viscosity_guideinvert.val);
+
+}
+divergence_usebox.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+divergence_usebox.gad = ROW
+{
+
+    PARM_BUTTON("divergence_usebox", "Bounding Box") toggle VALUE(divergence_usebox.val);
+
+}
+
+divergence_useboxhash.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("divergence_useboxhash", "Bounding Box Hash") toggle VALUE(divergence_useboxhash.val);
+
+}
+}	// Template join.bot
+
+divergence_usesmoke.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+divergence_usesmoke.gad = ROW
+{
+
+    PARM_BUTTON("divergence_usesmoke", "Use Smoke   ") toggle VALUE(divergence_usesmoke.val);
+
+}
+
+divergence_guideremapsmoke.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("divergence_guideremapsmoke", "Remap Smoke") toggle VALUE(divergence_guideremapsmoke.val);
+
+}
+}	// Template join.bot
+
+
+divergence_guidesmokedensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divergence_guidesmokedensity.label = PARM_LABEL("Smoke Density", "divergence_guidesmokedensity") WIDTH(1.5);
+ PARM(float, 1, "divergence_guidesmokedensity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(divergence_guidesmokedensity.label) HSTRETCH;
+
+}
+divergence_guideuseplane.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+divergence_guideuseplane.gad = ROW
+{
+
+    PARM_BUTTON("divergence_guideuseplane", "Use Plane     ") toggle VALUE(divergence_guideuseplane.val);
+
+}
+
+divergence_guideplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Plane Orientation", "divergence_guideplane") ;
+    { WIDTH(0.09) }
+
+    divergence_guideplane.menu;
+
+}
+}	// Template join.bot
+
+
+divergence_guideplaneval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divergence_guideplaneval.label = PARM_LABEL("Plane Position", "divergence_guideplaneval") WIDTH(1.5);
+ PARM(float, 1, "divergence_guideplaneval", none, none) RANGE(-1,1)
+	LOCK_RANGE LABELREF(divergence_guideplaneval.label) HSTRETCH;
+
+}
+divergence_guidevismode.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+divergence_guidevismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Visualization Mode", "divergence_guidevismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    divergence_guidevismode.menu;
+
+}
+
+divergence_guidevisdensitymode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Alpha Mapping", "divergence_guidevisdensitymode") ;
+    { WIDTH(0.09) }
+
+    divergence_guidevisdensitymode.menu;
+
+}
+}	// Template join.bot
+
+
+divergence_guiderangemode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("divergence_guiderangemode", "Specify Range by Min/Max") toggle VALUE(divergence_guiderangemode.val);
+
+}
+
+divergence_guiderange.gad = ROW
+{
+   HSTRETCH
+
+   divergence_guiderange.label = PARM_LABEL("Guide Range", "divergence_guiderange") WIDTH(1.5);
+
+   PARM(float, 2, "divergence_guiderange", none, none, "#1,#2") LABELREF(divergence_guiderange.label)
+	HSTRETCH;
+
+}
+
+divergence_guiderangecenter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divergence_guiderangecenter.label = PARM_LABEL("Guide Range Center", "divergence_guiderangecenter") WIDTH(1.5);
+ PARM(float, 1, "divergence_guiderangecenter", none, none) RANGE(-1,1)
+	 LABELREF(divergence_guiderangecenter.label) HSTRETCH;
+
+}
+
+divergence_guiderangesize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divergence_guiderangesize.label = PARM_LABEL("Guide Range Width", "divergence_guiderangesize") WIDTH(1.5);
+ PARM(float, 1, "divergence_guiderangesize", none, none) RANGE(0,10)
+	 LABELREF(divergence_guiderangesize.label) HSTRETCH;
+
+}
+
+divergence_guideiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divergence_guideiso.label = PARM_LABEL("Iso Offset", "divergence_guideiso") WIDTH(1.5);
+ PARM(float, 1, "divergence_guideiso", none, none) RANGE(-5,5)
+	 LABELREF(divergence_guideiso.label) HSTRETCH;
+
+}
+
+divergence_guideinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("divergence_guideinvert", "Invert Iso") toggle VALUE(divergence_guideinvert.val);
+
+}
+
+bounce.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bounce.label = PARM_LABEL("Bounce", "bounce") WIDTH(1.5);
+ PARM(float, 1, "bounce", none, none) RANGE(0,10)
+	 LABELREF(bounce.label) HSTRETCH;
+
+}
+
+friction.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ friction.label = PARM_LABEL("Friction", "friction") WIDTH(1.5);
+ PARM(float, 1, "friction", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(friction.label) HSTRETCH;
+
+}
+
+dynamicfriction.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dynamicfriction.label = PARM_LABEL("Dynamic Friction Scale", "dynamicfriction") WIDTH(1.5);
+ PARM(float, 1, "dynamicfriction", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(dynamicfriction.label) HSTRETCH;
+
+}
+
+density.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density.label = PARM_LABEL("Density", "density") WIDTH(1.5);
+ PARM(float, 1, "density", none, none) RANGE(100,5000)
+	 LABELREF(density.label) HSTRETCH;
+
+}
+
+viscosity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity.label = PARM_LABEL("Viscosity", "viscosity") WIDTH(1.5);
+ PARM(float, 1, "viscosity", none, LOGSCALE) RANGE(0,10000)
+	 LABELREF(viscosity.label) HSTRETCH;
+
+}
+
+volumeoffset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ volumeoffset.label = PARM_LABEL("Volume Offset", "volumeoffset") WIDTH(1.5);
+ PARM(float, 1, "volumeoffset", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(volumeoffset.label) HSTRETCH;
+
+}
+
+usepointvelocity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usepointvelocity", "Use Point Velocity for Collisions") toggle VALUE(usepointvelocity.val);
+
+}
+
+usesdfvelocity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usesdfvelocity", "Use Volume Velocity for Collisions") toggle VALUE(usesdfvelocity.val);
+
+}
+
+folder4.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder4.gad.val) STRETCH(1,0)
+
+	TAB "Visualization"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    showguide.row.join;		
+	    surface_showguide.row.join;		
+	    vel_showguide.row.join;		
+	    collision_showguide.row.join;		
+	    collisionvel_showguide.row.join;		
+	    pressure_showguide.row.join;		
+	    source_showguide.row.join;		
+	    density_showguide.row.join;		
+	    viscosity_showguide.row.join;		
+	    divergence_showguide.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Particles"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    visprim.gad;		
+	    visscale.gad;		
+	    spriteimage.gad;		
+	    guidevistype.gad;		
+	    guidevismode.gad;		
+	    guidevisramp.gad;		
+	    guideattrib.gad;		
+	    guidevisscale.gad;		
+	    guidedetectrange.gad;		
+	    guiderange.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Surface"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    surface_usebox.row.join;		
+	    surface_usesmoke.row.join;		
+	    surface_guidesmokedensity.gad;		
+	    surface_guideuseplane.row.join;		
+	    surface_guideplaneval.gad;		
+	    surface_guidevismode.row.join;		
+	    surface_guiderangemode.gad;		
+	    surface_guiderange.gad;		
+	    surface_guiderangecenter.gad;		
+	    surface_guiderangesize.gad;		
+	    surface_guideiso.gad;		
+	    surface_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Velocity"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    vel_guideusebox.row.join;		
+	    vel_guideusesmoke.gad;		
+	    vel_guidescale.gad;		
+	    vel_guideoverridediv.gad;		
+	    vel_guidediv.gad;		
+	    vel_guidebarbs.gad;		
+	    vel_guidepercomp.gad;		
+	    vel_guideusestreamers.row.join;		
+	    vel_guideplaneval.gad;		
+	    vel_guidestreamerlen.gad;		
+	    vel_guidestreamerminspeed.gad;		
+	    vel_guidevistype.gad;		
+	    vel_guidevismode.gad;		
+	    vel_guidevisscale.gad;		
+	    vel_guiderange.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collision"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    collision_usebox.row.join;		
+	    collision_usesmoke.row.join;		
+	    collision_guidesmokedensity.gad;		
+	    collision_guideuseplane.row.join;		
+	    collision_guideplaneval.gad;		
+	    collision_guidevismode.row.join;		
+	    collision_guiderangemode.gad;		
+	    collision_guiderange.gad;		
+	    collision_guiderangecenter.gad;		
+	    collision_guiderangesize.gad;		
+	    collision_guideiso.gad;		
+	    collision_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collision Velocity"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    collisionvel_guideusebox.row.join;		
+	    collisionvel_guideusesmoke.gad;		
+	    collisionvel_guidescale.gad;		
+	    collisionvel_guideoverridediv.gad;		
+	    collisionvel_guidediv.gad;		
+	    collisionvel_guidebarbs.gad;		
+	    collisionvel_guidepercomp.gad;		
+	    collisionvel_guideusestreamers.row.join;		
+	    collisionvel_guideplane.gad;		
+	    collisionvel_guideplaneval.gad;		
+	    collisionvel_guidestreamerlen.gad;		
+	    collisionvel_guidestreamerminspeed.gad;		
+	    collisionvel_guidevistype.gad;		
+	    collisionvel_guidevismode.gad;		
+	    collisionvel_guidevisscale.gad;		
+	    collisionvel_guiderange.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Pressure"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    pressure_usebox.row.join;		
+	    pressure_usesmoke.row.join;		
+	    pressure_guidesmokedensity.gad;		
+	    pressure_guideuseplane.row.join;		
+	    pressure_guideplaneval.gad;		
+	    pressure_guidevismode.row.join;		
+	    pressure_guiderangemode.gad;		
+	    pressure_guiderange.gad;		
+	    pressure_guiderangecenter.gad;		
+	    pressure_guiderangesize.gad;		
+	    pressure_guideiso.gad;		
+	    pressure_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Source"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    source_usebox.row.join;		
+	    source_usesmoke.row.join;		
+	    source_guidesmokedensity.gad;		
+	    source_guideuseplane.row.join;		
+	    source_guideplaneval.gad;		
+	    source_guidevismode.row.join;		
+	    source_guiderangemode.gad;		
+	    source_guiderange.gad;		
+	    source_guiderangecenter.gad;		
+	    source_guiderangesize.gad;		
+	    source_guideiso.gad;		
+	    source_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Density"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    density_usebox.row.join;		
+	    density_usesmoke.row.join;		
+	    density_guidesmokedensity.gad;		
+	    density_guideuseplane.row.join;		
+	    density_guideplaneval.gad;		
+	    density_guidevismode.row.join;		
+	    density_guiderangemode.gad;		
+	    density_guiderange.gad;		
+	    density_guiderangecenter.gad;		
+	    density_guiderangesize.gad;		
+	    density_guideiso.gad;		
+	    density_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Viscosity"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    viscosity_usebox.row.join;		
+	    viscosity_usesmoke.row.join;		
+	    viscosity_guidesmokedensity.gad;		
+	    viscosity_guideuseplane.row.join;		
+	    viscosity_guideplaneval.gad;		
+	    viscosity_guidevismode.row.join;		
+	    viscosity_guiderangemode.gad;		
+	    viscosity_guiderange.gad;		
+	    viscosity_guiderangecenter.gad;		
+	    viscosity_guiderangesize.gad;		
+	    viscosity_guideiso.gad;		
+	    viscosity_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Divergence"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    divergence_usebox.row.join;		
+	    divergence_usesmoke.row.join;		
+	    divergence_guidesmokedensity.gad;		
+	    divergence_guideuseplane.row.join;		
+	    divergence_guideplaneval.gad;		
+	    divergence_guidevismode.row.join;		
+	    divergence_guiderangemode.gad;		
+	    divergence_guiderange.gad;		
+	    divergence_guiderangecenter.gad;		
+	    divergence_guiderangesize.gad;		
+	    divergence_guideiso.gad;		
+	    divergence_guideinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+initialdata.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(initialdata.gad.val) STRETCH(1,0)
+
+	TAB "Initial Data"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    surfacetype.gad;		
+	    inittype.gad;		
+	    soppath.gad;		
+	    fluid_geometry_file.gad;		
+	    srcobject.gad;		
+	    srcdataname.gad;		
+	    jitterseed.gad;		
+	    jitterscale.gad;		
+	    usetransform.gad;		
+	    initfluidattribs.gad;		
+	    initvel.gad;		
+	    velocity.gad;		
+	    addviscosity.gad;		
+	    adddivergence.gad;		
+	    closedends.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Guides"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    folder4.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Physical"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    bounce.gad;		
+	    friction.gad;		
+	    dynamicfriction.gad;		
+	    density.gad;		
+	    viscosity.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collisions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    volumeoffset.gad;		
+	    usepointvelocity.gad;		
+	    usesdfvelocity.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Properties"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    particlesep.gad;		
+	    radiusscale.gad;		
+	    gridscale.gad;		
+	    overridecollisionsep.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Creation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    usesimframe.gad;		
+	    createframe.gad;		
+	    numobjects.gad;		
+	    objname.gad;		
+	    solvefirstframe.gad;		
+	    allowcaching.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    folder0.gad; 
+    initialdata.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,184 @@
+// Magic: 8a9d62c4
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 12:22:16 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+particlesep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ particlesep.label = PARM_LABEL("Particle Separation", "particlesep") WIDTH(1.5);
+ PARM(float, 1, "particlesep", none, none) RANGE(0,10)
+	 LABELREF(particlesep.label) HSTRETCH;
+
+}
+
+inittype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Point Configuration", "inittype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    inittype.menu;
+
+}
+
+waterlevel.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ waterlevel.label = PARM_LABEL("Water Level", "waterlevel") WIDTH(1.5);
+ PARM(float, 1, "waterlevel", none, none) RANGE(-5,5)
+	 LABELREF(waterlevel.label) HSTRETCH;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+water_origin.gad = ROW
+{
+   HSTRETCH
+
+   water_origin.label = PARM_LABEL("Water Level Reference", "water_origin") WIDTH(1.5);
+
+   PARM(float, 3, "water_origin", none, none, "X,Y,Z") LABELREF(water_origin.label)
+	HSTRETCH;
+
+}
+
+jitterscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitterscale.label = PARM_LABEL("Jitter Scale", "jitterscale") WIDTH(1.5);
+ PARM(float, 1, "jitterscale", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(jitterscale.label) HSTRETCH;
+
+}
+
+upaxis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Up Axis", "upaxis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    upaxis.menu;
+
+}
+up.gad = NULL { }
+
+addscale.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addscale", "Add Scale Attribute") toggle VALUE(addscale.val);
+
+}
+
+radiusscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiusscale.label = PARM_LABEL("Particle Radius Scale", "radiusscale") WIDTH(1.5);
+ PARM(float, 1, "radiusscale", none, none) RANGE(0,10)
+	 LABELREF(radiusscale.label) HSTRETCH;
+
+}
+addviscosity.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+addviscosity.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+addviscosity.gad = PARM_BUTTON("addviscosity", "") toggle VALUE(addviscosity.val);
+
+viscosity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ viscosity.label = PARM_LABEL("Viscosity", "viscosity") WIDTH(1.27);
+ PARM(float, 1, "viscosity", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(viscosity.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+adddensity.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+adddensity.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+adddensity.gad = PARM_BUTTON("adddensity", "") toggle VALUE(adddensity.val);
+
+density.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density.label = PARM_LABEL("Density", "density") WIDTH(1.27);
+ PARM(float, 1, "density", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(density.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    particlesep.gad; 
+    inittype.gad; 
+    waterlevel.gad; 
+    size.gad; 
+    t.gad; 
+    water_origin.gad; 
+    jitterscale.gad; 
+    upaxis.gad; 
+    up.gad; 
+    addscale.gad; 
+    radiusscale.gad; 
+    addviscosity.row.join; 
+    adddensity.row.join; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

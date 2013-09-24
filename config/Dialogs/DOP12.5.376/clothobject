@@ -1,0 +1,654 @@
+// Magic: 94aa9a8a
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 13:29:10 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+labelparm.sval := 4;
+
+labelparm.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(labelparm.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL " " HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL " ":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL " ":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL " ":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL " ":1.5;
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+
+stiffness.gad = ROW
+{
+   HSTRETCH
+
+   stiffness.label = PARM_LABEL("Stiffness", "stiffness") WIDTH(1.5);
+
+   PARM(float, 4, "stiffness", none, none, "#1,#2,#3,#4") LABELREF(stiffness.label)
+	HSTRETCH;
+
+}
+
+overridedamping.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridedamping", "Override Damping") toggle VALUE(overridedamping.val);
+
+}
+
+damping.gad = ROW
+{
+   HSTRETCH
+
+   damping.label = PARM_LABEL("Damping", "damping") WIDTH(1.5);
+
+   PARM(float, 4, "damping", none, none, "#1,#2,#3,#4") LABELREF(damping.label)
+	HSTRETCH;
+
+}
+
+surfacemassdensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ surfacemassdensity.label = PARM_LABEL("Surface Mass Density", "surfacemassdensity") WIDTH(1.5);
+ PARM(float, 1, "surfacemassdensity", none, none) RANGE(0,5)
+	 LABELREF(surfacemassdensity.label) HSTRETCH;
+
+}
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+seamangle.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seamangle.label = PARM_LABEL("Seam Angle", "seamangle") WIDTH(1.5);
+ PARM(float, 1, "seamangle", none, none) RANGE(-180,180)
+	 LABELREF(seamangle.label) HSTRETCH;
+
+}
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("Initial Geometry", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+importrestgeometry.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("importrestgeometry", "Import Rest Geometry") toggle VALUE(importrestgeometry.val);
+
+}
+
+restgeometrypath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ restgeometrypath.label = PARM_LABEL("Rest Geometry", "restgeometrypath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "restgeometrypath") VALUE(restgeometrypath.val) 
+	LABELREF(restgeometrypath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(restgeometrypath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(restgeometrypath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+importtargetgeometry.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("importtargetgeometry", "Import Target Geometry") toggle VALUE(importtargetgeometry.val);
+
+}
+
+targetgeometrypath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ targetgeometrypath.label = PARM_LABEL("Target Geometry", "targetgeometrypath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "targetgeometrypath") VALUE(targetgeometrypath.val) 
+	LABELREF(targetgeometrypath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(targetgeometrypath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(targetgeometrypath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+targetstiffness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ targetstiffness.label = PARM_LABEL("Target Stiffness", "targetstiffness") WIDTH(1.5);
+ PARM(float, 1, "targetstiffness", none, none) RANGE(0,10)
+	 LABELREF(targetstiffness.label) HSTRETCH;
+
+}
+
+targetdamping.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ targetdamping.label = PARM_LABEL("Target Damping", "targetdamping") WIDTH(1.5);
+ PARM(float, 1, "targetdamping", none, none) RANGE(0,10)
+	 LABELREF(targetdamping.label) HSTRETCH;
+
+}
+
+collideindependent.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collideindependent", "Collide Independent") toggle VALUE(collideindependent.val);
+
+}
+
+collidecodependent.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collidecodependent", "Collide Codependent") toggle VALUE(collidecodependent.val);
+
+}
+
+collideself.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("collideself", "Collide Self") toggle VALUE(collideself.val);
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+thickness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ thickness.label = PARM_LABEL("Cloth Thickness", "thickness") WIDTH(1.5);
+ PARM(float, 1, "thickness", none, none) RANGE(0,0.10000000000000001)
+	LOCK_RANGE_MIN LABELREF(thickness.label) HSTRETCH;
+
+}
+
+friction.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ friction.label = PARM_LABEL("Contact Friction", "friction") WIDTH(1.5);
+ PARM(float, 1, "friction", none, none) RANGE(0,10)
+	 LABELREF(friction.label) HSTRETCH;
+
+}
+
+repulsion.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ repulsion.label = PARM_LABEL("Contact Repulsion", "repulsion") WIDTH(1.5);
+ PARM(float, 1, "repulsion", none, none) RANGE(0,0.10000000000000001)
+	LOCK_RANGE_MIN LABELREF(repulsion.label) HSTRETCH;
+
+}
+
+normaldrag.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ normaldrag.label = PARM_LABEL("Normal Drag", "normaldrag") WIDTH(1.5);
+ PARM(float, 1, "normaldrag", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(normaldrag.label) HSTRETCH;
+
+}
+
+tangentdrag.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tangentdrag.label = PARM_LABEL("Tangent Drag", "tangentdrag") WIDTH(1.5);
+ PARM(float, 1, "tangentdrag", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(tangentdrag.label) HSTRETCH;
+
+}
+
+externalvelocityfield.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ externalvelocityfield.label = PARM_LABEL("External Velocity Field", "externalvelocityfield") WIDTH(1.5);
+ PARM_FIELD(pathstring, "externalvelocityfield") VALUE(externalvelocityfield.val) 
+	LABELREF(externalvelocityfield.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(externalvelocityfield.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(externalvelocityfield.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+externalvelocityoffset.gad = ROW
+{
+   HSTRETCH
+
+   externalvelocityoffset.label = PARM_LABEL("External Velocity Offset", "externalvelocityoffset") WIDTH(1.5);
+
+   PARM(float, 3, "externalvelocityoffset", none, none, "X,Y,Z") LABELREF(externalvelocityoffset.label)
+	HSTRETCH;
+
+}
+
+thicknessenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("thicknessenable", "Thickness") toggle VALUE(thicknessenable.val);
+
+}
+
+thicknesscolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    thicknesscolor.label = PARM_LABEL("Thickness Color", "thicknesscolor") WIDTH(1.5);
+
+    PARM(float, 3, "thicknesscolor", none, COLOR, "R,G,B") 
+	LABELREF(thicknesscolor.label) HSTRETCH;
+
+}
+
+penetrationenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("penetrationenable", "Penetration") toggle VALUE(penetrationenable.val);
+
+}
+
+penetrationcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    penetrationcolor.label = PARM_LABEL("Penetration Color", "penetrationcolor") WIDTH(1.5);
+
+    PARM(float, 3, "penetrationcolor", none, COLOR, "R,G,B") 
+	LABELREF(penetrationcolor.label) HSTRETCH;
+
+}
+
+velocityenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("velocityenable", "Velocity") toggle VALUE(velocityenable.val);
+
+}
+
+velocityscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velocityscale.label = PARM_LABEL("Velocity Scale", "velocityscale") WIDTH(1.5);
+ PARM(float, 1, "velocityscale", none, none) RANGE(0,10)
+	 LABELREF(velocityscale.label) HSTRETCH;
+
+}
+
+velocitycolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    velocitycolor.label = PARM_LABEL("Velocity Color", "velocitycolor") WIDTH(1.5);
+
+    PARM(float, 3, "velocitycolor", none, COLOR, "R,G,B") 
+	LABELREF(velocitycolor.label) HSTRETCH;
+
+}
+
+uvwenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uvwenable", "UV Direction") toggle VALUE(uvwenable.val);
+
+}
+
+uvwscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ uvwscale.label = PARM_LABEL("UVW Direction Scale", "uvwscale") WIDTH(1.5);
+ PARM(float, 1, "uvwscale", none, none) RANGE(0,10)
+	 LABELREF(uvwscale.label) HSTRETCH;
+
+}
+
+ucolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    ucolor.label = PARM_LABEL("U Direction Color", "ucolor") WIDTH(1.5);
+
+    PARM(float, 3, "ucolor", none, COLOR, "R,G,B") 
+	LABELREF(ucolor.label) HSTRETCH;
+
+}
+
+vcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vcolor.label = PARM_LABEL("V Direction Color", "vcolor") WIDTH(1.5);
+
+    PARM(float, 3, "vcolor", none, COLOR, "R,G,B") 
+	LABELREF(vcolor.label) HSTRETCH;
+
+}
+
+wcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    wcolor.label = PARM_LABEL("W Direction Color", "wcolor") WIDTH(1.5);
+
+    PARM(float, 3, "wcolor", none, COLOR, "R,G,B") 
+	LABELREF(wcolor.label) HSTRETCH;
+
+}
+
+usesimframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usesimframe", "Creation Frame Specifies Simulation Frame") toggle VALUE(usesimframe.val);
+
+}
+
+createframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ createframe.label = PARM_LABEL("Creation Frame", "createframe") WIDTH(1.5);
+ PARM(float, 1, "createframe", none, none) RANGE(1,100)
+	 LABELREF(createframe.label) HSTRETCH;
+
+}
+
+numobjects.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ numobjects.label = PARM_LABEL("Number of Objects", "numobjects") WIDTH(1.5);
+ PARM(integer, 1, "numobjects", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(numobjects.label) HSTRETCH;
+
+}
+
+object_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    object_name.label = PARM_LABEL("Object Name", "object_name") WIDTH(1.5);
+    PARM_FIELD(string, "object_name") VALUE(object_name.val) 
+	LABELREF(object_name.label) HSTRETCH;
+
+}
+
+solvefirstframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solvefirstframe", "Solve on Creation Frame") toggle VALUE(solvefirstframe.val);
+
+}
+
+folder0_1.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0_1.gad.val) STRETCH(1,0)
+
+	TAB "Material"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    labelparm.gad;		
+	    stiffness.gad;		
+	    overridedamping.gad;		
+	    damping.gad;		
+	    surfacemassdensity.gad;		
+	    sepparm2.gad;		
+	    seamangle.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Initial"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    soppath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Rest"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    importrestgeometry.gad;		
+	    restgeometrypath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Target"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    importtargetgeometry.gad;		
+	    targetgeometrypath.gad;		
+	    targetstiffness.gad;		
+	    targetdamping.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collisions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    collideindependent.gad;		
+	    collidecodependent.gad;		
+	    collideself.gad;		
+	    sepparm.gad;		
+	    thickness.gad;		
+	    friction.gad;		
+	    repulsion.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Drag"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    normaldrag.gad;		
+	    tangentdrag.gad;		
+	    externalvelocityfield.gad;		
+	    externalvelocityoffset.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Visualization"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    thicknessenable.gad;		
+	    thicknesscolor.gad;		
+	    penetrationenable.gad;		
+	    penetrationcolor.gad;		
+	    velocityenable.gad;		
+	    velocityscale.gad;		
+	    velocitycolor.gad;		
+	    uvwenable.gad;		
+	    uvwscale.gad;		
+	    ucolor.gad;		
+	    vcolor.gad;		
+	    wcolor.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Creation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    usesimframe.gad;		
+	    createframe.gad;		
+	    numobjects.gad;		
+	    object_name.gad;		
+	    solvefirstframe.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    folder0_1.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

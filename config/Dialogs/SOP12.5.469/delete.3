@@ -1,0 +1,43 @@
+// Magic: 466e3b05
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 13:53:28 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+negate.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "negate") ;
+    { WIDTH(0.09) }
+
+    negate.menu;
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounding Type", "boundtype") ;
+    { WIDTH(0.09) }
+
+    boundtype.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    negate.gad; 
+    boundtype.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

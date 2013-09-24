@@ -1,0 +1,96 @@
+// Magic: eeedd369
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:04:30 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+primary.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    primary.label = PARM_LABEL("Primary Color", "primary") WIDTH(1.5);
+
+    PARM(float, 3, "primary", none, COLOR, "R,G,B") 
+	LABELREF(primary.label) HSTRETCH;
+
+	primary.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(primary.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+secondary.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    secondary.label = PARM_LABEL("Secondary Color", "secondary") WIDTH(1.5);
+
+    PARM(float, 3, "secondary", none, COLOR, "R,G,B") 
+	LABELREF(secondary.label) HSTRETCH;
+
+	secondary.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(secondary.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+bias.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bias.label = PARM_LABEL("Bias Amount", "bias") WIDTH(1.5);
+ PARM(float, 1, "bias", none, none) RANGE(0,1)
+	 LABELREF(bias.label) HSTRETCH;
+
+	bias.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(bias.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adjust.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Adjust Bias", "adjust") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    adjust.menu;
+
+	{ HSTRETCH } adjust.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adjust.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+space.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Color Blending Space", "space") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    space.menu;
+
+	{ HSTRETCH } space.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(space.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    primary.gad; 
+    secondary.gad; 
+    bias.gad; 
+    adjust.gad; 
+    space.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

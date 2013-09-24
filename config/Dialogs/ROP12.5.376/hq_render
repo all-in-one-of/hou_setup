@@ -1,0 +1,963 @@
+// Magic: 3059f54f
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 01:42:02 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+execute.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+execute.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+execute.gad = ROW
+{
+
+    PARM_BUTTON("execute", "Render") push VALUE(execute.val);
+}
+renderdialog.gad = NULL { }
+}	
+}	// Template join.bot
+
+trange.gad = NULL { }
+f.gad = NULL { }
+take.gad = NULL { }
+soho_program.gad = NULL { }
+soho_outputmode.gad = NULL { }
+soho_multiframe.gad = NULL { }
+hq_use_render_tracker.gad = NULL { }
+hq_openbrowser.gad = NULL { }
+
+hq_job_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_job_name.label = PARM_LABEL("Job Name", "hq_job_name") WIDTH(1.5);
+    PARM_FIELD(string, "hq_job_name") VALUE(hq_job_name.val) 
+	LABELREF(hq_job_name.label) HSTRETCH;
+
+}
+
+hq_driver.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ hq_driver.label = PARM_LABEL("Output Driver", "hq_driver") WIDTH(1.5);
+ PARM_FIELD(pathstring, "hq_driver") VALUE(hq_driver.val) 
+	LABELREF(hq_driver.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(hq_driver.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(hq_driver.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+hq_server.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_server.label = PARM_LABEL("HQueue Server", "hq_server") WIDTH(1.5);
+    PARM_FIELD(string, "hq_server") VALUE(hq_server.val) 
+	LABELREF(hq_server.label) HSTRETCH;
+
+}
+
+hq_hfs.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ hq_hfs.label = PARM_LABEL("Target HFS", "hq_hfs") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "hq_hfs") LABELREF(hq_hfs.label)
+	VALUE(hq_hfs.val) HSTRETCH;
+
+ hq_hfs.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(hq_hfs.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hq_priority.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Job Priority", "hq_priority") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_priority.menu;
+
+}
+
+sepparm6.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+hq_hip_action.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE(" ", "hq_hip_action") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_hip_action.menu;
+
+}
+
+hq_hip.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ hq_hip.label = PARM_LABEL("Target HIP", "hq_hip") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "hq_hip") LABELREF(hq_hip.label)
+	VALUE(hq_hip.val) HSTRETCH;
+
+ hq_hip.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(hq_hip.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hq_project_path.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ hq_project_path.label = PARM_LABEL("Project Path", "hq_project_path") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "hq_project_path") LABELREF(hq_project_path.label)
+	VALUE(hq_project_path.val) HSTRETCH;
+
+ hq_project_path.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(hq_project_path.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hq_input_ifd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ hq_input_ifd.label = PARM_LABEL("IFD Path", "hq_input_ifd") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "hq_input_ifd") LABELREF(hq_input_ifd.label)
+	VALUE(hq_input_ifd.val) HSTRETCH;
+
+ hq_input_ifd.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(hq_input_ifd.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hq_frame_range_.gad = ROW
+{
+   HSTRETCH
+
+   hq_frame_range_.label = PARM_LABEL("Start/End/Inc", "hq_frame_range_") WIDTH(1.5);
+
+   PARM(float, 3, "hq_frame_range_", none, none, "#1,#2,#3") LABELREF(hq_frame_range_.label)
+	HSTRETCH;
+
+}
+
+hq_autosave.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_autosave", "Automatically Save HIP File") toggle VALUE(hq_autosave.val);
+
+}
+hq_cloud_check_progress.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_cloud_check_progress.gad = ROW
+{
+
+    PARM_BUTTON("hq_cloud_check_progress", "Check Progress") push VALUE(hq_cloud_check_progress.val);
+}
+
+hq_cloud_amazon_web_console.gad = ROW
+{
+
+    PARM_BUTTON("hq_cloud_amazon_web_console", "Check Amazon") push VALUE(hq_cloud_amazon_web_console.val);
+}
+
+hq_cloud_help.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("hq_cloud_help", "Help") push VALUE(hq_cloud_help.val);
+}
+}	// Template join.bot
+
+hq_cloud_cached_file_info.gad = NULL { }
+
+hq_cloud_machine_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Machine Type", "hq_cloud_machine_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_cloud_machine_type.menu;
+
+}
+hq_num_cloud_machines.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_num_cloud_machines.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hq_num_cloud_machines.label = PARM_LABEL("Num. Machines", "hq_num_cloud_machines") WIDTH(1.5);
+ PARM(integer, 1, "hq_num_cloud_machines", none, none) RANGE(1,20)
+	LOCK_RANGE_MIN LABELREF(hq_num_cloud_machines.label) HSTRETCH;
+
+}
+
+hq_cloud_price.sval := 1;
+
+hq_cloud_price.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(hq_cloud_price.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_price.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_price.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_price.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_price.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_price.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+}	// Template join.bot
+
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+hq_cloud_region.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_cloud_region.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Cloud Region", "hq_cloud_region") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_cloud_region.menu;
+
+}
+hq_cloud_redetect_region.gad = NULL { }
+
+hq_cloud_detected_region.sval := 1;
+
+hq_cloud_detected_region.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(hq_cloud_detected_region.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_detected_region.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_detected_region.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_detected_region.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(hq_cloud_detected_region.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(hq_cloud_detected_region.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+}	// Template join.bot
+
+
+hq_will_email.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_will_email", "Send Status Emails") toggle VALUE(hq_will_email.val);
+
+}
+
+hq_emailTo.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_emailTo.label = PARM_LABEL("Email Address", "hq_emailTo") WIDTH(1.5);
+    PARM_FIELD(string, "hq_emailTo") VALUE(hq_emailTo.val) 
+	LABELREF(hq_emailTo.label) HSTRETCH;
+
+}
+
+sepparm9.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+hq_email_on_start.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_start", "On Start") toggle VALUE(hq_email_on_start.val);
+
+}
+
+hq_email_on_success.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_success", "On Success") toggle VALUE(hq_email_on_success.val);
+
+}
+
+hq_email_on_failure.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_failure", "On Failure") toggle VALUE(hq_email_on_failure.val);
+
+}
+
+hq_email_on_pause.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_pause", "On Pause") toggle VALUE(hq_email_on_pause.val);
+
+}
+
+hq_email_on_resume.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_resume", "On Resume") toggle VALUE(hq_email_on_resume.val);
+
+}
+
+hq_email_on_reschedule.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_reschedule", "On Reschedule") toggle VALUE(hq_email_on_reschedule.val);
+
+}
+
+hq_email_on_priority_change.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_email_on_priority_change", "On Priority Change") toggle VALUE(hq_email_on_priority_change.val);
+
+}
+hq_makeifds.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+hq_makeifds.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_makeifds.gad = PARM_BUTTON("hq_makeifds", "") toggle VALUE(hq_makeifds.val);
+
+hq_outputifd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ hq_outputifd.label = PARM_LABEL("Generate IFDs", "hq_outputifd") WIDTH(1.27);
+
+ PARM_FIELD (pathstring, "hq_outputifd") LABELREF(hq_outputifd.label)
+	VALUE(hq_outputifd.val) HSTRETCH;
+
+ hq_outputifd.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(hq_outputifd.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+}	
+}	// Template join.bot
+
+
+hq_assign_ifdgen_to.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Assign IFD Job To", "hq_assign_ifdgen_to") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_assign_ifdgen_to.menu;
+
+}
+hq_ifdgen_clients.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_ifdgen_clients.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_ifdgen_clients.label = PARM_LABEL("Clients", "hq_ifdgen_clients") WIDTH(1.5);
+    PARM_FIELD(string, "hq_ifdgen_clients") VALUE(hq_ifdgen_clients.val) 
+	LABELREF(hq_ifdgen_clients.label) HSTRETCH;
+
+}
+
+select_ifdgen_clients.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("select_ifdgen_clients", "Select Clients") push VALUE(select_ifdgen_clients.val);
+}
+}	// Template join.bot
+
+hq_ifdgen_client_groups.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_ifdgen_client_groups.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_ifdgen_client_groups.label = PARM_LABEL("Client Groups", "hq_ifdgen_client_groups") WIDTH(1.5);
+    PARM_FIELD(string, "hq_ifdgen_client_groups") VALUE(hq_ifdgen_client_groups.val) 
+	LABELREF(hq_ifdgen_client_groups.label) HSTRETCH;
+
+}
+
+select_ifdgen_client_groups.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("select_ifdgen_client_groups", "Select Groups") push VALUE(select_ifdgen_client_groups.val);
+}
+}	// Template join.bot
+
+
+hq_delete_ifds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_delete_ifds", "Delete IFDs On Frame Completion") toggle VALUE(hq_delete_ifds.val);
+
+}
+
+sepparm4.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+hq_min_hosts.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hq_min_hosts.label = PARM_LABEL("Min. Clients per Frame", "hq_min_hosts") WIDTH(1.5);
+ PARM(integer, 1, "hq_min_hosts", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(hq_min_hosts.label) HSTRETCH;
+
+}
+
+hq_max_hosts.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hq_max_hosts.label = PARM_LABEL("Max. Clients per Frame", "hq_max_hosts") WIDTH(1.5);
+ PARM(integer, 1, "hq_max_hosts", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(hq_max_hosts.label) HSTRETCH;
+
+}
+
+hq_render_single_tile.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_render_single_tile", "Render Single Tile") toggle VALUE(hq_render_single_tile.val);
+
+}
+
+hq_assign_to.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Assign To", "hq_assign_to") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_assign_to.menu;
+
+}
+hq_clients.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_clients.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_clients.label = PARM_LABEL("Clients", "hq_clients") WIDTH(1.5);
+    PARM_FIELD(string, "hq_clients") VALUE(hq_clients.val) 
+	LABELREF(hq_clients.label) HSTRETCH;
+
+}
+
+select_clients.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("select_clients", "Select Clients") push VALUE(select_clients.val);
+}
+}	// Template join.bot
+
+hq_client_groups.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hq_client_groups.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hq_client_groups.label = PARM_LABEL("Client Groups", "hq_client_groups") WIDTH(1.5);
+    PARM_FIELD(string, "hq_client_groups") VALUE(hq_client_groups.val) 
+	LABELREF(hq_client_groups.label) HSTRETCH;
+
+}
+
+select_client_groups.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("select_client_groups", "Select Groups") push VALUE(select_client_groups.val);
+}
+}	// Template join.bot
+
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+hq_batch_all_frames.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_batch_all_frames", "Batch All Frames in One Job") toggle VALUE(hq_batch_all_frames.val);
+
+}
+
+hq_framesperjob.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hq_framesperjob.label = PARM_LABEL("Frames per Job", "hq_framesperjob") WIDTH(1.5);
+ PARM(integer, 1, "hq_framesperjob", none, none) RANGE(1,25)
+	LOCK_RANGE_MIN LABELREF(hq_framesperjob.label) HSTRETCH;
+
+}
+
+hq_render_frame_order.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Frame Order", "hq_render_frame_order") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    hq_render_frame_order.menu;
+
+}
+
+hq_is_CPU_number_set.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hq_is_CPU_number_set", "Set Number of CPUs per Job") toggle VALUE(hq_is_CPU_number_set.val);
+
+}
+
+hq_CPUs_to_use.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ hq_CPUs_to_use.label = PARM_LABEL("CPUs per Job", "hq_CPUs_to_use") WIDTH(1.5);
+ PARM(integer, 1, "hq_CPUs_to_use", none, none) RANGE(1,8)
+	LOCK_RANGE_MIN LABELREF(hq_CPUs_to_use.label) HSTRETCH;
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+environment.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Environment", "environment") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(environment.val)
+
+        environment.field = PARM_FIELD (integer, "environment")
+				VALUE(environment.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(environment.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(environment.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(environment.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+environment.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+environment.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    environment.parm;
+    environment.multilist;
+}
+
+create_directories.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Create Directories", "create_directories") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(create_directories.val)
+
+        create_directories.field = PARM_FIELD (integer, "create_directories")
+				VALUE(create_directories.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(create_directories.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(create_directories.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(create_directories.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+create_directories.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+create_directories.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    create_directories.parm;
+    create_directories.multilist;
+}
+
+hq_use_cloud.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(hq_use_cloud.gad.val) STRETCH(1,0)
+
+	TAB "Local Farm"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    hq_server.gad;		
+	    hq_hfs.gad;		
+	    hq_priority.gad;		
+	    sepparm6.gad;		
+	    hq_hip_action.gad;		
+	    hq_hip.gad;		
+	    hq_project_path.gad;		
+	    hq_input_ifd.gad;		
+	    hq_frame_range_.gad;		
+	    hq_autosave.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Cloud"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    hq_cloud_check_progress.row.join;		
+	    hq_cloud_cached_file_info.gad;		
+	    hq_cloud_machine_type.gad;		
+	    hq_num_cloud_machines.row.join;		
+	    sepparm3.gad;		
+	    hq_cloud_region.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+general.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(general.gad.val) STRETCH(1,0)
+
+	TAB "General"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    hq_openbrowser.gad;		
+	    hq_job_name.gad;		
+	    hq_driver.gad;		
+	    hq_use_cloud.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Email Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    hq_will_email.gad;		
+	    hq_emailTo.gad;		
+	    sepparm9.gad;		
+	    hq_email_on_start.gad;		
+	    hq_email_on_success.gad;		
+	    hq_email_on_failure.gad;		
+	    hq_email_on_pause.gad;		
+	    hq_email_on_resume.gad;		
+	    hq_email_on_reschedule.gad;		
+	    hq_email_on_priority_change.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Mantra Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    hq_makeifds.row.join;		
+	    hq_assign_ifdgen_to.gad;		
+	    hq_ifdgen_clients.row.join;		
+	    hq_ifdgen_client_groups.row.join;		
+	    hq_delete_ifds.gad;		
+	    sepparm4.gad;		
+	    hq_min_hosts.gad;		
+	    hq_max_hosts.gad;		
+	    hq_render_single_tile.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Advanced"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    hq_assign_to.gad;		
+	    hq_clients.row.join;		
+	    hq_client_groups.row.join;		
+	    sepparm2.gad;		
+	    hq_batch_all_frames.gad;		
+	    hq_framesperjob.gad;		
+	    hq_render_frame_order.gad;		
+	    hq_is_CPU_number_set.gad;		
+	    hq_CPUs_to_use.gad;		
+	    sepparm.gad;		
+	    environment.gad;		
+	    create_directories.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    execute.row.join; 
+    trange.gad; 
+    f.gad; 
+    take.gad; 
+    soho_program.gad; 
+    soho_outputmode.gad; 
+    soho_multiframe.gad; 
+    hq_use_render_tracker.gad; 
+    general.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

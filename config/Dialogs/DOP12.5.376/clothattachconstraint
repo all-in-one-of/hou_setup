@@ -1,0 +1,214 @@
+// Magic: ce9c99a4
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 14:44:58 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+constrainedobject.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    constrainedobject.label = PARM_LABEL("Constrained Object", "constrainedobject") WIDTH(1.5);
+    PARM_FIELD(string, "constrainedobject") VALUE(constrainedobject.val) 
+	LABELREF(constrainedobject.label) HSTRETCH;
+
+    constrainedobject.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+constrainedpoints.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    constrainedpoints.label = PARM_LABEL("Constrained Points", "constrainedpoints") WIDTH(1.5);
+    PARM_FIELD(string, "constrainedpoints") VALUE(constrainedpoints.val) 
+	LABELREF(constrainedpoints.label) HSTRETCH;
+
+}
+
+goalobject.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    goalobject.label = PARM_LABEL("Goal Object", "goalobject") WIDTH(1.5);
+    PARM_FIELD(string, "goalobject") VALUE(goalobject.val) 
+	LABELREF(goalobject.label) HSTRETCH;
+
+    goalobject.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+goalprimitives.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    goalprimitives.label = PARM_LABEL("Goal Primitives", "goalprimitives") WIDTH(1.5);
+    PARM_FIELD(string, "goalprimitives") VALUE(goalprimitives.val) 
+	LABELREF(goalprimitives.label) HSTRETCH;
+
+}
+
+stiffness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ stiffness.label = PARM_LABEL("Stiffness", "stiffness") WIDTH(1.5);
+ PARM(float, 1, "stiffness", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(stiffness.label) HSTRETCH;
+
+}
+
+damping.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ damping.label = PARM_LABEL("Damping", "damping") WIDTH(1.5);
+ PARM(float, 1, "damping", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(damping.label) HSTRETCH;
+
+}
+
+showguide.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide", "Show Guide Geometry") toggle VALUE(showguide.val);
+
+}
+
+guiderad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ guiderad.label = PARM_LABEL("Radius", "guiderad") WIDTH(1.5);
+ PARM(float, 1, "guiderad", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(guiderad.label) HSTRETCH;
+
+}
+
+guidecolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    guidecolor.label = PARM_LABEL("Color", "guidecolor") WIDTH(1.5);
+
+    PARM(float, 3, "guidecolor", none, COLOR, "R,G,B") 
+	LABELREF(guidecolor.label) HSTRETCH;
+
+}
+
+showobjectlink.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showobjectlink", "Show Object Link") toggle VALUE(showobjectlink.val);
+
+}
+
+activation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activation.label = PARM_LABEL("Activation", "activation") WIDTH(1.5);
+ PARM(integer, 1, "activation", none, none) RANGE(0,10)
+	 LABELREF(activation.label) HSTRETCH;
+
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Constraint"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    type.gad;		
+	    sepparm.gad;		
+	    constrainedobject.gad;		
+	    constrainedpoints.gad;		
+	    goalobject.gad;		
+	    goalprimitives.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Soft Controls"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    stiffness.gad;		
+	    damping.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Guide Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    showguide.gad;		
+	    guiderad.gad;		
+	    guidecolor.gad;		
+	    showobjectlink.gad;		
+	    activation.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    folder0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,136 @@
+// Magic: e4d10da4
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:59:26 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+source.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Type", "source") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    source.menu;
+
+}
+
+invert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert", "Invert Volume") toggle VALUE(invert.val);
+
+}
+
+inittype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Point Configuration", "inittype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    inittype.menu;
+
+}
+
+particlesep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ particlesep.label = PARM_LABEL("Point Separation", "particlesep") WIDTH(1.5);
+ PARM(float, 1, "particlesep", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(particlesep.label) HSTRETCH;
+
+}
+
+jitterseed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitterseed.label = PARM_LABEL("Jitter Seed", "jitterseed") WIDTH(1.5);
+ PARM(float, 1, "jitterseed", none, none) RANGE(0,10)
+	 LABELREF(jitterseed.label) HSTRETCH;
+
+}
+
+jitterscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ jitterscale.label = PARM_LABEL("Jitter Scale", "jitterscale") WIDTH(1.5);
+ PARM(float, 1, "jitterscale", none, none) RANGE(0,10)
+	 LABELREF(jitterscale.label) HSTRETCH;
+
+}
+
+converttofog.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("converttofog", "Convert to Fog") toggle VALUE(converttofog.val);
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Grid Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "X,Y,Z") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+addscale.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addscale", "Add Scale Attribute") toggle VALUE(addscale.val);
+
+}
+
+radiusscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiusscale.label = PARM_LABEL("Particle Radius Scale", "radiusscale") WIDTH(1.5);
+ PARM(float, 1, "radiusscale", none, none) RANGE(0,10)
+	 LABELREF(radiusscale.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    source.gad; 
+    invert.gad; 
+    inittype.gad; 
+    particlesep.gad; 
+    jitterseed.gad; 
+    jitterscale.gad; 
+    converttofog.gad; 
+    offset.gad; 
+    addscale.gad; 
+    radiusscale.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

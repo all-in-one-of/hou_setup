@@ -1,0 +1,36 @@
+// Magic: b9d3cd05
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:46:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+handle.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ handle.label = PARM_LABEL("Handle from pcopen", "handle") WIDTH(1.5);
+ PARM(integer, 1, "handle", none, none) RANGE(0,10)
+	 LABELREF(handle.label) HSTRETCH;
+
+	handle.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(handle.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    handle.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

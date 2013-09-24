@@ -1,0 +1,99 @@
+// Magic: 466a81dd
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 14:41:41 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+orient.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orient") ;
+    { WIDTH(0.09) }
+
+    orient.menu;
+
+}
+
+rad.gad = ROW
+{
+   HSTRETCH
+
+   rad.label = PARM_LABEL("Radius", "rad") ;
+
+   PARM(float, 2, "rad", none, none, "#1,#2") LABELREF(rad.label)
+	HSTRETCH;
+
+}
+
+height.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ height.label = PARM_LABEL("Height", "height");
+ PARM(float, 1, "height", none, field) RANGE(0,10)
+	 LABELREF(height.label) HSTRETCH;
+
+}
+
+rows.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rows.label = PARM_LABEL("Rows", "rows");
+ PARM(integer, 1, "rows", none, field) RANGE(2,50)
+	LOCK_RANGE_MIN LABELREF(rows.label) HSTRETCH;
+
+}
+
+cols.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cols.label = PARM_LABEL("Columns", "cols");
+ PARM(integer, 1, "cols", none, field) RANGE(3,50)
+	LOCK_RANGE_MIN LABELREF(cols.label) HSTRETCH;
+
+}
+
+cap.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cap", "End Caps") toggle VALUE(cap.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    orient.gad; 
+    rad.gad; 
+    height.gad; 
+    rows.gad; 
+    cols.gad; 
+    cap.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

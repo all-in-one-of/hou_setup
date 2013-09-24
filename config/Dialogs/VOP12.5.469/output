@@ -1,0 +1,56 @@
+// Magic: 3e5b8836
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:41:45 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+contexttype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Context Type", "contexttype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    contexttype.menu;
+
+	{ HSTRETCH } contexttype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(contexttype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+outputcodelast.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("outputcodelast", "Generate Code for This Node Last") toggle VALUE(outputcodelast.val);
+
+	{ HSTRETCH } outputcodelast.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(outputcodelast.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+parmorder.gad = NULL { }
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    contexttype.gad; 
+    outputcodelast.gad; 
+    parmorder.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

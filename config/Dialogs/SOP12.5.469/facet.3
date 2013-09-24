@@ -1,0 +1,53 @@
+// Magic: 27d40ea5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:50:38 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+unique.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unique", "Unique Points") toggle VALUE(unique.val);
+
+}
+
+cons.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Consolidate", "cons") ;
+    { WIDTH(0.09) }
+
+    cons.menu;
+
+}
+
+orientPolys.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("orientPolys", "Orient Polygons") toggle VALUE(orientPolys.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    unique.gad; 
+    cons.gad; 
+    orientPolys.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

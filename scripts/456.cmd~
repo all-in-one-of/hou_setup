@@ -1,0 +1,2 @@
+unix echo "456"
+exread $HOME/houdini12.0/scripts/custom_expressions.expr

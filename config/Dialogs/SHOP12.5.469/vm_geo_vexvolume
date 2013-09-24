@@ -1,0 +1,52 @@
+// Magic: 10c73de4
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:45:33 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+shader.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ shader.label = PARM_LABEL("Shader", "shader") WIDTH(1.5);
+ PARM_FIELD(pathstring, "shader") VALUE(shader.val) 
+	LABELREF(shader.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(shader.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(shader.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+divisions.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divisions.label = PARM_LABEL("Octree Divisions", "divisions") WIDTH(1.5);
+ PARM(integer, 1, "divisions", none, none) RANGE(1,256)
+	 LABELREF(divisions.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    shader.gad; 
+    divisions.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

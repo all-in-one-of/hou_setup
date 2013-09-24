@@ -1,0 +1,78 @@
+// Magic: 26fc593f
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 01:16:38 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+cmp.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Test", "cmp") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    cmp.menu;
+
+	{ HSTRETCH } cmp.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(cmp.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input2.label = PARM_LABEL("Compare to Float", "input2") WIDTH(1.5);
+ PARM(float, 1, "input2", none, none) RANGE(0,1)
+	 LABELREF(input2.label) HSTRETCH;
+
+	input2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_i.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input2_i.label = PARM_LABEL("Compare to Integer", "input2_i") WIDTH(1.5);
+ PARM(integer, 1, "input2_i", none, none) RANGE(0,10)
+	 LABELREF(input2_i.label) HSTRETCH;
+
+	input2_i.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_i.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_s.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    input2_s.label = PARM_LABEL("Compare to String", "input2_s") WIDTH(1.5);
+    PARM_FIELD(string, "input2_s") VALUE(input2_s.val) 
+	LABELREF(input2_s.label) HSTRETCH;
+
+	input2_s.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_s.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    cmp.gad; 
+    input2.gad; 
+    input2_i.gad; 
+    input2_s.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

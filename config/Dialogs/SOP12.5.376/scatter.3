@@ -1,0 +1,67 @@
+// Magic: 44a2fd4b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 22:37:08 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+keep.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keep", "Keep Original Geometry") toggle VALUE(keep.val);
+
+}
+
+npts.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ npts.label = PARM_LABEL("Number Of Points", "npts");
+ PARM(integer, 1, "npts", none, field) RANGE(0,10000)
+	LOCK_RANGE_MIN LABELREF(npts.label) HSTRETCH;
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Random Seed", "seed");
+ PARM(float, 1, "seed", none, field) RANGE(0,1)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+area.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("area", "Scatter Based On Primitive Area") toggle VALUE(area.val);
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    keep.gad; 
+    npts.gad; 
+    seed.gad; 
+    area.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

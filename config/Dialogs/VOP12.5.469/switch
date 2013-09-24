@@ -1,0 +1,46 @@
+// Magic: c8515aa5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:24:23 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+switcher.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ switcher.label = PARM_LABEL("Switcher Index", "switcher") WIDTH(1.5);
+ PARM(integer, 1, "switcher", none, none) RANGE(0,10)
+	 LABELREF(switcher.label) HSTRETCH;
+
+}
+
+outofbounds.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Out Of Bounds Behavior", "outofbounds") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    outofbounds.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    switcher.gad; 
+    outofbounds.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,119 @@
+// Magic: 8804b496
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:21:32 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+blend.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ blend.label = PARM_LABEL("Blend Factor", "blend") WIDTH(1.5);
+ PARM(float, 1, "blend", none, none) RANGE(0,1)
+	 LABELREF(blend.label) HSTRETCH;
+
+}
+
+dopos.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dopos", "Blend Position") toggle VALUE(dopos.val);
+
+}
+
+doclr.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doclr", "Blend Colors") toggle VALUE(doclr.val);
+
+}
+
+donml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("donml", "Blend Normals") toggle VALUE(donml.val);
+
+}
+
+douvw.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("douvw", "Blend Texture") toggle VALUE(douvw.val);
+
+}
+
+dovoxel.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dovoxel", "Blend Voxel Data") toggle VALUE(dovoxel.val);
+
+}
+
+ptidattr.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    ptidattr.label = PARM_LABEL("Point Id Attribute", "ptidattr") WIDTH(1.5);
+    PARM_FIELD(string, "ptidattr") VALUE(ptidattr.val) 
+	LABELREF(ptidattr.label) HSTRETCH;
+
+    ptidattr.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+primidattr.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    primidattr.label = PARM_LABEL("Primitive Id Attribute", "primidattr") WIDTH(1.5);
+    PARM_FIELD(string, "primidattr") VALUE(primidattr.val) 
+	LABELREF(primidattr.label) HSTRETCH;
+
+    primidattr.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    blend.gad; 
+    dopos.gad; 
+    doclr.gad; 
+    donml.gad; 
+    douvw.gad; 
+    dovoxel.gad; 
+    ptidattr.gad; 
+    primidattr.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

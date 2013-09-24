@@ -1,0 +1,77 @@
+// Magic: 43866a00
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 13:28:58 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+orient.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orient") ;
+    { WIDTH(0.09) }
+
+    orient.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") ;
+
+   PARM(float, 2, "size", none, none, "X,Y") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+rows.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rows.label = PARM_LABEL("Rows", "rows");
+ PARM(integer, 1, "rows", none, field) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(rows.label) HSTRETCH;
+
+}
+
+cols.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cols.label = PARM_LABEL("Columns", "cols");
+ PARM(integer, 1, "cols", none, field) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(cols.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    orient.gad; 
+    size.gad; 
+    rows.gad; 
+    cols.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

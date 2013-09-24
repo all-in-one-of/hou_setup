@@ -1,0 +1,221 @@
+// Magic: cfca02bc
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:41:01 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+selectionidx.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ selectionidx.label = PARM_LABEL("Selection Index", "selectionidx") WIDTH(1.5);
+ PARM(integer, 1, "selectionidx", none, none) RANGE(0,10)
+	 LABELREF(selectionidx.label) HSTRETCH;
+
+}
+
+diff.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("diff", "Differencing") toggle VALUE(diff.val);
+
+}
+
+dopos.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dopos", "Blend Position") toggle VALUE(dopos.val);
+
+}
+
+doclr.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doclr", "Blend Colors") toggle VALUE(doclr.val);
+
+}
+
+donml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("donml", "Blend Normals") toggle VALUE(donml.val);
+
+}
+
+douvw.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("douvw", "Blend Texture") toggle VALUE(douvw.val);
+
+}
+
+dovoxel.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dovoxel", "Blend Voxel Data") toggle VALUE(dovoxel.val);
+
+}
+
+ptidattr.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    ptidattr.label = PARM_LABEL("Point Id Attribute", "ptidattr") WIDTH(1.5);
+    PARM_FIELD(string, "ptidattr") VALUE(ptidattr.val) 
+	LABELREF(ptidattr.label) HSTRETCH;
+
+    ptidattr.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+primidattr.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    primidattr.label = PARM_LABEL("Primitive Id Attribute", "primidattr") WIDTH(1.5);
+    PARM_FIELD(string, "primidattr") VALUE(primidattr.val) 
+	LABELREF(primidattr.label) HSTRETCH;
+
+    primidattr.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+fastrecache.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fastrecache", "Assume Only Coordinate Changes In Input") toggle VALUE(fastrecache.val);
+
+}
+
+morph.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("morph", "Assume Morph Network Setup") toggle VALUE(morph.val);
+
+}
+
+updatechannels.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("updatechannels", "Update Channel Names From Inputs") push VALUE(updatechannels.val);
+}
+
+nblends.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Blends", "nblends") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(nblends.val)
+
+        nblends.field = PARM_FIELD (integer, "nblends")
+				VALUE(nblends.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(nblends.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(nblends.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(nblends.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+nblends.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+nblends.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    nblends.parm;
+    nblends.multilist;
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    selectionidx.gad; 
+    diff.gad; 
+    dopos.gad; 
+    doclr.gad; 
+    donml.gad; 
+    douvw.gad; 
+    dovoxel.gad; 
+    ptidattr.gad; 
+    primidattr.gad; 
+    fastrecache.gad; 
+    morph.gad; 
+    updatechannels.gad; 
+    nblends.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

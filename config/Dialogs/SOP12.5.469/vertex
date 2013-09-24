@@ -1,0 +1,151 @@
+// Magic: fbc1ada5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:49:07 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+doclr.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doclr.menu;
+
+}
+
+diff.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    diff.label = PARM_LABEL("Color", "diff") WIDTH(1.5);
+
+    PARM(float, 3, "diff", none, COLOR, "R,G,B") 
+	LABELREF(diff.label) HSTRETCH;
+
+}
+
+doalpha.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    doalpha.menu;
+
+}
+
+alpha.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ alpha.label = PARM_LABEL("Alpha", "alpha") WIDTH(1.5);
+ PARM(float, 1, "alpha", none, none) RANGE(0,1)
+	 LABELREF(alpha.label) HSTRETCH;
+
+}
+
+douvw.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    douvw.menu;
+
+}
+
+map.gad = ROW
+{
+   HSTRETCH
+
+   map.label = PARM_LABEL("Texture", "map") WIDTH(1.5);
+
+   PARM(float, 3, "map", none, none, "U,V,W") LABELREF(map.label)
+	HSTRETCH;
+
+}
+
+docrease.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    docrease.menu;
+
+}
+
+crease.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ crease.label = PARM_LABEL("Crease", "crease") WIDTH(1.5);
+ PARM(float, 1, "crease", none, none) RANGE(0,1)
+	 LABELREF(crease.label) HSTRETCH;
+
+}
+
+donormal.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    donormal.menu;
+
+}
+
+normal.gad = ROW
+{
+   HSTRETCH
+
+   normal.label = PARM_LABEL("Normal", "normal") WIDTH(1.5);
+
+   PARM(float, 3, "normal", none, none, "X,Y,Z") LABELREF(normal.label)
+	HSTRETCH;
+
+}
+
+angle.gad = ROW
+{
+   HSTRETCH
+
+   angle.label = PARM_LABEL( "Angle", "angle" ) WIDTH(1.5);
+
+   PARM(float, 1, "angle", none, none) RANGE(0, 40)
+	LABELREF( angle.label ) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    doclr.gad; 
+    diff.gad; 
+    doalpha.gad; 
+    alpha.gad; 
+    douvw.gad; 
+    map.gad; 
+    docrease.gad; 
+    crease.gad; 
+    donormal.gad; 
+    normal.gad; 
+    angle.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

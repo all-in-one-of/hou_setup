@@ -1,0 +1,436 @@
+// Magic: 3162b224
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 17:08:37 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+}
+
+keepgeo.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepgeo", "Keep Input Geometry") toggle VALUE(keepgeo.val);
+
+}
+
+nptsperpt.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ nptsperpt.label = PARM_LABEL("Points per Point", "nptsperpt") WIDTH(1.5);
+ PARM(float, 1, "nptsperpt", none, none) RANGE(0,1000)
+	 LABELREF(nptsperpt.label) HSTRETCH;
+
+}
+
+genfromattrib.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("genfromattrib", "Generate from Attribute") toggle VALUE(genfromattrib.val);
+
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+}
+
+shape.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Shape", "shape") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    shape.menu;
+
+}
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("File", "file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+sop.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ sop.label = PARM_LABEL("SOP", "sop") WIDTH(1.5);
+ PARM_FIELD(pathstring, "sop") VALUE(sop.val) 
+	LABELREF(sop.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(sop.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(sop.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+orientation.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orientation") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    orientation.menu;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+scale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale.label = PARM_LABEL("Uniform Scale", "scale") WIDTH(1.5);
+ PARM(float, 1, "scale", none, none) RANGE(0,10)
+	 LABELREF(scale.label) HSTRETCH;
+
+}
+
+velstretch.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Stretch", "velstretch") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    velstretch.menu;
+
+}
+
+velscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velscale.label = PARM_LABEL("Velocity Scale", "velscale") WIDTH(1.5);
+ PARM(float, 1, "velscale", none, none) RANGE(0,10)
+	 LABELREF(velscale.label) HSTRETCH;
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Seed", "seed") WIDTH(1.5);
+ PARM(float, 1, "seed", none, none) RANGE(0,10)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+qstrat.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("qstrat", "Quasi-Stratified Sampling") toggle VALUE(qstrat.val);
+
+}
+
+donoise.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("donoise", "Add Noise") toggle VALUE(donoise.val);
+
+}
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Noise Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+freq.gad = ROW
+{
+   HSTRETCH
+
+   freq.label = PARM_LABEL("Frequency", "freq") WIDTH(1.5);
+
+   PARM(float, 3, "freq", none, none, "#1,#2,#3") LABELREF(freq.label)
+	HSTRETCH;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "#1,#2,#3") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+amp.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ amp.label = PARM_LABEL("Amplitude", "amp") WIDTH(1.5);
+ PARM(float, 1, "amp", none, none) RANGE(-1,1)
+	 LABELREF(amp.label) HSTRETCH;
+
+}
+
+rough.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rough.label = PARM_LABEL("Roughness", "rough") WIDTH(1.5);
+ PARM(float, 1, "rough", none, none) RANGE(0,1)
+	 LABELREF(rough.label) HSTRETCH;
+
+}
+
+atten.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten.label = PARM_LABEL("Attenuation", "atten") WIDTH(1.5);
+ PARM(float, 1, "atten", none, none) RANGE(0,1)
+	 LABELREF(atten.label) HSTRETCH;
+
+}
+
+turb.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ turb.label = PARM_LABEL("Turbulence", "turb") WIDTH(1.5);
+ PARM(integer, 1, "turb", none, none) RANGE(0,10)
+	 LABELREF(turb.label) HSTRETCH;
+
+}
+
+docopyattribs.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("docopyattribs", "Copy Source Attributes") toggle VALUE(docopyattribs.val);
+
+}
+
+attribstocopy.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attribstocopy.label = PARM_LABEL("Attributes", "attribstocopy") WIDTH(1.5);
+    PARM_FIELD(string, "attribstocopy") VALUE(attribstocopy.val) 
+	LABELREF(attribstocopy.label) HSTRETCH;
+
+}
+
+inheritvel.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inheritvel.label = PARM_LABEL("Inherit Velocity", "inheritvel") WIDTH(1.5);
+ PARM(float, 1, "inheritvel", none, none) RANGE(0,10)
+	 LABELREF(inheritvel.label) HSTRETCH;
+
+}
+
+radialvel.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radialvel.label = PARM_LABEL("Radial Velocity", "radialvel") WIDTH(1.5);
+ PARM(float, 1, "radialvel", none, none) RANGE(0,10)
+	 LABELREF(radialvel.label) HSTRETCH;
+
+}
+
+keepinternal.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepinternal", "Keep Source Attributes") toggle VALUE(keepinternal.val);
+
+}
+
+newg.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("newg", "Create Output Group") toggle VALUE(newg.val);
+
+}
+
+outputgroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    outputgroup.label = PARM_LABEL("Output Group", "outputgroup") WIDTH(1.5);
+    PARM_FIELD(string, "outputgroup") VALUE(outputgroup.val) 
+	LABELREF(outputgroup.label) HSTRETCH;
+
+}
+
+folder1.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder1.gad.val) STRETCH(1,0)
+
+	TAB "Quantity"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    nptsperpt.gad;		
+	    genfromattrib.gad;		
+	    attrib.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Shape"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    shape.gad;		
+	    file.gad;		
+	    sop.gad;		
+	    orientation.gad;		
+	    t.gad;		
+	    size.gad;		
+	    scale.gad;		
+	    velstretch.gad;		
+	    velscale.gad;		
+	    seed.gad;		
+	    qstrat.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Noise"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    donoise.gad;		
+	    type.gad;		
+	    freq.gad;		
+	    offset.gad;		
+	    amp.gad;		
+	    rough.gad;		
+	    atten.gad;		
+	    turb.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Attributes"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    docopyattribs.gad;		
+	    attribstocopy.gad;		
+	    inheritvel.gad;		
+	    radialvel.gad;		
+	    keepinternal.gad;		
+	    newg.gad;		
+	    outputgroup.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    keepgeo.gad; 
+    folder1.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

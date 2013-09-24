@@ -1,0 +1,73 @@
+// Magic: 8d1fc3ce
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:57:02 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+rotangle.gad = ROW
+{
+   HSTRETCH
+
+   rotangle.label = PARM_LABEL( "Angle", "rotangle" ) ;
+
+   PARM(float, 1, "rotangle", none, none) RANGE(0, 1)
+	LABELREF( rotangle.label ) HSTRETCH;
+
+}
+
+rottype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Axis Type", "rottype") ;
+    { WIDTH(0.09) }
+
+    rottype.menu;
+
+}
+rotv.join = SWITCHER		 
+{
+  LAYOUT(overlap) HSTRETCH LOOK(none) VALUE(rottype.val)
+
+rotv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    rotv.label = PARM_LABEL("", "rotv") ;
+    PARM_FIELD(string, "rotv") VALUE(rotv.val) 
+	LABELREF(rotv.label) HSTRETCH;
+
+}
+
+rot.gad = ROW
+{
+   HSTRETCH
+
+   rot.label = PARM_LABEL("Axis", "rot") ;
+
+   PARM(float, 3, "rot", none, none, "X,Y,Z") LABELREF(rot.label)
+	HSTRETCH;
+
+}
+}	
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    rotangle.gad; 
+    rottype.gad; 
+    rotv.join; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

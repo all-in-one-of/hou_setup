@@ -1,0 +1,275 @@
+// Magic: b48547c1
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:02:51 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+condtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Condition", "condtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    condtype.menu;
+
+	{ HSTRETCH } condtype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(condtype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input2.label = PARM_LABEL("Input 2", "input2") WIDTH(1.5);
+ PARM(float, 1, "input2", none, none) RANGE(0,1)
+	 LABELREF(input2.label) HSTRETCH;
+
+	input2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_i.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input2_i.label = PARM_LABEL("Input 2", "input2_i") WIDTH(1.5);
+ PARM(integer, 1, "input2_i", none, none) RANGE(0,10)
+	 LABELREF(input2_i.label) HSTRETCH;
+
+	input2_i.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_i.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_s.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    input2_s.label = PARM_LABEL("Input 2", "input2_s") WIDTH(1.5);
+    PARM_FIELD(string, "input2_s") VALUE(input2_s.val) 
+	LABELREF(input2_s.label) HSTRETCH;
+
+	input2_s.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_s.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_v.gad = ROW
+{
+   HSTRETCH
+
+   input2_v.label = PARM_LABEL("Input 2", "input2_v") WIDTH(1.5);
+
+   PARM(float, 3, "input2_v", none, none, "#1,#2,#3") LABELREF(input2_v.label)
+	HSTRETCH;
+
+	input2_v.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_v.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_p.gad = ROW
+{
+   HSTRETCH
+
+   input2_p.label = PARM_LABEL("Input 2", "input2_p") WIDTH(1.5);
+
+   PARM(float, 3, "input2_p", none, none, "#1,#2,#3") LABELREF(input2_p.label)
+	HSTRETCH;
+
+	input2_p.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_p.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_n.gad = ROW
+{
+   HSTRETCH
+
+   input2_n.label = PARM_LABEL("Input 2", "input2_n") WIDTH(1.5);
+
+   PARM(float, 3, "input2_n", none, none, "#1,#2,#3") LABELREF(input2_n.label)
+	HSTRETCH;
+
+	input2_n.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_n.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    input2_c.label = PARM_LABEL("Input 2", "input2_c") WIDTH(1.5);
+
+    PARM(float, 3, "input2_c", none, COLOR, "R,G,B") 
+	LABELREF(input2_c.label) HSTRETCH;
+
+	input2_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_v4.gad = ROW
+{
+   HSTRETCH
+
+   input2_v4.label = PARM_LABEL("Input 2", "input2_v4") WIDTH(1.5);
+
+   PARM(float, 4, "input2_v4", none, none, "#1,#2,#3,#4") LABELREF(input2_v4.label)
+	HSTRETCH;
+
+	input2_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_m3.gad = ROW
+{
+   HSTRETCH
+
+   input2_m3.label = PARM_LABEL("Input 2", "input2_m3") WIDTH(1.5);
+
+   PARM(float, 9, "input2_m3", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9") LABELREF(input2_m3.label)
+	HSTRETCH;
+
+	input2_m3.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_m3.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_m.gad = ROW
+{
+   HSTRETCH
+
+   input2_m.label = PARM_LABEL("Input 2", "input2_m") WIDTH(1.5);
+
+   PARM(float, 16, "input2_m", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(input2_m.label)
+	HSTRETCH;
+
+	input2_m.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_m.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_uf.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input2_uf.label = PARM_LABEL("Input 2", "input2_uf") WIDTH(1.5);
+ PARM(float, 1, "input2_uf", none, none) RANGE(0,1)
+	 LABELREF(input2_uf.label) HSTRETCH;
+
+	input2_uf.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_uf.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_uv.gad = ROW
+{
+   HSTRETCH
+
+   input2_uv.label = PARM_LABEL("Input 2", "input2_uv") WIDTH(1.5);
+
+   PARM(float, 3, "input2_uv", none, none, "#1,#2,#3") LABELREF(input2_uv.label)
+	HSTRETCH;
+
+	input2_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_up.gad = ROW
+{
+   HSTRETCH
+
+   input2_up.label = PARM_LABEL("Input 2", "input2_up") WIDTH(1.5);
+
+   PARM(float, 3, "input2_up", none, none, "#1,#2,#3") LABELREF(input2_up.label)
+	HSTRETCH;
+
+	input2_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_un.gad = ROW
+{
+   HSTRETCH
+
+   input2_un.label = PARM_LABEL("Input 2", "input2_un") WIDTH(1.5);
+
+   PARM(float, 3, "input2_un", none, none, "#1,#2,#3") LABELREF(input2_un.label)
+	HSTRETCH;
+
+	input2_un.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_un.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_uc.gad = ROW
+{
+   HSTRETCH
+
+   input2_uc.label = PARM_LABEL("Input 2", "input2_uc") WIDTH(1.5);
+
+   PARM(float, 3, "input2_uc", none, none, "#1,#2,#3") LABELREF(input2_uc.label)
+	HSTRETCH;
+
+	input2_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+input2_um.gad = ROW
+{
+   HSTRETCH
+
+   input2_um.label = PARM_LABEL("Input 2", "input2_um") WIDTH(1.5);
+
+   PARM(float, 16, "input2_um", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(input2_um.label)
+	HSTRETCH;
+
+	input2_um.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(input2_um.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    condtype.gad; 
+    input2.gad; 
+    input2_i.gad; 
+    input2_s.gad; 
+    input2_v.gad; 
+    input2_p.gad; 
+    input2_n.gad; 
+    input2_c.gad; 
+    input2_v4.gad; 
+    input2_m3.gad; 
+    input2_m.gad; 
+    input2_uf.gad; 
+    input2_uv.gad; 
+    input2_up.gad; 
+    input2_un.gad; 
+    input2_uc.gad; 
+    input2_um.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

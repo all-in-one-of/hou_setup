@@ -1,0 +1,592 @@
+// Magic: 3c187f3
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 16:31:50 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+initialize.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Initialize", "initialize") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    initialize.menu;
+
+}
+
+source_path.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ source_path.label = PARM_LABEL("Volume Path", "source_path") WIDTH(1.5);
+ PARM_FIELD(pathstring, "source_path") VALUE(source_path.val) 
+	LABELREF(source_path.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(source_path.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(source_path.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+activation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activation.label = PARM_LABEL("Activation", "activation") WIDTH(1.5);
+ PARM(float, 1, "activation", none, none) RANGE(0,1)
+	 LABELREF(activation.label) HSTRETCH;
+
+}
+
+scale_source.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale_source.label = PARM_LABEL("Scale Source Volume", "scale_source") WIDTH(1.5);
+ PARM(float, 1, "scale_source", none, none) RANGE(0,10)
+	 LABELREF(scale_source.label) HSTRETCH;
+
+}
+
+scale_temperature.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale_temperature.label = PARM_LABEL("Scale Temperature", "scale_temperature") WIDTH(1.5);
+ PARM(float, 1, "scale_temperature", none, none) RANGE(0,10)
+	 LABELREF(scale_temperature.label) HSTRETCH;
+
+}
+
+scale_velocity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale_velocity.label = PARM_LABEL("Scale Velocity", "scale_velocity") WIDTH(1.5);
+ PARM(float, 1, "scale_velocity", none, none) RANGE(0,10)
+	 LABELREF(scale_velocity.label) HSTRETCH;
+
+}
+
+use_object_transform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_object_transform", "Use Object Transform") toggle VALUE(use_object_transform.val);
+
+}
+source_merge.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_merge.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Source Volume", "source_merge") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    source_merge.menu;
+
+}
+
+normalizesource.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normalizesource", "Normalize") toggle VALUE(normalizesource.val);
+
+}
+}	// Template join.bot
+
+temperature_merge.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+temperature_merge.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Temperature", "temperature_merge") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    temperature_merge.menu;
+
+}
+
+normalizetemp.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normalizetemp", "Normalize") toggle VALUE(normalizetemp.val);
+
+}
+}	// Template join.bot
+
+velocity_merge.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+velocity_merge.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity", "velocity_merge") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    velocity_merge.menu;
+
+}
+
+normalizevel.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normalizevel", "Normalize") toggle VALUE(normalizevel.val);
+
+}
+}	// Template join.bot
+
+
+tspeed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tspeed.label = PARM_LABEL("Target Speed", "tspeed") WIDTH(1.5);
+ PARM(float, 1, "tspeed", none, none) RANGE(0,10)
+	 LABELREF(tspeed.label) HSTRETCH;
+
+}
+
+iscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iscale.label = PARM_LABEL("Target Influence", "iscale") WIDTH(1.5);
+ PARM(float, 1, "iscale", none, none) RANGE(0,1)
+	 LABELREF(iscale.label) HSTRETCH;
+
+}
+
+maccel.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maccel.label = PARM_LABEL("Max Acceleration", "maccel") WIDTH(1.5);
+ PARM(float, 1, "maccel", none, none) RANGE(0,10)
+	 LABELREF(maccel.label) HSTRETCH;
+
+}
+
+sourceparticles.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("sourceparticles", "Source Particles") toggle VALUE(sourceparticles.val);
+
+}
+
+particlefluidobjectname.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ particlefluidobjectname.label = PARM_LABEL("Particle Fluid Object", "particlefluidobjectname") WIDTH(1.5);
+ PARM_FIELD(pathstring, "particlefluidobjectname") VALUE(particlefluidobjectname.val) 
+	LABELREF(particlefluidobjectname.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(particlefluidobjectname.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(particlefluidobjectname.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+offsetscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offsetscale.label = PARM_LABEL("Time Offset Scale", "offsetscale") WIDTH(1.5);
+ PARM(float, 1, "offsetscale", none, none) RANGE(0,10)
+	 LABELREF(offsetscale.label) HSTRETCH;
+
+}
+
+offsetseed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offsetseed.label = PARM_LABEL("Time Offset Seed", "offsetseed") WIDTH(1.5);
+ PARM(float, 1, "offsetseed", none, none) RANGE(0,10)
+	 LABELREF(offsetseed.label) HSTRETCH;
+
+}
+killinside.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+killinside.gad = ROW
+{
+
+    PARM_BUTTON("killinside", "Kill Inside") toggle VALUE(killinside.val);
+
+}
+
+killinsidesource.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    killinsidesource.label = PARM_LABEL("killinsidesource", "killinsidesource") WIDTH(0);
+    PARM_FIELD(string, "killinsidesource") VALUE(killinsidesource.val) 
+	LABELREF(killinsidesource.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+masklabel.sval := 1;
+
+masklabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(masklabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(masklabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(masklabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(masklabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(masklabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(masklabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+source_mask.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_mask.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source_mask.label = PARM_LABEL("Source Volume", "source_mask") WIDTH(1.5);
+    PARM_FIELD(string, "source_mask") VALUE(source_mask.val) 
+	LABELREF(source_mask.label) HSTRETCH;
+
+}
+
+source_abs.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("source_abs", "Absolute") toggle VALUE(source_abs.val);
+
+}
+}	// Template join.bot
+
+temperature_mask.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+temperature_mask.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    temperature_mask.label = PARM_LABEL("Temperature Volume", "temperature_mask") WIDTH(1.5);
+    PARM_FIELD(string, "temperature_mask") VALUE(temperature_mask.val) 
+	LABELREF(temperature_mask.label) HSTRETCH;
+
+}
+
+temp_abs.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("temp_abs", "Absolute") toggle VALUE(temp_abs.val);
+
+}
+}	// Template join.bot
+
+vel_mask.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vel_mask.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vel_mask.label = PARM_LABEL("Velocity Volume", "vel_mask") WIDTH(1.5);
+    PARM_FIELD(string, "vel_mask") VALUE(vel_mask.val) 
+	LABELREF(vel_mask.label) HSTRETCH;
+
+}
+
+vel_abs.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vel_abs", "Absolute") toggle VALUE(vel_abs.val);
+
+}
+}	// Template join.bot
+
+source_name.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+source_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source_name.label = PARM_LABEL("Source Volume", "source_name") WIDTH(1.5);
+    PARM_FIELD(string, "source_name") VALUE(source_name.val) 
+	LABELREF(source_name.label) HSTRETCH;
+
+}
+
+vol_sourcedest.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vol_sourcedest.label = PARM_LABEL("Add To Field", "vol_sourcedest") ;
+    PARM_FIELD(string, "vol_sourcedest") VALUE(vol_sourcedest.val) 
+	LABELREF(vol_sourcedest.label) HSTRETCH;
+
+    vol_sourcedest.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+temp_name.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+temp_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    temp_name.label = PARM_LABEL("Temperature Volume", "temp_name") WIDTH(1.5);
+    PARM_FIELD(string, "temp_name") VALUE(temp_name.val) 
+	LABELREF(temp_name.label) HSTRETCH;
+
+}
+
+vol_tempdest.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vol_tempdest.label = PARM_LABEL("Add To Field", "vol_tempdest") ;
+    PARM_FIELD(string, "vol_tempdest") VALUE(vol_tempdest.val) 
+	LABELREF(vol_tempdest.label) HSTRETCH;
+
+    vol_tempdest.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+vel_name.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vel_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vel_name.label = PARM_LABEL("Velocity Volume", "vel_name") WIDTH(1.5);
+    PARM_FIELD(string, "vel_name") VALUE(vel_name.val) 
+	LABELREF(vel_name.label) HSTRETCH;
+
+}
+
+vol_veldest.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vol_veldest.label = PARM_LABEL("Add To Field", "vol_veldest") ;
+    PARM_FIELD(string, "vol_veldest") VALUE(vol_veldest.val) 
+	LABELREF(vol_veldest.label) HSTRETCH;
+
+    vol_veldest.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+
+instancing.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Instancing", "instancing") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    instancing.menu;
+
+}
+
+fields_to_clear.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fields_to_clear.label = PARM_LABEL("Fields To Clear", "fields_to_clear") WIDTH(1.5);
+    PARM_FIELD(string, "fields_to_clear") VALUE(fields_to_clear.val) 
+	LABELREF(fields_to_clear.label) HSTRETCH;
+
+}
+
+operation.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(operation.gad.val) STRETCH(1,0)
+
+	TAB "Volume Operation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    source_merge.row.join;		
+	    temperature_merge.row.join;		
+	    velocity_merge.row.join;		
+	    tspeed.gad;		
+	    iscale.gad;		
+	    maccel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Particle Operation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    sourceparticles.gad;		
+	    particlefluidobjectname.gad;		
+	    offsetscale.gad;		
+	    offsetseed.gad;		
+	    killinside.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Masks"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    masklabel.gad;		
+	    source_mask.row.join;		
+	    temperature_mask.row.join;		
+	    vel_mask.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "SOP To DOP Bindings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    source_name.row.join;		
+	    temp_name.row.join;		
+	    vel_name.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Instancing"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    instancing.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Clear"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    fields_to_clear.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    initialize.gad; 
+    source_path.gad; 
+    activation.gad; 
+    scale_source.gad; 
+    scale_temperature.gad; 
+    scale_velocity.gad; 
+    use_object_transform.gad; 
+    operation.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

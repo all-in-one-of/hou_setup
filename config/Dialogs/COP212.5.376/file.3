@@ -1,0 +1,74 @@
+// Magic: 8d73964d
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 03:19:04 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+filename.switch.val:= 1;
+
+filename.gad = 
+{
+
+   LAYOUT(horizontal) HSTRETCH LOOK(bg) VALUE(filename.val:2) 
+	JUSTIFY(left,center)
+
+   filename.label = PARM_LABEL("File", "filename");
+
+   PARM_FIELD(string, "filename") VALUE(filename.val) 
+		LABELREF(filename.label) HSTRETCH;
+
+   filename.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_chooser" VALUE(filename.plus)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+overridesize.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Size", "overridesize") ;
+    { WIDTH(0.09) }
+
+    overridesize.menu;
+
+}
+size.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") ;
+
+   PARM(integer, 2, "size", none, none, "#1,#2") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+sizemenu.gad = sizemenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    filename.gad; 
+    overridesize.gad; 
+    size.join; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

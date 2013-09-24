@@ -1,0 +1,200 @@
+// Magic: 22e25609
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:40:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+grouptype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Group Type", "grouptype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    grouptype.menu;
+
+}
+
+keepOriginal.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepOriginal", "Keep Original") toggle VALUE(keepOriginal.val);
+
+}
+dodivs.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dodivs.gad = PARM_BUTTON("dodivs", "") toggle VALUE(dodivs.val);
+
+divs.gad = ROW
+{
+   HSTRETCH
+
+   divs.label = PARM_LABEL("Divisions", "divs") WIDTH(1.27);
+
+   PARM(integer, 3, "divs", none, none, "X,Y,Z") LABELREF(divs.label)
+	HSTRETCH;
+
+}
+}	
+
+rebar.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("rebar", "Enforcement Bars") toggle VALUE(rebar.val);
+
+}
+
+minsize.gad = ROW
+{
+   HSTRETCH
+
+   minsize.label = PARM_LABEL("Minimum Size", "minsize") WIDTH(1.5);
+
+   PARM(float, 3, "minsize", none, none, "X,Y,Z") LABELREF(minsize.label)
+	HSTRETCH;
+
+}
+
+orientedbbox.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("orientedbbox", "Oriented Bounding Box (primitives only)") toggle VALUE(orientedbbox.val);
+
+}
+
+orient.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orient") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    orient.menu;
+
+}
+
+accurate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("accurate", "Accurate Bounds") toggle VALUE(accurate.val);
+
+}
+
+minradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ minradius.label = PARM_LABEL("Minimum radius", "minradius") WIDTH(1.5);
+ PARM(float, 1, "minradius", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(minradius.label) HSTRETCH;
+
+}
+
+minpad.gad = ROW
+{
+   HSTRETCH
+
+   minpad.label = PARM_LABEL("Lower Padding", "minpad") WIDTH(1.5);
+
+   PARM(float, 3, "minpad", none, none, "X,Y,Z") LABELREF(minpad.label)
+	HSTRETCH;
+
+}
+
+maxpad.gad = ROW
+{
+   HSTRETCH
+
+   maxpad.label = PARM_LABEL("Upper Padding", "maxpad") WIDTH(1.5);
+
+   PARM(float, 3, "maxpad", none, none, "X,Y,Z") LABELREF(maxpad.label)
+	HSTRETCH;
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(boundtype.gad.val) STRETCH(1,0)
+
+	TAB "Box"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    dodivs.join;		
+	    rebar.gad;		
+	    minsize.gad;		
+	    orientedbbox.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sphere"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    orient.gad;		
+	    accurate.gad;		
+	    minradius.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    grouptype.gad; 
+    keepOriginal.gad; 
+    boundtype.gad; 
+    minpad.gad; 
+    maxpad.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

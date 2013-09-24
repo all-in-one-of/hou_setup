@@ -1,0 +1,57 @@
+// Magic: 93372162
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:58:36 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+output.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Output Type", "output") ;
+    { WIDTH(0.09) }
+
+    output.menu;
+
+}
+
+offset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset.label = PARM_LABEL("Offset", "offset");
+ PARM(float, 1, "offset", none, field) RANGE(-5,5)
+	 LABELREF(offset.label) HSTRETCH;
+
+}
+
+samplediv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ samplediv.label = PARM_LABEL("Uniform Sampling Divs", "samplediv");
+ PARM(integer, 1, "samplediv", none, field) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(samplediv.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    output.gad; 
+    offset.gad; 
+    samplediv.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

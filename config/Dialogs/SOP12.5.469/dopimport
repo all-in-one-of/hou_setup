@@ -1,0 +1,299 @@
+// Magic: 83efc8c6
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:39:25 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+doppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ doppath.label = PARM_LABEL("DOP Network", "doppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "doppath") VALUE(doppath.val) 
+	LABELREF(doppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(doppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(doppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+objpattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    objpattern.label = PARM_LABEL("Object Mask", "objpattern") WIDTH(1.5);
+    PARM_FIELD(string, "objpattern") VALUE(objpattern.val) 
+	LABELREF(objpattern.label) HSTRETCH;
+
+}
+
+singleobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("singleobject", "Use Single Object") toggle VALUE(singleobject.val);
+
+}
+
+importstyle.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Import Style", "importstyle") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    importstyle.menu;
+
+}
+
+importbyname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("importbyname", "Import By Name") toggle VALUE(importbyname.val);
+
+}
+
+useobjidgroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useobjidgroups", "Use Object Ids for Primitive Group Names") toggle VALUE(useobjidgroups.val);
+
+}
+
+geodatapath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    geodatapath.label = PARM_LABEL("Geometry Data Path", "geodatapath") WIDTH(1.5);
+    PARM_FIELD(string, "geodatapath") VALUE(geodatapath.val) 
+	LABELREF(geodatapath.label) HSTRETCH;
+
+}
+
+inverseop.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("inverseop", "Inverse Transform") toggle VALUE(inverseop.val);
+
+}
+
+doposxform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doposxform", "Transform Geometry With Position Data") toggle VALUE(doposxform.val);
+
+}
+
+doxform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doxform", "Transform Geometry With Geometry Data") toggle VALUE(doxform.val);
+
+}
+
+keepworldspacepos.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepworldspacepos", "Preserve World Space Positions") toggle VALUE(keepworldspacepos.val);
+
+}
+
+adddopobjectname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("adddopobjectname", "Add DOP Object Name Attribute") toggle VALUE(adddopobjectname.val);
+
+}
+
+adddopobjectid.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("adddopobjectid", "Add DOP Object Id Attribute") toggle VALUE(adddopobjectid.val);
+
+}
+
+addtoexistingvel.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addtoexistingvel", "Add to Existing Velocity Attributes") toggle VALUE(addtoexistingvel.val);
+
+}
+
+deleteabandoned.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("deleteabandoned", "Delete Abandoned Primitives") toggle VALUE(deleteabandoned.val);
+
+}
+
+pointvels.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Point Velocities", "pointvels") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    pointvels.menu;
+
+}
+
+integrateovertime.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ integrateovertime.label = PARM_LABEL("Integrate Over Time", "integrateovertime") WIDTH(1.5);
+ PARM(float, 1, "integrateovertime", none, none) RANGE(0,1)
+	 LABELREF(integrateovertime.label) HSTRETCH;
+
+}
+
+attribslabel.sval := 0;
+
+attribslabel.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(attribslabel.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Vector Attributes To Transform:" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Vector Attributes To Transform:":1.5;
+
+	     LABEL VALUE(attribslabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Vector Attributes To Transform:":1.5;
+
+	     LABEL VALUE(attribslabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Vector Attributes To Transform:":1.5;
+
+	     LABEL VALUE(attribslabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Vector Attributes To Transform:":1.5;
+
+	     LABEL VALUE(attribslabel.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(attribslabel.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+
+xformattribs.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    xformattribs.label = PARM_LABEL("Vector Attributes To Transform", "xformattribs") WIDTH(0);
+    PARM_FIELD(string, "xformattribs") VALUE(xformattribs.val) 
+	LABELREF(xformattribs.label) HSTRETCH;
+
+    xformattribs.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+donotsim.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("donotsim", "Do Not Trigger Simulation") toggle VALUE(donotsim.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    doppath.gad; 
+    objpattern.gad; 
+    singleobject.gad; 
+    importstyle.gad; 
+    importbyname.gad; 
+    useobjidgroups.gad; 
+    geodatapath.gad; 
+    inverseop.gad; 
+    doposxform.gad; 
+    doxform.gad; 
+    keepworldspacepos.gad; 
+    adddopobjectname.gad; 
+    adddopobjectid.gad; 
+    addtoexistingvel.gad; 
+    deleteabandoned.gad; 
+    pointvels.gad; 
+    integrateovertime.gad; 
+    attribslabel.gad; 
+    xformattribs.gad; 
+    donotsim.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

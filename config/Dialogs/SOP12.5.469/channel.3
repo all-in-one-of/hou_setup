@@ -1,0 +1,37 @@
+// Magic: c3f48b90
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:52:10 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+choppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ choppath.label = PARM_LABEL("CHOP", "choppath") ;
+ PARM_FIELD(pathstring, "choppath") VALUE(choppath.val) 
+	LABELREF(choppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(choppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(choppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    choppath.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

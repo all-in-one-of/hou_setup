@@ -1,0 +1,61 @@
+The following Houdini Cloud EULA has been accepted on Tue, 04 Jun 2013 at 16:32:00:
+
+
+HQUEUE CLOUD COMPUTING END USER LICENSE AGREEMENT
+=============================================
+
+The following disclaimer refers to the use of Side Effects Software's
+products("Software") in conjunction with the Amazon Elastic Compute
+Cloud Computing Platform ("Cloud").  This disclaimer does not replace
+the existing Software EULA.
+
+The user agrees that any use of the Software via the Cloud is strictly
+at the risk of the user.  Side Effects Software does not guarantee the
+operability of its Software using the Cloud, and assumes no liability
+for any financial, time, or other damages that may result from the use
+of the Software in conjunction with the Cloud. 
+
+There are no express warranties implied and persons using the
+Software in the Cloud bear complete risk for any incidental, special,
+indirect, or consequential damages, loss of revenues or profits, or
+any other damages; however caused.  Notwithstanding, in no event
+shall Side Effects Software's liability for any damages exceed the
+original amount paid for the original license grant.
+
+The user agrees that Software in the Cloud may not be subleased,
+shared or reassigned.  Users of Apprentice software (i.e. non-
+commercial versions of the Software) may only use the cloud for non-
+commercial work as per the terms of their EULA.
+
+The user is strongly advised to read the user guide and follow its
+instructions carefully.  The following recommendations will increase the
+likelihood of a successful result:
+
+* Ensure that the Cloud billing structure is understood in detail before
+  using the Cloud.  Billing is handled by Amazon and not by Side Effects
+  Software.
+
+* Ensure that the Software version (typically the latest production
+  release of the Software) is compatible with the software version in
+  the Cloud.  The use of different build versions of Houdini significantly
+  increase the risk of producing different results, unsatisfactory results,
+  or no results at all. 
+
+* Correctly and completely identify and select all required input files
+  when submitting a job.  While some attempt has been made to find file
+  dependencies automatically, it is not possible to always detect file
+  references in all circumstances.  Files referenced in complex
+  expressions, scripts and C++ code are unlikely to be detected.
+
+* Ensure your job is not using or dependent on HDK plugins, environment
+  settings, custom paths, etc.
+
+* Check jobs locally before submitting them to the Cloud. 
+
+* Start with a single machine in the Cloud and one frame to make sure
+  things are working before submitting a large job to multiple machines.
+
+* Ensure your cloud instances are shut down.  Cloud users are billed as
+  long as an instance is running, whether it is in use or not.
+
+You must accept these terms and conditions to use the Software in the Cloud.

@@ -1,0 +1,123 @@
+// Magic: 651a4e87
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:15:06 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p1.gad = ROW
+{
+   HSTRETCH
+
+   p1.label = PARM_LABEL("Point 1", "p1") WIDTH(1.5);
+
+   PARM(float, 3, "p1", none, none, "#1,#2,#3") LABELREF(p1.label)
+	HSTRETCH;
+
+	p1.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p1.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p2.gad = ROW
+{
+   HSTRETCH
+
+   p2.label = PARM_LABEL("Point 2", "p2") WIDTH(1.5);
+
+   PARM(float, 3, "p2", none, none, "#1,#2,#3") LABELREF(p2.label)
+	HSTRETCH;
+
+	p2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p1_v4.gad = ROW
+{
+   HSTRETCH
+
+   p1_v4.label = PARM_LABEL("Point 1", "p1_v4") WIDTH(1.5);
+
+   PARM(float, 4, "p1_v4", none, none, "#1,#2,#3,#4") LABELREF(p1_v4.label)
+	HSTRETCH;
+
+	p1_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p1_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p2_v4.gad = ROW
+{
+   HSTRETCH
+
+   p2_v4.label = PARM_LABEL("Point 2", "p2_v4") WIDTH(1.5);
+
+   PARM(float, 4, "p2_v4", none, none, "#1,#2,#3,#4") LABELREF(p2_v4.label)
+	HSTRETCH;
+
+	p2_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p2_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p1_up.gad = ROW
+{
+   HSTRETCH
+
+   p1_up.label = PARM_LABEL("Point 1", "p1_up") WIDTH(1.5);
+
+   PARM(float, 3, "p1_up", none, none, "#1,#2,#3") LABELREF(p1_up.label)
+	HSTRETCH;
+
+	p1_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p1_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+p2_up.gad = ROW
+{
+   HSTRETCH
+
+   p2_up.label = PARM_LABEL("Point 2", "p2_up") WIDTH(1.5);
+
+   PARM(float, 3, "p2_up", none, none, "#1,#2,#3") LABELREF(p2_up.label)
+	HSTRETCH;
+
+	p2_up.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(p2_up.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    p1.gad; 
+    p2.gad; 
+    p1_v4.gad; 
+    p2_v4.gad; 
+    p1_up.gad; 
+    p2_up.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

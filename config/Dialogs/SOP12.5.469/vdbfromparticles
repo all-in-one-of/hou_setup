@@ -1,0 +1,227 @@
+// Magic: 2180d861
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:39:33 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+voxelsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ voxelsize.label = PARM_LABEL("Voxel Size", "voxelsize") WIDTH(1.5);
+ PARM(float, 1, "voxelsize", none, none) RANGE(1.0000000000000001e-05,5)
+	LOCK_RANGE_MIN LABELREF(voxelsize.label) HSTRETCH;
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Reference VDB", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+builddistance.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+builddistance.gad = PARM_BUTTON("builddistance", "") toggle VALUE(builddistance.val);
+
+distancename.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    distancename.label = PARM_LABEL("Distance VDB", "distancename") WIDTH(1.27);
+    PARM_FIELD(string, "distancename") VALUE(distancename.val) 
+	LABELREF(distancename.label) HSTRETCH;
+
+}
+}	
+buildfog.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+buildfog.gad = PARM_BUTTON("buildfog", "") toggle VALUE(buildfog.val);
+
+fogname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fogname.label = PARM_LABEL("Fog VDB", "fogname") WIDTH(1.27);
+    PARM_FIELD(string, "fogname") VALUE(fogname.val) 
+	LABELREF(fogname.label) HSTRETCH;
+
+}
+}	
+
+radiusscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radiusscale.label = PARM_LABEL("Point Radius Scale", "radiusscale") WIDTH(1.5);
+ PARM(float, 1, "radiusscale", none, none) RANGE(0,2)
+	LOCK_RANGE_MIN LABELREF(radiusscale.label) HSTRETCH;
+
+}
+
+minvoxelradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ minvoxelradius.label = PARM_LABEL("Minimum Radius in Voxels", "minvoxelradius") WIDTH(1.5);
+ PARM(float, 1, "minvoxelradius", none, none) RANGE(0,2)
+	LOCK_RANGE_MIN LABELREF(minvoxelradius.label) HSTRETCH;
+
+}
+
+useworldspaceunits.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useworldspaceunits", "Use World Space for Band") toggle VALUE(useworldspaceunits.val);
+
+}
+
+bandwidthvoxels.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bandwidthvoxels.label = PARM_LABEL("Half-Band Voxels", "bandwidthvoxels") WIDTH(1.5);
+ PARM(float, 1, "bandwidthvoxels", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(bandwidthvoxels.label) HSTRETCH;
+
+}
+
+bandwidth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bandwidth.label = PARM_LABEL("Half-Band", "bandwidth") WIDTH(1.5);
+ PARM(float, 1, "bandwidth", none, none) RANGE(1.0000000000000001e-05,10)
+	LOCK_RANGE_MIN LABELREF(bandwidth.label) HSTRETCH;
+
+}
+
+writeintoref.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("writeintoref", "Merge With Reference VDB") toggle VALUE(writeintoref.val);
+
+}
+
+footprint.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Particle Footprint", "footprint") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    footprint.menu;
+
+}
+
+velscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velscale.label = PARM_LABEL("Velocity Multiplier", "velscale") WIDTH(1.5);
+ PARM(float, 1, "velscale", none, none) RANGE(0,2)
+	 LABELREF(velscale.label) HSTRETCH;
+
+}
+
+velspace.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velspace.label = PARM_LABEL("Velocity Spacing", "velspace") WIDTH(1.5);
+ PARM(float, 1, "velspace", none, none) RANGE(0.20000000000000001,2)
+	LOCK_RANGE_MIN LABELREF(velspace.label) HSTRETCH;
+
+}
+
+numattrib.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Point Attributes", "numattrib") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numattrib.val)
+
+        numattrib.field = PARM_FIELD (integer, "numattrib")
+				VALUE(numattrib.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numattrib.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numattrib.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numattrib.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numattrib.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numattrib.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numattrib.parm;
+    numattrib.multilist;
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    voxelsize.gad; 
+    group.gad; 
+    builddistance.join; 
+    buildfog.join; 
+    radiusscale.gad; 
+    minvoxelradius.gad; 
+    useworldspaceunits.gad; 
+    bandwidthvoxels.gad; 
+    bandwidth.gad; 
+    writeintoref.gad; 
+    footprint.gad; 
+    velscale.gad; 
+    velspace.gad; 
+    numattrib.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

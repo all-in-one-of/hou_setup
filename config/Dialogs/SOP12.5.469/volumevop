@@ -1,0 +1,225 @@
+// Magic: 759ed764
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:45:22 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+vexsrc.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Vex Source", "vexsrc") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vexsrc.menu;
+
+}
+
+shoppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ shoppath.label = PARM_LABEL("Shop Path", "shoppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "shoppath") VALUE(shoppath.val) 
+	LABELREF(shoppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(shoppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(shoppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+script.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ script.label = PARM_LABEL("Script", "script") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "script") LABELREF(script.label)
+	VALUE(script.val) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(script.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+clear.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("clear", "Re-load VEX Functions") push VALUE(clear.val);
+}
+
+vop_compiler.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vop_compiler.label = PARM_LABEL("Compiler", "vop_compiler") WIDTH(1.5);
+    PARM_FIELD(string, "vop_compiler") VALUE(vop_compiler.val) 
+	LABELREF(vop_compiler.label) HSTRETCH;
+
+}
+
+vop_forcecompile.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vop_forcecompile", "Force Compile") push VALUE(vop_forcecompile.val);
+}
+
+vex_cwdpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ vex_cwdpath.label = PARM_LABEL("Evaluation Node Path", "vex_cwdpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "vex_cwdpath") VALUE(vex_cwdpath.val) 
+	LABELREF(vex_cwdpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(vex_cwdpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(vex_cwdpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+vdb_signedflood.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vdb_signedflood", "Signed-Flood Fill Output SDF VDBs") toggle VALUE(vdb_signedflood.val);
+
+}
+
+autobind.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("autobind", "Autobind by Name") toggle VALUE(autobind.val);
+
+}
+
+bindeach.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bindeach", "Bind Each to Density") toggle VALUE(bindeach.val);
+
+}
+
+bindings.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Bindings", "bindings") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(bindings.val)
+
+        bindings.field = PARM_FIELD (integer, "bindings")
+				VALUE(bindings.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(bindings.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(bindings.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(bindings.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+bindings.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+bindings.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    bindings.parm;
+    bindings.multilist;
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Vex Setup"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    vexsrc.gad;		
+	    shoppath.gad;		
+	    script.gad;		
+	    clear.gad;		
+	    vop_compiler.gad;		
+	    vop_forcecompile.gad;		
+	    vex_cwdpath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Volume Bindings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    vdb_signedflood.gad;		
+	    autobind.gad;		
+	    bindeach.gad;		
+	    bindings.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

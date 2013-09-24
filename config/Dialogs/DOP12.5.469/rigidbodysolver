@@ -1,0 +1,580 @@
+// Magic: 3206f862
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:40:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+solver.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Solver Engine", "solver") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    solver.menu;
+
+}
+
+substeps.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ substeps.label = PARM_LABEL("Number of Substeps", "substeps") WIDTH(1.5);
+ PARM(integer, 1, "substeps", none, none) RANGE(1,100)
+	 LABELREF(substeps.label) HSTRETCH;
+
+}
+
+numiteration.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ numiteration.label = PARM_LABEL("Constraint Iterations", "numiteration") WIDTH(1.5);
+ PARM(integer, 1, "numiteration", none, none) RANGE(1,100)
+	 LABELREF(numiteration.label) HSTRETCH;
+
+}
+
+splitimpulse.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("splitimpulse", "Split Impulse") toggle VALUE(splitimpulse.val);
+
+}
+
+penetrationthreshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ penetrationthreshold.label = PARM_LABEL("Penetration Threshold", "penetrationthreshold") WIDTH(1.5);
+ PARM(float, 1, "penetrationthreshold", none, none) RANGE(-1,1)
+	 LABELREF(penetrationthreshold.label) HSTRETCH;
+
+}
+
+erp.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ erp.label = PARM_LABEL("Error Reduction", "erp") WIDTH(1.5);
+ PARM(float, 1, "erp", none, none) RANGE(0,10)
+	 LABELREF(erp.label) HSTRETCH;
+
+}
+
+cfm.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cfm.label = PARM_LABEL("Constraint Force Mixing", "cfm") WIDTH(1.5);
+ PARM(float, 1, "cfm", none, none) RANGE(0,10)
+	 LABELREF(cfm.label) HSTRETCH;
+
+}
+
+oversample.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ oversample.label = PARM_LABEL("Oversamples", "oversample") WIDTH(1.5);
+ PARM(integer, 1, "oversample", none, none) RANGE(0,10)
+	 LABELREF(oversample.label) HSTRETCH;
+
+}
+
+rand.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rand.label = PARM_LABEL("Random Seed", "rand") WIDTH(1.5);
+ PARM(integer, 1, "rand", none, none) RANGE(0,10)
+	 LABELREF(rand.label) HSTRETCH;
+
+}
+usemaxomega.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usemaxomega.gad = ROW
+{
+
+    PARM_BUTTON("usemaxomega", "Max Angular Velocity") toggle VALUE(usemaxomega.val);
+
+}
+
+maxomega.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxomega.label = PARM_LABEL("Max Angular Velocity", "maxomega") WIDTH(0);
+ PARM(float, 1, "maxomega", none, none) RANGE(0,100000)
+	LOCK_RANGE_MIN LABELREF(maxomega.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+minimumsubsteps.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ minimumsubsteps.label = PARM_LABEL("Minimum Substeps", "minimumsubsteps") WIDTH(1.5);
+ PARM(integer, 1, "minimumsubsteps", none, none) RANGE(0,10)
+	 LABELREF(minimumsubsteps.label) HSTRETCH;
+
+}
+
+maximumsubsteps.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maximumsubsteps.label = PARM_LABEL("Maximum Substeps", "maximumsubsteps") WIDTH(1.5);
+ PARM(integer, 1, "maximumsubsteps", none, none) RANGE(0,10)
+	 LABELREF(maximumsubsteps.label) HSTRETCH;
+
+}
+
+cflcond.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cflcond.label = PARM_LABEL("CFL Condition", "cflcond") WIDTH(1.5);
+ PARM(integer, 1, "cflcond", none, none) RANGE(0,10)
+	 LABELREF(cflcond.label) HSTRETCH;
+
+}
+
+collisioniterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ collisioniterations.label = PARM_LABEL("Collision Passes", "collisioniterations") WIDTH(1.5);
+ PARM(integer, 1, "collisioniterations", none, none) RANGE(0,10)
+	 LABELREF(collisioniterations.label) HSTRETCH;
+
+}
+
+contactiterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ contactiterations.label = PARM_LABEL("Contact Passes", "contactiterations") WIDTH(1.5);
+ PARM(integer, 1, "contactiterations", none, none) RANGE(0,10)
+	 LABELREF(contactiterations.label) HSTRETCH;
+
+}
+
+subcontactiterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ subcontactiterations.label = PARM_LABEL("SubContact Passes", "subcontactiterations") WIDTH(1.5);
+ PARM(integer, 1, "subcontactiterations", none, none) RANGE(0,10)
+	 LABELREF(subcontactiterations.label) HSTRETCH;
+
+}
+
+shockpropagation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shockpropagation.label = PARM_LABEL("Shock Propagation", "shockpropagation") WIDTH(1.5);
+ PARM(integer, 1, "shockpropagation", none, none) RANGE(0,10)
+	 LABELREF(shockpropagation.label) HSTRETCH;
+
+}
+
+resolvepenetration.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ resolvepenetration.label = PARM_LABEL("Resolve Penetration", "resolvepenetration") WIDTH(1.5);
+ PARM(integer, 1, "resolvepenetration", none, none) RANGE(0,10)
+	 LABELREF(resolvepenetration.label) HSTRETCH;
+
+}
+
+usepointvelocity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usepointvelocity", "Use Point Velocity for Collisions") toggle VALUE(usepointvelocity.val);
+
+}
+
+usevolumevelocity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usevolumevelocity", "Use Volume Velocity for Collisions") toggle VALUE(usevolumevelocity.val);
+
+}
+
+addimpacts.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addimpacts", "Add Impact Data") toggle VALUE(addimpacts.val);
+
+}
+
+glueignoresrestingobjects.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("glueignoresrestingobjects", "Glue Ignores Resting Objects") toggle VALUE(glueignoresrestingobjects.val);
+
+}
+
+cullmode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Culling Method", "cullmode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    cullmode.menu;
+
+}
+
+contactgroupmethod.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Contact Grouping Method", "contactgroupmethod") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    contactgroupmethod.menu;
+
+}
+
+contactgrouptol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ contactgrouptol.label = PARM_LABEL("Contact Grouping Tolerance", "contactgrouptol") WIDTH(1.5);
+ PARM(float, 1, "contactgrouptol", none, none) RANGE(0,10)
+	 LABELREF(contactgrouptol.label) HSTRETCH;
+
+}
+
+labelparm.sval := 1;
+
+labelparm.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(labelparm.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	     LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+
+fractureminpiecevol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fractureminpiecevol.label = PARM_LABEL("Minimum Piece Volume", "fractureminpiecevol") WIDTH(1.5);
+ PARM(float, 1, "fractureminpiecevol", none, none) RANGE(0,10)
+	 LABELREF(fractureminpiecevol.label) HSTRETCH;
+
+}
+
+fractureclusterfusedist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fractureclusterfusedist.label = PARM_LABEL("Cluster Fuse Tolerance", "fractureclusterfusedist") WIDTH(1.5);
+ PARM(float, 1, "fractureclusterfusedist", none, none) RANGE(0,10)
+	 LABELREF(fractureclusterfusedist.label) HSTRETCH;
+
+}
+
+fracturestampcreation.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fracturestampcreation", "Stamp Interior Primitives With Creation Time") toggle VALUE(fracturestampcreation.val);
+
+}
+
+fracturefeedback.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fracturefeedback", "Allow Fracturing From Feedback") toggle VALUE(fracturefeedback.val);
+
+}
+
+fractureignoresresting.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fractureignoresresting", "Fracturing Ignores Resting Objects") toggle VALUE(fractureignoresresting.val);
+
+}
+
+fractureseed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fractureseed.label = PARM_LABEL("Random Seed", "fractureseed") WIDTH(1.5);
+ PARM(integer, 1, "fractureseed", none, none) RANGE(0,10)
+	 LABELREF(fractureseed.label) HSTRETCH;
+
+}
+converttopoly.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+converttopoly.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+converttopoly.gad = PARM_BUTTON("converttopoly", "") toggle VALUE(converttopoly.val);
+
+converttopolylod.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ converttopolylod.label = PARM_LABEL("Convert To Poly", "converttopolylod") WIDTH(1.27);
+ PARM(float, 1, "converttopolylod", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(converttopolylod.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Substeps"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    minimumsubsteps.gad;		
+	    maximumsubsteps.gad;		
+	    cflcond.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collisions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    collisioniterations.gad;		
+	    contactiterations.gad;		
+	    subcontactiterations.gad;		
+	    shockpropagation.gad;		
+	    resolvepenetration.gad;		
+	    usepointvelocity.gad;		
+	    usevolumevelocity.gad;		
+	    addimpacts.gad;		
+	    glueignoresrestingobjects.gad;		
+	    cullmode.gad;		
+	    contactgroupmethod.gad;		
+	    contactgrouptol.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder1_2.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder1_2.gad.val) STRETCH(1,0)
+
+	TAB "Bullet"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    substeps.gad;		
+	    numiteration.gad;		
+	    splitimpulse.gad;		
+	    penetrationthreshold.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "ODE"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    erp.gad;		
+	    cfm.gad;		
+	    oversample.gad;		
+	    rand.gad;		
+	    usemaxomega.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "RBD"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    folder0.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Fracture"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    labelparm.gad;		
+	    fractureminpiecevol.gad;		
+	    fractureclusterfusedist.gad;		
+	    fracturestampcreation.gad;		
+	    fracturefeedback.gad;		
+	    fractureignoresresting.gad;		
+	    fractureseed.gad;		
+	    converttopoly.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    solver.gad; 
+    folder1_2.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

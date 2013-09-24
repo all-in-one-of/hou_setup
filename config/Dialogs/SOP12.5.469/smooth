@@ -1,0 +1,81 @@
+// Magic: 7b16fb03
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 15:10:51 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+applyto.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Apply To", "applyto") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    applyto.menu;
+
+}
+
+attribname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attribname.label = PARM_LABEL("Attribute Name", "attribname") WIDTH(1.5);
+    PARM_FIELD(string, "attribname") VALUE(attribname.val) 
+	LABELREF(attribname.label) HSTRETCH;
+
+}
+
+frequency.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ frequency.label = PARM_LABEL("Cutoff Frequency", "frequency") WIDTH(1.5);
+ PARM(float, 1, "frequency", none, none) RANGE(0.0001,0.20000000000000001)
+	LOCK_RANGE_MIN LABELREF(frequency.label) HSTRETCH;
+
+}
+
+iterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iterations.label = PARM_LABEL("Smoothing Iterations", "iterations") WIDTH(1.5);
+ PARM(integer, 1, "iterations", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(iterations.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    applyto.gad; 
+    attribname.gad; 
+    frequency.gad; 
+    iterations.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

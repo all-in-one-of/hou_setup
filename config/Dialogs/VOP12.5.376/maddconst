@@ -1,0 +1,78 @@
+// Magic: 66e2a94b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 01:19:48 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+preadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ preadd.label = PARM_LABEL("Pre-Add", "preadd") WIDTH(1.5);
+ PARM(float, 1, "preadd", none, none) RANGE(0,1)
+	 LABELREF(preadd.label) HSTRETCH;
+
+	preadd.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(preadd.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+mulconst.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mulconst.label = PARM_LABEL("Multiplier", "mulconst") WIDTH(1.5);
+ PARM(float, 1, "mulconst", none, none) RANGE(0,1)
+	 LABELREF(mulconst.label) HSTRETCH;
+
+	mulconst.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(mulconst.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+postadd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ postadd.label = PARM_LABEL("Post-Add", "postadd") WIDTH(1.5);
+ PARM(float, 1, "postadd", none, none) RANGE(0,1)
+	 LABELREF(postadd.label) HSTRETCH;
+
+	postadd.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(postadd.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    preadd.gad; 
+    mulconst.gad; 
+    postadd.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

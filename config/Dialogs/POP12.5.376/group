@@ -1,0 +1,529 @@
+// Magic: 2cbb952
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 16:07:39 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group Name", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+}
+
+preservegroup.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("preservegroup", "Preserve Group") toggle VALUE(preservegroup.val);
+
+}
+
+grouprule.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("grouprule", "Enable") toggle VALUE(grouprule.val);
+
+}
+
+predef.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    predef.menu;
+}
+
+rule.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    rule.label = PARM_LABEL("Rule", "rule") WIDTH(1.5);
+    PARM_FIELD(string, "rule") VALUE(rule.val) 
+	LABELREF(rule.label) HSTRETCH;
+
+}
+
+groupbounds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupbounds", "Enable") toggle VALUE(groupbounds.val);
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounding Type", "boundtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    boundtype.menu;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("SOP", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+ignorexform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignorexform", "Ignore Transform Object") toggle VALUE(ignorexform.val);
+
+}
+
+densitymin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ densitymin.label = PARM_LABEL("Density Minimum", "densitymin") WIDTH(1.5);
+ PARM(float, 1, "densitymin", none, none) RANGE(0,1)
+	 LABELREF(densitymin.label) HSTRETCH;
+
+}
+
+groupgenerator.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupgenerator", "Enable") toggle VALUE(groupgenerator.val);
+
+}
+
+generator.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    generator.label = PARM_LABEL("Generators", "generator") WIDTH(1.5);
+    PARM_FIELD(string, "generator") VALUE(generator.val) 
+	LABELREF(generator.label) HSTRETCH;
+
+    generator.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+grouprandom.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("grouprandom", "Enable") toggle VALUE(grouprandom.val);
+
+}
+
+multi.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ multi.label = PARM_LABEL("# of Groups", "multi") WIDTH(1.5);
+ PARM(integer, 1, "multi", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(multi.label) HSTRETCH;
+
+}
+domultiindex.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+domultiindex.gad = PARM_BUTTON("domultiindex", "") toggle VALUE(domultiindex.val);
+
+multiindex.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ multiindex.label = PARM_LABEL("Group Index", "multiindex") WIDTH(1.27);
+ PARM(integer, 1, "multiindex", none, none) RANGE(0,10)
+	 LABELREF(multiindex.label) HSTRETCH;
+
+}
+}	
+
+groupinstance.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupinstance", "Enable") toggle VALUE(groupinstance.val);
+
+}
+
+instances.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    instances.label = PARM_LABEL("Instances", "instances") WIDTH(1.5);
+    PARM_FIELD(string, "instances") VALUE(instances.val) 
+	LABELREF(instances.label) HSTRETCH;
+
+    instances.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+grpequal.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+grpequal.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grpequal.label = PARM_LABEL("New Group", "grpequal") WIDTH(0);
+    PARM_FIELD(string, "grpequal") VALUE(grpequal.val) 
+	LABELREF(grpequal.label) HSTRETCH;
+
+    grpequal.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+not1.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not1.buttonstrip;
+}
+
+grp1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp1.label = PARM_LABEL("Group 1", "grp1") WIDTH(0);
+    PARM_FIELD(string, "grp1") VALUE(grp1.val) 
+	LABELREF(grp1.label) HSTRETCH;
+
+    grp1.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op2.menu;
+
+}
+
+not2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not2.buttonstrip;
+}
+
+grp2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp2.label = PARM_LABEL("Group 2", "grp2") WIDTH(0);
+    PARM_FIELD(string, "grp2") VALUE(grp2.val) 
+	LABELREF(grp2.label) HSTRETCH;
+
+    grp2.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op3.menu;
+
+}
+
+not3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not3.buttonstrip;
+}
+
+grp3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp3.label = PARM_LABEL("Group 3", "grp3") WIDTH(0);
+    PARM_FIELD(string, "grp3") VALUE(grp3.val) 
+	LABELREF(grp3.label) HSTRETCH;
+
+    grp3.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op4.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op4.menu;
+
+}
+
+not4.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not4.buttonstrip;
+}
+
+grp4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp4.label = PARM_LABEL("Group 4", "grp4") WIDTH(0);
+    PARM_FIELD(string, "grp4") VALUE(grp4.val) 
+	LABELREF(grp4.label) HSTRETCH;
+
+    grp4.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+
+doselect.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doselect", "Select group in detail") toggle VALUE(doselect.val);
+
+}
+
+select.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    select.label = PARM_LABEL("Select Group", "select") WIDTH(1.5);
+    PARM_FIELD(string, "select") VALUE(select.val) 
+	LABELREF(select.label) HSTRETCH;
+
+    select.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+cswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(cswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Rule"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    grouprule.gad;		
+	    predef.gad;		
+	    rule.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Bounding"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupbounds.gad;		
+	    boundtype.gad;		
+	    t.gad;		
+	    size.gad;		
+	    soppath.gad;		
+	    ignorexform.gad;		
+	    densitymin.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Generator"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupgenerator.gad;		
+	    generator.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Random"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    grouprandom.gad;		
+	    multi.gad;		
+	    domultiindex.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Instances"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupinstance.gad;		
+	    instances.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+mswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(mswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Create"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    source.gad;		
+	    group.gad;		
+	    preservegroup.gad;		
+	    cswitcher.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Combine"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    grpequal.row.join;		
+	    op2.row.join;		
+	    op3.row.join;		
+	    op4.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Select"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    doselect.gad;		
+	    select.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    mswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

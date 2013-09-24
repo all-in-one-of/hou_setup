@@ -1,0 +1,68 @@
+// Magic: 6cb407a5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 17:00:31 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+result.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Result Type", "result") ;
+    { WIDTH(0.09) }
+
+    result.menu;
+
+}
+
+length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ length.label = PARM_LABEL("Trail Length", "length");
+ PARM(integer, 1, "length", none, field) RANGE(0,10)
+	 LABELREF(length.label) HSTRETCH;
+
+}
+
+clear.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("clear", "Reset Cache") push VALUE(clear.val);
+}
+
+velapproximation.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Approximation", "velapproximation") ;
+    { WIDTH(0.09) }
+
+    velapproximation.menu;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    result.gad; 
+    length.gad; 
+    clear.gad; 
+    velapproximation.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

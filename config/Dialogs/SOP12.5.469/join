@@ -1,0 +1,159 @@
+// Magic: 6b27e3ea
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:44:19 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+blend.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("blend", "Blend") toggle VALUE(blend.val);
+
+}
+
+tolerance.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tolerance.label = PARM_LABEL("Tolerance", "tolerance") WIDTH(1.5);
+ PARM(float, 1, "tolerance", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(tolerance.label) HSTRETCH;
+
+}
+
+bias.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bias.label = PARM_LABEL("Bias", "bias") WIDTH(1.5);
+ PARM(float, 1, "bias", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(bias.label) HSTRETCH;
+
+}
+
+knotmult.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("knotmult", "Multiplicity") toggle VALUE(knotmult.val);
+
+}
+
+proximity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("proximity", "Connect Closest Ends") toggle VALUE(proximity.val);
+
+}
+
+dir.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Direction", "dir") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dir.menu;
+
+}
+
+joinop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Join", "joinop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    joinop.menu;
+
+}
+
+inc.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inc.label = PARM_LABEL("N", "inc") WIDTH(1.5);
+ PARM(integer, 1, "inc", none, none) RANGE(1,20)
+	LOCK_RANGE_MIN LABELREF(inc.label) HSTRETCH;
+
+}
+
+loop.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("loop", "Wrap Last to First") toggle VALUE(loop.val);
+
+}
+
+prim.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("prim", "Keep Primitives") toggle VALUE(prim.val);
+
+}
+
+onlyconnected.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("onlyconnected", "Only Connected") toggle VALUE(onlyconnected.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    blend.gad; 
+    tolerance.gad; 
+    bias.gad; 
+    knotmult.gad; 
+    proximity.gad; 
+    dir.gad; 
+    joinop.gad; 
+    inc.gad; 
+    loop.gad; 
+    prim.gad; 
+    onlyconnected.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

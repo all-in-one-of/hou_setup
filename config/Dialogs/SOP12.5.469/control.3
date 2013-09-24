@@ -1,0 +1,66 @@
+// Magic: b8dc59e5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 16:36:29 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+displayicon.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Display", "displayicon") ;
+    { WIDTH(0.09) }
+
+    displayicon.menu;
+
+}
+
+controltype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Control Type", "controltype") ;
+    { WIDTH(0.09) }
+
+    controltype.menu;
+
+}
+
+orientation.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orientation") ;
+    { WIDTH(0.09) }
+
+    orientation.menu;
+
+}
+
+shadedmode.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadedmode", "Shaded Mode") toggle VALUE(shadedmode.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    displayicon.gad; 
+    controltype.gad; 
+    orientation.gad; 
+    shadedmode.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

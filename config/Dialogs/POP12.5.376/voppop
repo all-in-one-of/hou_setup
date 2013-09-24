@@ -1,0 +1,95 @@
+// Magic: 2850be34
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:56:28 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+cacheincoming.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cacheincoming", "Cache Incoming Geometry") toggle VALUE(cacheincoming.val);
+
+}
+
+vex_source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vex_source.label = PARM_LABEL("Source Group", "vex_source") WIDTH(1.5);
+    PARM_FIELD(string, "vex_source") VALUE(vex_source.val) 
+	LABELREF(vex_source.label) HSTRETCH;
+
+    vex_source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+vex_numthreads.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Threads", "vex_numthreads") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vex_numthreads.menu;
+
+}
+
+vop_compiler.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vop_compiler.label = PARM_LABEL("Compiler", "vop_compiler") WIDTH(1.5);
+    PARM_FIELD(string, "vop_compiler") VALUE(vop_compiler.val) 
+	LABELREF(vop_compiler.label) HSTRETCH;
+
+}
+
+vop_forcecompile.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vop_forcecompile", "Force Compile") push VALUE(vop_forcecompile.val);
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    cacheincoming.gad; 
+    vex_source.gad; 
+    vex_numthreads.gad; 
+    vop_compiler.gad; 
+    vop_forcecompile.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

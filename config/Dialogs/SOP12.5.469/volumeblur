@@ -1,0 +1,93 @@
+// Magic: 1995c994
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:02:26 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Source Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+usevoxelradius.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usevoxelradius", "Use Voxel Radius") toggle VALUE(usevoxelradius.val);
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Radius", "radius") WIDTH(1.5);
+ PARM(float, 1, "radius", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(radius.label) HSTRETCH;
+
+}
+
+voxelradius.gad = ROW
+{
+   HSTRETCH
+
+   voxelradius.label = PARM_LABEL("Voxel Radius", "voxelradius") WIDTH(1.5);
+
+   PARM(float, 3, "voxelradius", none, none, "X,Y,Z") LABELREF(voxelradius.label)
+	HSTRETCH;
+
+}
+
+reduction.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Reduction", "reduction") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    reduction.menu;
+
+}
+
+passes.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ passes.label = PARM_LABEL("Number of Passes", "passes") WIDTH(1.5);
+ PARM(integer, 1, "passes", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(passes.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    usevoxelradius.gad; 
+    radius.gad; 
+    voxelradius.gad; 
+    reduction.gad; 
+    passes.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

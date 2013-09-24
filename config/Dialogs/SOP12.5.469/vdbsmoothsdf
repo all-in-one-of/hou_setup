@@ -1,0 +1,93 @@
+// Magic: d7536db5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:39:32 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+operation.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "operation") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    operation.menu;
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Filter Voxel Radius", "radius") WIDTH(1.5);
+ PARM(integer, 1, "radius", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(radius.label) HSTRETCH;
+
+}
+
+iterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iterations.label = PARM_LABEL("Iterations", "iterations") WIDTH(1.5);
+ PARM(integer, 1, "iterations", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(iterations.label) HSTRETCH;
+
+}
+
+voxeloffset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ voxeloffset.label = PARM_LABEL("Offset in Voxels", "voxeloffset") WIDTH(1.5);
+ PARM(float, 1, "voxeloffset", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(voxeloffset.label) HSTRETCH;
+
+}
+
+accuracy.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Renorm Accuracy", "accuracy") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    accuracy.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    operation.gad; 
+    radius.gad; 
+    iterations.gad; 
+    voxeloffset.gad; 
+    accuracy.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

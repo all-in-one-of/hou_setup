@@ -1,0 +1,1165 @@
+// Magic: 3118c476
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 19:18:31 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+_label1_.sval := 2;
+
+_label1_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label1_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label1_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label1_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label1_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label1_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label1_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+frompt0.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompt0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompt0.label = PARM_LABEL("Attribute", "frompt0") WIDTH(1.5);
+    PARM_FIELD(string, "frompt0") VALUE(frompt0.val) 
+	LABELREF(frompt0.label) HSTRETCH;
+
+}
+
+topt0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topt0.label = PARM_LABEL("To Attribute", "topt0") WIDTH(0);
+    PARM_FIELD(string, "topt0") VALUE(topt0.val) 
+	LABELREF(topt0.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompt1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompt1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompt1.label = PARM_LABEL("Attribute", "frompt1") WIDTH(1.5);
+    PARM_FIELD(string, "frompt1") VALUE(frompt1.val) 
+	LABELREF(frompt1.label) HSTRETCH;
+
+}
+
+topt1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topt1.label = PARM_LABEL("To Attribute", "topt1") WIDTH(0);
+    PARM_FIELD(string, "topt1") VALUE(topt1.val) 
+	LABELREF(topt1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompt2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompt2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompt2.label = PARM_LABEL("Attribute", "frompt2") WIDTH(1.5);
+    PARM_FIELD(string, "frompt2") VALUE(frompt2.val) 
+	LABELREF(frompt2.label) HSTRETCH;
+
+}
+
+topt2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topt2.label = PARM_LABEL("To Attribute", "topt2") WIDTH(0);
+    PARM_FIELD(string, "topt2") VALUE(topt2.val) 
+	LABELREF(topt2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompt3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompt3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompt3.label = PARM_LABEL("Attribute", "frompt3") WIDTH(1.5);
+    PARM_FIELD(string, "frompt3") VALUE(frompt3.val) 
+	LABELREF(frompt3.label) HSTRETCH;
+
+}
+
+topt3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topt3.label = PARM_LABEL("To Attribute", "topt3") WIDTH(0);
+    PARM_FIELD(string, "topt3") VALUE(topt3.val) 
+	LABELREF(topt3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompt4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompt4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompt4.label = PARM_LABEL("Attribute", "frompt4") WIDTH(1.5);
+    PARM_FIELD(string, "frompt4") VALUE(frompt4.val) 
+	LABELREF(frompt4.label) HSTRETCH;
+
+}
+
+topt4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topt4.label = PARM_LABEL("To Attribute", "topt4") WIDTH(0);
+    PARM_FIELD(string, "topt4") VALUE(topt4.val) 
+	LABELREF(topt4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+ptdel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    ptdel.label = PARM_LABEL("Delete Attributes", "ptdel") WIDTH(1.5);
+    PARM_FIELD(string, "ptdel") VALUE(ptdel.val) 
+	LABELREF(ptdel.label) HSTRETCH;
+
+}
+
+_label2_.sval := 2;
+
+_label2_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label2_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label2_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label2_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label2_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label2_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label2_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+fromvtx0.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromvtx0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromvtx0.label = PARM_LABEL("Attribute", "fromvtx0") WIDTH(1.5);
+    PARM_FIELD(string, "fromvtx0") VALUE(fromvtx0.val) 
+	LABELREF(fromvtx0.label) HSTRETCH;
+
+}
+
+tovtx0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    tovtx0.label = PARM_LABEL("To Attribute", "tovtx0") WIDTH(0);
+    PARM_FIELD(string, "tovtx0") VALUE(tovtx0.val) 
+	LABELREF(tovtx0.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromvtx1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromvtx1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromvtx1.label = PARM_LABEL("Attribute", "fromvtx1") WIDTH(1.5);
+    PARM_FIELD(string, "fromvtx1") VALUE(fromvtx1.val) 
+	LABELREF(fromvtx1.label) HSTRETCH;
+
+}
+
+tovtx1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    tovtx1.label = PARM_LABEL("To Attribute", "tovtx1") WIDTH(0);
+    PARM_FIELD(string, "tovtx1") VALUE(tovtx1.val) 
+	LABELREF(tovtx1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromvtx2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromvtx2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromvtx2.label = PARM_LABEL("Attribute", "fromvtx2") WIDTH(1.5);
+    PARM_FIELD(string, "fromvtx2") VALUE(fromvtx2.val) 
+	LABELREF(fromvtx2.label) HSTRETCH;
+
+}
+
+tovtx2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    tovtx2.label = PARM_LABEL("To Attribute", "tovtx2") WIDTH(0);
+    PARM_FIELD(string, "tovtx2") VALUE(tovtx2.val) 
+	LABELREF(tovtx2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromvtx3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromvtx3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromvtx3.label = PARM_LABEL("Attribute", "fromvtx3") WIDTH(1.5);
+    PARM_FIELD(string, "fromvtx3") VALUE(fromvtx3.val) 
+	LABELREF(fromvtx3.label) HSTRETCH;
+
+}
+
+tovtx3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    tovtx3.label = PARM_LABEL("To Attribute", "tovtx3") WIDTH(0);
+    PARM_FIELD(string, "tovtx3") VALUE(tovtx3.val) 
+	LABELREF(tovtx3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromvtx4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromvtx4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromvtx4.label = PARM_LABEL("Attribute", "fromvtx4") WIDTH(1.5);
+    PARM_FIELD(string, "fromvtx4") VALUE(fromvtx4.val) 
+	LABELREF(fromvtx4.label) HSTRETCH;
+
+}
+
+tovtx4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    tovtx4.label = PARM_LABEL("To Attribute", "tovtx4") WIDTH(0);
+    PARM_FIELD(string, "tovtx4") VALUE(tovtx4.val) 
+	LABELREF(tovtx4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+vtxdel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vtxdel.label = PARM_LABEL("Delete Attributes", "vtxdel") WIDTH(1.5);
+    PARM_FIELD(string, "vtxdel") VALUE(vtxdel.val) 
+	LABELREF(vtxdel.label) HSTRETCH;
+
+}
+
+_label3_.sval := 2;
+
+_label3_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label3_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label3_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label3_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label3_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label3_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label3_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+frompr0.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompr0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompr0.label = PARM_LABEL("Attribute", "frompr0") WIDTH(1.5);
+    PARM_FIELD(string, "frompr0") VALUE(frompr0.val) 
+	LABELREF(frompr0.label) HSTRETCH;
+
+}
+
+topr0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topr0.label = PARM_LABEL("To Attribute", "topr0") WIDTH(0);
+    PARM_FIELD(string, "topr0") VALUE(topr0.val) 
+	LABELREF(topr0.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompr1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompr1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompr1.label = PARM_LABEL("Attribute", "frompr1") WIDTH(1.5);
+    PARM_FIELD(string, "frompr1") VALUE(frompr1.val) 
+	LABELREF(frompr1.label) HSTRETCH;
+
+}
+
+topr1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topr1.label = PARM_LABEL("To Attribute", "topr1") WIDTH(0);
+    PARM_FIELD(string, "topr1") VALUE(topr1.val) 
+	LABELREF(topr1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompr2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompr2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompr2.label = PARM_LABEL("Attribute", "frompr2") WIDTH(1.5);
+    PARM_FIELD(string, "frompr2") VALUE(frompr2.val) 
+	LABELREF(frompr2.label) HSTRETCH;
+
+}
+
+topr2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topr2.label = PARM_LABEL("To Attribute", "topr2") WIDTH(0);
+    PARM_FIELD(string, "topr2") VALUE(topr2.val) 
+	LABELREF(topr2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompr3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompr3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompr3.label = PARM_LABEL("Attribute", "frompr3") WIDTH(1.5);
+    PARM_FIELD(string, "frompr3") VALUE(frompr3.val) 
+	LABELREF(frompr3.label) HSTRETCH;
+
+}
+
+topr3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topr3.label = PARM_LABEL("To Attribute", "topr3") WIDTH(0);
+    PARM_FIELD(string, "topr3") VALUE(topr3.val) 
+	LABELREF(topr3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+frompr4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+frompr4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    frompr4.label = PARM_LABEL("Attribute", "frompr4") WIDTH(1.5);
+    PARM_FIELD(string, "frompr4") VALUE(frompr4.val) 
+	LABELREF(frompr4.label) HSTRETCH;
+
+}
+
+topr4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    topr4.label = PARM_LABEL("To Attribute", "topr4") WIDTH(0);
+    PARM_FIELD(string, "topr4") VALUE(topr4.val) 
+	LABELREF(topr4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+primdel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    primdel.label = PARM_LABEL("Delete Attributes", "primdel") WIDTH(1.5);
+    PARM_FIELD(string, "primdel") VALUE(primdel.val) 
+	LABELREF(primdel.label) HSTRETCH;
+
+}
+
+_label4_.sval := 2;
+
+_label4_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label4_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label4_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label4_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label4_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label4_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label4_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+fromdtl0.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromdtl0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromdtl0.label = PARM_LABEL("Attribute", "fromdtl0") WIDTH(1.5);
+    PARM_FIELD(string, "fromdtl0") VALUE(fromdtl0.val) 
+	LABELREF(fromdtl0.label) HSTRETCH;
+
+}
+
+todtl0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    todtl0.label = PARM_LABEL("To Attribute", "todtl0") WIDTH(0);
+    PARM_FIELD(string, "todtl0") VALUE(todtl0.val) 
+	LABELREF(todtl0.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromdtl1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromdtl1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromdtl1.label = PARM_LABEL("Attribute", "fromdtl1") WIDTH(1.5);
+    PARM_FIELD(string, "fromdtl1") VALUE(fromdtl1.val) 
+	LABELREF(fromdtl1.label) HSTRETCH;
+
+}
+
+todtl1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    todtl1.label = PARM_LABEL("To Attribute", "todtl1") WIDTH(0);
+    PARM_FIELD(string, "todtl1") VALUE(todtl1.val) 
+	LABELREF(todtl1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromdtl2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromdtl2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromdtl2.label = PARM_LABEL("Attribute", "fromdtl2") WIDTH(1.5);
+    PARM_FIELD(string, "fromdtl2") VALUE(fromdtl2.val) 
+	LABELREF(fromdtl2.label) HSTRETCH;
+
+}
+
+todtl2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    todtl2.label = PARM_LABEL("To Attribute", "todtl2") WIDTH(0);
+    PARM_FIELD(string, "todtl2") VALUE(todtl2.val) 
+	LABELREF(todtl2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromdtl3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromdtl3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromdtl3.label = PARM_LABEL("Attribute", "fromdtl3") WIDTH(1.5);
+    PARM_FIELD(string, "fromdtl3") VALUE(fromdtl3.val) 
+	LABELREF(fromdtl3.label) HSTRETCH;
+
+}
+
+todtl3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    todtl3.label = PARM_LABEL("To Attribute", "todtl3") WIDTH(0);
+    PARM_FIELD(string, "todtl3") VALUE(todtl3.val) 
+	LABELREF(todtl3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+fromdtl4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+fromdtl4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fromdtl4.label = PARM_LABEL("Attribute", "fromdtl4") WIDTH(1.5);
+    PARM_FIELD(string, "fromdtl4") VALUE(fromdtl4.val) 
+	LABELREF(fromdtl4.label) HSTRETCH;
+
+}
+
+todtl4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    todtl4.label = PARM_LABEL("To Attribute", "todtl4") WIDTH(0);
+    PARM_FIELD(string, "todtl4") VALUE(todtl4.val) 
+	LABELREF(todtl4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+dtldel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dtldel.label = PARM_LABEL("Delete Attributes", "dtldel") WIDTH(1.5);
+    PARM_FIELD(string, "dtldel") VALUE(dtldel.val) 
+	LABELREF(dtldel.label) HSTRETCH;
+
+}
+
+_label5_.sval := 4;
+
+_label5_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label5_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Houdini" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Houdini":1.5;
+
+	     LABEL VALUE(_label5_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Houdini":1.5;
+
+	     LABEL VALUE(_label5_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Houdini":1.5;
+
+	     LABEL VALUE(_label5_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Houdini":1.5;
+
+	     LABEL VALUE(_label5_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label5_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+hname0.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hname0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hname0.label = PARM_LABEL("Houdini Name", "hname0") WIDTH(0);
+    PARM_FIELD(string, "hname0") VALUE(hname0.val) 
+	LABELREF(hname0.label) HSTRETCH;
+
+}
+
+riname0.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    riname0.label = PARM_LABEL("RenderMan Name", "riname0") WIDTH(0);
+    PARM_FIELD(string, "riname0") VALUE(riname0.val) 
+	LABELREF(riname0.label) HSTRETCH;
+
+}
+
+ritype0.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    ritype0.menu;
+
+}
+
+rioff0.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rioff0.label = PARM_LABEL("Attrib Offset", "rioff0") WIDTH(0);
+ PARM(integer, 1, "rioff0", none, none) RANGE(0,10)
+	 LABELREF(rioff0.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+hname1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hname1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hname1.label = PARM_LABEL("Houdini Name", "hname1") WIDTH(0);
+    PARM_FIELD(string, "hname1") VALUE(hname1.val) 
+	LABELREF(hname1.label) HSTRETCH;
+
+}
+
+riname1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    riname1.label = PARM_LABEL("RenderMan Name", "riname1") WIDTH(0);
+    PARM_FIELD(string, "riname1") VALUE(riname1.val) 
+	LABELREF(riname1.label) HSTRETCH;
+
+}
+
+ritype1.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    ritype1.menu;
+
+}
+
+rioff1.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rioff1.label = PARM_LABEL("Attrib Offset", "rioff1") WIDTH(0);
+ PARM(integer, 1, "rioff1", none, none) RANGE(0,10)
+	 LABELREF(rioff1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+hname2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hname2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hname2.label = PARM_LABEL("Houdini Name", "hname2") WIDTH(0);
+    PARM_FIELD(string, "hname2") VALUE(hname2.val) 
+	LABELREF(hname2.label) HSTRETCH;
+
+}
+
+riname2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    riname2.label = PARM_LABEL("RenderMan Name", "riname2") WIDTH(0);
+    PARM_FIELD(string, "riname2") VALUE(riname2.val) 
+	LABELREF(riname2.label) HSTRETCH;
+
+}
+
+ritype2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    ritype2.menu;
+
+}
+
+rioff2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rioff2.label = PARM_LABEL("Attrib Offset", "rioff2") WIDTH(0);
+ PARM(integer, 1, "rioff2", none, none) RANGE(0,10)
+	 LABELREF(rioff2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+hname3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hname3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hname3.label = PARM_LABEL("Houdini Name", "hname3") WIDTH(0);
+    PARM_FIELD(string, "hname3") VALUE(hname3.val) 
+	LABELREF(hname3.label) HSTRETCH;
+
+}
+
+riname3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    riname3.label = PARM_LABEL("RenderMan Name", "riname3") WIDTH(0);
+    PARM_FIELD(string, "riname3") VALUE(riname3.val) 
+	LABELREF(riname3.label) HSTRETCH;
+
+}
+
+ritype3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    ritype3.menu;
+
+}
+
+rioff3.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rioff3.label = PARM_LABEL("Attrib Offset", "rioff3") WIDTH(0);
+ PARM(integer, 1, "rioff3", none, none) RANGE(0,10)
+	 LABELREF(rioff3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+hname4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+hname4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hname4.label = PARM_LABEL("Houdini Name", "hname4") WIDTH(0);
+    PARM_FIELD(string, "hname4") VALUE(hname4.val) 
+	LABELREF(hname4.label) HSTRETCH;
+
+}
+
+riname4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    riname4.label = PARM_LABEL("RenderMan Name", "riname4") WIDTH(0);
+    PARM_FIELD(string, "riname4") VALUE(riname4.val) 
+	LABELREF(riname4.label) HSTRETCH;
+
+}
+
+ritype4.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    ritype4.menu;
+
+}
+
+rioff4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rioff4.label = PARM_LABEL("Attrib Offset", "rioff4") WIDTH(0);
+ PARM(integer, 1, "rioff4", none, none) RANGE(0,10)
+	 LABELREF(rioff4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+ridefault.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ridefault", "Add Default Mappings") toggle VALUE(ridefault.val);
+
+}
+
+updatevar.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("updatevar", "Update Local Variables") toggle VALUE(updatevar.val);
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Point"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    _label1_.gad;		
+	    frompt0.row.join;		
+	    frompt1.row.join;		
+	    frompt2.row.join;		
+	    frompt3.row.join;		
+	    frompt4.row.join;		
+	    ptdel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Vertex"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    _label2_.gad;		
+	    fromvtx0.row.join;		
+	    fromvtx1.row.join;		
+	    fromvtx2.row.join;		
+	    fromvtx3.row.join;		
+	    fromvtx4.row.join;		
+	    vtxdel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Primitive"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    _label3_.gad;		
+	    frompr0.row.join;		
+	    frompr1.row.join;		
+	    frompr2.row.join;		
+	    frompr3.row.join;		
+	    frompr4.row.join;		
+	    primdel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Detail"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    _label4_.gad;		
+	    fromdtl0.row.join;		
+	    fromdtl1.row.join;		
+	    fromdtl2.row.join;		
+	    fromdtl3.row.join;		
+	    fromdtl4.row.join;		
+	    dtldel.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "RenderMan"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    _label5_.gad;		
+	    hname0.row.join;		
+	    hname1.row.join;		
+	    hname2.row.join;		
+	    hname3.row.join;		
+	    hname4.row.join;		
+	    ridefault.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+    updatevar.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

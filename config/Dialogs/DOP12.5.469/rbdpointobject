@@ -1,0 +1,1346 @@
+// Magic: 90496c34
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:40:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+usesimframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usesimframe", "Creation Frame Specifies Simulation Frame") toggle VALUE(usesimframe.val);
+
+}
+
+createframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ createframe.label = PARM_LABEL("Creation Frame", "createframe") WIDTH(1.5);
+ PARM(float, 1, "createframe", none, none) RANGE(1,100)
+	 LABELREF(createframe.label) HSTRETCH;
+
+}
+
+solvefirstframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solvefirstframe", "Solve on Creation Frame") toggle VALUE(solvefirstframe.val);
+
+}
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("Point SOP Path", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+usegeo.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usegeo.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Path", "usegeo") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usegeo.menu;
+
+}
+
+geopath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ geopath.label = PARM_LABEL("Geometry Path", "geopath") WIDTH(0);
+ PARM_FIELD(pathstring, "geopath") VALUE(geopath.val) 
+	LABELREF(geopath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(geopath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(geopath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+}	// Template join.bot
+
+
+extraattribs.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    extraattribs.label = PARM_LABEL("Extra Attributes", "extraattribs") WIDTH(1.5);
+    PARM_FIELD(string, "extraattribs") VALUE(extraattribs.val) 
+	LABELREF(extraattribs.label) HSTRETCH;
+
+}
+
+animategeo.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("animategeo", "Use Deforming Geometry") toggle VALUE(animategeo.val);
+
+}
+
+usetransform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usetransform", "Use Object Transform") toggle VALUE(usetransform.val);
+
+}
+
+nml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("nml", "Rotate to Normal") toggle VALUE(nml.val);
+
+}
+
+usepscale.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usepscale", "Use Particle Scale Attribute") toggle VALUE(usepscale.val);
+
+}
+
+adddeformhint.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("adddeformhint", "Add Deformation Hint") toggle VALUE(adddeformhint.val);
+
+}
+
+active.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("active", "Create Active Objects") toggle VALUE(active.val);
+
+}
+
+display.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("display", "Display Geometry") toggle VALUE(display.val);
+
+}
+uset.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+uset.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Position", "uset") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uset.menu;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Position", "t") WIDTH(0);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+}	// Template join.bot
+
+user.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+user.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Rotation", "user") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    user.menu;
+
+}
+
+r.gad = ROW
+{
+   HSTRETCH
+
+   r.label = PARM_LABEL("Rotation", "r") WIDTH(0);
+
+   PARM(float, 3, "r", none, none, "X,Y,Z") LABELREF(r.label)
+	HSTRETCH;
+
+}
+}	// Template join.bot
+
+usevel.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usevel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity", "usevel") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usevel.menu;
+
+}
+
+vel.gad = ROW
+{
+   HSTRETCH
+
+   vel.label = PARM_LABEL("Velocity", "vel") WIDTH(0);
+
+   PARM(float, 3, "vel", none, none, "X,Y,Z") LABELREF(vel.label)
+	HSTRETCH;
+
+}
+}	// Template join.bot
+
+useangvel.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+useangvel.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Angular Velocity", "useangvel") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    useangvel.menu;
+
+}
+
+angvel.gad = ROW
+{
+   HSTRETCH
+
+   angvel.label = PARM_LABEL("Angular Velocity", "angvel") WIDTH(0);
+
+   PARM(float, 3, "angvel", none, none, "X,Y,Z") LABELREF(angvel.label)
+	HSTRETCH;
+
+}
+}	// Template join.bot
+
+useglueobject.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+useglueobject.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Glue Object", "useglueobject") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    useglueobject.menu;
+
+}
+
+glueobject.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    glueobject.label = PARM_LABEL("Glue Object", "glueobject") WIDTH(0);
+    PARM_FIELD(string, "glueobject") VALUE(glueobject.val) 
+	LABELREF(glueobject.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usegluethreshold.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usegluethreshold.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Glue Strength", "usegluethreshold") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usegluethreshold.menu;
+
+}
+
+gluethreshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gluethreshold.label = PARM_LABEL("Glue Strength", "gluethreshold") WIDTH(0);
+ PARM(float, 1, "gluethreshold", none, none) RANGE(0,10)
+	 LABELREF(gluethreshold.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+useglueimpulsehalflife.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+useglueimpulsehalflife.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Glue Impulse HalfLife", "useglueimpulsehalflife") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    useglueimpulsehalflife.menu;
+
+}
+
+glueimpulsehalflife.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ glueimpulsehalflife.label = PARM_LABEL("Glue Impulse HalfLife", "glueimpulsehalflife") WIDTH(0);
+ PARM(float, 1, "glueimpulsehalflife", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(glueimpulsehalflife.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+usevolume.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usevolume", "Use Volume Based Collision Detection") toggle VALUE(usevolume.val);
+
+}
+
+mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Mode", "mode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    mode.menu;
+
+}
+
+uniformvoxels.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Division Method", "uniformvoxels") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uniformvoxels.menu;
+
+}
+
+div.gad = ROW
+{
+   HSTRETCH
+
+   div.label = PARM_LABEL("Divisions", "div") WIDTH(1.5);
+
+   PARM(integer, 3, "div", none, none, "#1,#2,#3") LABELREF(div.label)
+	HSTRETCH;
+
+}
+
+uniformdiv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ uniformdiv.label = PARM_LABEL("Uniform Divisions", "uniformdiv") WIDTH(1.5);
+ PARM(integer, 1, "uniformdiv", none, none) RANGE(1,1000)
+	LOCK_RANGE_MIN LABELREF(uniformdiv.label) HSTRETCH;
+
+}
+
+divsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divsize.label = PARM_LABEL("Division Size", "divsize") WIDTH(1.5);
+ PARM(float, 1, "divsize", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(divsize.label) HSTRETCH;
+
+}
+
+laserscan.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("laserscan", "Laser Scan") toggle VALUE(laserscan.val);
+
+}
+
+fixsigns.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fixsigns", "Fix Signs") toggle VALUE(fixsigns.val);
+
+}
+
+forcebounds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("forcebounds", "Force Bounds") toggle VALUE(forcebounds.val);
+
+}
+
+invert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert", "Invert Sign") toggle VALUE(invert.val);
+
+}
+
+sweepalpha.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sweepalpha.label = PARM_LABEL("Sign Sweep Threshold", "sweepalpha") WIDTH(1.5);
+ PARM(float, 1, "sweepalpha", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(sweepalpha.label) HSTRETCH;
+
+}
+
+sweepcount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sweepcount.label = PARM_LABEL("Max Sign Sweep Count", "sweepcount") WIDTH(1.5);
+ PARM(integer, 1, "sweepcount", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(sweepcount.label) HSTRETCH;
+
+}
+
+offset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset.label = PARM_LABEL("Offset Surface", "offset") WIDTH(1.5);
+ PARM(float, 1, "offset", none, none) RANGE(0,10)
+	 LABELREF(offset.label) HSTRETCH;
+
+}
+
+sdftol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sdftol.label = PARM_LABEL("Tolerance", "sdftol") WIDTH(1.5);
+ PARM(float, 1, "sdftol", none, none) RANGE(0,10)
+	 LABELREF(sdftol.label) HSTRETCH;
+
+}
+
+showguide.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide", "Show Collision Guide Geometry") toggle VALUE(showguide.val);
+
+}
+
+guidecolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    guidecolor.label = PARM_LABEL("Collision Guide Color", "guidecolor") WIDTH(1.5);
+
+    PARM(float, 3, "guidecolor", none, COLOR, "R,G,B") 
+	LABELREF(guidecolor.label) HSTRETCH;
+
+}
+
+volumefilemode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Mode", "volumefilemode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    volumefilemode.menu;
+
+}
+
+volumefile.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ volumefile.label = PARM_LABEL("File", "volumefile") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "volumefile") LABELREF(volumefile.label)
+	VALUE(volumefile.val) HSTRETCH;
+
+ volumefile.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(volumefile.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+surfreptype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Surface Representation", "surfreptype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surfreptype.menu;
+
+}
+
+polyconvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("polyconvert", "Convert To Poly") toggle VALUE(polyconvert.val);
+
+}
+
+triangulate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("triangulate", "Triangulate") toggle VALUE(triangulate.val);
+
+}
+
+polylod.gad = ROW
+{
+   HSTRETCH
+
+   polylod.label = PARM_LABEL("LOD", "polylod") WIDTH(1.5);
+
+   PARM(float, 2, "polylod", none, none, "#1,#2") LABELREF(polylod.label)
+	HSTRETCH;
+
+}
+
+addbarycenter.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addbarycenter", "Add Barycenters") toggle VALUE(addbarycenter.val);
+
+}
+
+showguide2.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide2", "Show Guide Geometry") toggle VALUE(showguide2.val);
+
+}
+
+color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    color.label = PARM_LABEL("Color", "color") WIDTH(1.5);
+
+    PARM(float, 3, "color", none, COLOR, "R,G,B") 
+	LABELREF(color.label) HSTRETCH;
+
+}
+
+bullet_deactivated_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    bullet_deactivated_color.label = PARM_LABEL("Deactivated Color", "bullet_deactivated_color") WIDTH(1.5);
+
+    PARM(float, 3, "bullet_deactivated_color", none, COLOR, "R,G,B") 
+	LABELREF(bullet_deactivated_color.label) HSTRETCH;
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+bullet_georep.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Representation", "bullet_georep") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    bullet_georep.menu;
+
+}
+geo_triangulate.gad = NULL { }
+
+bullet_geoconvexhull.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bullet_geoconvexhull", "Polygons As Convex Hulls") toggle VALUE(bullet_geoconvexhull.val);
+
+}
+
+bullet_autofit.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bullet_autofit", "AutoFit Primitive Boxes, Capsules, Cylinders, Spheres, or Planes to Geometry") toggle VALUE(bullet_autofit.val);
+
+}
+
+bullet_primT.gad = ROW
+{
+   HSTRETCH
+
+   bullet_primT.label = PARM_LABEL("Position", "bullet_primT") WIDTH(1.5);
+
+   PARM(float, 3, "bullet_primT", none, none, "X,Y,Z") LABELREF(bullet_primT.label)
+	HSTRETCH;
+
+}
+
+bullet_primR.gad = ROW
+{
+   HSTRETCH
+
+   bullet_primR.label = PARM_LABEL("Rotation", "bullet_primR") WIDTH(1.5);
+
+   PARM(float, 3, "bullet_primR", none, none, "X,Y,Z") LABELREF(bullet_primR.label)
+	HSTRETCH;
+
+}
+
+bullet_primS.gad = ROW
+{
+   HSTRETCH
+
+   bullet_primS.label = PARM_LABEL("Box Size", "bullet_primS") WIDTH(1.5);
+
+   PARM(float, 3, "bullet_primS", none, none, "X,Y,Z") LABELREF(bullet_primS.label)
+	HSTRETCH;
+
+}
+
+bullet_radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_radius.label = PARM_LABEL("Radius", "bullet_radius") WIDTH(1.5);
+ PARM(float, 1, "bullet_radius", none, none) RANGE(0.10000000000000001,5)
+	 LABELREF(bullet_radius.label) HSTRETCH;
+
+}
+
+bullet_length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_length.label = PARM_LABEL("Length", "bullet_length") WIDTH(1.5);
+ PARM(float, 1, "bullet_length", none, none) RANGE(0.10000000000000001,5)
+	 LABELREF(bullet_length.label) HSTRETCH;
+
+}
+
+bullet_adjust_geometry.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bullet_adjust_geometry", "Adjust Geometry") toggle VALUE(bullet_adjust_geometry.val);
+
+}
+
+bullet_adjust_factor.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_adjust_factor.label = PARM_LABEL("Adjustment Factor", "bullet_adjust_factor") WIDTH(1.5);
+ PARM(float, 1, "bullet_adjust_factor", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(bullet_adjust_factor.label) HSTRETCH;
+
+}
+
+bullet_collision_margin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_collision_margin.label = PARM_LABEL("Collision Padding", "bullet_collision_margin") WIDTH(1.5);
+ PARM(float, 1, "bullet_collision_margin", none, none) RANGE(0,0.5)
+	 LABELREF(bullet_collision_margin.label) HSTRETCH;
+
+}
+
+bullet_add_impact.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bullet_add_impact", "Add Impact Data") toggle VALUE(bullet_add_impact.val);
+
+}
+
+bullet_want_deactivate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bullet_want_deactivate", "Enable Sleeping") toggle VALUE(bullet_want_deactivate.val);
+
+}
+
+bullet_linear_sleep_threshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_linear_sleep_threshold.label = PARM_LABEL("Linear Threshold", "bullet_linear_sleep_threshold") WIDTH(1.5);
+ PARM(float, 1, "bullet_linear_sleep_threshold", none, none) RANGE(0,2)
+	LOCK_RANGE_MIN LABELREF(bullet_linear_sleep_threshold.label) HSTRETCH;
+
+}
+
+bullet_angular_sleep_threshold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bullet_angular_sleep_threshold.label = PARM_LABEL("Angular Threshold", "bullet_angular_sleep_threshold") WIDTH(1.5);
+ PARM(float, 1, "bullet_angular_sleep_threshold", none, none) RANGE(0,2)
+	LOCK_RANGE_MIN LABELREF(bullet_angular_sleep_threshold.label) HSTRETCH;
+
+}
+
+enableode.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("enableode", "Enable ODE Data") toggle VALUE(enableode.val);
+
+}
+
+odeDisp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("odeDisp", "Display ODE Primitives") toggle VALUE(odeDisp.val);
+
+}
+
+objType.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Object Type", "objType") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    objType.menu;
+
+}
+
+comppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ comppath.label = PARM_LABEL("Composite Object", "comppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "comppath") VALUE(comppath.val) 
+	LABELREF(comppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(comppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(comppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+autofit.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("autofit", "Automatically Fit Geometry") toggle VALUE(autofit.val);
+
+}
+
+primT.gad = ROW
+{
+   HSTRETCH
+
+   primT.label = PARM_LABEL("Position", "primT") WIDTH(1.5);
+
+   PARM(float, 3, "primT", none, none, "X,Y,Z") LABELREF(primT.label)
+	HSTRETCH;
+
+}
+
+primR.gad = ROW
+{
+   HSTRETCH
+
+   primR.label = PARM_LABEL("Rotation", "primR") WIDTH(1.5);
+
+   PARM(float, 3, "primR", none, none, "X,Y,Z") LABELREF(primR.label)
+	HSTRETCH;
+
+}
+
+primS.gad = ROW
+{
+   HSTRETCH
+
+   primS.label = PARM_LABEL("Box Size", "primS") WIDTH(1.5);
+
+   PARM(float, 3, "primS", none, none, "X,Y,Z") LABELREF(primS.label)
+	HSTRETCH;
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Radius", "radius") WIDTH(1.5);
+ PARM(float, 1, "radius", none, none) RANGE(0,10)
+	 LABELREF(radius.label) HSTRETCH;
+
+}
+
+length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ length.label = PARM_LABEL("Cylinder Length", "length") WIDTH(1.5);
+ PARM(float, 1, "length", none, none) RANGE(0,10)
+	 LABELREF(length.label) HSTRETCH;
+
+}
+
+computecom.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("computecom", "Compute Center of Mass") toggle VALUE(computecom.val);
+
+}
+usep.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usep.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Center of Mass", "usep") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usep.menu;
+
+}
+
+p.gad = ROW
+{
+   HSTRETCH
+
+   p.label = PARM_LABEL("Center of Mass", "p") WIDTH(0);
+
+   PARM(float, 3, "p", none, none, "X,Y,Z") LABELREF(p.label)
+	HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+computemass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("computemass", "Compute Mass") toggle VALUE(computemass.val);
+
+}
+usedensity.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usedensity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Density", "usedensity") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usedensity.menu;
+
+}
+
+density.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ density.label = PARM_LABEL("Density", "density") WIDTH(0);
+ PARM(float, 1, "density", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(density.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usemass.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usemass.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Mass", "usemass") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usemass.menu;
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass") WIDTH(0);
+ PARM(float, 1, "mass", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(mass.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+useinertialtensorstiffness.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+useinertialtensorstiffness.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Rotational Stiffness", "useinertialtensorstiffness") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    useinertialtensorstiffness.menu;
+
+}
+
+inertialtensorstiffness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inertialtensorstiffness.label = PARM_LABEL("Rotational Stiffness", "inertialtensorstiffness") WIDTH(0);
+ PARM(float, 1, "inertialtensorstiffness", none, none) RANGE(0,10)
+	 LABELREF(inertialtensorstiffness.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usebounce.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usebounce.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounce", "usebounce") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usebounce.menu;
+
+}
+
+bounce.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bounce.label = PARM_LABEL("Bounce", "bounce") WIDTH(0);
+ PARM(float, 1, "bounce", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(bounce.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usefriction.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usefriction.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Friction", "usefriction") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usefriction.menu;
+
+}
+
+friction.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ friction.label = PARM_LABEL("Friction", "friction") WIDTH(0);
+ PARM(float, 1, "friction", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(friction.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usedynamicfriction.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usedynamicfriction.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dynamic Friction Scale", "usedynamicfriction") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usedynamicfriction.menu;
+
+}
+
+dynamicfriction.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dynamicfriction.label = PARM_LABEL("Dynamic Friction Scale", "dynamicfriction") WIDTH(0);
+ PARM(float, 1, "dynamicfriction", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(dynamicfriction.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+usetemperature.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usetemperature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Temperature", "usetemperature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usetemperature.menu;
+
+}
+
+temperature.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ temperature.label = PARM_LABEL("Temperature", "temperature") WIDTH(0);
+ PARM(float, 1, "temperature", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(temperature.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+std_switcher_3.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(std_switcher_3.gad.val) STRETCH(1,0)
+
+	TAB "Volume"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    mode.gad;		
+	    uniformvoxels.gad;		
+	    div.gad;		
+	    uniformdiv.gad;		
+	    divsize.gad;		
+	    laserscan.gad;		
+	    fixsigns.gad;		
+	    forcebounds.gad;		
+	    invert.gad;		
+	    sweepalpha.gad;		
+	    sweepcount.gad;		
+	    offset.gad;		
+	    sdftol.gad;		
+	    showguide.gad;		
+	    guidecolor.gad;		
+	    volumefilemode.gad;		
+	    volumefile.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Surface"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    surfreptype.gad;		
+	    polyconvert.gad;		
+	    triangulate.gad;		
+	    polylod.gad;		
+	    addbarycenter.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+rbd_solver.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(rbd_solver.gad.val) STRETCH(1,0)
+
+	TAB "RBD Solver"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    usevolume.gad;		
+	    std_switcher_3.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Bullet Data"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    showguide2.gad;		
+	    color.gad;		
+	    bullet_deactivated_color.gad;		
+	    sepparm.gad;		
+	    bullet_georep.gad;		
+	    geo_triangulate.gad;		
+	    bullet_geoconvexhull.gad;		
+	    bullet_autofit.gad;		
+	    bullet_primT.gad;		
+	    bullet_primR.gad;		
+	    bullet_primS.gad;		
+	    bullet_radius.gad;		
+	    bullet_length.gad;		
+	    bullet_adjust_geometry.gad;		
+	    bullet_adjust_factor.gad;		
+	    bullet_collision_margin.gad;		
+	    bullet_add_impact.gad;		
+	    bullet_want_deactivate.gad;		
+	    bullet_linear_sleep_threshold.gad;		
+	    bullet_angular_sleep_threshold.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "ODE Primitives"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    enableode.gad;		
+	    odeDisp.gad;		
+	    objType.gad;		
+	    comppath.gad;		
+	    autofit.gad;		
+	    primT.gad;		
+	    primR.gad;		
+	    primS.gad;		
+	    radius.gad;		
+	    length.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+std_switcher_0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(std_switcher_0.gad.val) STRETCH(1,0)
+
+	TAB "Initial State"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    uset.row.join;		
+	    user.row.join;		
+	    usevel.row.join;		
+	    useangvel.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Glue"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    useglueobject.row.join;		
+	    usegluethreshold.row.join;		
+	    useglueimpulsehalflife.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collisions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    rbd_solver.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Physical"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    computecom.gad;		
+	    usep.row.join;		
+	    computemass.gad;		
+	    usedensity.row.join;		
+	    usemass.row.join;		
+	    useinertialtensorstiffness.row.join;		
+	    usebounce.row.join;		
+	    usefriction.row.join;		
+	    usedynamicfriction.row.join;		
+	    usetemperature.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    usesimframe.gad; 
+    createframe.gad; 
+    solvefirstframe.gad; 
+    soppath.gad; 
+    usegeo.row.join; 
+    extraattribs.gad; 
+    animategeo.gad; 
+    usetransform.gad; 
+    nml.gad; 
+    usepscale.gad; 
+    adddeformhint.gad; 
+    active.gad; 
+    display.gad; 
+    std_switcher_0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

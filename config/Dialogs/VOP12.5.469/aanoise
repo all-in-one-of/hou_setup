@@ -1,0 +1,217 @@
+// Magic: 80715bf5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:22:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_ff.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pos_ff.label = PARM_LABEL("1D Position", "pos_ff") WIDTH(1.5);
+ PARM(float, 1, "pos_ff", none, none) RANGE(0,1)
+	 LABELREF(pos_ff.label) HSTRETCH;
+
+	pos_ff.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_ff.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos.gad = ROW
+{
+   HSTRETCH
+
+   pos.label = PARM_LABEL("3D Position", "pos") WIDTH(1.5);
+
+   PARM(float, 3, "pos", none, none, "#1,#2,#3") LABELREF(pos.label)
+	HSTRETCH;
+
+	pos.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pos_fp.gad = ROW
+{
+   HSTRETCH
+
+   pos_fp.label = PARM_LABEL("4D Position", "pos_fp") WIDTH(1.5);
+
+   PARM(float, 4, "pos_fp", none, none, "#1,#2,#3,#4") LABELREF(pos_fp.label)
+	HSTRETCH;
+
+	pos_fp.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pos_fp.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+freq_ff.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ freq_ff.label = PARM_LABEL("1D Frequency", "freq_ff") WIDTH(1.5);
+ PARM(float, 1, "freq_ff", none, none) RANGE(0,1)
+	 LABELREF(freq_ff.label) HSTRETCH;
+
+	freq_ff.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(freq_ff.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+freq.gad = ROW
+{
+   HSTRETCH
+
+   freq.label = PARM_LABEL("3D Frequency", "freq") WIDTH(1.5);
+
+   PARM(float, 3, "freq", none, none, "#1,#2,#3") LABELREF(freq.label)
+	HSTRETCH;
+
+	freq.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(freq.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+freq_fp.gad = ROW
+{
+   HSTRETCH
+
+   freq_fp.label = PARM_LABEL("4D Frequency", "freq_fp") WIDTH(1.5);
+
+   PARM(float, 4, "freq_fp", none, none, "#1,#2,#3,#4") LABELREF(freq_fp.label)
+	HSTRETCH;
+
+	freq_fp.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(freq_fp.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+offset_ff.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset_ff.label = PARM_LABEL("1D Offset", "offset_ff") WIDTH(1.5);
+ PARM(float, 1, "offset_ff", none, none) RANGE(0,1)
+	 LABELREF(offset_ff.label) HSTRETCH;
+
+	offset_ff.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(offset_ff.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("3D Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "#1,#2,#3") LABELREF(offset.label)
+	HSTRETCH;
+
+	offset.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(offset.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+offset_fp.gad = ROW
+{
+   HSTRETCH
+
+   offset_fp.label = PARM_LABEL("4D Offset", "offset_fp") WIDTH(1.5);
+
+   PARM(float, 4, "offset_fp", none, none, "#1,#2,#3,#4") LABELREF(offset_fp.label)
+	HSTRETCH;
+
+	offset_fp.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(offset_fp.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+amp.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ amp.label = PARM_LABEL("Amplitude", "amp") WIDTH(1.5);
+ PARM(float, 1, "amp", none, none) RANGE(-1,1)
+	 LABELREF(amp.label) HSTRETCH;
+
+	amp.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(amp.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rough.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rough.label = PARM_LABEL("Roughness", "rough") WIDTH(1.5);
+ PARM(float, 1, "rough", none, none) RANGE(0,1)
+	 LABELREF(rough.label) HSTRETCH;
+
+	rough.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rough.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+maxoctave.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxoctave.label = PARM_LABEL("Max Octaves", "maxoctave") WIDTH(1.5);
+ PARM(integer, 1, "maxoctave", none, none) RANGE(0,32)
+	 LABELREF(maxoctave.label) HSTRETCH;
+
+	maxoctave.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(maxoctave.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+noisetype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Noise Type", "noisetype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    noisetype.menu;
+
+	{ HSTRETCH } noisetype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(noisetype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    pos_ff.gad; 
+    pos.gad; 
+    pos_fp.gad; 
+    freq_ff.gad; 
+    freq.gad; 
+    freq_fp.gad; 
+    offset_ff.gad; 
+    offset.gad; 
+    offset_fp.gad; 
+    amp.gad; 
+    rough.gad; 
+    maxoctave.gad; 
+    noisetype.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

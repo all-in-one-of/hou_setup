@@ -1,0 +1,108 @@
+// Magic: 139e6bf7
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:34:12 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+mat.gad = ROW
+{
+   HSTRETCH
+
+   mat.label = PARM_LABEL("Matrix", "mat") WIDTH(1.5);
+
+   PARM(float, 16, "mat", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(mat.label)
+	HSTRETCH;
+
+	mat.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(mat.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+mat_m3.gad = ROW
+{
+   HSTRETCH
+
+   mat_m3.label = PARM_LABEL("Matrix", "mat_m3") WIDTH(1.5);
+
+   PARM(float, 9, "mat_m3", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9") LABELREF(mat_m3.label)
+	HSTRETCH;
+
+	mat_m3.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(mat_m3.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+mat_um.gad = ROW
+{
+   HSTRETCH
+
+   mat_um.label = PARM_LABEL("Matrix", "mat_um") WIDTH(1.5);
+
+   PARM(float, 16, "mat_um", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(mat_um.label)
+	HSTRETCH;
+
+	mat_um.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(mat_um.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+angle.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ angle.label = PARM_LABEL("Angle", "angle") WIDTH(1.5);
+ PARM(float, 1, "angle", none, none) RANGE(0,1)
+	 LABELREF(angle.label) HSTRETCH;
+
+	angle.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(angle.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+axis.gad = ROW
+{
+   HSTRETCH
+
+   axis.label = PARM_LABEL("Axis", "axis") WIDTH(1.5);
+
+   PARM(float, 3, "axis", none, none, "#1,#2,#3") LABELREF(axis.label)
+	HSTRETCH;
+
+	axis.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(axis.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    mat.gad; 
+    mat_m3.gad; 
+    mat_um.gad; 
+    angle.gad; 
+    axis.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

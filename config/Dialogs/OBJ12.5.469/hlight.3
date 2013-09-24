@@ -1,0 +1,56 @@
+// Magic: af7d830b
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:07:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+dimmer.gad = NULL { }
+
+light_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Light Type", "light_type") ;
+    { WIDTH(0.09) }
+
+    light_type.menu;
+
+}
+
+light_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    light_color.label = PARM_LABEL("Light Color", "light_color") ;
+
+    PARM(float, 3, "light_color", none, COLOR, "R,G,B") 
+	LABELREF(light_color.label) HSTRETCH;
+
+}
+
+light_enable.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_enable", "Light Enabled") toggle VALUE(light_enable.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    dimmer.gad; 
+    light_type.gad; 
+    light_color.gad; 
+    light_enable.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

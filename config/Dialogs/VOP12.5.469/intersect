@@ -1,0 +1,85 @@
+// Magic: 2c5f8eb3
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:25:48 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("Geometry File", "file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	file.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(file.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rayorig.gad = ROW
+{
+   HSTRETCH
+
+   rayorig.label = PARM_LABEL("Ray Origin", "rayorig") WIDTH(1.5);
+
+   PARM(float, 3, "rayorig", none, none, "#1,#2,#3") LABELREF(rayorig.label)
+	HSTRETCH;
+
+	rayorig.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rayorig.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+raydir.gad = ROW
+{
+   HSTRETCH
+
+   raydir.label = PARM_LABEL("Ray Direction", "raydir") WIDTH(1.5);
+
+   PARM(float, 3, "raydir", none, none, "#1,#2,#3") LABELREF(raydir.label)
+	HSTRETCH;
+
+	raydir.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(raydir.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+farthest.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("farthest", "Farthest From Ray Origin") toggle VALUE(farthest.val);
+
+	{ HSTRETCH } farthest.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(farthest.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    file.gad; 
+    rayorig.gad; 
+    raydir.gad; 
+    farthest.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

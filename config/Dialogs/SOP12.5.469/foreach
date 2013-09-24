@@ -1,0 +1,152 @@
+// Magic: 7bd02f0
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:25:20 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+fortype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("For", "fortype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    fortype.menu;
+
+}
+
+forstamp.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    forstamp.label = PARM_LABEL("Stamp Name", "forstamp") WIDTH(1.5);
+    PARM_FIELD(string, "forstamp") VALUE(forstamp.val) 
+	LABELREF(forstamp.label) HSTRETCH;
+
+}
+
+foridxstamp.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    foridxstamp.label = PARM_LABEL("Index Stamp Name", "foridxstamp") WIDTH(1.5);
+    PARM_FIELD(string, "foridxstamp") VALUE(foridxstamp.val) 
+	LABELREF(foridxstamp.label) HSTRETCH;
+
+}
+
+groupmask.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    groupmask.label = PARM_LABEL("Group Mask", "groupmask") WIDTH(1.5);
+    PARM_FIELD(string, "groupmask") VALUE(groupmask.val) 
+	LABELREF(groupmask.label) HSTRETCH;
+
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+}
+
+attribtol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ attribtol.label = PARM_LABEL("Tolerance", "attribtol") WIDTH(1.5);
+ PARM(float, 1, "attribtol", none, LOGSCALE) RANGE(0,1)
+	 LABELREF(attribtol.label) HSTRETCH;
+
+}
+
+numrange.gad = ROW
+{
+   HSTRETCH
+
+   numrange.label = PARM_LABEL("Number Range", "numrange") WIDTH(1.5);
+
+   PARM(float, 3, "numrange", none, none, "#1,#2,#3") LABELREF(numrange.label)
+	HSTRETCH;
+
+}
+usemaxiter.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usemaxiter.gad = PARM_BUTTON("usemaxiter", "") toggle VALUE(usemaxiter.val);
+
+maxiter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxiter.label = PARM_LABEL("Max Iterations", "maxiter") WIDTH(1.27);
+ PARM(integer, 1, "maxiter", none, none) RANGE(0,10)
+	 LABELREF(maxiter.label) HSTRETCH;
+
+}
+}	
+
+mergeresults.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("mergeresults", "Merge Results") toggle VALUE(mergeresults.val);
+
+}
+
+eachpoint.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("eachpoint", "Apply to Points") toggle VALUE(eachpoint.val);
+
+}
+
+stopcondition.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ stopcondition.label = PARM_LABEL("Stop Condition", "stopcondition") WIDTH(1.5);
+ PARM(integer, 1, "stopcondition", none, none) RANGE(0,10)
+	 LABELREF(stopcondition.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    fortype.gad; 
+    forstamp.gad; 
+    foridxstamp.gad; 
+    groupmask.gad; 
+    attrib.gad; 
+    attribtol.gad; 
+    numrange.gad; 
+    usemaxiter.join; 
+    mergeresults.gad; 
+    eachpoint.gad; 
+    stopcondition.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

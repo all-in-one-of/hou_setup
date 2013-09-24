@@ -1,0 +1,87 @@
+// Magic: 26c3cc93
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:41:30 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+vex_group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vex_group.label = PARM_LABEL("Point Group", "vex_group") WIDTH(1.5);
+    PARM_FIELD(string, "vex_group") VALUE(vex_group.val) 
+	LABELREF(vex_group.label) HSTRETCH;
+
+    vex_group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+vex_numthreads.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Threads", "vex_numthreads") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vex_numthreads.menu;
+
+}
+
+vop_compiler.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vop_compiler.label = PARM_LABEL("Compiler", "vop_compiler") WIDTH(1.5);
+    PARM_FIELD(string, "vop_compiler") VALUE(vop_compiler.val) 
+	LABELREF(vop_compiler.label) HSTRETCH;
+
+}
+
+vop_forcecompile.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vop_forcecompile", "Force Compile") push VALUE(vop_forcecompile.val);
+}
+
+vex_cwdpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ vex_cwdpath.label = PARM_LABEL("Evaluation Node Path", "vex_cwdpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "vex_cwdpath") VALUE(vex_cwdpath.val) 
+	LABELREF(vex_cwdpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(vex_cwdpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(vex_cwdpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    vex_group.gad; 
+    vex_numthreads.gad; 
+    vop_compiler.gad; 
+    vop_forcecompile.gad; 
+    vex_cwdpath.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

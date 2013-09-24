@@ -1,0 +1,591 @@
+// Magic: b9804ba
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 03:18:51 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+filename.switch.val:= 1;
+
+filename.gad = 
+{
+
+    LAYOUT(vertical) STRETCH(1,0)
+
+    {
+        LAYOUT(horizontal) HSTRETCH LOOK(bg) VALUE(filename.val:2 string)
+           SPACING(1p) JUSTIFY(left, center)
+
+        filename.label = PARM_LABEL("File", "filename") WIDTH(1.5);
+
+	PARM_FIELD(string, "filename") VALUE(filename.val) 
+		LABELREF(filename.label) HSTRETCH;
+
+        filename.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+	ACTION_ICONBUTTON "BUTTONS_chooser" VALUE(filename.plus)
+	    LOOKFLAT UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	TOGGLE_ICONBUTTON "RightArrow" "DownTriangle" LOOKFLAT
+		 HELP("Show/Hide Format Specific Options") 
+		 VALUE(filename.switch.val)
+		 UI_FLAT_ICON_BTN_SIZE_SMALL;
+    }
+
+    ROW
+    {
+	HSTRETCH HMARGIN(1, 0)
+
+        IMAGEFORMATOPTIONS read filename.switch.val
+		filename.val[0] VALUE(filename.val[1]) LOOK(plain)
+		HSTRETCH;
+    }
+
+}
+
+nodename.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Node Naming", "nodename") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    nodename.menu;
+
+}
+
+reload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("reload", "Reload Sequence") push VALUE(reload.val);
+}
+
+subframes.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("subframes", "Detect Subframes") toggle VALUE(subframes.val);
+
+}
+
+overridesize.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Size", "overridesize") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    overridesize.menu;
+
+}
+size.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(integer, 2, "size", none, none, "#1,#2") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+sizemenu.gad = sizemenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+
+filter.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Filter", "filter") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    filter.menu;
+
+}
+overrideaspect.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+overrideaspect.gad = PARM_BUTTON("overrideaspect", "") toggle VALUE(overrideaspect.val);
+
+aspect.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ aspect.label = PARM_LABEL("Pixel Aspect Ratio", "aspect") WIDTH(1.27);
+ PARM(float, 1, "aspect", none, none) RANGE(0.0001,2)
+	LOCK_RANGE_MIN LABELREF(aspect.label) HSTRETCH;
+
+}
+}	
+
+flipy.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("flipy", "Flip Image") toggle VALUE(flipy.val);
+
+}
+
+overridedepth.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Raster Depth", "overridedepth") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    overridedepth.menu;
+
+}
+depth.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+depth.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Depth", "depth") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    depth.menu;
+
+}
+
+depthmenu.gad = depthmenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	// Template join.bot
+
+usebwpoints.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usebwpoints.gad = PARM_BUTTON("usebwpoints", "") toggle VALUE(usebwpoints.val);
+
+bwpoints.gad = ROW
+{
+   HSTRETCH
+
+   bwpoints.label = PARM_LABEL("Black/White Points", "bwpoints") WIDTH(1.27);
+
+   PARM(integer, 2, "bwpoints", none, none, "#1,#2") LABELREF(bwpoints.label)
+	HSTRETCH;
+
+}
+}	
+detectrange.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+detectrange.gad = ROW
+{
+
+    PARM_BUTTON("detectrange", "Override Frame Range") toggle VALUE(detectrange.val);
+
+}
+
+manualdetect.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("manualdetect", "Detect") push VALUE(manualdetect.val);
+}
+}	
+
+singleimage.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("singleimage", "Still Image") toggle VALUE(singleimage.val);
+
+}
+
+startframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ startframe.label = PARM_LABEL("Shift to Start Frame", "startframe") WIDTH(1.5);
+ PARM(integer, 1, "startframe", none, none) RANGE(1,240)
+	 LABELREF(startframe.label) HSTRETCH;
+
+}
+
+start.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ start.label = PARM_LABEL("File Range Start", "start") WIDTH(1.5);
+ PARM(integer, 1, "start", none, none) RANGE(0,240)
+	 LABELREF(start.label) HSTRETCH;
+
+}
+
+length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ length.label = PARM_LABEL("File Range Length", "length") WIDTH(1.5);
+ PARM(integer, 1, "length", none, none) RANGE(1,240)
+	LOCK_RANGE_MIN LABELREF(length.label) HSTRETCH;
+
+}
+
+missingfr.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Missing Frames", "missingfr") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    missingfr.menu;
+
+}
+
+warnmissing.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("warnmissing", "Print Warnings for Missing Frames") toggle VALUE(warnmissing.val);
+
+}
+
+proxyenable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("proxyenable", "Enable Proxy Files") toggle VALUE(proxyenable.val);
+
+}
+
+proxy2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ proxy2.label = PARM_LABEL("1/2 Res Proxy", "proxy2") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "proxy2") LABELREF(proxy2.label)
+	VALUE(proxy2.val) HSTRETCH;
+
+ proxy2.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(proxy2.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+proxy4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ proxy4.label = PARM_LABEL("1/4 Res Proxy", "proxy4") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "proxy4") LABELREF(proxy4.label)
+	VALUE(proxy4.val) HSTRETCH;
+
+ proxy4.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(proxy4.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+proxy8.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ proxy8.label = PARM_LABEL("1/8 Res Proxy", "proxy8") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "proxy8") LABELREF(proxy8.label)
+	VALUE(proxy8.val) HSTRETCH;
+
+ proxy8.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(proxy8.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+customprx1.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+customprx1.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Custom Proxy", "customprx1") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    customprx1.menu;
+
+}
+
+customfile1.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ PARM_FIELD (pathstring, "customfile1") VALUE(customfile1.val) HSTRETCH;
+
+ customfile1.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(customfile1.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+}	
+customprx2.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+customprx2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Custom Proxy", "customprx2") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    customprx2.menu;
+
+}
+
+customfile2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ PARM_FIELD (pathstring, "customfile2") VALUE(customfile2.val) HSTRETCH;
+
+ customfile2.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(customfile2.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+}	
+customprx3.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+customprx3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Custom Proxy", "customprx3") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    customprx3.menu;
+
+}
+
+customfile3.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ PARM_FIELD (pathstring, "customfile3") VALUE(customfile3.val) HSTRETCH;
+
+ customfile3.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(customfile3.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+}	
+
+effectamount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ effectamount.label = PARM_LABEL("Effect Amount", "effectamount") WIDTH(1.5);
+ PARM(float, 1, "effectamount", none, none) RANGE(0,1)
+	 LABELREF(effectamount.label) HSTRETCH;
+
+}
+
+maskplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Mask Plane", "maskplane") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    maskplane.menu;
+
+}
+
+maskresize.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("maskresize", "Resize Mask to Fit Image") toggle VALUE(maskresize.val);
+
+}
+
+maskinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("maskinvert", "Invert Mask") toggle VALUE(maskinvert.val);
+
+}
+
+preextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Pre Extend", "preextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    preextend.menu;
+
+}
+
+prehold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ prehold.label = PARM_LABEL("Pre Hold", "prehold") WIDTH(1.5);
+ PARM(integer, 1, "prehold", none, none) RANGE(0,240)
+	LOCK_RANGE_MIN LABELREF(prehold.label) HSTRETCH;
+
+}
+
+postextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Extend", "postextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postextend.menu;
+
+}
+
+posthold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ posthold.label = PARM_LABEL("Post Hold", "posthold") WIDTH(1.5);
+ PARM(integer, 1, "posthold", none, none) RANGE(0,240)
+	LOCK_RANGE_MIN LABELREF(posthold.label) HSTRETCH;
+
+}
+projdepth.gad = NULL { }
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "File"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    filename.gad;		
+	    nodename.gad;		
+	    reload.gad;		
+	    subframes.gad;		
+	    overridesize.gad;		
+	    size.join;		
+	    filter.gad;		
+	    overrideaspect.join;		
+	    flipy.gad;		
+	    overridedepth.gad;		
+	    depth.row.join;		
+	    usebwpoints.join;		
+	    detectrange.join;		
+	    singleimage.gad;		
+	    startframe.gad;		
+	    start.gad;		
+	    length.gad;		
+	    missingfr.gad;		
+	    warnmissing.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Proxy"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    proxyenable.gad;		
+	    proxy2.gad;		
+	    proxy4.gad;		
+	    proxy8.gad;		
+	    customprx1.join;		
+	    customprx2.join;		
+	    customprx3.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Mask"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    effectamount.gad;		
+	    maskplane.gad;		
+	    maskresize.gad;		
+	    maskinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sequence"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    preextend.gad;		
+	    prehold.gad;		
+	    postextend.gad;		
+	    posthold.gad;		
+	    projdepth.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,30 @@
+// Magic: 5c324265
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:54:57 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+input.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ input.label = PARM_LABEL("Select Input", "input");
+ PARM(integer, 1, "input", none, field) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(input.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    input.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

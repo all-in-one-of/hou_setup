@@ -1,0 +1,187 @@
+// Magic: accc4970
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 03:26:01 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+xformtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Transform", "xformtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    xformtype.menu;
+
+}
+
+xformpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ xformpath.label = PARM_LABEL("Transform Object", "xformpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "xformpath") VALUE(xformpath.val) 
+	LABELREF(xformpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(xformpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(xformpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+invertxform.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invertxform", "Invert Transform") toggle VALUE(invertxform.val);
+
+}
+
+createptgroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createptgroups", "Create Point Groups") toggle VALUE(createptgroups.val);
+
+}
+
+ptgroupprefix.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    ptgroupprefix.label = PARM_LABEL("Point Group Prefix", "ptgroupprefix") WIDTH(1.5);
+    PARM_FIELD(string, "ptgroupprefix") VALUE(ptgroupprefix.val) 
+	LABELREF(ptgroupprefix.label) HSTRETCH;
+
+}
+
+createprimgroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createprimgroups", "Create Primitive Groups") toggle VALUE(createprimgroups.val);
+
+}
+
+primgroupprefix.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    primgroupprefix.label = PARM_LABEL("Primitive Group Prefix", "primgroupprefix") WIDTH(1.5);
+    PARM_FIELD(string, "primgroupprefix") VALUE(primgroupprefix.val) 
+	LABELREF(primgroupprefix.label) HSTRETCH;
+
+}
+
+verbosegroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("verbosegroups", "Verbose Group Names") toggle VALUE(verbosegroups.val);
+
+}
+
+createptstring.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createptstring", "Create Per-Point Path") toggle VALUE(createptstring.val);
+
+}
+
+createprimstring.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("createprimstring", "Create Per-Primitive Path") toggle VALUE(createprimstring.val);
+
+}
+
+numobj.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Objects", "numobj") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numobj.val)
+
+        numobj.field = PARM_FIELD (integer, "numobj")
+				VALUE(numobj.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numobj.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numobj.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numobj.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numobj.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numobj.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numobj.parm;
+    numobj.multilist;
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    xformtype.gad; 
+    xformpath.gad; 
+    invertxform.gad; 
+    createptgroups.gad; 
+    ptgroupprefix.gad; 
+    createprimgroups.gad; 
+    primgroupprefix.gad; 
+    verbosegroups.gad; 
+    createptstring.gad; 
+    createprimstring.gad; 
+    numobj.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

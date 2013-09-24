@@ -1,0 +1,838 @@
+// Magic: 4d17aab3
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:24:44 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+group.gad = NULL { }
+docreategrp.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+docreategrp.gad = PARM_BUTTON("docreategrp", "") toggle 
+		VALUE(docreategrp.val);
+
+crname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    crname.label = PARM_LABEL("Group Name", "crname") ;
+    PARM_FIELD(string, "crname") VALUE(crname.val) 
+	LABELREF(crname.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+entity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Entity", "entity") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    entity.menu;
+
+}
+
+geotype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Type", "geotype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    geotype.menu;
+
+}
+
+mergeop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Merge Operation", "mergeop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    mergeop.menu;
+
+}
+
+groupnumber.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupnumber", "Enable") toggle VALUE(groupnumber.val);
+
+}
+
+ordered.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ordered", "Create Ordered") toggle VALUE(ordered.val);
+
+}
+
+groupop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "groupop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    groupop.menu;
+
+}
+
+filter.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ filter.label = PARM_LABEL("Filter Expression", "filter") WIDTH(1.5);
+ PARM(integer, 1, "filter", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(filter.label) HSTRETCH;
+
+}
+
+pattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    pattern.label = PARM_LABEL("Pattern", "pattern") WIDTH(1.5);
+    PARM_FIELD(string, "pattern") VALUE(pattern.val) 
+	LABELREF(pattern.label) HSTRETCH;
+
+}
+
+range.gad = ROW
+{
+   HSTRETCH
+
+   range.label = PARM_LABEL("Start / End", "range") WIDTH(1.5);
+
+   PARM(integer, 2, "range", none, none, "Start,End") LABELREF(range.label)
+	HSTRETCH;
+
+}
+
+select.gad = ROW
+{
+   HSTRETCH
+
+   select.label = PARM_LABEL("Select _ of _", "select") WIDTH(1.5);
+
+   PARM(integer, 2, "select", none, none, "#1,#2") LABELREF(select.label)
+	HSTRETCH;
+
+}
+
+groupbounding.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupbounding", "Enable") toggle VALUE(groupbounding.val);
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounding Type", "boundtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    boundtype.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+iso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iso.label = PARM_LABEL("Iso Surface", "iso") WIDTH(1.5);
+ PARM(float, 1, "iso", none, none) RANGE(0,1)
+	 LABELREF(iso.label) HSTRETCH;
+
+}
+
+invertvolume.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invertvolume", "Invert") toggle VALUE(invertvolume.val);
+
+}
+
+includenotwhollycontained.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("includenotwhollycontained", "Include Entities Not Wholly Contained") toggle VALUE(includenotwhollycontained.val);
+
+}
+
+groupnormal.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupnormal", "Enable") toggle VALUE(groupnormal.val);
+
+}
+
+dir.gad = ROW 
+{
+    HSTRETCH
+
+    dir.label = PARM_LABEL("Direction", "dir") WIDTH(1.5);
+
+    PARM(float, 3, "dir", none, none) LABELREF(dir.label)
+	HSTRETCH;
+
+}
+
+angle.gad = ROW
+{
+   HSTRETCH
+
+   angle.label = PARM_LABEL( "Spread Angle", "angle" ) WIDTH(1.5);
+
+   PARM(float, 1, "angle", none, none) RANGE(0, 180)
+	LABELREF( angle.label ) HSTRETCH;
+
+}
+
+camerapath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ camerapath.label = PARM_LABEL("Backface from", "camerapath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "camerapath") VALUE(camerapath.val) 
+	LABELREF(camerapath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(camerapath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(camerapath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+nonplanar.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+nonplanar.gad = PARM_BUTTON("nonplanar", "") toggle VALUE(nonplanar.val);
+
+nonplanartol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ nonplanartol.label = PARM_LABEL("Non-Planar Polygons Tolerance", "nonplanartol") WIDTH(1.27);
+ PARM(float, 1, "nonplanartol", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(nonplanartol.label) HSTRETCH;
+
+}
+}	
+
+groupedges.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("groupedges", "Enable") toggle VALUE(groupedges.val);
+
+}
+dominedgeangle.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dominedgeangle.gad = PARM_BUTTON("dominedgeangle", "") toggle VALUE(dominedgeangle.val);
+
+minedgeangle.gad = ROW
+{
+   HSTRETCH
+
+   minedgeangle.label = PARM_LABEL( "Min Edge Angle", "minedgeangle" ) WIDTH(1.27);
+
+   PARM(float, 1, "minedgeangle", none, none) RANGE(0, 360)
+	LABELREF( minedgeangle.label ) HSTRETCH;
+
+}
+}	
+domaxedgeangle.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+domaxedgeangle.gad = PARM_BUTTON("domaxedgeangle", "") toggle VALUE(domaxedgeangle.val);
+
+maxedgeangle.gad = ROW
+{
+   HSTRETCH
+
+   maxedgeangle.label = PARM_LABEL( "Max Edge Angle", "maxedgeangle" ) WIDTH(1.27);
+
+   PARM(float, 1, "maxedgeangle", none, none) RANGE(0, 360)
+	LABELREF( maxedgeangle.label ) HSTRETCH;
+
+}
+}	
+
+edgeanglebetweenedges.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("edgeanglebetweenedges", "Edge Angle Uses Angle Between Edges") toggle VALUE(edgeanglebetweenedges.val);
+
+}
+dominedgelen.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dominedgelen.gad = PARM_BUTTON("dominedgelen", "") toggle VALUE(dominedgelen.val);
+
+minedgelen.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ minedgelen.label = PARM_LABEL("Min Edge Length", "minedgelen") WIDTH(1.27);
+ PARM(float, 1, "minedgelen", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(minedgelen.label) HSTRETCH;
+
+}
+}	
+domaxedgelen.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+domaxedgelen.gad = PARM_BUTTON("domaxedgelen", "") toggle VALUE(domaxedgelen.val);
+
+maxedgelen.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxedgelen.label = PARM_LABEL("Max Edge Length", "maxedgelen") WIDTH(1.27);
+ PARM(float, 1, "maxedgelen", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(maxedgelen.label) HSTRETCH;
+
+}
+}	
+dodepth.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dodepth.gad = PARM_BUTTON("dodepth", "") toggle VALUE(dodepth.val);
+
+edgestep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ edgestep.label = PARM_LABEL("Edge Depth", "edgestep") WIDTH(1.27);
+ PARM(integer, 1, "edgestep", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(edgestep.label) HSTRETCH;
+
+}
+}	
+
+edgeptgrp.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    edgeptgrp.label = PARM_LABEL("Point Group", "edgeptgrp") WIDTH(1.5);
+    PARM_FIELD(string, "edgeptgrp") VALUE(edgeptgrp.val) 
+	LABELREF(edgeptgrp.label) HSTRETCH;
+
+    edgeptgrp.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+unshared.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unshared", "Unshared Edges") toggle VALUE(unshared.val);
+
+}
+
+boundarygroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("boundarygroups", "Create Boundary Groups") toggle VALUE(boundarygroups.val);
+
+}
+
+combineentity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Combine Entity", "combineentity") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    combineentity.menu;
+
+}
+grpequal.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+grpequal.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grpequal.label = PARM_LABEL("Group", "grpequal") WIDTH(1.5);
+    PARM_FIELD(string, "grpequal") VALUE(grpequal.val) 
+	LABELREF(grpequal.label) HSTRETCH;
+
+    grpequal.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+not1.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not1.buttonstrip;
+}
+
+grp1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp1.label = PARM_LABEL("Group 1", "grp1") WIDTH(0);
+    PARM_FIELD(string, "grp1") VALUE(grp1.val) 
+	LABELREF(grp1.label) HSTRETCH;
+
+    grp1.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op1.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op1.menu;
+
+}
+
+not2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not2.buttonstrip;
+}
+
+grp2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp2.label = PARM_LABEL("Group 2", "grp2") WIDTH(0);
+    PARM_FIELD(string, "grp2") VALUE(grp2.val) 
+	LABELREF(grp2.label) HSTRETCH;
+
+    grp2.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op2.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op2.menu;
+
+}
+
+not3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not3.buttonstrip;
+}
+
+grp3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp3.label = PARM_LABEL("Group 3", "grp3") WIDTH(0);
+    PARM_FIELD(string, "grp3") VALUE(grp3.val) 
+	LABELREF(grp3.label) HSTRETCH;
+
+    grp3.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+op3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+op3.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    op3.menu;
+
+}
+
+not4.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    not4.buttonstrip;
+}
+
+grp4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    grp4.label = PARM_LABEL("Group 4", "grp4") WIDTH(0);
+    PARM_FIELD(string, "grp4") VALUE(grp4.val) 
+	LABELREF(grp4.label) HSTRETCH;
+
+    grp4.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+}	// Template join.bot
+
+
+oldname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    oldname.label = PARM_LABEL("Group", "oldname") WIDTH(1.5);
+    PARM_FIELD(string, "oldname") VALUE(oldname.val) 
+	LABELREF(oldname.label) HSTRETCH;
+
+    oldname.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+newname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    newname.label = PARM_LABEL("New Name", "newname") WIDTH(1.5);
+    PARM_FIELD(string, "newname") VALUE(newname.val) 
+	LABELREF(newname.label) HSTRETCH;
+
+}
+cnvfromtype.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+cnvfromtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Convert From", "cnvfromtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    cnvfromtype.menu;
+
+}
+
+cnvtotype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("To", "cnvtotype") ;
+    { WIDTH(0.09) }
+
+    cnvtotype.menu;
+
+}
+}	// Template join.bot
+
+
+convertg.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    convertg.label = PARM_LABEL("Group", "convertg") WIDTH(1.5);
+    PARM_FIELD(string, "convertg") VALUE(convertg.val) 
+	LABELREF(convertg.label) HSTRETCH;
+
+    convertg.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+cnvtname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    cnvtname.label = PARM_LABEL("Convert Name", "cnvtname") WIDTH(1.5);
+    PARM_FIELD(string, "cnvtname") VALUE(cnvtname.val) 
+	LABELREF(cnvtname.label) HSTRETCH;
+
+}
+
+preserve.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("preserve", "Preserve Original") toggle VALUE(preserve.val);
+
+}
+
+primswithallpts.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("primswithallpts", "Omit Entities in New Group not Wholly Contained in the Old Group") toggle VALUE(primswithallpts.val);
+
+}
+
+destroyname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    destroyname.label = PARM_LABEL("Group", "destroyname") WIDTH(1.5);
+    PARM_FIELD(string, "destroyname") VALUE(destroyname.val) 
+	LABELREF(destroyname.label) HSTRETCH;
+
+    destroyname.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+type.gad = NULL { }
+
+switcher3.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(switcher3.gad.val) STRETCH(1,0)
+
+	TAB "Rename"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    oldname.gad;		
+	    newname.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Convert"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    cnvfromtype.row.join;		
+	    convertg.gad;		
+	    cnvtname.gad;		
+	    preserve.gad;		
+	    primswithallpts.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Delete"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    destroyname.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+switcher2.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(switcher2.gad.val) STRETCH(1,0)
+
+	TAB "Number"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupnumber.gad;		
+	    ordered.gad;		
+	    groupop.gad;		
+	    filter.gad;		
+	    pattern.gad;		
+	    range.gad;		
+	    select.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Bounding"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupbounding.gad;		
+	    boundtype.gad;		
+	    size.gad;		
+	    t.gad;		
+	    iso.gad;		
+	    invertvolume.gad;		
+	    includenotwhollycontained.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Normal"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupnormal.gad;		
+	    dir.gad;		
+	    angle.gad;		
+	    camerapath.gad;		
+	    nonplanar.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Edges"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    groupedges.gad;		
+	    dominedgeangle.join;		
+	    domaxedgeangle.join;		
+	    edgeanglebetweenedges.gad;		
+	    dominedgelen.join;		
+	    domaxedgelen.join;		
+	    dodepth.join;		
+	    edgeptgrp.gad;		
+	    unshared.gad;		
+	    boundarygroups.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Create"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    docreategrp.row.join;		
+	    entity.gad;		
+	    geotype.gad;		
+	    mergeop.gad;		
+	    switcher2.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Combine"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    combineentity.gad;		
+	    grpequal.row.join;		
+	    op1.row.join;		
+	    op2.row.join;		
+	    op3.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Edit"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    switcher3.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    stdswitcher.gad; 
+    type.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,179 @@
+// Magic: 168a3023
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 13:33:24 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+vex_group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    vex_group.label = PARM_LABEL("Point Group", "vex_group") WIDTH(1.5);
+    PARM_FIELD(string, "vex_group") VALUE(vex_group.val) 
+	LABELREF(vex_group.label) HSTRETCH;
+
+    vex_group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+vex_numthreads.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Threads", "vex_numthreads") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vex_numthreads.menu;
+
+}
+vex_edit.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+vex_edit.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+vex_edit.gad = ROW
+{
+
+    PARM_BUTTON("vex_edit", "Edit VEX Function") push VALUE(vex_edit.val);
+}
+
+vex_reload.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("vex_reload", "Re-load VEX Functions") push VALUE(vex_reload.val);
+}
+}	
+}	// Template join.bot
+
+
+frac_depth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ frac_depth.label = PARM_LABEL("Fractal Depth", "frac_depth") WIDTH(1.5);
+ PARM(integer, 1, "frac_depth", none, none) RANGE(1,10)
+	 LABELREF(frac_depth.label) HSTRETCH;
+
+}
+
+rough.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rough.label = PARM_LABEL("Roughness", "rough") WIDTH(1.5);
+ PARM(float, 1, "rough", none, none) RANGE(0.050000000000000003,0.94999999999999996)
+	 LABELREF(rough.label) HSTRETCH;
+
+}
+
+height.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ height.label = PARM_LABEL("Height", "height") WIDTH(1.5);
+ PARM(float, 1, "height", none, none) RANGE(0,1)
+	 LABELREF(height.label) HSTRETCH;
+
+}
+
+freq.gad = ROW
+{
+   HSTRETCH
+
+   freq.label = PARM_LABEL("Frequency", "freq") WIDTH(1.5);
+
+   PARM(float, 3, "freq", none, none, "#1,#2,#3") LABELREF(freq.label)
+	HSTRETCH;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "#1,#2,#3") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+ntype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Noise Type", "ntype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    ntype.menu;
+
+}
+
+do_color.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("do_color", "Color Points") toggle VALUE(do_color.val);
+
+}
+
+clr_off.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ clr_off.label = PARM_LABEL("Color Offset", "clr_off") WIDTH(1.5);
+ PARM(float, 1, "clr_off", none, none) RANGE(0,1)
+	 LABELREF(clr_off.label) HSTRETCH;
+
+}
+
+clr_scale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ clr_scale.label = PARM_LABEL("Color Scale", "clr_scale") WIDTH(1.5);
+ PARM(float, 1, "clr_scale", none, none) RANGE(0,1)
+	 LABELREF(clr_scale.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    vex_group.gad; 
+    vex_numthreads.gad; 
+    vex_edit.row.join; 
+    frac_depth.gad; 
+    rough.gad; 
+    height.gad; 
+    freq.gad; 
+    offset.gad; 
+    ntype.gad; 
+    do_color.gad; 
+    clr_off.gad; 
+    clr_scale.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

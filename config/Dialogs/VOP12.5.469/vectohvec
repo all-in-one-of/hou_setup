@@ -1,0 +1,50 @@
+// Magic: 9efcb50d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:22:23 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+vec.gad = ROW
+{
+   HSTRETCH
+
+   vec.label = PARM_LABEL("Input Vector", "vec") WIDTH(1.5);
+
+   PARM(float, 3, "vec", none, none, "#1,#2,#3") LABELREF(vec.label)
+	HSTRETCH;
+
+	vec.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval4.label = PARM_LABEL("Fourth Component", "fval4") WIDTH(1.5);
+ PARM(float, 1, "fval4", none, none) RANGE(0,1)
+	 LABELREF(fval4.label) HSTRETCH;
+
+	fval4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    vec.gad; 
+    fval4.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

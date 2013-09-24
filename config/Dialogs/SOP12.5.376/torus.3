@@ -1,0 +1,81 @@
+// Magic: f597a8be
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:58:37 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+orient.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orient") ;
+    { WIDTH(0.09) }
+
+    orient.menu;
+
+}
+
+rad.gad = ROW
+{
+   HSTRETCH
+
+   rad.label = PARM_LABEL("Radius", "rad") ;
+
+   PARM(float, 2, "rad", none, none, "X,Y") LABELREF(rad.label)
+	HSTRETCH;
+
+}
+
+rows.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rows.label = PARM_LABEL("Rows", "rows");
+ PARM(integer, 1, "rows", none, field) RANGE(3,50)
+	LOCK_RANGE_MIN LABELREF(rows.label) HSTRETCH;
+
+}
+
+cols.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cols.label = PARM_LABEL("Columns", "cols");
+ PARM(integer, 1, "cols", none, field) RANGE(3,50)
+	LOCK_RANGE_MIN LABELREF(cols.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    orient.gad; 
+    rad.gad; 
+    rows.gad; 
+    cols.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

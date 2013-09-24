@@ -1,0 +1,119 @@
+// Magic: e0a4f1bc
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 03:27:34 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+filemode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Mode", "filemode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    filemode.menu;
+
+}
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("Geometry File", "file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+reload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("reload", "Reload Geometry") push VALUE(reload.val);
+}
+
+objpattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    objpattern.label = PARM_LABEL("Object Mask", "objpattern") WIDTH(1.5);
+    PARM_FIELD(string, "objpattern") VALUE(objpattern.val) 
+	LABELREF(objpattern.label) HSTRETCH;
+
+}
+
+geodatapath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    geodatapath.label = PARM_LABEL("Geometry Data Path", "geodatapath") WIDTH(1.5);
+    PARM_FIELD(string, "geodatapath") VALUE(geodatapath.val) 
+	LABELREF(geodatapath.label) HSTRETCH;
+
+}
+
+missingframe.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Missing Frame", "missingframe") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    missingframe.menu;
+
+}
+
+loadtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Load", "loadtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    loadtype.menu;
+
+}
+
+mkpath.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("mkpath", "Create Intermediate Directories") toggle VALUE(mkpath.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    filemode.gad; 
+    file.gad; 
+    reload.gad; 
+    objpattern.gad; 
+    geodatapath.gad; 
+    missingframe.gad; 
+    loadtype.gad; 
+    mkpath.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

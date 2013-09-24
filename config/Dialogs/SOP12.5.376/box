@@ -1,0 +1,146 @@
+// Magic: 61bef75a
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 12:20:34 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+surftype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Connectivity", "surftype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surftype.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+divrate.gad = ROW
+{
+   HSTRETCH
+
+   divrate.label = PARM_LABEL("Axis Divisions", "divrate") WIDTH(1.5);
+
+   PARM(integer, 3, "divrate", none, none, "#1,#2,#3") LABELREF(divrate.label)
+	HSTRETCH;
+
+}
+
+orderrate.gad = ROW
+{
+   HSTRETCH
+
+   orderrate.label = PARM_LABEL("Axis Orders", "orderrate") WIDTH(1.5);
+
+   PARM(integer, 3, "orderrate", none, none, "#1,#2,#3") LABELREF(orderrate.label)
+	HSTRETCH;
+
+}
+dodivs.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dodivs.gad = PARM_BUTTON("dodivs", "") toggle VALUE(dodivs.val);
+
+divs.gad = ROW
+{
+   HSTRETCH
+
+   divs.label = PARM_LABEL("Divisions", "divs") WIDTH(1.27);
+
+   PARM(integer, 3, "divs", none, none, "X,Y,Z") LABELREF(divs.label)
+	HSTRETCH;
+
+}
+}	
+
+rebar.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("rebar", "Enforcement Bars") toggle VALUE(rebar.val);
+
+}
+
+consolidatepts.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("consolidatepts", "Consolidate Corner Points") toggle VALUE(consolidatepts.val);
+
+}
+
+orientedbbox.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("orientedbbox", "Oriented Bounding Box (primitives only)") toggle VALUE(orientedbbox.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    type.gad; 
+    surftype.gad; 
+    size.gad; 
+    t.gad; 
+    divrate.gad; 
+    orderrate.gad; 
+    dodivs.join; 
+    rebar.gad; 
+    consolidatepts.gad; 
+    orientedbbox.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

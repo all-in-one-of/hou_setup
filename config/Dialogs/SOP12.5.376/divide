@@ -1,0 +1,227 @@
+// Magic: b9554a6b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 12:21:07 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+convex.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("convex", "Convex Polygons") toggle VALUE(convex.val);
+
+}
+usemaxsides.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usemaxsides.gad = ROW
+{
+
+    PARM_BUTTON("usemaxsides", "Maximum Edges") toggle VALUE(usemaxsides.val);
+
+}
+
+numsides.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ numsides.label = PARM_LABEL("", "numsides") ;
+ PARM(integer, 1, "numsides", none, none) RANGE(3,200)
+	LOCK_RANGE_MIN LABELREF(numsides.label) HSTRETCH;
+
+}
+}	
+planar.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+planar.gad = ROW
+{
+
+    PARM_BUTTON("planar", "Triangulate Non-Planar") toggle VALUE(planar.val);
+
+}
+
+plantol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ plantol.label = PARM_LABEL("", "plantol") ;
+ PARM(float, 1, "plantol", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(plantol.label) HSTRETCH;
+
+}
+}	
+
+noslivers.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("noslivers", "Don't Generate Slivers") toggle VALUE(noslivers.val);
+
+}
+
+avoidsmallangles.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("avoidsmallangles", "Avoid Small Angles") toggle VALUE(avoidsmallangles.val);
+
+}
+
+smooth.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("smooth", "Smooth Polygons") toggle VALUE(smooth.val);
+
+}
+
+weight.gad = ROW
+{
+   HSTRETCH
+
+   weight.label = PARM_LABEL("Weight", "weight") WIDTH(1.5);
+
+   PARM(float, 2, "weight", none, none, "#1,#2") LABELREF(weight.label)
+	HSTRETCH;
+
+}
+
+divs.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divs.label = PARM_LABEL("Divisions", "divs") WIDTH(1.5);
+ PARM(integer, 1, "divs", none, none) RANGE(1,5)
+	LOCK_RANGE_MIN LABELREF(divs.label) HSTRETCH;
+
+}
+
+brick.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("brick", "Bricker Polygons") toggle VALUE(brick.val);
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "X,Y,Z") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+angle.gad = ROW
+{
+   HSTRETCH
+
+   angle.label = PARM_LABEL( "Angle", "angle" ) WIDTH(1.5);
+
+   PARM(float, 3, "angle", none, none) RANGE(0, 90)
+	LABELREF( angle.label ) HSTRETCH;
+
+}
+
+fixsharededges.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fixsharededges", "Bricker Shared Edges") toggle VALUE(fixsharededges.val);
+
+}
+
+removesh.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("removesh", "Remove Shared Edges") toggle VALUE(removesh.val);
+
+}
+
+dual.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dual", "Compute Dual") toggle VALUE(dual.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    convex.gad; 
+    usemaxsides.join; 
+    planar.join; 
+    noslivers.gad; 
+    avoidsmallangles.gad; 
+    smooth.gad; 
+    weight.gad; 
+    divs.gad; 
+    brick.gad; 
+    size.gad; 
+    offset.gad; 
+    angle.gad; 
+    fixsharededges.gad; 
+    removesh.gad; 
+    dual.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

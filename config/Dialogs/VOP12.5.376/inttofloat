@@ -1,0 +1,40 @@
+// Magic: 789f8825
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 01:19:39 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+ival.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ ival.label = PARM_LABEL("Integer Input", "ival") WIDTH(1.5);
+ PARM(integer, 1, "ival", none, none) RANGE(0,10)
+	 LABELREF(ival.label) HSTRETCH;
+
+	ival.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(ival.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    ival.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

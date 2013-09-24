@@ -1,0 +1,96 @@
+// Magic: 10eb6cd8
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 15:38:13 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+doppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ doppath.label = PARM_LABEL("DOP Network", "doppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "doppath") VALUE(doppath.val) 
+	LABELREF(doppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(doppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(doppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+objpattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    objpattern.label = PARM_LABEL("Object Mask", "objpattern") WIDTH(1.5);
+    PARM_FIELD(string, "objpattern") VALUE(objpattern.val) 
+	LABELREF(objpattern.label) HSTRETCH;
+
+}
+
+datapath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    datapath.label = PARM_LABEL("Data Path", "datapath") WIDTH(1.5);
+    PARM_FIELD(string, "datapath") VALUE(datapath.val) 
+	LABELREF(datapath.label) HSTRETCH;
+
+}
+
+record.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    record.label = PARM_LABEL("Record", "record") WIDTH(1.5);
+    PARM_FIELD(string, "record") VALUE(record.val) 
+	LABELREF(record.label) HSTRETCH;
+
+}
+
+field.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    field.label = PARM_LABEL("Fields", "field") WIDTH(1.5);
+    PARM_FIELD(string, "field") VALUE(field.val) 
+	LABELREF(field.label) HSTRETCH;
+
+}
+
+posfield.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    posfield.label = PARM_LABEL("Position Field", "posfield") WIDTH(1.5);
+    PARM_FIELD(string, "posfield") VALUE(posfield.val) 
+	LABELREF(posfield.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    doppath.gad; 
+    objpattern.gad; 
+    datapath.gad; 
+    record.gad; 
+    field.gad; 
+    posfield.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,1842 @@
+// Magic: b8a3c34e
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 19:02:42 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+sourceGrp.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    sourceGrp.label = PARM_LABEL("Source Group", "sourceGrp") WIDTH(1.5);
+    PARM_FIELD(string, "sourceGrp") VALUE(sourceGrp.val) 
+	LABELREF(sourceGrp.label) HSTRETCH;
+
+    sourceGrp.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+templateGrp.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    templateGrp.label = PARM_LABEL("Template Group", "templateGrp") WIDTH(1.5);
+    PARM_FIELD(string, "templateGrp") VALUE(templateGrp.val) 
+	LABELREF(templateGrp.label) HSTRETCH;
+
+    templateGrp.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+ncy.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ ncy.label = PARM_LABEL("Number of Copies", "ncy") WIDTH(1.5);
+ PARM(integer, 1, "ncy", none, none) RANGE(0,20)
+	LOCK_RANGE_MIN LABELREF(ncy.label) HSTRETCH;
+
+}
+
+nml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("nml", "Transform Using Template Point Attributes") toggle VALUE(nml.val);
+
+}
+
+cum.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cum", "Transform Cumulative") toggle VALUE(cum.val);
+
+}
+xOrd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+xOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Transform Order", "xOrd") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    xOrd.menu;
+
+}
+
+rOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    rOrd.menu;
+
+}
+}	
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Translate", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+r.gad = ROW
+{
+   HSTRETCH
+
+   r.label = PARM_LABEL("Rotate", "r") WIDTH(1.5);
+
+   PARM(float, 3, "r", none, none, "X,Y,Z") LABELREF(r.label)
+	HSTRETCH;
+
+}
+
+s.gad = ROW
+{
+   HSTRETCH
+
+   s.label = PARM_LABEL("Scale", "s") WIDTH(1.5);
+
+   PARM(float, 3, "s", none, none, "X,Y,Z") LABELREF(s.label)
+	HSTRETCH;
+
+}
+
+shear.gad = ROW
+{
+   HSTRETCH
+
+   shear.label = PARM_LABEL("Shear", "shear") WIDTH(1.5);
+
+   PARM(float, 3, "shear", none, none, "#1,#2,#3") LABELREF(shear.label)
+	HSTRETCH;
+
+}
+
+p.gad = ROW
+{
+   HSTRETCH
+
+   p.label = PARM_LABEL("Pivot", "p") WIDTH(1.5);
+
+   PARM(float, 3, "p", none, none, "X,Y,Z") LABELREF(p.label)
+	HSTRETCH;
+
+}
+
+scale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale.label = PARM_LABEL("Uniform Scale", "scale") WIDTH(1.5);
+ PARM(float, 1, "scale", none, none) RANGE(0,10)
+	 LABELREF(scale.label) HSTRETCH;
+
+}
+
+vlength.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vlength", "Preserve Normal Length") toggle VALUE(vlength.val);
+
+}
+
+newg.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("newg", "Create Output Groups") toggle VALUE(newg.val);
+
+}
+
+preservegroups.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("preservegroups", "Preserve Groups") toggle VALUE(preservegroups.val);
+
+}
+
+copyg.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    copyg.label = PARM_LABEL("Copy Groups", "copyg") WIDTH(1.5);
+    PARM_FIELD(string, "copyg") VALUE(copyg.val) 
+	LABELREF(copyg.label) HSTRETCH;
+
+}
+
+stamp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("stamp", "Stamp Inputs") toggle VALUE(stamp.val);
+
+}
+param1.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param1.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param1.label = PARM_LABEL("Variable 1", "param1") WIDTH(1.5);
+    PARM_FIELD(string, "param1") VALUE(param1.val) 
+	LABELREF(param1.label) HSTRETCH;
+
+}
+
+val1.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val1.label = PARM_LABEL("Value 1", "val1") ;
+ PARM(float, 1, "val1", none, none) RANGE(0,1)
+	 LABELREF(val1.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param2.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param2.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param2.label = PARM_LABEL("Variable 2", "param2") WIDTH(1.5);
+    PARM_FIELD(string, "param2") VALUE(param2.val) 
+	LABELREF(param2.label) HSTRETCH;
+
+}
+
+val2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val2.label = PARM_LABEL("Value 2", "val2") ;
+ PARM(float, 1, "val2", none, none) RANGE(0,1)
+	 LABELREF(val2.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param3.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param3.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param3.label = PARM_LABEL("Variable 3", "param3") WIDTH(1.5);
+    PARM_FIELD(string, "param3") VALUE(param3.val) 
+	LABELREF(param3.label) HSTRETCH;
+
+}
+
+val3.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val3.label = PARM_LABEL("Value 3", "val3") ;
+ PARM(float, 1, "val3", none, none) RANGE(0,1)
+	 LABELREF(val3.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param4.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param4.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param4.label = PARM_LABEL("Variable 4", "param4") WIDTH(1.5);
+    PARM_FIELD(string, "param4") VALUE(param4.val) 
+	LABELREF(param4.label) HSTRETCH;
+
+}
+
+val4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val4.label = PARM_LABEL("Value 4", "val4") ;
+ PARM(float, 1, "val4", none, none) RANGE(0,1)
+	 LABELREF(val4.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param5.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param5.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param5.label = PARM_LABEL("Variable 5", "param5") WIDTH(1.5);
+    PARM_FIELD(string, "param5") VALUE(param5.val) 
+	LABELREF(param5.label) HSTRETCH;
+
+}
+
+val5.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val5.label = PARM_LABEL("Value 5", "val5") ;
+ PARM(float, 1, "val5", none, none) RANGE(0,1)
+	 LABELREF(val5.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param6.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param6.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param6.label = PARM_LABEL("Variable 6", "param6") WIDTH(1.5);
+    PARM_FIELD(string, "param6") VALUE(param6.val) 
+	LABELREF(param6.label) HSTRETCH;
+
+}
+
+val6.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val6.label = PARM_LABEL("Value 6", "val6") ;
+ PARM(float, 1, "val6", none, none) RANGE(0,1)
+	 LABELREF(val6.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param7.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param7.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param7.label = PARM_LABEL("Variable 7", "param7") WIDTH(1.5);
+    PARM_FIELD(string, "param7") VALUE(param7.val) 
+	LABELREF(param7.label) HSTRETCH;
+
+}
+
+val7.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val7.label = PARM_LABEL("Value 7", "val7") ;
+ PARM(float, 1, "val7", none, none) RANGE(0,1)
+	 LABELREF(val7.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param8.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param8.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param8.label = PARM_LABEL("Variable 8", "param8") WIDTH(1.5);
+    PARM_FIELD(string, "param8") VALUE(param8.val) 
+	LABELREF(param8.label) HSTRETCH;
+
+}
+
+val8.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val8.label = PARM_LABEL("Value 8", "val8") ;
+ PARM(float, 1, "val8", none, none) RANGE(0,1)
+	 LABELREF(val8.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param9.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param9.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param9.label = PARM_LABEL("Variable 9", "param9") WIDTH(1.5);
+    PARM_FIELD(string, "param9") VALUE(param9.val) 
+	LABELREF(param9.label) HSTRETCH;
+
+}
+
+val9.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val9.label = PARM_LABEL("Value 9", "val9") ;
+ PARM(float, 1, "val9", none, none) RANGE(0,1)
+	 LABELREF(val9.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param10.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param10.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param10.label = PARM_LABEL("Variable 10", "param10") WIDTH(1.5);
+    PARM_FIELD(string, "param10") VALUE(param10.val) 
+	LABELREF(param10.label) HSTRETCH;
+
+}
+
+val10.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val10.label = PARM_LABEL("Value 10", "val10") ;
+ PARM(float, 1, "val10", none, none) RANGE(0,1)
+	 LABELREF(val10.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param11.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param11.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param11.label = PARM_LABEL("Variable 11", "param11") WIDTH(1.5);
+    PARM_FIELD(string, "param11") VALUE(param11.val) 
+	LABELREF(param11.label) HSTRETCH;
+
+}
+
+val11.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val11.label = PARM_LABEL("Value 11", "val11") ;
+ PARM(float, 1, "val11", none, none) RANGE(0,1)
+	 LABELREF(val11.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param12.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param12.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param12.label = PARM_LABEL("Variable 12", "param12") WIDTH(1.5);
+    PARM_FIELD(string, "param12") VALUE(param12.val) 
+	LABELREF(param12.label) HSTRETCH;
+
+}
+
+val12.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val12.label = PARM_LABEL("Value 12", "val12") ;
+ PARM(float, 1, "val12", none, none) RANGE(0,1)
+	 LABELREF(val12.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param13.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param13.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param13.label = PARM_LABEL("Variable 13", "param13") WIDTH(1.5);
+    PARM_FIELD(string, "param13") VALUE(param13.val) 
+	LABELREF(param13.label) HSTRETCH;
+
+}
+
+val13.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val13.label = PARM_LABEL("Value 13", "val13") ;
+ PARM(float, 1, "val13", none, none) RANGE(0,1)
+	 LABELREF(val13.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param14.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param14.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param14.label = PARM_LABEL("Variable 14", "param14") WIDTH(1.5);
+    PARM_FIELD(string, "param14") VALUE(param14.val) 
+	LABELREF(param14.label) HSTRETCH;
+
+}
+
+val14.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val14.label = PARM_LABEL("Value 14", "val14") ;
+ PARM(float, 1, "val14", none, none) RANGE(0,1)
+	 LABELREF(val14.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param15.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param15.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param15.label = PARM_LABEL("Variable 15", "param15") WIDTH(1.5);
+    PARM_FIELD(string, "param15") VALUE(param15.val) 
+	LABELREF(param15.label) HSTRETCH;
+
+}
+
+val15.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val15.label = PARM_LABEL("Value 15", "val15") ;
+ PARM(float, 1, "val15", none, none) RANGE(0,1)
+	 LABELREF(val15.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param16.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param16.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param16.label = PARM_LABEL("Variable 16", "param16") WIDTH(1.5);
+    PARM_FIELD(string, "param16") VALUE(param16.val) 
+	LABELREF(param16.label) HSTRETCH;
+
+}
+
+val16.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val16.label = PARM_LABEL("Value 16", "val16") ;
+ PARM(float, 1, "val16", none, none) RANGE(0,1)
+	 LABELREF(val16.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param17.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param17.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param17.label = PARM_LABEL("Variable 17", "param17") WIDTH(1.5);
+    PARM_FIELD(string, "param17") VALUE(param17.val) 
+	LABELREF(param17.label) HSTRETCH;
+
+}
+
+val17.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val17.label = PARM_LABEL("Value 17", "val17") ;
+ PARM(float, 1, "val17", none, none) RANGE(0,1)
+	 LABELREF(val17.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param18.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param18.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param18.label = PARM_LABEL("Variable 18", "param18") WIDTH(1.5);
+    PARM_FIELD(string, "param18") VALUE(param18.val) 
+	LABELREF(param18.label) HSTRETCH;
+
+}
+
+val18.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val18.label = PARM_LABEL("Value 18", "val18") ;
+ PARM(float, 1, "val18", none, none) RANGE(0,1)
+	 LABELREF(val18.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param19.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param19.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param19.label = PARM_LABEL("Variable 19", "param19") WIDTH(1.5);
+    PARM_FIELD(string, "param19") VALUE(param19.val) 
+	LABELREF(param19.label) HSTRETCH;
+
+}
+
+val19.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val19.label = PARM_LABEL("Value 19", "val19") ;
+ PARM(float, 1, "val19", none, none) RANGE(0,1)
+	 LABELREF(val19.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param20.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param20.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param20.label = PARM_LABEL("Variable 20", "param20") WIDTH(1.5);
+    PARM_FIELD(string, "param20") VALUE(param20.val) 
+	LABELREF(param20.label) HSTRETCH;
+
+}
+
+val20.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val20.label = PARM_LABEL("Value 20", "val20") ;
+ PARM(float, 1, "val20", none, none) RANGE(0,1)
+	 LABELREF(val20.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param21.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param21.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param21.label = PARM_LABEL("Variable 21", "param21") WIDTH(1.5);
+    PARM_FIELD(string, "param21") VALUE(param21.val) 
+	LABELREF(param21.label) HSTRETCH;
+
+}
+
+val21.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val21.label = PARM_LABEL("Value 21", "val21") ;
+ PARM(float, 1, "val21", none, none) RANGE(0,1)
+	 LABELREF(val21.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param22.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param22.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param22.label = PARM_LABEL("Variable 22", "param22") WIDTH(1.5);
+    PARM_FIELD(string, "param22") VALUE(param22.val) 
+	LABELREF(param22.label) HSTRETCH;
+
+}
+
+val22.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val22.label = PARM_LABEL("Value 22", "val22") ;
+ PARM(float, 1, "val22", none, none) RANGE(0,1)
+	 LABELREF(val22.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param23.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param23.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param23.label = PARM_LABEL("Variable 23", "param23") WIDTH(1.5);
+    PARM_FIELD(string, "param23") VALUE(param23.val) 
+	LABELREF(param23.label) HSTRETCH;
+
+}
+
+val23.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val23.label = PARM_LABEL("Value 23", "val23") ;
+ PARM(float, 1, "val23", none, none) RANGE(0,1)
+	 LABELREF(val23.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param24.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param24.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param24.label = PARM_LABEL("Variable 24", "param24") WIDTH(1.5);
+    PARM_FIELD(string, "param24") VALUE(param24.val) 
+	LABELREF(param24.label) HSTRETCH;
+
+}
+
+val24.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val24.label = PARM_LABEL("Value 24", "val24") ;
+ PARM(float, 1, "val24", none, none) RANGE(0,1)
+	 LABELREF(val24.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param25.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param25.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param25.label = PARM_LABEL("Variable 25", "param25") WIDTH(1.5);
+    PARM_FIELD(string, "param25") VALUE(param25.val) 
+	LABELREF(param25.label) HSTRETCH;
+
+}
+
+val25.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val25.label = PARM_LABEL("Value 25", "val25") ;
+ PARM(float, 1, "val25", none, none) RANGE(0,1)
+	 LABELREF(val25.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param26.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param26.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param26.label = PARM_LABEL("Variable 26", "param26") WIDTH(1.5);
+    PARM_FIELD(string, "param26") VALUE(param26.val) 
+	LABELREF(param26.label) HSTRETCH;
+
+}
+
+val26.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val26.label = PARM_LABEL("Value 26", "val26") ;
+ PARM(float, 1, "val26", none, none) RANGE(0,1)
+	 LABELREF(val26.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param27.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param27.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param27.label = PARM_LABEL("Variable 27", "param27") WIDTH(1.5);
+    PARM_FIELD(string, "param27") VALUE(param27.val) 
+	LABELREF(param27.label) HSTRETCH;
+
+}
+
+val27.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val27.label = PARM_LABEL("Value 27", "val27") ;
+ PARM(float, 1, "val27", none, none) RANGE(0,1)
+	 LABELREF(val27.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param28.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param28.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param28.label = PARM_LABEL("Variable 28", "param28") WIDTH(1.5);
+    PARM_FIELD(string, "param28") VALUE(param28.val) 
+	LABELREF(param28.label) HSTRETCH;
+
+}
+
+val28.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val28.label = PARM_LABEL("Value 28", "val28") ;
+ PARM(float, 1, "val28", none, none) RANGE(0,1)
+	 LABELREF(val28.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param29.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param29.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param29.label = PARM_LABEL("Variable 29", "param29") WIDTH(1.5);
+    PARM_FIELD(string, "param29") VALUE(param29.val) 
+	LABELREF(param29.label) HSTRETCH;
+
+}
+
+val29.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val29.label = PARM_LABEL("Value 29", "val29") ;
+ PARM(float, 1, "val29", none, none) RANGE(0,1)
+	 LABELREF(val29.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param30.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param30.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param30.label = PARM_LABEL("Variable 30", "param30") WIDTH(1.5);
+    PARM_FIELD(string, "param30") VALUE(param30.val) 
+	LABELREF(param30.label) HSTRETCH;
+
+}
+
+val30.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val30.label = PARM_LABEL("Value 30", "val30") ;
+ PARM(float, 1, "val30", none, none) RANGE(0,1)
+	 LABELREF(val30.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param31.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param31.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param31.label = PARM_LABEL("Variable 31", "param31") WIDTH(1.5);
+    PARM_FIELD(string, "param31") VALUE(param31.val) 
+	LABELREF(param31.label) HSTRETCH;
+
+}
+
+val31.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val31.label = PARM_LABEL("Value 31", "val31") ;
+ PARM(float, 1, "val31", none, none) RANGE(0,1)
+	 LABELREF(val31.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param32.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param32.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param32.label = PARM_LABEL("Variable 32", "param32") WIDTH(1.5);
+    PARM_FIELD(string, "param32") VALUE(param32.val) 
+	LABELREF(param32.label) HSTRETCH;
+
+}
+
+val32.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val32.label = PARM_LABEL("Value 32", "val32") ;
+ PARM(float, 1, "val32", none, none) RANGE(0,1)
+	 LABELREF(val32.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param33.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param33.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param33.label = PARM_LABEL("Variable 33", "param33") WIDTH(1.5);
+    PARM_FIELD(string, "param33") VALUE(param33.val) 
+	LABELREF(param33.label) HSTRETCH;
+
+}
+
+val33.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val33.label = PARM_LABEL("Value 33", "val33") ;
+ PARM(float, 1, "val33", none, none) RANGE(0,1)
+	 LABELREF(val33.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param34.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param34.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param34.label = PARM_LABEL("Variable 34", "param34") WIDTH(1.5);
+    PARM_FIELD(string, "param34") VALUE(param34.val) 
+	LABELREF(param34.label) HSTRETCH;
+
+}
+
+val34.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val34.label = PARM_LABEL("Value 34", "val34") ;
+ PARM(float, 1, "val34", none, none) RANGE(0,1)
+	 LABELREF(val34.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param35.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param35.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param35.label = PARM_LABEL("Variable 35", "param35") WIDTH(1.5);
+    PARM_FIELD(string, "param35") VALUE(param35.val) 
+	LABELREF(param35.label) HSTRETCH;
+
+}
+
+val35.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val35.label = PARM_LABEL("Value 35", "val35") ;
+ PARM(float, 1, "val35", none, none) RANGE(0,1)
+	 LABELREF(val35.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param36.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param36.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param36.label = PARM_LABEL("Variable 36", "param36") WIDTH(1.5);
+    PARM_FIELD(string, "param36") VALUE(param36.val) 
+	LABELREF(param36.label) HSTRETCH;
+
+}
+
+val36.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val36.label = PARM_LABEL("Value 36", "val36") ;
+ PARM(float, 1, "val36", none, none) RANGE(0,1)
+	 LABELREF(val36.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param37.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param37.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param37.label = PARM_LABEL("Variable 37", "param37") WIDTH(1.5);
+    PARM_FIELD(string, "param37") VALUE(param37.val) 
+	LABELREF(param37.label) HSTRETCH;
+
+}
+
+val37.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val37.label = PARM_LABEL("Value 37", "val37") ;
+ PARM(float, 1, "val37", none, none) RANGE(0,1)
+	 LABELREF(val37.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param38.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param38.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param38.label = PARM_LABEL("Variable 38", "param38") WIDTH(1.5);
+    PARM_FIELD(string, "param38") VALUE(param38.val) 
+	LABELREF(param38.label) HSTRETCH;
+
+}
+
+val38.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val38.label = PARM_LABEL("Value 38", "val38") ;
+ PARM(float, 1, "val38", none, none) RANGE(0,1)
+	 LABELREF(val38.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param39.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param39.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param39.label = PARM_LABEL("Variable 39", "param39") WIDTH(1.5);
+    PARM_FIELD(string, "param39") VALUE(param39.val) 
+	LABELREF(param39.label) HSTRETCH;
+
+}
+
+val39.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val39.label = PARM_LABEL("Value 39", "val39") ;
+ PARM(float, 1, "val39", none, none) RANGE(0,1)
+	 LABELREF(val39.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param40.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param40.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param40.label = PARM_LABEL("Variable 40", "param40") WIDTH(1.5);
+    PARM_FIELD(string, "param40") VALUE(param40.val) 
+	LABELREF(param40.label) HSTRETCH;
+
+}
+
+val40.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val40.label = PARM_LABEL("Value 40", "val40") ;
+ PARM(float, 1, "val40", none, none) RANGE(0,1)
+	 LABELREF(val40.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param41.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param41.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param41.label = PARM_LABEL("Variable 41", "param41") WIDTH(1.5);
+    PARM_FIELD(string, "param41") VALUE(param41.val) 
+	LABELREF(param41.label) HSTRETCH;
+
+}
+
+val41.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val41.label = PARM_LABEL("Value 41", "val41") ;
+ PARM(float, 1, "val41", none, none) RANGE(0,1)
+	 LABELREF(val41.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param42.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param42.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param42.label = PARM_LABEL("Variable 42", "param42") WIDTH(1.5);
+    PARM_FIELD(string, "param42") VALUE(param42.val) 
+	LABELREF(param42.label) HSTRETCH;
+
+}
+
+val42.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val42.label = PARM_LABEL("Value 42", "val42") ;
+ PARM(float, 1, "val42", none, none) RANGE(0,1)
+	 LABELREF(val42.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param43.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param43.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param43.label = PARM_LABEL("Variable 43", "param43") WIDTH(1.5);
+    PARM_FIELD(string, "param43") VALUE(param43.val) 
+	LABELREF(param43.label) HSTRETCH;
+
+}
+
+val43.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val43.label = PARM_LABEL("Value 43", "val43") ;
+ PARM(float, 1, "val43", none, none) RANGE(0,1)
+	 LABELREF(val43.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param44.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param44.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param44.label = PARM_LABEL("Variable 44", "param44") WIDTH(1.5);
+    PARM_FIELD(string, "param44") VALUE(param44.val) 
+	LABELREF(param44.label) HSTRETCH;
+
+}
+
+val44.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val44.label = PARM_LABEL("Value 44", "val44") ;
+ PARM(float, 1, "val44", none, none) RANGE(0,1)
+	 LABELREF(val44.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param45.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param45.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param45.label = PARM_LABEL("Variable 45", "param45") WIDTH(1.5);
+    PARM_FIELD(string, "param45") VALUE(param45.val) 
+	LABELREF(param45.label) HSTRETCH;
+
+}
+
+val45.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val45.label = PARM_LABEL("Value 45", "val45") ;
+ PARM(float, 1, "val45", none, none) RANGE(0,1)
+	 LABELREF(val45.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param46.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param46.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param46.label = PARM_LABEL("Variable 46", "param46") WIDTH(1.5);
+    PARM_FIELD(string, "param46") VALUE(param46.val) 
+	LABELREF(param46.label) HSTRETCH;
+
+}
+
+val46.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val46.label = PARM_LABEL("Value 46", "val46") ;
+ PARM(float, 1, "val46", none, none) RANGE(0,1)
+	 LABELREF(val46.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param47.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param47.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param47.label = PARM_LABEL("Variable 47", "param47") WIDTH(1.5);
+    PARM_FIELD(string, "param47") VALUE(param47.val) 
+	LABELREF(param47.label) HSTRETCH;
+
+}
+
+val47.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val47.label = PARM_LABEL("Value 47", "val47") ;
+ PARM(float, 1, "val47", none, none) RANGE(0,1)
+	 LABELREF(val47.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param48.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param48.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param48.label = PARM_LABEL("Variable 48", "param48") WIDTH(1.5);
+    PARM_FIELD(string, "param48") VALUE(param48.val) 
+	LABELREF(param48.label) HSTRETCH;
+
+}
+
+val48.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val48.label = PARM_LABEL("Value 48", "val48") ;
+ PARM(float, 1, "val48", none, none) RANGE(0,1)
+	 LABELREF(val48.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param49.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param49.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param49.label = PARM_LABEL("Variable 49", "param49") WIDTH(1.5);
+    PARM_FIELD(string, "param49") VALUE(param49.val) 
+	LABELREF(param49.label) HSTRETCH;
+
+}
+
+val49.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val49.label = PARM_LABEL("Value 49", "val49") ;
+ PARM(float, 1, "val49", none, none) RANGE(0,1)
+	 LABELREF(val49.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+param50.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+param50.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    param50.label = PARM_LABEL("Variable 50", "param50") WIDTH(1.5);
+    PARM_FIELD(string, "param50") VALUE(param50.val) 
+	LABELREF(param50.label) HSTRETCH;
+
+}
+
+val50.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ val50.label = PARM_LABEL("Value 50", "val50") ;
+ PARM(float, 1, "val50", none, none) RANGE(0,1)
+	 LABELREF(val50.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+doattr.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doattr", "Use Template Point Attributes") toggle VALUE(doattr.val);
+
+}
+
+_label_.sval := 4;
+
+_label_.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+
+    SWITCHER tight
+    {
+	VALUE(_label_.sval) HSTRETCH
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "" HSTRETCH;
+
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	}
+
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	}
+	{
+	    LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "":1.5;
+
+	     LABEL VALUE(_label_.val[0]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[1]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[2]) JUSTIFY(center,center) HSTRETCH;
+	     LABEL VALUE(_label_.val[3]) JUSTIFY(center,center) HSTRETCH;
+	}
+    }
+}
+setpt.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+setpt.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    setpt.label = PARM_LABEL("To Point", "setpt") WIDTH(1.5);
+    PARM_FIELD(string, "setpt") VALUE(setpt.val) 
+	LABELREF(setpt.label) HSTRETCH;
+
+}
+
+mulpt.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    mulpt.label = PARM_LABEL("Multiply Point", "mulpt") WIDTH(0);
+    PARM_FIELD(string, "mulpt") VALUE(mulpt.val) 
+	LABELREF(mulpt.label) HSTRETCH;
+
+}
+
+addpt.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    addpt.label = PARM_LABEL("Add Point", "addpt") WIDTH(0);
+    PARM_FIELD(string, "addpt") VALUE(addpt.val) 
+	LABELREF(addpt.label) HSTRETCH;
+
+}
+
+subpt.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    subpt.label = PARM_LABEL("Subtract Point", "subpt") WIDTH(0);
+    PARM_FIELD(string, "subpt") VALUE(subpt.val) 
+	LABELREF(subpt.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+setprim.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+setprim.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    setprim.label = PARM_LABEL("To Primitive", "setprim") WIDTH(1.5);
+    PARM_FIELD(string, "setprim") VALUE(setprim.val) 
+	LABELREF(setprim.label) HSTRETCH;
+
+}
+
+mulprim.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    mulprim.label = PARM_LABEL("Multiply Primitive", "mulprim") WIDTH(0);
+    PARM_FIELD(string, "mulprim") VALUE(mulprim.val) 
+	LABELREF(mulprim.label) HSTRETCH;
+
+}
+
+addprim.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    addprim.label = PARM_LABEL("Add Primitive", "addprim") WIDTH(0);
+    PARM_FIELD(string, "addprim") VALUE(addprim.val) 
+	LABELREF(addprim.label) HSTRETCH;
+
+}
+
+subprim.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    subprim.label = PARM_LABEL("Subtract Primitive", "subprim") WIDTH(0);
+    PARM_FIELD(string, "subprim") VALUE(subprim.val) 
+	LABELREF(subprim.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+setvtx.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+setvtx.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    setvtx.label = PARM_LABEL("To Vertex", "setvtx") WIDTH(1.5);
+    PARM_FIELD(string, "setvtx") VALUE(setvtx.val) 
+	LABELREF(setvtx.label) HSTRETCH;
+
+}
+
+mulvtx.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    mulvtx.label = PARM_LABEL("Multiply Vertex", "mulvtx") WIDTH(0);
+    PARM_FIELD(string, "mulvtx") VALUE(mulvtx.val) 
+	LABELREF(mulvtx.label) HSTRETCH;
+
+}
+
+addvtx.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    addvtx.label = PARM_LABEL("Add Vertex", "addvtx") WIDTH(0);
+    PARM_FIELD(string, "addvtx") VALUE(addvtx.val) 
+	LABELREF(addvtx.label) HSTRETCH;
+
+}
+
+subvtx.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    subvtx.label = PARM_LABEL("Subtract Vertex", "subvtx") WIDTH(0);
+    PARM_FIELD(string, "subvtx") VALUE(subvtx.val) 
+	LABELREF(subvtx.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+copyvariable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("copyvariable", "Copy Local Variables") toggle VALUE(copyvariable.val);
+
+}
+
+stampswitch.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stampswitch.gad.val) STRETCH(1,0)
+
+	TAB "1-10"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    param1.row.join;		
+	    param2.row.join;		
+	    param3.row.join;		
+	    param4.row.join;		
+	    param5.row.join;		
+	    param6.row.join;		
+	    param7.row.join;		
+	    param8.row.join;		
+	    param9.row.join;		
+	    param10.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "11-20"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    param11.row.join;		
+	    param12.row.join;		
+	    param13.row.join;		
+	    param14.row.join;		
+	    param15.row.join;		
+	    param16.row.join;		
+	    param17.row.join;		
+	    param18.row.join;		
+	    param19.row.join;		
+	    param20.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "21-30"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    param21.row.join;		
+	    param22.row.join;		
+	    param23.row.join;		
+	    param24.row.join;		
+	    param25.row.join;		
+	    param26.row.join;		
+	    param27.row.join;		
+	    param28.row.join;		
+	    param29.row.join;		
+	    param30.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "31-40"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    param31.row.join;		
+	    param32.row.join;		
+	    param33.row.join;		
+	    param34.row.join;		
+	    param35.row.join;		
+	    param36.row.join;		
+	    param37.row.join;		
+	    param38.row.join;		
+	    param39.row.join;		
+	    param40.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "41-50"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    param41.row.join;		
+	    param42.row.join;		
+	    param43.row.join;		
+	    param44.row.join;		
+	    param45.row.join;		
+	    param46.row.join;		
+	    param47.row.join;		
+	    param48.row.join;		
+	    param49.row.join;		
+	    param50.row.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Copy"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    ncy.gad;		
+	    nml.gad;		
+	    cum.gad;		
+	    xOrd.join;		
+	    t.gad;		
+	    r.gad;		
+	    s.gad;		
+	    shear.gad;		
+	    p.gad;		
+	    scale.gad;		
+	    vlength.gad;		
+	    newg.gad;		
+	    preservegroups.gad;		
+	    copyg.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Stamp"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    stamp.gad;		
+	    stampswitch.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Attribute"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    doattr.gad;		
+	    _label_.gad;		
+	    setpt.row.join;		
+	    setprim.row.join;		
+	    setvtx.row.join;		
+	    copyvariable.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    sourceGrp.gad; 
+    templateGrp.gad; 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

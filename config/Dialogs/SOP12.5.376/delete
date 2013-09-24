@@ -1,0 +1,365 @@
+// Magic: e59d4740
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Wed Jun  5 03:27:31 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+negate.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "negate") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    negate.menu;
+
+}
+
+entity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Entity", "entity") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    entity.menu;
+
+}
+
+geotype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Geometry Type", "geotype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    geotype.menu;
+
+}
+
+affectnumber.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("affectnumber", "Enable") toggle VALUE(affectnumber.val);
+
+}
+
+groupop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "groupop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    groupop.menu;
+
+}
+
+filter.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    filter.label = PARM_LABEL("Filter Expression", "filter") WIDTH(1.5);
+    PARM_FIELD(integer, "filter") VALUE(filter.val) 
+	LABELREF(filter.label) HSTRETCH;
+
+}
+
+pattern.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    pattern.label = PARM_LABEL("Pattern", "pattern") WIDTH(1.5);
+    PARM_FIELD(string, "pattern") VALUE(pattern.val) 
+	LABELREF(pattern.label) HSTRETCH;
+
+}
+
+range.gad = ROW
+{
+   HSTRETCH
+
+   range.label = PARM_LABEL("Start / End", "range") WIDTH(1.5);
+
+   PARM(integer, 2, "range", none, none, "Start,End") LABELREF(range.label)
+	HSTRETCH;
+
+}
+
+select.gad = ROW
+{
+   HSTRETCH
+
+   select.label = PARM_LABEL("Select _ of _", "select") WIDTH(1.5);
+
+   PARM(integer, 2, "select", none, none, "#1,#2") LABELREF(select.label)
+	HSTRETCH;
+
+}
+
+affectvolume.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("affectvolume", "Enable") toggle VALUE(affectvolume.val);
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounding Type", "boundtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    boundtype.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+affectnormal.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("affectnormal", "Enable") toggle VALUE(affectnormal.val);
+
+}
+
+dir.gad = ROW 
+{
+    HSTRETCH
+
+    dir.label = PARM_LABEL("Direction", "dir") WIDTH(1.5);
+
+    PARM(float, 3, "dir", none, none) LABELREF(dir.label)
+	HSTRETCH;
+
+}
+
+angle.gad = ROW
+{
+   HSTRETCH
+
+   angle.label = PARM_LABEL( "Spread Angle", "angle" ) WIDTH(1.5);
+
+   PARM(float, 1, "angle", none, none) RANGE(0, 180)
+	LABELREF( angle.label ) HSTRETCH;
+
+}
+
+camerapath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ camerapath.label = PARM_LABEL("Backface from", "camerapath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "camerapath") VALUE(camerapath.val) 
+	LABELREF(camerapath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(camerapath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(camerapath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+affectdegenerate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("affectdegenerate", "Enable") toggle VALUE(affectdegenerate.val);
+
+}
+
+degenerate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("degenerate", "Delete Degenerate Primitives") toggle VALUE(degenerate.val);
+
+}
+
+zaf.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("zaf", "Delete Zero-Area Faces") toggle VALUE(zaf.val);
+
+}
+
+doopen.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doopen", "Treat Open Faces as Closed") toggle VALUE(doopen.val);
+
+}
+
+tol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tol.label = PARM_LABEL("Tolerance", "tol") WIDTH(1.5);
+ PARM(float, 1, "tol", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(tol.label) HSTRETCH;
+
+}
+
+removegrp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("removegrp", "Delete Unused Groups") toggle VALUE(removegrp.val);
+
+}
+
+keeppoints.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keeppoints", "Keep Points") toggle VALUE(keeppoints.val);
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Number"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    affectnumber.gad;		
+	    groupop.gad;		
+	    filter.gad;		
+	    pattern.gad;		
+	    range.gad;		
+	    select.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Bounding Volume"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    affectvolume.gad;		
+	    boundtype.gad;		
+	    size.gad;		
+	    t.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Normal"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    affectnormal.gad;		
+	    dir.gad;		
+	    angle.gad;		
+	    camerapath.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Degenerate"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    affectdegenerate.gad;		
+	    degenerate.gad;		
+	    zaf.gad;		
+	    doopen.gad;		
+	    tol.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    negate.gad; 
+    entity.gad; 
+    geotype.gad; 
+    stdswitcher.gad; 
+    removegrp.gad; 
+    keeppoints.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

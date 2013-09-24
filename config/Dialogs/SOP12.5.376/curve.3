@@ -1,0 +1,76 @@
+// Magic: 96fdd303
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 18:22:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") ;
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "method") ;
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+close.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("close", "Close") toggle VALUE(close.val);
+
+}
+
+reverse.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("reverse", "Reverse") toggle VALUE(reverse.val);
+
+}
+
+order.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ order.label = PARM_LABEL("Order", "order");
+ PARM(integer, 1, "order", none, field) RANGE(2,11)
+	LOCK_RANGE LABELREF(order.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    type.gad; 
+    method.gad; 
+    close.gad; 
+    reverse.gad; 
+    order.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

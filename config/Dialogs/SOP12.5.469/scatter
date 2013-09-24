@@ -1,0 +1,254 @@
+// Magic: 4344e518
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:45:57 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+keep.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keep", "Keep Original Geometry") toggle VALUE(keep.val);
+
+}
+
+ptsperarea.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ptsperarea", "Compute Number of Points") toggle VALUE(ptsperarea.val);
+
+}
+
+npts.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ npts.label = PARM_LABEL("Number Of Points", "npts") WIDTH(1.5);
+ PARM(integer, 1, "npts", none, none) RANGE(0,10000)
+	LOCK_RANGE_MIN LABELREF(npts.label) HSTRETCH;
+
+}
+
+nptsperarea.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ nptsperarea.label = PARM_LABEL("Points per Area", "nptsperarea") WIDTH(1.5);
+ PARM(float, 1, "nptsperarea", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(nptsperarea.label) HSTRETCH;
+
+}
+
+usedensity.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usedensity", "Use Density for Volumes") toggle VALUE(usedensity.val);
+
+}
+
+seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ seed.label = PARM_LABEL("Random Seed", "seed") WIDTH(1.5);
+ PARM(float, 1, "seed", none, none) RANGE(0,1)
+	 LABELREF(seed.label) HSTRETCH;
+
+}
+
+area.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("area", "Scatter Based On Primitive Area") toggle VALUE(area.val);
+
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Alternate Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+}
+
+blend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Blending Algorithm", "blend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    blend.menu;
+
+}
+
+bias.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bias.label = PARM_LABEL("Attribute Bias", "bias") WIDTH(1.5);
+ PARM(float, 1, "bias", none, none) RANGE(0,1)
+	 LABELREF(bias.label) HSTRETCH;
+
+}
+
+donear.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Compute Nearest Points", "donear") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    donear.menu;
+
+}
+
+nearcount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ nearcount.label = PARM_LABEL("Points To Consider", "nearcount") WIDTH(1.5);
+ PARM(integer, 1, "nearcount", none, none) RANGE(0,10)
+	 LABELREF(nearcount.label) HSTRETCH;
+
+}
+
+nearname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    nearname.label = PARM_LABEL("Store In Attribute", "nearname") WIDTH(1.5);
+    PARM_FIELD(string, "nearname") VALUE(nearname.val) 
+	LABELREF(nearname.label) HSTRETCH;
+
+}
+dogroup.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+dogroup.gad = PARM_BUTTON("dogroup", "") toggle VALUE(dogroup.val);
+
+sgroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    sgroup.label = PARM_LABEL("Scattered Points Group", "sgroup") WIDTH(1.27);
+    PARM_FIELD(string, "sgroup") VALUE(sgroup.val) 
+	LABELREF(sgroup.label) HSTRETCH;
+
+}
+}	
+
+convex.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("convex", "Divide Non-Convex Polygons") toggle VALUE(convex.val);
+
+}
+doprimnum.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+doprimnum.gad = PARM_BUTTON("doprimnum", "") toggle VALUE(doprimnum.val);
+
+sprimnum.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    sprimnum.label = PARM_LABEL("Primitive Number Attribute", "sprimnum") WIDTH(1.27);
+    PARM_FIELD(string, "sprimnum") VALUE(sprimnum.val) 
+	LABELREF(sprimnum.label) HSTRETCH;
+
+}
+}	
+doprimuv.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+doprimuv.gad = PARM_BUTTON("doprimuv", "") toggle VALUE(doprimuv.val);
+
+sprimuv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    sprimuv.label = PARM_LABEL("Primitive UV Attribute", "sprimuv") WIDTH(1.27);
+    PARM_FIELD(string, "sprimuv") VALUE(sprimuv.val) 
+	LABELREF(sprimuv.label) HSTRETCH;
+
+}
+}	
+
+intattrib.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("intattrib", "Interpolate integer attributes") toggle VALUE(intattrib.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    keep.gad; 
+    ptsperarea.gad; 
+    npts.gad; 
+    nptsperarea.gad; 
+    usedensity.gad; 
+    seed.gad; 
+    area.gad; 
+    attrib.gad; 
+    blend.gad; 
+    bias.gad; 
+    donear.gad; 
+    nearcount.gad; 
+    nearname.gad; 
+    dogroup.join; 
+    convex.gad; 
+    doprimnum.join; 
+    doprimuv.join; 
+    intattrib.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

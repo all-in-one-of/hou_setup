@@ -1,0 +1,209 @@
+// Magic: 5f02430b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 02:56:51 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+effect.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ effect.label = PARM_LABEL("Effect", "effect") WIDTH(1.5);
+ PARM(float, 1, "effect", none, none) RANGE(0,1)
+	 LABELREF(effect.label) HSTRETCH;
+
+}
+
+width.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ width.label = PARM_LABEL("Filter Width", "width") WIDTH(1.5);
+ PARM(float, 1, "width", none, none) RANGE(0.001,2)
+	LOCK_RANGE_MIN LABELREF(width.label) HSTRETCH;
+
+}
+
+spike.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ spike.label = PARM_LABEL("Spike Tolerance", "spike") WIDTH(1.5);
+ PARM(float, 1, "spike", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(spike.label) HSTRETCH;
+
+}
+
+passes.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ passes.label = PARM_LABEL("Number of Passes", "passes") WIDTH(1.5);
+ PARM(integer, 1, "passes", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(passes.label) HSTRETCH;
+
+}
+
+scope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    scope.label = PARM_LABEL("Scope", "scope") WIDTH(1.5);
+    PARM_FIELD(string, "scope") VALUE(scope.val) 
+	LABELREF(scope.label) HSTRETCH;
+
+    scope.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+srselect.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Sample Rate Match", "srselect") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srselect.menu;
+
+}
+
+units.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Units", "units") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    units.menu;
+
+}
+
+timeslice.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeslice", "Time Slice") toggle VALUE(timeslice.val);
+
+}
+
+unload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unload", "Unload") toggle VALUE(unload.val);
+
+}
+
+export.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ export.label = PARM_LABEL("Export Prefix", "export") WIDTH(1.5);
+ PARM_FIELD(pathstring, "export") VALUE(export.val) 
+	LABELREF(export.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(export.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(export.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+gcolor.gad =
+{
+ LAYOUT(horizontal) HSTRETCH
+
+     PARM_LABEL_SIMPLE("Graph Color", "gcolor") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+ COLORPALETTE "$HSC/colorPalette.def" 
+       VALUE(gcolor.val[0], gcolor.val[1], gcolor.val[2]) 
+       HSTRETCH MIN_HEIGHT(0.62);
+}
+
+gcolorstep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gcolorstep.label = PARM_LABEL("Graph Color Step", "gcolorstep") WIDTH(1.5);
+ PARM(float, 1, "gcolorstep", none, none) RANGE(0,0.20000000000000001)
+	 LABELREF(gcolorstep.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Filter"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    type.gad;		
+	    effect.gad;		
+	    width.gad;		
+	    spike.gad;		
+	    passes.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Common"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    scope.gad;		
+	    srselect.gad;		
+	    units.gad;		
+	    timeslice.gad;		
+	    unload.gad;		
+	    export.gad;		
+	    gcolor.gad;		
+	    gcolorstep.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

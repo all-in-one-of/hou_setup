@@ -1,0 +1,85 @@
+// Magic: 469acb51
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 15:09:59 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+localspace.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("localspace", "Local Space") toggle VALUE(localspace.val);
+
+}
+
+rad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rad.label = PARM_LABEL("Soft Radius", "rad");
+ PARM(float, 1, "rad", none, field) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(rad.label) HSTRETCH;
+
+}
+
+fd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fd.label = PARM_LABEL("FD", "fd");
+ PARM(float, 1, "fd", none, field) RANGE(-1,1)
+	 LABELREF(fd.label) HSTRETCH;
+
+}
+
+bd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ bd.label = PARM_LABEL("BD", "bd");
+ PARM(float, 1, "bd", none, field) RANGE(-1,1)
+	 LABELREF(bd.label) HSTRETCH;
+
+}
+
+sculptrad.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sculptrad.label = PARM_LABEL("Radius", "sculptrad");
+ PARM(float, 1, "sculptrad", none, field) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(sculptrad.label) HSTRETCH;
+
+}
+
+opacity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ opacity.label = PARM_LABEL("Opacity", "opacity");
+ PARM(float, 1, "opacity", none, field) RANGE(0,1)
+	LOCK_RANGE LABELREF(opacity.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    localspace.gad; 
+    rad.gad; 
+    fd.gad; 
+    bd.gad; 
+    sculptrad.gad; 
+    opacity.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,62 @@
+// Magic: e3a8da85
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 13:50:16 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("Font", "file") ;
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+text.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ text.label = PARM_LABEL("Text", "text");
+ PARM(string, 1, "text", none, field) RANGE(0,1)
+	 LABELREF(text.label) HSTRETCH;
+
+}
+
+fontsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fontsize.label = PARM_LABEL("Font Size", "fontsize");
+ PARM(float, 1, "fontsize", none, field) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(fontsize.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    file.gad; 
+    text.gad; 
+    fontsize.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,216 @@
+// Magic: 8d079efe
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 13:50:14 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+installer.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("installer", "Start Font Manager") push VALUE(installer.val);
+}
+
+file.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ file.label = PARM_LABEL("Font", "file") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "file") LABELREF(file.label)
+	VALUE(file.val) HSTRETCH;
+
+ file.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(file.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+text.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, top)
+
+    text.label = PARM_LABEL("Text", "text") WIDTH(1.5);
+
+    MULTILINE_PARM_FIELD ("text") 
+    	LABELREF(text.label) 
+    	VALUE(text.val) 
+    	SYNTAX("") 
+    	LINES(10) 
+    	HSTRETCH;
+
+}
+
+halign.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Horizontal Alignment", "halign") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    halign.menu;
+
+}
+
+valign.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Vertical Alignment", "valign") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    valign.menu;
+
+}
+
+use_descender.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_descender", "Include Descender in Vertical Alignment") toggle VALUE(use_descender.val);
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Origin", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+s.gad = ROW
+{
+   HSTRETCH
+
+   s.label = PARM_LABEL("Scale", "s") WIDTH(1.5);
+
+   PARM(float, 2, "s", none, none, "X,Y") LABELREF(s.label)
+	HSTRETCH;
+
+}
+
+tracking.gad = ROW
+{
+   HSTRETCH
+
+   tracking.label = PARM_LABEL("Tracking", "tracking") WIDTH(1.5);
+
+   PARM(float, 2, "tracking", none, none, "X,Y") LABELREF(tracking.label)
+	HSTRETCH;
+
+}
+
+fontsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fontsize.label = PARM_LABEL("Font Size", "fontsize") WIDTH(1.5);
+ PARM(float, 1, "fontsize", none, none) RANGE(0,100)
+	LOCK_RANGE_MIN LABELREF(fontsize.label) HSTRETCH;
+
+}
+
+oblique.gad = ROW
+{
+   HSTRETCH
+
+   oblique.label = PARM_LABEL( "Oblique Angle", "oblique" ) WIDTH(1.5);
+
+   PARM(float, 1, "oblique", none, none) RANGE(-89, 89)
+	LABELREF( oblique.label ) HSTRETCH;
+
+}
+
+lod.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lod.label = PARM_LABEL("Level of Detail", "lod") WIDTH(1.5);
+ PARM(float, 1, "lod", none, none) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lod.label) HSTRETCH;
+
+}
+
+autokern.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("autokern", "Automatic Kerning") toggle VALUE(autokern.val);
+
+}
+
+hole.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hole", "Hole Faces") toggle VALUE(hole.val);
+
+}
+
+addattrib.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addattrib", "Add Text Attributes") toggle VALUE(addattrib.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    type.gad; 
+    installer.gad; 
+    file.gad; 
+    text.gad; 
+    halign.gad; 
+    valign.gad; 
+    use_descender.gad; 
+    t.gad; 
+    s.gad; 
+    tracking.gad; 
+    fontsize.gad; 
+    oblique.gad; 
+    lod.gad; 
+    autokern.gad; 
+    hole.gad; 
+    addattrib.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

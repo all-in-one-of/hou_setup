@@ -1,0 +1,54 @@
+// Magic: f0273e1f
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 22:37:12 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+crname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    crname.label = PARM_LABEL("Group Name", "crname") ;
+    PARM_FIELD(string, "crname") VALUE(crname.val) 
+	LABELREF(crname.label) HSTRETCH;
+
+}
+
+entity.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Entity", "entity") ;
+    { WIDTH(0.09) }
+
+    entity.menu;
+
+}
+
+boundtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Bounding Type", "boundtype") ;
+    { WIDTH(0.09) }
+
+    boundtype.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    crname.gad; 
+    entity.gad; 
+    boundtype.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

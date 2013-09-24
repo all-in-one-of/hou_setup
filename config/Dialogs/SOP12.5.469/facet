@@ -1,0 +1,203 @@
+// Magic: 9eb5fa01
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:38:30 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+prenml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("prenml", "Pre-Compute Normals") toggle VALUE(prenml.val);
+
+}
+
+unit.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unit", "Make Normals Unit Length") toggle VALUE(unit.val);
+
+}
+
+unique.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unique", "Unique Points") toggle VALUE(unique.val);
+
+}
+
+cons.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Consolidate", "cons") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    cons.menu;
+
+}
+
+dist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dist.label = PARM_LABEL("Distance", "dist") WIDTH(1.5);
+ PARM(float, 1, "dist", none, LOGSCALE) RANGE(0,1)
+	 LABELREF(dist.label) HSTRETCH;
+
+}
+
+accurate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("accurate", "Use Accurate Distance") toggle VALUE(accurate.val);
+
+}
+
+inline.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("inline", "Remove Inline Points") toggle VALUE(inline.val);
+
+}
+
+inlinedist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inlinedist.label = PARM_LABEL("Distance", "inlinedist") WIDTH(1.5);
+ PARM(float, 1, "inlinedist", none, none) RANGE(0,1)
+	 LABELREF(inlinedist.label) HSTRETCH;
+
+}
+
+orientPolys.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("orientPolys", "Orient Polygons") toggle VALUE(orientPolys.val);
+
+}
+
+cusp.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cusp", "Cusp Polygons") toggle VALUE(cusp.val);
+
+}
+
+angle.gad = ROW
+{
+   HSTRETCH
+
+   angle.label = PARM_LABEL( "Cusp Angle", "angle" ) WIDTH(1.5);
+
+   PARM(float, 1, "angle", none, none) RANGE(0, 40)
+	LABELREF( angle.label ) HSTRETCH;
+
+}
+
+remove.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("remove", "Remove Degenerate") toggle VALUE(remove.val);
+
+}
+
+mkplanar.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("mkplanar", "Make Planar") toggle VALUE(mkplanar.val);
+
+}
+
+postnml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("postnml", "Post-Compute Normals") toggle VALUE(postnml.val);
+
+}
+
+reversenml.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("reversenml", "Reverse Normals") toggle VALUE(reversenml.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    prenml.gad; 
+    unit.gad; 
+    unique.gad; 
+    cons.gad; 
+    dist.gad; 
+    accurate.gad; 
+    inline.gad; 
+    inlinedist.gad; 
+    orientPolys.gad; 
+    cusp.gad; 
+    angle.gad; 
+    remove.gad; 
+    mkplanar.gad; 
+    postnml.gad; 
+    reversenml.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

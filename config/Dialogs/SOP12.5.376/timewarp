@@ -1,0 +1,75 @@
+// Magic: 1bd9b57b
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:48:48 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+inrange.gad = ROW
+{
+   HSTRETCH
+
+   inrange.label = PARM_LABEL("Input Range", "inrange") WIDTH(1.5);
+
+   PARM(float, 2, "inrange", none, none, "#1,#2") LABELREF(inrange.label)
+	HSTRETCH;
+
+}
+
+outrange.gad = ROW
+{
+   HSTRETCH
+
+   outrange.label = PARM_LABEL("Output Range", "outrange") WIDTH(1.5);
+
+   PARM(float, 2, "outrange", none, none, "#1,#2") LABELREF(outrange.label)
+	HSTRETCH;
+
+}
+
+preextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Pre Extend", "preextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    preextend.menu;
+
+}
+
+postextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Extend", "postextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postextend.menu;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    inrange.gad; 
+    outrange.gad; 
+    preextend.gad; 
+    postextend.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

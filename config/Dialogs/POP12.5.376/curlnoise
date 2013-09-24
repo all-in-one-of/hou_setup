@@ -1,0 +1,354 @@
+// Magic: 8fdfeb0c
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 04:57:05 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Source Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Noise Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+offset.gad = ROW
+{
+   HSTRETCH
+
+   offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+
+   PARM(float, 3, "offset", none, none, "X,Y,Z") LABELREF(offset.label)
+	HSTRETCH;
+
+}
+
+freq.gad = ROW
+{
+   HSTRETCH
+
+   freq.label = PARM_LABEL("Frequency", "freq") WIDTH(1.5);
+
+   PARM(float, 3, "freq", none, none, "X,Y,Z") LABELREF(freq.label)
+	HSTRETCH;
+
+}
+
+h.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ h.label = PARM_LABEL("Step Size", "h") WIDTH(1.5);
+ PARM(float, 1, "h", none, none) RANGE(0,10)
+	 LABELREF(h.label) HSTRETCH;
+
+}
+
+amp.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ amp.label = PARM_LABEL("Amplitude", "amp") WIDTH(1.5);
+ PARM(float, 1, "amp", none, none) RANGE(0,10)
+	 LABELREF(amp.label) HSTRETCH;
+
+}
+
+atten.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ atten.label = PARM_LABEL("Attenuation", "atten") WIDTH(1.5);
+ PARM(float, 1, "atten", none, none) RANGE(0,10)
+	 LABELREF(atten.label) HSTRETCH;
+
+}
+
+turb.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ turb.label = PARM_LABEL("Turbulence", "turb") WIDTH(1.5);
+ PARM(integer, 1, "turb", none, none) RANGE(0,10)
+	 LABELREF(turb.label) HSTRETCH;
+
+}
+
+rough.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rough.label = PARM_LABEL("Roughness", "rough") WIDTH(1.5);
+ PARM(float, 1, "rough", none, none) RANGE(0,1)
+	 LABELREF(rough.label) HSTRETCH;
+
+}
+
+timevarying.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timevarying", "Time Varying") toggle VALUE(timevarying.val);
+
+}
+
+pulselength.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pulselength.label = PARM_LABEL("Pulse Duration", "pulselength") WIDTH(1.5);
+ PARM(float, 1, "pulselength", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(pulselength.label) HSTRETCH;
+
+}
+
+geo.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ geo.label = PARM_LABEL("Collision SDF", "geo") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "geo") LABELREF(geo.label)
+	VALUE(geo.val) HSTRETCH;
+
+ geo.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(geo.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+bounce.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bounce", "Enable Bouncing") toggle VALUE(bounce.val);
+
+}
+
+radius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ radius.label = PARM_LABEL("Collision Effect Radius", "radius") WIDTH(1.5);
+ PARM(float, 1, "radius", none, none) RANGE(0,10)
+	 LABELREF(radius.label) HSTRETCH;
+
+}
+
+advecttype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Advection Type", "advecttype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    advecttype.menu;
+
+}
+
+forcescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ forcescale.label = PARM_LABEL("Force Scale", "forcescale") WIDTH(1.5);
+ PARM(float, 1, "forcescale", none, none) RANGE(0,1)
+	 LABELREF(forcescale.label) HSTRETCH;
+
+}
+
+ignoremass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignoremass", "Ignore Mass") toggle VALUE(ignoremass.val);
+
+}
+
+overridemass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridemass", "Override Mass") toggle VALUE(overridemass.val);
+
+}
+
+newmass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ newmass.label = PARM_LABEL("Mass", "newmass") WIDTH(1.5);
+ PARM(float, 1, "newmass", none, none) RANGE(0,1)
+	 LABELREF(newmass.label) HSTRETCH;
+
+}
+
+treataswind.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("treataswind", "Treat As Wind") toggle VALUE(treataswind.val);
+
+}
+
+velblend.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velblend.label = PARM_LABEL("Velocity Blend", "velblend") WIDTH(1.5);
+ PARM(float, 1, "velblend", none, none) RANGE(0,1)
+	 LABELREF(velblend.label) HSTRETCH;
+
+}
+
+veladd.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ veladd.label = PARM_LABEL("Velocity Add", "veladd") WIDTH(1.5);
+ PARM(float, 1, "veladd", none, none) RANGE(0,1)
+	 LABELREF(veladd.label) HSTRETCH;
+
+}
+
+velupdate.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Update", "velupdate") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    velupdate.menu;
+
+}
+
+vex_numthreads.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Threads", "vex_numthreads") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vex_numthreads.menu;
+
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Noise"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    type.gad;		
+	    offset.gad;		
+	    freq.gad;		
+	    h.gad;		
+	    amp.gad;		
+	    atten.gad;		
+	    turb.gad;		
+	    rough.gad;		
+	    timevarying.gad;		
+	    pulselength.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Collision"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    geo.gad;		
+	    bounce.gad;		
+	    radius.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Update"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    advecttype.gad;		
+	    forcescale.gad;		
+	    ignoremass.gad;		
+	    overridemass.gad;		
+	    newmass.gad;		
+	    treataswind.gad;		
+	    velblend.gad;		
+	    veladd.gad;		
+	    velupdate.gad;		
+	    vex_numthreads.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    group.gad; 
+    folder0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

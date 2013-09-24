@@ -1,0 +1,67 @@
+// Magic: e4bfd913
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:25:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec1.gad = ROW
+{
+   HSTRETCH
+
+   vec1.label = PARM_LABEL("Vector 1", "vec1") WIDTH(1.5);
+
+   PARM(float, 3, "vec1", none, none, "#1,#2,#3") LABELREF(vec1.label)
+	HSTRETCH;
+
+	vec1.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec1.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec2.gad = ROW
+{
+   HSTRETCH
+
+   vec2.label = PARM_LABEL("Vector 2", "vec2") WIDTH(1.5);
+
+   PARM(float, 3, "vec2", none, none, "#1,#2,#3") LABELREF(vec2.label)
+	HSTRETCH;
+
+	vec2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    vec1.gad; 
+    vec2.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

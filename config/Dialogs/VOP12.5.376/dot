@@ -1,0 +1,151 @@
+// Magic: 93f752d1
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:25:39 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec1.gad = ROW
+{
+   HSTRETCH
+
+   vec1.label = PARM_LABEL("Vector 1", "vec1") WIDTH(1.5);
+
+   PARM(float, 3, "vec1", none, none, "#1,#2,#3") LABELREF(vec1.label)
+	HSTRETCH;
+
+	vec1.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec1.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec2.gad = ROW
+{
+   HSTRETCH
+
+   vec2.label = PARM_LABEL("Vector 2", "vec2") WIDTH(1.5);
+
+   PARM(float, 3, "vec2", none, none, "#1,#2,#3") LABELREF(vec2.label)
+	HSTRETCH;
+
+	vec2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec1_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vec1_c.label = PARM_LABEL("Color 1", "vec1_c") WIDTH(1.5);
+
+    PARM(float, 3, "vec1_c", none, COLOR, "R,G,B") 
+	LABELREF(vec1_c.label) HSTRETCH;
+
+	vec1_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec1_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec2_c.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vec2_c.label = PARM_LABEL("Color 2", "vec2_c") WIDTH(1.5);
+
+    PARM(float, 3, "vec2_c", none, COLOR, "R,G,B") 
+	LABELREF(vec2_c.label) HSTRETCH;
+
+	vec2_c.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec2_c.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec1_uv.gad = ROW
+{
+   HSTRETCH
+
+   vec1_uv.label = PARM_LABEL("Vector 1", "vec1_uv") WIDTH(1.5);
+
+   PARM(float, 3, "vec1_uv", none, none, "#1,#2,#3") LABELREF(vec1_uv.label)
+	HSTRETCH;
+
+	vec1_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec1_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec2_uv.gad = ROW
+{
+   HSTRETCH
+
+   vec2_uv.label = PARM_LABEL("Vector 2", "vec2_uv") WIDTH(1.5);
+
+   PARM(float, 3, "vec2_uv", none, none, "#1,#2,#3") LABELREF(vec2_uv.label)
+	HSTRETCH;
+
+	vec2_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec2_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec1_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vec1_uc.label = PARM_LABEL("Color 1", "vec1_uc") WIDTH(1.5);
+
+    PARM(float, 3, "vec1_uc", none, COLOR, "R,G,B") 
+	LABELREF(vec1_uc.label) HSTRETCH;
+
+	vec1_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec1_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vec2_uc.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    vec2_uc.label = PARM_LABEL("Color 2", "vec2_uc") WIDTH(1.5);
+
+    PARM(float, 3, "vec2_uc", none, COLOR, "R,G,B") 
+	LABELREF(vec2_uc.label) HSTRETCH;
+
+	vec2_uc.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vec2_uc.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    vec1.gad; 
+    vec2.gad; 
+    vec1_c.gad; 
+    vec2_c.gad; 
+    vec1_uv.gad; 
+    vec2_uv.gad; 
+    vec1_uc.gad; 
+    vec2_uc.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

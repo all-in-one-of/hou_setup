@@ -1,0 +1,106 @@
+// Magic: 28f3cb7d
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:45:57 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+op.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Operation", "op") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    op.menu;
+
+}
+
+paxis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primary Axis", "paxis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    paxis.menu;
+
+}
+
+saxis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Secondary Axis", "saxis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    saxis.menu;
+
+}
+
+p.gad = ROW
+{
+   HSTRETCH
+
+   p.label = PARM_LABEL("Pivot", "p") WIDTH(1.5);
+
+   PARM(float, 3, "p", none, none, "X,Y,Z") LABELREF(p.label)
+	HSTRETCH;
+
+}
+
+strength.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ strength.label = PARM_LABEL("Strength", "strength") WIDTH(1.5);
+ PARM(float, 1, "strength", none, none) RANGE(0,360)
+	 LABELREF(strength.label) HSTRETCH;
+
+}
+
+roll.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ roll.label = PARM_LABEL("Rolloff", "roll") WIDTH(1.5);
+ PARM(float, 1, "roll", none, none) RANGE(0,180)
+	 LABELREF(roll.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    op.gad; 
+    paxis.gad; 
+    saxis.gad; 
+    p.gad; 
+    strength.gad; 
+    roll.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

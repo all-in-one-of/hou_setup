@@ -1,0 +1,78 @@
+// Magic: 2977b435
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 17:32:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+scale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scale.label = PARM_LABEL("Scale", "scale");
+ PARM(float, 1, "scale", none, field) RANGE(0,1)
+	 LABELREF(scale.label) HSTRETCH;
+
+}
+
+overridemass.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridemass", "Override Mass") toggle VALUE(overridemass.val);
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass");
+ PARM(float, 1, "mass", none, field) RANGE(0.0010000000474974513,5)
+	LOCK_RANGE_MIN LABELREF(mass.label) HSTRETCH;
+
+}
+
+overridedrag.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridedrag", "Override Drag") toggle VALUE(overridedrag.val);
+
+}
+
+drag.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ drag.label = PARM_LABEL("Drag", "drag");
+ PARM(float, 1, "drag", none, field) RANGE(0,5)
+	 LABELREF(drag.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    scale.gad; 
+    overridemass.gad; 
+    mass.gad; 
+    overridedrag.gad; 
+    drag.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

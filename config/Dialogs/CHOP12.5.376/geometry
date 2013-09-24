@@ -1,0 +1,336 @@
+// Magic: 8ffc64f0
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 02:56:12 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+soppath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ soppath.label = PARM_LABEL("SOP", "soppath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "soppath") VALUE(soppath.val) 
+	LABELREF(soppath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(soppath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(soppath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Method", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+}
+
+attribscope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attribscope.label = PARM_LABEL("Attribute Scope", "attribscope") WIDTH(1.5);
+    PARM_FIELD(string, "attribscope") VALUE(attribscope.val) 
+	LABELREF(attribscope.label) HSTRETCH;
+
+}
+
+renamescope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    renamescope.label = PARM_LABEL("Rename Scope", "renamescope") WIDTH(1.5);
+    PARM_FIELD(string, "renamescope") VALUE(renamescope.val) 
+	LABELREF(renamescope.label) HSTRETCH;
+
+}
+
+transpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ transpath.label = PARM_LABEL("Transform Object", "transpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "transpath") VALUE(transpath.val) 
+	LABELREF(transpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(transpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(transpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+organize.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    organize.label = PARM_LABEL("Organize by Attribute", "organize") WIDTH(1.5);
+    PARM_FIELD(string, "organize") VALUE(organize.val) 
+	LABELREF(organize.label) HSTRETCH;
+
+}
+
+range.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Channel Range", "range") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    range.menu;
+
+}
+
+start.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ start.label = PARM_LABEL("Start", "start") WIDTH(1.5);
+ PARM(float, 1, "start", none, none) RANGE(0,10)
+	 LABELREF(start.label) HSTRETCH;
+
+}
+
+end.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ end.label = PARM_LABEL("End", "end") WIDTH(1.5);
+ PARM(float, 1, "end", none, none) RANGE(0,10)
+	 LABELREF(end.label) HSTRETCH;
+
+}
+
+rate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rate.label = PARM_LABEL("Sample Rate", "rate") WIDTH(1.5);
+ PARM(float, 1, "rate", none, none) RANGE(0,120)
+	LOCK_RANGE_MIN LABELREF(rate.label) HSTRETCH;
+
+}
+
+left.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Extend Left", "left") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    left.menu;
+
+}
+
+right.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Extend Right", "right") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    right.menu;
+
+}
+
+defval.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ defval.label = PARM_LABEL("Default Value", "defval") WIDTH(1.5);
+ PARM(float, 1, "defval", none, none) RANGE(-10,10)
+	 LABELREF(defval.label) HSTRETCH;
+
+}
+
+scope.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    scope.label = PARM_LABEL("Scope", "scope") WIDTH(1.5);
+    PARM_FIELD(string, "scope") VALUE(scope.val) 
+	LABELREF(scope.label) HSTRETCH;
+
+    scope.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+srselect.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Sample Rate Match", "srselect") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    srselect.menu;
+
+}
+
+units.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Units", "units") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    units.menu;
+
+}
+
+timeslice.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeslice", "Time Slice") toggle VALUE(timeslice.val);
+
+}
+
+unload.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("unload", "Unload") toggle VALUE(unload.val);
+
+}
+
+export.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ export.label = PARM_LABEL("Export Prefix", "export") WIDTH(1.5);
+ PARM_FIELD(pathstring, "export") VALUE(export.val) 
+	LABELREF(export.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(export.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(export.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+gcolor.gad =
+{
+ LAYOUT(horizontal) HSTRETCH
+
+     PARM_LABEL_SIMPLE("Graph Color", "gcolor") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+ COLORPALETTE "$HSC/colorPalette.def" 
+       VALUE(gcolor.val[0], gcolor.val[1], gcolor.val[2]) 
+       HSTRETCH MIN_HEIGHT(0.62);
+}
+
+gcolorstep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ gcolorstep.label = PARM_LABEL("Graph Color Step", "gcolorstep") WIDTH(1.5);
+ PARM(float, 1, "gcolorstep", none, none) RANGE(0,0.20000000000000001)
+	 LABELREF(gcolorstep.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Geometry"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    soppath.gad;		
+	    group.gad;		
+	    method.gad;		
+	    attribscope.gad;		
+	    renamescope.gad;		
+	    transpath.gad;		
+	    organize.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Channel"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    range.gad;		
+	    start.gad;		
+	    end.gad;		
+	    rate.gad;		
+	    left.gad;		
+	    right.gad;		
+	    defval.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Common"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    scope.gad;		
+	    srselect.gad;		
+	    units.gad;		
+	    timeslice.gad;		
+	    unload.gad;		
+	    export.gad;		
+	    gcolor.gad;		
+	    gcolorstep.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

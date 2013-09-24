@@ -1,0 +1,65 @@
+// Magic: 884038cc
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:34:27 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+fromtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("From Type", "fromtype") ;
+    { WIDTH(0.09) }
+
+    fromtype.menu;
+
+}
+
+totype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Convert To", "totype") ;
+    { WIDTH(0.09) }
+
+    totype.menu;
+
+}
+
+lodu.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lodu.label = PARM_LABEL("U", "lodu");
+ PARM(float, 1, "lodu", none, field) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lodu.label) HSTRETCH;
+
+}
+
+lodv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ lodv.label = PARM_LABEL("V", "lodv");
+ PARM(float, 1, "lodv", none, field) RANGE(0.001,5)
+	LOCK_RANGE_MIN LABELREF(lodv.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    fromtype.gad; 
+    totype.gad; 
+    lodu.gad; 
+    lodv.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,362 @@
+// Magic: f59c0e33
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 16:45:58 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+output.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Output Type", "output") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    output.menu;
+
+}
+
+tetratype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Tetra Type", "tetratype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    tetratype.menu;
+
+}
+
+mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Mode", "mode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    mode.menu;
+
+}
+
+name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    name.label = PARM_LABEL("Name", "name") WIDTH(1.5);
+    PARM_FIELD(string, "name") VALUE(name.val) 
+	LABELREF(name.label) HSTRETCH;
+
+}
+
+offset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ offset.label = PARM_LABEL("Offset", "offset") WIDTH(1.5);
+ PARM(float, 1, "offset", none, none) RANGE(-5,5)
+	 LABELREF(offset.label) HSTRETCH;
+
+}
+
+buildpolysoup.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("buildpolysoup", "Build Polygon Soup") toggle VALUE(buildpolysoup.val);
+
+}
+
+uniformsamples.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Uniform Sampling", "uniformsamples") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uniformsamples.menu;
+
+}
+
+samplediv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ samplediv.label = PARM_LABEL("Uniform Sampling Divs", "samplediv") WIDTH(1.5);
+ PARM(integer, 1, "samplediv", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(samplediv.label) HSTRETCH;
+
+}
+
+divs.gad = ROW
+{
+   HSTRETCH
+
+   divs.label = PARM_LABEL("Sampling Divs", "divs") WIDTH(1.5);
+
+   PARM(integer, 3, "divs", none, none, "X,Y,Z") LABELREF(divs.label)
+	HSTRETCH;
+
+}
+
+divsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divsize.label = PARM_LABEL("Div Size", "divsize") WIDTH(1.5);
+ PARM(float, 1, "divsize", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(divsize.label) HSTRETCH;
+
+}
+
+overrideoutput.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overrideoutput", "Override Output Divs") toggle VALUE(overrideoutput.val);
+
+}
+
+isodiv.gad = ROW
+{
+   HSTRETCH
+
+   isodiv.label = PARM_LABEL("Output Divs", "isodiv") WIDTH(1.5);
+
+   PARM(integer, 3, "isodiv", none, none, "X,Y,Z") LABELREF(isodiv.label)
+	HSTRETCH;
+
+}
+
+overridebounds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridebounds", "Override Bounds") toggle VALUE(overridebounds.val);
+
+}
+
+padbounds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("padbounds", "Pad Bounds") toggle VALUE(padbounds.val);
+
+}
+
+min.gad = ROW
+{
+   HSTRETCH
+
+   min.label = PARM_LABEL("Min Bounds", "min") WIDTH(1.5);
+
+   PARM(float, 3, "min", none, none, "X,Y,Z") LABELREF(min.label)
+	HSTRETCH;
+
+}
+
+max.gad = ROW
+{
+   HSTRETCH
+
+   max.label = PARM_LABEL("Max Bounds", "max") WIDTH(1.5);
+
+   PARM(float, 3, "max", none, none, "X,Y,Z") LABELREF(max.label)
+	HSTRETCH;
+
+}
+
+tol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ tol.label = PARM_LABEL("Tolerance", "tol") WIDTH(1.5);
+ PARM(float, 1, "tol", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE LABELREF(tol.label) HSTRETCH;
+
+}
+
+laserscan.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("laserscan", "Laser Scan") toggle VALUE(laserscan.val);
+
+}
+
+fixsigns.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("fixsigns", "Fix Signs") toggle VALUE(fixsigns.val);
+
+}
+
+forcebounds.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("forcebounds", "Force Bounds") toggle VALUE(forcebounds.val);
+
+}
+
+invert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert", "Invert Sign") toggle VALUE(invert.val);
+
+}
+
+numneighbour.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ numneighbour.label = PARM_LABEL("Num Neighbour", "numneighbour") WIDTH(1.5);
+ PARM(integer, 1, "numneighbour", none, none) RANGE(0,10)
+	 LABELREF(numneighbour.label) HSTRETCH;
+
+}
+
+sweepalpha.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sweepalpha.label = PARM_LABEL("Sign Sweep Threshold", "sweepalpha") WIDTH(1.5);
+ PARM(float, 1, "sweepalpha", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(sweepalpha.label) HSTRETCH;
+
+}
+
+sweepcount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ sweepcount.label = PARM_LABEL("Max Sign Sweep Count", "sweepcount") WIDTH(1.5);
+ PARM(integer, 1, "sweepcount", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(sweepcount.label) HSTRETCH;
+
+}
+
+filemode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("File Mode", "filemode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    filemode.menu;
+
+}
+
+filename.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ filename.label = PARM_LABEL("File Name", "filename") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "filename") LABELREF(filename.label)
+	VALUE(filename.val) HSTRETCH;
+
+ filename.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(filename.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+switcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(switcher.gad.val) STRETCH(1,0)
+
+	TAB "Dimensions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    uniformsamples.gad;		
+	    samplediv.gad;		
+	    divs.gad;		
+	    divsize.gad;		
+	    overrideoutput.gad;		
+	    isodiv.gad;		
+	    overridebounds.gad;		
+	    padbounds.gad;		
+	    min.gad;		
+	    max.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Construction"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    tol.gad;		
+	    laserscan.gad;		
+	    fixsigns.gad;		
+	    forcebounds.gad;		
+	    invert.gad;		
+	    numneighbour.gad;		
+	    sweepalpha.gad;		
+	    sweepcount.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "File"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    filemode.gad;		
+	    filename.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    output.gad; 
+    tetratype.gad; 
+    mode.gad; 
+    name.gad; 
+    offset.gad; 
+    buildpolysoup.gad; 
+    switcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

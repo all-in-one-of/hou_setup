@@ -1,0 +1,42 @@
+// Magic: e62fb0a5
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 15:45:01 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+dist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dist.label = PARM_LABEL("Distance", "dist");
+ PARM(float, 1, "dist", none, field) RANGE(-5,5)
+	 LABELREF(dist.label) HSTRETCH;
+
+}
+
+reversenml.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Reverse Normals", "reversenml") ;
+    { WIDTH(0.09) }
+
+    reversenml.menu;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    dist.gad; 
+    reversenml.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

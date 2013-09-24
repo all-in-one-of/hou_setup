@@ -1,0 +1,165 @@
+// Magic: e5c4403b
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Sat Sep 21 17:16:23 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+parmop_fielddst.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_fielddst.gad = parmop_fielddst.menu WIDTH(1.3);
+
+fielddst.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fielddst.label = PARM_LABEL("Dest Field", "fielddst") WIDTH(1.5);
+    PARM_FIELD(string, "fielddst") VALUE(fielddst.val) 
+	LABELREF(fielddst.label) HSTRETCH;
+
+}
+}	
+parmop_fieldsrc.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_fieldsrc.gad = parmop_fieldsrc.menu WIDTH(1.3);
+
+fieldsrc.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    fieldsrc.label = PARM_LABEL("Source Field", "fieldsrc") WIDTH(1.5);
+    PARM_FIELD(string, "fieldsrc") VALUE(fieldsrc.val) 
+	LABELREF(fieldsrc.label) HSTRETCH;
+
+}
+}	
+parmop_analysis.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_analysis.gad = parmop_analysis.menu WIDTH(1.3);
+
+analysis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Analysis", "analysis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    analysis.menu;
+
+}
+}	
+parmop_opencl.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+parmop_opencl.gad = parmop_opencl.menu WIDTH(1.3);
+
+opencl.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("opencl", "Use OpenCL") toggle VALUE(opencl.val);
+
+}
+}	
+
+defaultparmop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Default Operation", "defaultparmop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    defaultparmop.menu;
+
+}
+
+addaffectors.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addaffectors", "Make Objects Mutual Affectors") toggle VALUE(addaffectors.val);
+
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+dataname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    dataname.label = PARM_LABEL("Data Name", "dataname") WIDTH(1.5);
+    PARM_FIELD(string, "dataname") VALUE(dataname.val) 
+	LABELREF(dataname.label) HSTRETCH;
+
+}
+
+uniquedataname.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("uniquedataname", "Unique Data Name") toggle VALUE(uniquedataname.val);
+
+}
+
+solverperobject.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("solverperobject", "Solver Per Object") toggle VALUE(solverperobject.val);
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmop_fielddst.join; 
+    parmop_fieldsrc.join; 
+    parmop_analysis.join; 
+    parmop_opencl.join; 
+    defaultparmop.gad; 
+    addaffectors.gad; 
+    group.gad; 
+    dataname.gad; 
+    uniquedataname.gad; 
+    solverperobject.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

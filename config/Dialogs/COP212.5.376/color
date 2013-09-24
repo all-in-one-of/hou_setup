@@ -1,0 +1,393 @@
+// Magic: 77b5cdfe
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 18:39:46 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    color.label = PARM_LABEL("Color", "color") WIDTH(1.5);
+
+    PARM(float, 4, "color", none, COLOR, "R,G,B,A") 
+	LABELREF(color.label) HSTRETCH;
+
+}
+
+comp4.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ comp4.label = PARM_LABEL("Component 4", "comp4") WIDTH(1.5);
+ PARM(float, 1, "comp4", none, none) RANGE(0,1)
+	 LABELREF(comp4.label) HSTRETCH;
+
+}
+
+scalar.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ scalar.label = PARM_LABEL("Scalar", "scalar") WIDTH(1.5);
+ PARM(float, 1, "scalar", none, none) RANGE(0,1)
+	 LABELREF(scalar.label) HSTRETCH;
+
+}
+
+effectamount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ effectamount.label = PARM_LABEL("Effect Amount", "effectamount") WIDTH(1.5);
+ PARM(float, 1, "effectamount", none, none) RANGE(0,1)
+	 LABELREF(effectamount.label) HSTRETCH;
+
+}
+
+maskplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Mask Plane", "maskplane") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    maskplane.menu;
+
+}
+
+maskresize.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("maskresize", "Resize Mask to Fit Image") toggle VALUE(maskresize.val);
+
+}
+
+maskinvert.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("maskinvert", "Invert Mask") toggle VALUE(maskinvert.val);
+
+}
+overridesize.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+overridesize.gad = PARM_BUTTON("overridesize", "") toggle VALUE(overridesize.val);
+size.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Override Size", "size") WIDTH(1.27);
+
+   PARM(integer, 2, "size", none, none, "#1,#2") LABELREF(size.label)
+	HSTRETCH;
+
+}
+}	
+
+sizemenu.gad = sizemenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+overrideaspect.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+overrideaspect.gad = PARM_BUTTON("overrideaspect", "") toggle VALUE(overrideaspect.val);
+
+aspect.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ aspect.label = PARM_LABEL("Pixel Aspect Ratio", "aspect") WIDTH(1.27);
+ PARM(float, 1, "aspect", none, none) RANGE(0.0001,2)
+	LOCK_RANGE_MIN LABELREF(aspect.label) HSTRETCH;
+
+}
+}	
+
+planes.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Image Planes", "planes") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    planes.menu;
+
+}
+addplanes.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+addplanes.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Add Plane", "addplanes") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    addplanes.menu;
+
+}
+
+addplaneop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    addplaneop.menu;
+
+}
+}	
+
+customplanes.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    customplanes.label = PARM_LABEL("Custom Planes", "customplanes") WIDTH(1.5);
+    PARM_FIELD(string, "customplanes") VALUE(customplanes.val) 
+	LABELREF(customplanes.label) HSTRETCH;
+
+}
+depth.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+depth.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Raster Depth", "depth") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    depth.menu;
+
+}
+
+depthmenu.gad = depthmenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+}	
+depthglobal.gad = NULL { }
+usebwpoints.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+usebwpoints.gad = PARM_BUTTON("usebwpoints", "") toggle VALUE(usebwpoints.val);
+
+bwpoints.gad = ROW
+{
+   HSTRETCH
+
+   bwpoints.label = PARM_LABEL("Black/White Points", "bwpoints") WIDTH(1.27);
+
+   PARM(integer, 2, "bwpoints", none, none, "#1,#2") LABELREF(bwpoints.label)
+	HSTRETCH;
+
+}
+}	
+interlace.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+interlace.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Interlacing", "interlace") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    interlace.menu;
+
+}
+
+idominance.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    idominance.menu;
+
+}
+}	
+
+overriderange.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overriderange", "Override Global Range") toggle VALUE(overriderange.val);
+
+}
+
+singleimage.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("singleimage", "Still Image") toggle VALUE(singleimage.val);
+
+}
+
+start.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ start.label = PARM_LABEL("Start Frame", "start") WIDTH(1.5);
+ PARM(integer, 1, "start", none, none) RANGE(0,240)
+	 LABELREF(start.label) HSTRETCH;
+
+}
+
+length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ length.label = PARM_LABEL("Length", "length") WIDTH(1.5);
+ PARM(integer, 1, "length", none, none) RANGE(1,240)
+	LOCK_RANGE_MIN LABELREF(length.label) HSTRETCH;
+
+}
+
+preextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Pre Extend", "preextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    preextend.menu;
+
+}
+
+prehold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ prehold.label = PARM_LABEL("Pre Hold", "prehold") WIDTH(1.5);
+ PARM(integer, 1, "prehold", none, none) RANGE(0,240)
+	LOCK_RANGE_MIN LABELREF(prehold.label) HSTRETCH;
+
+}
+
+postextend.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Post Extend", "postextend") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    postextend.menu;
+
+}
+
+posthold.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ posthold.label = PARM_LABEL("Post Hold", "posthold") WIDTH(1.5);
+ PARM(integer, 1, "posthold", none, none) RANGE(0,240)
+	LOCK_RANGE_MIN LABELREF(posthold.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Color"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    color.gad;		
+	    comp4.gad;		
+	    scalar.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Mask"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    effectamount.gad;		
+	    maskplane.gad;		
+	    maskresize.gad;		
+	    maskinvert.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Image"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    overridesize.join;		
+	    overrideaspect.join;		
+	    planes.gad;		
+	    addplanes.join;		
+	    customplanes.gad;		
+	    depth.join;		
+	    depthglobal.gad;		
+	    usebwpoints.join;		
+	    interlace.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sequence"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    overriderange.gad;		
+	    singleimage.gad;		
+	    start.gad;		
+	    length.gad;		
+	    preextend.gad;		
+	    prehold.gad;		
+	    postextend.gad;		
+	    posthold.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,1000 @@
+// Magic: dfdcc025
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 21:01:13 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+keeppos.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+keeppos.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+keeppos.gad = NULL { }
+pre_xform.gad = NULL { }
+}	
+}	// Template join.bot
+
+t.gad = NULL { }
+s.gad = NULL { }
+p.gad = NULL { }
+scale.gad = NULL { }
+pathobjpath.gad = NULL { }
+roll.gad = NULL { }
+pos.gad = NULL { }
+uparmtype.gad = NULL { }
+pathorient.gad = NULL { }
+up.gad = NULL { }
+bank.gad = NULL { }
+dimmer.gad = NULL { }
+use_dcolor.gad = NULL { }
+dcolor.gad = NULL { }
+xOrd.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+xOrd.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+xOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Transform Order", "xOrd") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    xOrd.menu;
+
+}
+
+rOrd.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    rOrd.menu;
+
+}
+}	
+}	// Template join.bot
+
+
+r.gad = ROW
+{
+   HSTRETCH
+
+   r.label = PARM_LABEL("Rotate", "r") WIDTH(1.5);
+
+   PARM(float, 3, "r", none, none, "X,Y,Z") LABELREF(r.label)
+	HSTRETCH;
+
+}
+tdisplay.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+tdisplay.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+tdisplay.gad = PARM_BUTTON("tdisplay", "") toggle VALUE(tdisplay.val);
+
+display.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ display.label = PARM_LABEL("Display", "display") WIDTH(1.27);
+ PARM(integer, 1, "display", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(display.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+caching.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("caching", "Cache Object Transform") toggle VALUE(caching.val);
+
+}
+
+picking.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("picking", "Viewport Selecting Enabled") toggle VALUE(picking.val);
+
+}
+
+pickscript.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ pickscript.label = PARM_LABEL("Select Script", "pickscript") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "pickscript") LABELREF(pickscript.label)
+	VALUE(pickscript.val) HSTRETCH;
+
+ pickscript.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(pickscript.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+lookatpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ lookatpath.label = PARM_LABEL("Look At", "lookatpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "lookatpath") VALUE(lookatpath.val) 
+	LABELREF(lookatpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(lookatpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(lookatpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+lookup.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Look At Up Vector", "lookup") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    lookup.menu;
+
+}
+
+light_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    light_color.label = PARM_LABEL("Light Color", "light_color") WIDTH(1.5);
+
+    PARM(float, 3, "light_color", none, COLOR, "R,G,B") 
+	LABELREF(light_color.label) HSTRETCH;
+
+}
+
+light_intensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ light_intensity.label = PARM_LABEL("Light Intensity", "light_intensity") WIDTH(1.5);
+ PARM(float, 1, "light_intensity", none, none) RANGE(0,10)
+	 LABELREF(light_intensity.label) HSTRETCH;
+
+}
+
+env_map.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ env_map.label = PARM_LABEL("Environment Map", "env_map") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "env_map") LABELREF(env_map.label)
+	VALUE(env_map.val) HSTRETCH;
+
+ env_map.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(env_map.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+env_skymap.gad = NULL { }
+
+light_enable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_enable", "Light Enabled") toggle VALUE(light_enable.val);
+
+}
+
+ogl_enablelight.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ogl_enablelight", "Enable Light In Viewport") toggle VALUE(ogl_enablelight.val);
+
+}
+
+light_contribdiff.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribdiff", "Diffuse Contribution") toggle VALUE(light_contribdiff.val);
+
+}
+
+light_contribspec.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribspec", "Specular Contribution") toggle VALUE(light_contribspec.val);
+
+}
+
+light_contribprimary.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("light_contribprimary", "Render Light Geometry") toggle VALUE(light_contribprimary.val);
+
+}
+
+env_clipy.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("env_clipy", "Clip To Positive Y Hemisphere") toggle VALUE(env_clipy.val);
+
+}
+
+categories.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    categories.label = PARM_LABEL("Categories", "categories") WIDTH(1.5);
+    PARM_FIELD(string, "categories") VALUE(categories.val) 
+	LABELREF(categories.label) HSTRETCH;
+
+}
+
+env_mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Rendering Mode", "env_mode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    env_mode.menu;
+
+}
+
+vm_samplingquality.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ vm_samplingquality.label = PARM_LABEL("Sampling Quality", "vm_samplingquality") WIDTH(1.5);
+ PARM(float, 1, "vm_samplingquality", none, none) RANGE(0,10)
+	 LABELREF(vm_samplingquality.label) HSTRETCH;
+
+}
+env_portalenable.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+env_portalenable.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+env_portalenable.gad = PARM_BUTTON("env_portalenable", "") toggle VALUE(env_portalenable.val);
+
+env_portal.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ env_portal.label = PARM_LABEL("Portal Geometry", "env_portal") WIDTH(1.27);
+ PARM_FIELD(pathstring, "env_portal") VALUE(env_portal.val) 
+	LABELREF(env_portal.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(env_portal.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(env_portal.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+}	
+}	// Template join.bot
+
+env_domaxdist.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+env_domaxdist.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+env_domaxdist.gad = PARM_BUTTON("env_domaxdist", "") toggle VALUE(env_domaxdist.val);
+
+env_maxdist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ env_maxdist.label = PARM_LABEL("Max Ray Distance", "env_maxdist") WIDTH(1.27);
+ PARM(float, 1, "env_maxdist", none, none) RANGE(0,100)
+	 LABELREF(env_maxdist.label) HSTRETCH;
+
+}
+}	
+}	// Template join.bot
+
+
+env_angle.gad = ROW
+{
+   HSTRETCH
+
+   env_angle.label = PARM_LABEL( "Sampling Angle", "env_angle" ) WIDTH(1.5);
+
+   PARM(float, 1, "env_angle", none, none) RANGE(0, 90)
+	LABELREF( env_angle.label ) HSTRETCH;
+
+}
+
+env_doadaptive.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("env_doadaptive", "Adaptive Sampling") toggle VALUE(env_doadaptive.val);
+
+}
+
+skymap_enable.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("skymap_enable", "Enable Sky Environment Map") toggle VALUE(skymap_enable.val);
+
+}
+
+skymap_resolution.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_resolution.label = PARM_LABEL("Resolution", "skymap_resolution") WIDTH(1.5);
+ PARM(integer, 1, "skymap_resolution", none, none) RANGE(1,512)
+	LOCK_RANGE_MIN LABELREF(skymap_resolution.label) HSTRETCH;
+
+}
+
+skymap_sun_dir_spec.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Use", "skymap_sun_dir_spec") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    skymap_sun_dir_spec.menu;
+
+}
+
+skymap_sun_angular_size.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_sun_angular_size.label = PARM_LABEL("Angular Size", "skymap_sun_angular_size") WIDTH(1.5);
+ PARM(float, 1, "skymap_sun_angular_size", none, none) RANGE(0,90)
+	 LABELREF(skymap_sun_angular_size.label) HSTRETCH;
+
+}
+skymap_sun_angular_size_cone_onoff.gad = NULL { }
+
+skymap_sun_dir_rotate.gad = ROW
+{
+   HSTRETCH
+
+   skymap_sun_dir_rotate.label = PARM_LABEL("Rotate", "skymap_sun_dir_rotate") WIDTH(1.5);
+
+   PARM(float, 3, "skymap_sun_dir_rotate", none, none, "X,Y,Z") LABELREF(skymap_sun_dir_rotate.label)
+	HSTRETCH;
+
+}
+
+skymap_sun_dir_vector.gad = ROW
+{
+   HSTRETCH
+
+   skymap_sun_dir_vector.label = PARM_LABEL("Direction Vector", "skymap_sun_dir_vector") WIDTH(1.5);
+
+   PARM(float, 3, "skymap_sun_dir_vector", none, none, "X,Y,Z") LABELREF(skymap_sun_dir_vector.label)
+	HSTRETCH;
+
+}
+
+skymap_sun_azimuth.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_sun_azimuth.label = PARM_LABEL("Azimuth", "skymap_sun_azimuth") WIDTH(1.5);
+ PARM(float, 1, "skymap_sun_azimuth", none, none) RANGE(0,360)
+	 LABELREF(skymap_sun_azimuth.label) HSTRETCH;
+
+}
+
+skymap_sun_elevation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_sun_elevation.label = PARM_LABEL("Elevation", "skymap_sun_elevation") WIDTH(1.5);
+ PARM(float, 1, "skymap_sun_elevation", none, none) RANGE(0,90)
+	 LABELREF(skymap_sun_elevation.label) HSTRETCH;
+
+}
+
+skymap_geo_latitude.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_geo_latitude.label = PARM_LABEL("Latitude", "skymap_geo_latitude") WIDTH(1.5);
+ PARM(float, 1, "skymap_geo_latitude", none, none) RANGE(-90,90)
+	LOCK_RANGE LABELREF(skymap_geo_latitude.label) HSTRETCH;
+
+}
+
+skymap_geo_longitude.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_geo_longitude.label = PARM_LABEL("Longitude", "skymap_geo_longitude") WIDTH(1.5);
+ PARM(float, 1, "skymap_geo_longitude", none, none) RANGE(-180,180)
+	LOCK_RANGE LABELREF(skymap_geo_longitude.label) HSTRETCH;
+
+}
+skymap_geo_month.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+skymap_geo_month.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Date", "skymap_geo_month") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    skymap_geo_month.menu;
+
+}
+
+skymap_geo_day.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_geo_day.label = PARM_LABEL("Day", "skymap_geo_day") WIDTH(0);
+ PARM(integer, 1, "skymap_geo_day", none, none) RANGE(1,31)
+	LOCK_RANGE LABELREF(skymap_geo_day.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+skymap_geo_time.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+skymap_geo_time.gad = ROW
+{
+   HSTRETCH
+
+   skymap_geo_time.label = PARM_LABEL("Time", "skymap_geo_time") WIDTH(1.5);
+
+   PARM(float, 2, "skymap_geo_time", none, none, "X,Y") LABELREF(skymap_geo_time.label)
+	HSTRETCH;
+
+}
+
+skymap_geo_hr_spec.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    skymap_geo_hr_spec.menu;
+
+}
+
+skymap_geo_time_zone.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    skymap_geo_time_zone.menu;
+
+}
+
+skymap_geo_daylight.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("skymap_geo_daylight", "Daylight Saving") toggle VALUE(skymap_geo_daylight.val);
+
+}
+}	// Template join.bot
+
+
+skymap_geo_doy.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_geo_doy.label = PARM_LABEL("Day of Year", "skymap_geo_doy") WIDTH(1.5);
+ PARM(float, 1, "skymap_geo_doy", none, none) RANGE(0,365)
+	LOCK_RANGE LABELREF(skymap_geo_doy.label) HSTRETCH;
+
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+skymap_sun_calc_spec.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Direction", "skymap_sun_calc_spec") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    skymap_sun_calc_spec.menu;
+
+}
+
+skymap_sun_calc_vector.gad = ROW
+{
+   HSTRETCH
+
+   skymap_sun_calc_vector.label = PARM_LABEL("Calculated Vector", "skymap_sun_calc_vector") WIDTH(1.5);
+
+   PARM(float, 3, "skymap_sun_calc_vector", none, none, "X,Y,Z") LABELREF(skymap_sun_calc_vector.label)
+	HSTRETCH;
+
+}
+
+skymap_sun_calc_rotate.gad = ROW
+{
+   HSTRETCH
+
+   skymap_sun_calc_rotate.label = PARM_LABEL("Calculated Rotate", "skymap_sun_calc_rotate") WIDTH(1.5);
+
+   PARM(float, 3, "skymap_sun_calc_rotate", none, none, "X,Y,Z") LABELREF(skymap_sun_calc_rotate.label)
+	HSTRETCH;
+
+}
+
+skymap_sky_color_spec.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Use", "skymap_sky_color_spec") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    skymap_sky_color_spec.menu;
+
+}
+
+skymap_sky_turbidity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_sky_turbidity.label = PARM_LABEL("Haziness", "skymap_sky_turbidity") WIDTH(1.5);
+ PARM(float, 1, "skymap_sky_turbidity", none, none) RANGE(0,10)
+	 LABELREF(skymap_sky_turbidity.label) HSTRETCH;
+
+}
+
+skymap_sky_brightness.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_sky_brightness.label = PARM_LABEL("Brightness", "skymap_sky_brightness") WIDTH(1.5);
+ PARM(float, 1, "skymap_sky_brightness", none, none) RANGE(0,10)
+	 LABELREF(skymap_sky_brightness.label) HSTRETCH;
+
+}
+
+skymap_sky_ramp.si_rampedit = COLOR_RAMP VALUE(skymap_sky_ramp.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+skymap_sky_ramp.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+
+    ROW
+    {
+	LOOK(plain) JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	skymap_sky_ramp.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(skymap_sky_ramp.pointno.val) HSTRETCH;
+    }
+}
+
+skymap_sky_ramp.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(skymap_sky_ramp.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(skymap_sky_ramp.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    skymap_sky_ramp.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls")
+	VALUE(skymap_sky_ramp.toggle.val)
+	SENDSKEY("h.pane.parms.toggle_ramp_parms")
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+skymap_sky_ramp.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    skymap_sky_ramp.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	skymap_sky_ramp.buttons.gad VSTRETCH;
+
+	skymap_sky_ramp.si_rampedit HSTRETCH;
+    }
+}
+
+skymap_sky_ramp.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+
+    PARM_LABEL_SIMPLE("Color Ramp", "skymap_sky_ramp");
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) LOOK(lightline) HSTRETCH
+
+	skymap_sky_ramp.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(skymap_sky_ramp.hideparms.val) HSTRETCH
+	    skymap_sky_ramp.multiramp;
+	    {}
+	}
+    }
+}
+
+ground_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Render Ground As", "ground_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    ground_type.menu;
+
+}
+
+skymap_ground_color.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    skymap_ground_color.label = PARM_LABEL("Albedo", "skymap_ground_color") WIDTH(1.5);
+
+    PARM(float, 3, "skymap_ground_color", none, COLOR, "R,G,B") 
+	LABELREF(skymap_ground_color.label) HSTRETCH;
+
+}
+
+skymap_ground_normal.gad = ROW
+{
+   HSTRETCH
+
+   skymap_ground_normal.label = PARM_LABEL("Normal", "skymap_ground_normal") WIDTH(1.5);
+
+   PARM(float, 3, "skymap_ground_normal", none, none, "#1,#2,#3") LABELREF(skymap_ground_normal.label)
+	HSTRETCH;
+
+}
+
+skymap_horizon_elevation.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ skymap_horizon_elevation.label = PARM_LABEL("Horizon Elevation", "skymap_horizon_elevation") WIDTH(1.5);
+ PARM(float, 1, "skymap_horizon_elevation", none, none) RANGE(-90,90)
+	 LABELREF(skymap_horizon_elevation.label) HSTRETCH;
+
+}
+
+shadow_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Shadow Type", "shadow_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    shadow_type.menu;
+
+}
+
+shadowmask.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadowmask.label = PARM_LABEL("Shadow Mask", "shadowmask") WIDTH(1.5);
+ PARM_FIELD (pathstring, "shadowmask") LABELREF(shadowmask.label) 
+	VALUE(shadowmask.val) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(shadowmask.plus) LOOKFLAT
+    HELP("Open floating bundle chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+shadow_intensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ shadow_intensity.label = PARM_LABEL("Shadow Intensity", "shadow_intensity") WIDTH(1.5);
+ PARM(float, 1, "shadow_intensity", none, none) RANGE(0,1)
+	 LABELREF(shadow_intensity.label) HSTRETCH;
+
+}
+
+shadow_transparent.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadow_transparent", "Transparent Shadows") toggle VALUE(shadow_transparent.val);
+
+}
+light_wrangler.gad = NULL { }
+
+folder_sun_dir.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder_sun_dir.gad.val) STRETCH(1,0)
+
+	TAB "Sun"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    skymap_sun_dir_spec.gad;		
+	    skymap_sun_angular_size.gad;		
+	    skymap_sun_angular_size_cone_onoff.gad;		
+	    skymap_sun_dir_rotate.gad;		
+	    skymap_sun_dir_vector.gad;		
+	    skymap_sun_azimuth.gad;		
+	    skymap_sun_elevation.gad;		
+	    skymap_geo_latitude.gad;		
+	    skymap_geo_longitude.gad;		
+	    skymap_geo_month.row.join;		
+	    skymap_geo_time.row.join;		
+	    skymap_geo_doy.gad;		
+	    sepparm.gad;		
+	    skymap_sun_calc_spec.gad;		
+	    skymap_sun_calc_vector.gad;		
+	    skymap_sun_calc_rotate.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sky"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    skymap_sky_color_spec.gad;		
+	    skymap_sky_turbidity.gad;		
+	    skymap_sky_brightness.gad;		
+	    skymap_sky_ramp.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Ground"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    ground_type.gad;		
+	    skymap_ground_color.gad;		
+	    skymap_ground_normal.gad;		
+	    skymap_horizon_elevation.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder1.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder1.gad.val) STRETCH(1,0)
+
+	TAB "Render Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    env_mode.gad;		
+	    vm_samplingquality.gad;		
+	    env_portalenable.row.join;		
+	    env_domaxdist.row.join;		
+	    env_angle.gad;		
+	    env_doadaptive.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Sky Environment Map"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    skymap_enable.gad;		
+	    skymap_resolution.gad;		
+	    folder_sun_dir.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder1_2.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder1_2.gad.val) STRETCH(1,0)
+
+	TAB "Viewing Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    tdisplay.row.join;		
+	    caching.gad;		
+	    picking.gad;		
+	    pickscript.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Lookat Options"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    lookatpath.gad;		
+	    lookup.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Transform"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    xOrd.row.join;		
+	    r.gad;		
+	    folder1_2.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Light"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    light_color.gad;		
+	    light_intensity.gad;		
+	    env_map.gad;		
+	    env_skymap.gad;		
+	    light_enable.gad;		
+	    ogl_enablelight.gad;		
+	    light_contribdiff.gad;		
+	    light_contribspec.gad;		
+	    light_contribprimary.gad;		
+	    env_clipy.gad;		
+	    categories.gad;		
+	    folder1.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Shadow"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    shadow_type.gad;		
+	    shadowmask.gad;		
+	    shadow_intensity.gad;		
+	    shadow_transparent.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    keeppos.row.join; 
+    t.gad; 
+    s.gad; 
+    p.gad; 
+    scale.gad; 
+    pathobjpath.gad; 
+    roll.gad; 
+    pos.gad; 
+    uparmtype.gad; 
+    pathorient.gad; 
+    up.gad; 
+    bank.gad; 
+    dimmer.gad; 
+    use_dcolor.gad; 
+    dcolor.gad; 
+    folder0.gad; 
+    light_wrangler.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

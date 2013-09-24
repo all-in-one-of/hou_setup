@@ -1,0 +1,127 @@
+// Magic: 4adc4917
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:21:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    name.label = PARM_LABEL("Name", "name") WIDTH(1.5);
+    PARM_FIELD(string, "name") VALUE(name.val) 
+	LABELREF(name.label) HSTRETCH;
+
+}
+
+varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    varname.label = PARM_LABEL("Local Variable", "varname") WIDTH(1.5);
+    PARM_FIELD(string, "varname") VALUE(varname.val) 
+	LABELREF(varname.label) HSTRETCH;
+
+}
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+size.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+ PARM(integer, 1, "size", none, none) RANGE(1,3)
+	LOCK_RANGE LABELREF(size.label) HSTRETCH;
+
+}
+
+default.gad = ROW
+{
+   HSTRETCH
+
+   default.label = PARM_LABEL("Default", "default") WIDTH(1.5);
+
+   PARM(float, 3, "default", none, none, "#1,#2,#3") LABELREF(default.label)
+	HSTRETCH;
+
+}
+
+writevalues.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("writevalues", "Write Values") toggle VALUE(writevalues.val);
+
+}
+
+value.gad = ROW
+{
+   HSTRETCH
+
+   value.label = PARM_LABEL("Value", "value") WIDTH(1.5);
+
+   PARM(float, 3, "value", none, none, "#1,#2,#3") LABELREF(value.label)
+	HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    source.gad; 
+    name.gad; 
+    varname.gad; 
+    type.gad; 
+    size.gad; 
+    default.gad; 
+    writevalues.gad; 
+    value.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,52 @@
+// Magic: 1918ef4d
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 21:56:56 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+ncy.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ ncy.label = PARM_LABEL("Number of Copies", "ncy");
+ PARM(integer, 1, "ncy", none, field) RANGE(0,20)
+	LOCK_RANGE_MIN LABELREF(ncy.label) HSTRETCH;
+
+}
+
+nml.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("nml", "Transform Using Template Point Attributes") toggle VALUE(nml.val);
+
+}
+
+cum.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cum", "Transform Cumulative") toggle VALUE(cum.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    ncy.gad; 
+    nml.gad; 
+    cum.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,92 @@
+// Magic: e3605f
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 16:20:35 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+origin.gad = ROW
+{
+   HSTRETCH
+
+   origin.label = PARM_LABEL("Origin", "origin") WIDTH(1.5);
+
+   PARM(float, 3, "origin", none, none, "X,Y,Z") LABELREF(origin.label)
+	HSTRETCH;
+
+}
+
+dir.gad = ROW
+{
+   HSTRETCH
+
+   dir.label = PARM_LABEL("Direction", "dir") WIDTH(1.5);
+
+   PARM(float, 3, "dir", none, none, "X,Y,Z") LABELREF(dir.label)
+	HSTRETCH;
+
+}
+
+dist.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ dist.label = PARM_LABEL("Distance", "dist") WIDTH(1.5);
+ PARM(float, 1, "dist", none, none) RANGE(0,1)
+	 LABELREF(dist.label) HSTRETCH;
+
+}
+
+points.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ points.label = PARM_LABEL("Points", "points") WIDTH(1.5);
+ PARM(integer, 1, "points", none, none) RANGE(0,50)
+	LOCK_RANGE_MIN LABELREF(points.label) HSTRETCH;
+
+}
+
+order.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ order.label = PARM_LABEL("Order", "order") WIDTH(1.5);
+ PARM(integer, 1, "order", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(order.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    type.gad; 
+    origin.gad; 
+    dir.gad; 
+    dist.gad; 
+    points.gad; 
+    order.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

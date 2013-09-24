@@ -1,0 +1,163 @@
+// Magic: 4f1ec62f
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 00:34:42 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib.label = PARM_LABEL("Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+	attrib.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(attrib.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+localvar.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    localvar.label = PARM_LABEL("Local Variable Name", "localvar") WIDTH(1.5);
+    PARM_FIELD(string, "localvar") VALUE(localvar.val) 
+	LABELREF(localvar.label) HSTRETCH;
+
+	localvar.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(localvar.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata_f.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ adata_f.label = PARM_LABEL("Data Float", "adata_f") WIDTH(1.5);
+ PARM(float, 1, "adata_f", none, none) RANGE(0,1)
+	 LABELREF(adata_f.label) HSTRETCH;
+
+	adata_f.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata_f.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata_i.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ adata_i.label = PARM_LABEL("Data Integer", "adata_i") WIDTH(1.5);
+ PARM(integer, 1, "adata_i", none, none) RANGE(0,10)
+	 LABELREF(adata_i.label) HSTRETCH;
+
+	adata_i.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata_i.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata.gad = ROW
+{
+   HSTRETCH
+
+   adata.label = PARM_LABEL("Data Vector", "adata") WIDTH(1.5);
+
+   PARM(float, 3, "adata", none, none, "#1,#2,#3") LABELREF(adata.label)
+	HSTRETCH;
+
+	adata.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata_v4.gad = ROW
+{
+   HSTRETCH
+
+   adata_v4.label = PARM_LABEL("Data Vector4", "adata_v4") WIDTH(1.5);
+
+   PARM(float, 4, "adata_v4", none, none, "#1,#2,#3,#4") LABELREF(adata_v4.label)
+	HSTRETCH;
+
+	adata_v4.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata_v4.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata_m3.gad = ROW
+{
+   HSTRETCH
+
+   adata_m3.label = PARM_LABEL("Data Matrix3", "adata_m3") WIDTH(1.5);
+
+   PARM(float, 9, "adata_m3", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9") LABELREF(adata_m3.label)
+	HSTRETCH;
+
+	adata_m3.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata_m3.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+adata_m.gad = ROW
+{
+   HSTRETCH
+
+   adata_m.label = PARM_LABEL("Data Matrix", "adata_m") WIDTH(1.5);
+
+   PARM(float, 16, "adata_m", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(adata_m.label)
+	HSTRETCH;
+
+	adata_m.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(adata_m.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+typemodifier.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Type Modifier", "typemodifier") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    typemodifier.menu;
+
+	{ HSTRETCH } typemodifier.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(typemodifier.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    attrib.gad; 
+    localvar.gad; 
+    adata_f.gad; 
+    adata_i.gad; 
+    adata.gad; 
+    adata_v4.gad; 
+    adata_m3.gad; 
+    adata_m.gad; 
+    typemodifier.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

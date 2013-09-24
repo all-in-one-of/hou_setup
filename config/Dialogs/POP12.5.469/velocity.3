@@ -1,0 +1,61 @@
+// Magic: ed4df977
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 17:04:06 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+veltype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Type", "veltype") ;
+    { WIDTH(0.09) }
+
+    veltype.menu;
+
+}
+velv.join = SWITCHER		 
+{
+  LAYOUT(overlap) HSTRETCH LOOK(none) VALUE(veltype.val)
+
+velv.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    velv.label = PARM_LABEL("", "velv") ;
+    PARM_FIELD(string, "velv") VALUE(velv.val) 
+	LABELREF(velv.label) HSTRETCH;
+
+}
+
+v.gad = ROW
+{
+   HSTRETCH
+
+   v.label = PARM_LABEL("Velocity", "v") ;
+
+   PARM(float, 3, "v", none, none, "X,Y,Z") LABELREF(v.label)
+	HSTRETCH;
+
+}
+}	
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    veltype.gad; 
+    velv.join; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}

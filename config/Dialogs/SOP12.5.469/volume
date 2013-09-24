@@ -1,0 +1,409 @@
+// Magic: 1e4228
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Aug 26 14:41:13 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+rank.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Rank", "rank") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    rank.menu;
+
+}
+
+name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    name.label = PARM_LABEL("Name", "name") WIDTH(1.5);
+    PARM_FIELD(string, "name") VALUE(name.val) 
+	LABELREF(name.label) HSTRETCH;
+
+}
+
+initialval.gad = ROW
+{
+   HSTRETCH
+
+   initialval.label = PARM_LABEL("Initial Value", "initialval") WIDTH(1.5);
+
+   PARM(float, 3, "initialval", none, none, "#1,#2,#3") LABELREF(initialval.label)
+	HSTRETCH;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 3, "size", none, none, "X,Y,Z") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+taper.gad = ROW
+{
+   HSTRETCH
+
+   taper.label = PARM_LABEL("Taper", "taper") WIDTH(1.5);
+
+   PARM(float, 2, "taper", none, none, "X,Y") LABELREF(taper.label)
+	HSTRETCH;
+
+}
+twod.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+twod.gad = ROW
+{
+
+    PARM_BUTTON("twod", "Two Dimensional") toggle VALUE(twod.val);
+
+}
+
+voxelplane.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    voxelplane.menu;
+
+}
+}	
+
+camera.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ camera.label = PARM_LABEL("Camera", "camera") WIDTH(1.5);
+ PARM_FIELD(pathstring, "camera") VALUE(camera.val) 
+	LABELREF(camera.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(camera.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(camera.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+zmin.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ zmin.label = PARM_LABEL("Z Near", "zmin") WIDTH(1.5);
+ PARM(float, 1, "zmin", none, none) RANGE(0,1)
+	 LABELREF(zmin.label) HSTRETCH;
+
+}
+
+zmax.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ zmax.label = PARM_LABEL("Z Far", "zmax") WIDTH(1.5);
+ PARM(float, 1, "zmax", none, none) RANGE(0,1)
+	 LABELREF(zmax.label) HSTRETCH;
+
+}
+
+usecamwindow.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usecamwindow", "Use Camera's Window") toggle VALUE(usecamwindow.val);
+
+}
+
+winx.gad = ROW
+{
+   HSTRETCH
+
+   winx.label = PARM_LABEL("Window X", "winx") WIDTH(1.5);
+
+   PARM(float, 2, "winx", none, none, "Min,Max") LABELREF(winx.label)
+	HSTRETCH;
+
+}
+
+winy.gad = ROW
+{
+   HSTRETCH
+
+   winy.label = PARM_LABEL("Window Y", "winy") WIDTH(1.5);
+
+   PARM(float, 2, "winy", none, none, "Min,Max") LABELREF(winy.label)
+	HSTRETCH;
+
+}
+
+uniformsamples.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Uniform Sampling", "uniformsamples") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    uniformsamples.menu;
+
+}
+
+samplediv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ samplediv.label = PARM_LABEL("Uniform Sampling Divs", "samplediv") WIDTH(1.5);
+ PARM(integer, 1, "samplediv", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(samplediv.label) HSTRETCH;
+
+}
+
+divs.gad = ROW
+{
+   HSTRETCH
+
+   divs.label = PARM_LABEL("Sampling Divs", "divs") WIDTH(1.5);
+
+   PARM(integer, 3, "divs", none, none, "X,Y,Z") LABELREF(divs.label)
+	HSTRETCH;
+
+}
+
+divsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ divsize.label = PARM_LABEL("Div Size", "divsize") WIDTH(1.5);
+ PARM(float, 1, "divsize", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(divsize.label) HSTRETCH;
+
+}
+
+zscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ zscale.label = PARM_LABEL("Z Resolution Scale", "zscale") WIDTH(1.5);
+ PARM(float, 1, "zscale", none, none) RANGE(0,1)
+	 LABELREF(zscale.label) HSTRETCH;
+
+}
+
+volborder.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Border Type", "volborder") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    volborder.menu;
+
+}
+
+volborderval.gad = ROW
+{
+   HSTRETCH
+
+   volborderval.label = PARM_LABEL("Border Value", "volborderval") WIDTH(1.5);
+
+   PARM(float, 3, "volborderval", none, none, "#1,#2,#3") LABELREF(volborderval.label)
+	HSTRETCH;
+
+}
+
+voltol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ voltol.label = PARM_LABEL("Constant Tol", "voltol") WIDTH(1.5);
+ PARM(float, 1, "voltol", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(voltol.label) HSTRETCH;
+
+}
+
+quantizetol.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ quantizetol.label = PARM_LABEL("Quantization Tol", "quantizetol") WIDTH(1.5);
+ PARM(float, 1, "quantizetol", none, LOGSCALE) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(quantizetol.label) HSTRETCH;
+
+}
+
+dither.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Dithering", "dither") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    dither.menu;
+
+}
+
+usefp16.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usefp16", "Use 16bit Float") toggle VALUE(usefp16.val);
+
+}
+
+volvis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Display Mode", "volvis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    volvis.menu;
+
+}
+
+volvisiso.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ volvisiso.label = PARM_LABEL("Display Isocontour", "volvisiso") WIDTH(1.5);
+ PARM(float, 1, "volvisiso", none, none) RANGE(-1,1)
+	 LABELREF(volvisiso.label) HSTRETCH;
+
+}
+
+volvisdensity.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ volvisdensity.label = PARM_LABEL("Display Density", "volvisdensity") WIDTH(1.5);
+ PARM(float, 1, "volvisdensity", none, none) RANGE(0,10)
+	 LABELREF(volvisdensity.label) HSTRETCH;
+
+}
+
+dimensionsource.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    { LOOK(none) SIZE(0, 0.05) }	# Spacer
+
+    TABDIALOG radio
+    { 
+	VALUE(dimensionsource.gad.val) STRETCH(1,0)
+
+	TAB "Center/Size"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    size.gad;		
+	    t.gad;		
+	    taper.gad;		
+	    twod.join;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "From Camera"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(2p) SPACING(2p)
+	    camera.gad;		
+	    zmin.gad;		
+	    zmax.gad;		
+	    usecamwindow.gad;		
+	    winx.gad;		
+	    winy.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Dimensions"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    dimensionsource.gad;		
+	    uniformsamples.gad;		
+	    samplediv.gad;		
+	    divs.gad;		
+	    divsize.gad;		
+	    zscale.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Properties"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    volborder.gad;		
+	    volborderval.gad;		
+	    voltol.gad;		
+	    quantizetol.gad;		
+	    dither.gad;		
+	    usefp16.gad;		
+	    volvis.gad;		
+	    volvisiso.gad;		
+	    volvisdensity.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    rank.gad; 
+    name.gad; 
+    initialval.gad; 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

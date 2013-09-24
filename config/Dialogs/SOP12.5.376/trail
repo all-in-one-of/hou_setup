@@ -1,0 +1,172 @@
+// Magic: 8ceb56bf
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Thu Aug 22 13:33:14 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+result.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Result Type", "result") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    result.menu;
+
+}
+
+length.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ length.label = PARM_LABEL("Trail Length", "length") WIDTH(1.5);
+ PARM(integer, 1, "length", none, none) RANGE(0,10)
+	 LABELREF(length.label) HSTRETCH;
+
+}
+
+inc.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ inc.label = PARM_LABEL("Trail Increment", "inc") WIDTH(1.5);
+ PARM(float, 1, "inc", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(inc.label) HSTRETCH;
+
+}
+
+cache.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cache.label = PARM_LABEL("Cache Size", "cache") WIDTH(1.5);
+ PARM(integer, 1, "cache", none, none) RANGE(1,20)
+	LOCK_RANGE_MIN LABELREF(cache.label) HSTRETCH;
+
+}
+
+clear.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("clear", "Reset Cache") push VALUE(clear.val);
+}
+
+evalframe.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("evalframe", "Evaluate Within Frame Range") toggle VALUE(evalframe.val);
+
+}
+
+surftype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Connectivity", "surftype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surftype.menu;
+
+}
+
+close.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("close", "Close rows") toggle VALUE(close.val);
+
+}
+
+velscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ velscale.label = PARM_LABEL("Velocity Scale", "velscale") WIDTH(1.5);
+ PARM(float, 1, "velscale", none, none) RANGE(0,10)
+	 LABELREF(velscale.label) HSTRETCH;
+
+}
+
+velapproximation.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Velocity Approximation", "velapproximation") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    velapproximation.menu;
+
+}
+
+computeangular.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("computeangular", "Compute Angular Velocity") toggle VALUE(computeangular.val);
+
+}
+
+matchbyattribute.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("matchbyattribute", "Match by Attribute") toggle VALUE(matchbyattribute.val);
+
+}
+
+attributetomatch.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attributetomatch.label = PARM_LABEL("Attribute to Match", "attributetomatch") WIDTH(1.5);
+    PARM_FIELD(string, "attributetomatch") VALUE(attributetomatch.val) 
+	LABELREF(attributetomatch.label) HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":7 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":8 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    result.gad; 
+    length.gad; 
+    inc.gad; 
+    cache.gad; 
+    clear.gad; 
+    evalframe.gad; 
+    surftype.gad; 
+    close.gad; 
+    velscale.gad; 
+    velapproximation.gad; 
+    computeangular.gad; 
+    matchbyattribute.gad; 
+    attributetomatch.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

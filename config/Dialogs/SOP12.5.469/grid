@@ -1,0 +1,149 @@
+// Magic: 9c5f9b64
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:40:34 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Primitive Type", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+}
+
+surftype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Connectivity", "surftype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    surftype.menu;
+
+}
+
+orient.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Orientation", "orient") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    orient.menu;
+
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+
+   PARM(float, 2, "size", none, none, "X,Y") LABELREF(size.label)
+	HSTRETCH;
+
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+
+   PARM(float, 3, "t", none, none, "X,Y,Z") LABELREF(t.label)
+	HSTRETCH;
+
+}
+
+rows.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ rows.label = PARM_LABEL("Rows", "rows") WIDTH(1.5);
+ PARM(integer, 1, "rows", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(rows.label) HSTRETCH;
+
+}
+
+cols.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cols.label = PARM_LABEL("Columns", "cols") WIDTH(1.5);
+ PARM(integer, 1, "cols", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(cols.label) HSTRETCH;
+
+}
+
+orderu.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ orderu.label = PARM_LABEL("U Order", "orderu") WIDTH(1.5);
+ PARM(integer, 1, "orderu", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(orderu.label) HSTRETCH;
+
+}
+
+orderv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ orderv.label = PARM_LABEL("V Order", "orderv") WIDTH(1.5);
+ PARM(integer, 1, "orderv", none, none) RANGE(2,11)
+	LOCK_RANGE LABELREF(orderv.label) HSTRETCH;
+
+}
+
+interpu.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("interpu", "End-point interpolate in U") toggle VALUE(interpu.val);
+
+}
+
+interpv.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("interpv", "End-point interpolate in V") toggle VALUE(interpv.val);
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    type.gad; 
+    surftype.gad; 
+    orient.gad; 
+    size.gad; 
+    t.gad; 
+    rows.gad; 
+    cols.gad; 
+    orderu.gad; 
+    orderv.gad; 
+    interpu.gad; 
+    interpv.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

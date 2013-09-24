@@ -1,0 +1,626 @@
+// Magic: 82321b71
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:25:48 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+parmname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    parmname.label = PARM_LABEL("Name", "parmname") WIDTH(1.5);
+    PARM_FIELD(string, "parmname") VALUE(parmname.val) 
+	LABELREF(parmname.label) HSTRETCH;
+
+	parmname.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmname.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+parmlabel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    parmlabel.label = PARM_LABEL("Label", "parmlabel") WIDTH(1.5);
+    PARM_FIELD(string, "parmlabel") VALUE(parmlabel.val) 
+	LABELREF(parmlabel.label) HSTRETCH;
+
+	parmlabel.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmlabel.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+showlabel.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showlabel", "Show Label") toggle VALUE(showlabel.val);
+
+	{ HSTRETCH } showlabel.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(showlabel.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+parmtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Type", "parmtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    parmtype.menu;
+
+	{ HSTRETCH } parmtype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmtype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+floatdef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ floatdef.label = PARM_LABEL("1 Float Default", "floatdef") WIDTH(1.5);
+ PARM(float, 1, "floatdef", none, none) RANGE(0,1)
+	 LABELREF(floatdef.label) HSTRETCH;
+
+	floatdef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(floatdef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+intdef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ intdef.label = PARM_LABEL("Integer Default", "intdef") WIDTH(1.5);
+ PARM(integer, 1, "intdef", none, none) RANGE(0,10)
+	 LABELREF(intdef.label) HSTRETCH;
+
+	intdef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(intdef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+toggledef.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("toggledef", "Toggle Default") toggle VALUE(toggledef.val);
+
+	{ HSTRETCH } toggledef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(toggledef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+angledef.gad = ROW
+{
+   HSTRETCH
+
+   angledef.label = PARM_LABEL( "Angle Default", "angledef" ) WIDTH(1.5);
+
+   PARM(float, 1, "angledef", none, none) RANGE(0, 1)
+	LABELREF( angledef.label ) HSTRETCH;
+
+	angledef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(angledef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+logfloatdef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ logfloatdef.label = PARM_LABEL("Logarithmic Float Default", "logfloatdef") WIDTH(1.5);
+ PARM(float, 1, "logfloatdef", none, LOGSCALE) RANGE(0,1)
+	 LABELREF(logfloatdef.label) HSTRETCH;
+
+	logfloatdef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(logfloatdef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+float3def.gad = ROW
+{
+   HSTRETCH
+
+   float3def.label = PARM_LABEL("3 Float Default", "float3def") WIDTH(1.5);
+
+   PARM(float, 3, "float3def", none, none, "#1,#2,#3") LABELREF(float3def.label)
+	HSTRETCH;
+
+	float3def.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(float3def.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+vectordef.gad = ROW
+{
+   HSTRETCH
+
+   vectordef.label = PARM_LABEL("Vector Default", "vectordef") WIDTH(1.5);
+
+   PARM(float, 3, "vectordef", none, none, "#1,#2,#3") LABELREF(vectordef.label)
+	HSTRETCH;
+
+	vectordef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(vectordef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+normaldef.gad = ROW
+{
+   HSTRETCH
+
+   normaldef.label = PARM_LABEL("Normal Default", "normaldef") WIDTH(1.5);
+
+   PARM(float, 3, "normaldef", none, none, "#1,#2,#3") LABELREF(normaldef.label)
+	HSTRETCH;
+
+	normaldef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(normaldef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+pointdef.gad = ROW
+{
+   HSTRETCH
+
+   pointdef.label = PARM_LABEL("Point Default", "pointdef") WIDTH(1.5);
+
+   PARM(float, 3, "pointdef", none, none, "#1,#2,#3") LABELREF(pointdef.label)
+	HSTRETCH;
+
+	pointdef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(pointdef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+directiondef.gad = ROW 
+{
+    HSTRETCH
+
+    directiondef.label = PARM_LABEL("Direction Default", "directiondef") WIDTH(1.5);
+
+    PARM(float, 3, "directiondef", none, none) LABELREF(directiondef.label)
+	HSTRETCH;
+
+	directiondef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(directiondef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+float4def.gad = ROW
+{
+   HSTRETCH
+
+   float4def.label = PARM_LABEL("4 Float Default", "float4def") WIDTH(1.5);
+
+   PARM(float, 4, "float4def", none, none, "#1,#2,#3,#4") LABELREF(float4def.label)
+	HSTRETCH;
+
+	float4def.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(float4def.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+float9def.gad = ROW
+{
+   HSTRETCH
+
+   float9def.label = PARM_LABEL("9 Float Default", "float9def") WIDTH(1.5);
+
+   PARM(float, 9, "float9def", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9") LABELREF(float9def.label)
+	HSTRETCH;
+
+	float9def.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(float9def.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+float16def.gad = ROW
+{
+   HSTRETCH
+
+   float16def.label = PARM_LABEL("16 Matrix Default", "float16def") WIDTH(1.5);
+
+   PARM(float, 16, "float16def", none, none, "#1,#2,#3,#4,#5,#6,#7,#8,#9,#10,#11,#12,#13,#14,#15,#16") LABELREF(float16def.label)
+	HSTRETCH;
+
+	float16def.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(float16def.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+stringdef.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    stringdef.label = PARM_LABEL("String Default", "stringdef") WIDTH(1.5);
+    PARM_FIELD(string, "stringdef") VALUE(stringdef.val) 
+	LABELREF(stringdef.label) HSTRETCH;
+
+	stringdef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(stringdef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+filedef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ filedef.label = PARM_LABEL("File Default", "filedef") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "filedef") LABELREF(filedef.label)
+	VALUE(filedef.val) HSTRETCH;
+
+ filedef.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(filedef.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	filedef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(filedef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+imagedef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ imagedef.label = PARM_LABEL("Image Default", "imagedef") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "imagedef") LABELREF(imagedef.label)
+	VALUE(imagedef.val) HSTRETCH;
+
+ imagedef.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(imagedef.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	imagedef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(imagedef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+geometrydef.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ geometrydef.label = PARM_LABEL("Geometry Default", "geometrydef") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "geometrydef") LABELREF(geometrydef.label)
+	VALUE(geometrydef.val) HSTRETCH;
+
+ geometrydef.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(geometrydef.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+	geometrydef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(geometrydef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+colordef.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    colordef.label = PARM_LABEL("Color Default", "colordef") WIDTH(1.5);
+
+    PARM(float, 3, "colordef", none, COLOR, "R,G,B") 
+	LABELREF(colordef.label) HSTRETCH;
+
+	colordef.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(colordef.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+color4def.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+
+    color4def.label = PARM_LABEL("Color with Alpha Default", "color4def") WIDTH(1.5);
+
+    PARM(float, 4, "color4def", none, COLOR, "R,G,B,A") 
+	LABELREF(color4def.label) HSTRETCH;
+
+	color4def.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(color4def.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rangeflt.gad = ROW
+{
+   HSTRETCH
+
+   rangeflt.label = PARM_LABEL("Float Range", "rangeflt") WIDTH(1.5);
+
+   PARM(float, 2, "rangeflt", none, none, "#1,#2") LABELREF(rangeflt.label)
+	HSTRETCH;
+
+	rangeflt.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rangeflt.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+rangeint.gad = ROW
+{
+   HSTRETCH
+
+   rangeint.label = PARM_LABEL("Integer Range", "rangeint") WIDTH(1.5);
+
+   PARM(float, 2, "rangeint", none, none, "#1,#2") LABELREF(rangeint.label)
+	HSTRETCH;
+
+	rangeint.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(rangeint.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+stringtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("String Qualifier", "stringtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    stringtype.menu;
+
+	{ HSTRETCH } stringtype.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(stringtype.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+opfilter.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE(" Operator Filter", "opfilter") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    opfilter.menu;
+
+	{ HSTRETCH } opfilter.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(opfilter.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+separator1.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+useasparmdefiner.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("useasparmdefiner", "Use This Node to Set Parameter Attributes") toggle VALUE(useasparmdefiner.val);
+
+	{ HSTRETCH } useasparmdefiner.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(useasparmdefiner.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+parmuniform.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("parmuniform", "Uniform (not Varying)") toggle VALUE(parmuniform.val);
+
+	{ HSTRETCH } parmuniform.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(parmuniform.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+usebound.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usebound", "Use Input Value If Parameter Not Bound") toggle VALUE(usebound.val);
+
+	{ HSTRETCH } usebound.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(usebound.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+exportparm.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Export", "exportparm") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    exportparm.menu;
+
+	{ HSTRETCH } exportparm.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(exportparm.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+exportcontext.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    exportcontext.label = PARM_LABEL("Export in Context", "exportcontext") WIDTH(1.5);
+    PARM_FIELD(string, "exportcontext") VALUE(exportcontext.val) 
+	LABELREF(exportcontext.label) HSTRETCH;
+
+    exportcontext.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+	exportcontext.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(exportcontext.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+providemenu.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("providemenu", "Provide Menu Of Choices") toggle VALUE(providemenu.val);
+
+	{ HSTRETCH } providemenu.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(providemenu.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+menuchoices.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    menuchoices.label = PARM_LABEL("Menu Choices", "menuchoices") WIDTH(1.5);
+    PARM_FIELD(string, "menuchoices") VALUE(menuchoices.val) 
+	LABELREF(menuchoices.label) HSTRETCH;
+
+	menuchoices.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(menuchoices.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+separator2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH 
+
+    { HEIGHT(0.1) }
+    { LAYOUT(vertical) LOOK(line2) HSTRETCH HEIGHT(2p) MARGIN(1p) }
+    { HEIGHT(0.1) }
+}
+
+invisible.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invisible", "Invisible") toggle VALUE(invisible.val);
+
+	{ HSTRETCH } invisible.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(invisible.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+joinnext.gad = ROW
+{
+
+	HSTRETCH
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("joinnext", "Horizontally Join to Next Parameter") toggle VALUE(joinnext.val);
+
+	{ HSTRETCH } joinnext.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(joinnext.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+disablewhen.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    disablewhen.label = PARM_LABEL("Disable When", "disablewhen") WIDTH(1.5);
+    PARM_FIELD(string, "disablewhen") VALUE(disablewhen.val) 
+	LABELREF(disablewhen.label) HSTRETCH;
+
+	disablewhen.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(disablewhen.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+hidewhen.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    hidewhen.label = PARM_LABEL("Hide When", "hidewhen") WIDTH(1.5);
+    PARM_FIELD(string, "hidewhen") VALUE(hidewhen.val) 
+	LABELREF(hidewhen.label) HSTRETCH;
+
+	hidewhen.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(hidewhen.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+callback.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    callback.label = PARM_LABEL("Callback Script", "callback") WIDTH(1.5);
+    PARM_FIELD(string, "callback") VALUE(callback.val) 
+	LABELREF(callback.label) HSTRETCH;
+
+	callback.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(callback.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+help.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    help.label = PARM_LABEL("Help", "help") WIDTH(1.5);
+    PARM_FIELD(string, "help") VALUE(help.val) 
+	LABELREF(help.label) HSTRETCH;
+
+	help.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(help.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    parmname.gad; 
+    parmlabel.gad; 
+    showlabel.gad; 
+    parmtype.gad; 
+    floatdef.gad; 
+    intdef.gad; 
+    toggledef.gad; 
+    angledef.gad; 
+    logfloatdef.gad; 
+    float3def.gad; 
+    vectordef.gad; 
+    normaldef.gad; 
+    pointdef.gad; 
+    directiondef.gad; 
+    float4def.gad; 
+    float9def.gad; 
+    float16def.gad; 
+    stringdef.gad; 
+    filedef.gad; 
+    imagedef.gad; 
+    geometrydef.gad; 
+    colordef.gad; 
+    color4def.gad; 
+    rangeflt.gad; 
+    rangeint.gad; 
+    stringtype.gad; 
+    opfilter.gad; 
+    separator1.gad; 
+    useasparmdefiner.gad; 
+    parmuniform.gad; 
+    usebound.gad; 
+    exportparm.gad; 
+    exportcontext.gad; 
+    providemenu.gad; 
+    menuchoices.gad; 
+    separator2.gad; 
+    invisible.gad; 
+    joinnext.gad; 
+    disablewhen.gad; 
+    hidewhen.gad; 
+    callback.gad; 
+    help.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

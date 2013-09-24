@@ -1,0 +1,295 @@
+// Magic: 222dd03
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 03:29:43 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+attrib_name.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+attrib_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    attrib_name.label = PARM_LABEL("Output Attribute", "attrib_name") WIDTH(1.5);
+    PARM_FIELD(string, "attrib_name") VALUE(attrib_name.val) 
+	LABELREF(attrib_name.label) HSTRETCH;
+
+}
+
+cluster_output.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Output", "cluster_output") ;
+    { WIDTH(0.09) }
+
+    cluster_output.menu;
+
+}
+
+color_output.gad = ROW
+{
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("color_output", "Color Output") toggle VALUE(color_output.val);
+
+}
+}	// Template join.bot
+
+
+cluster_filter.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    cluster_filter.label = PARM_LABEL("Cluster Filter", "cluster_filter") WIDTH(1.5);
+    PARM_FIELD(string, "cluster_filter") VALUE(cluster_filter.val) 
+	LABELREF(cluster_filter.label) HSTRETCH;
+
+}
+
+num_controls.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Control Attributes", "num_controls") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(num_controls.val)
+
+        num_controls.field = PARM_FIELD (integer, "num_controls")
+				VALUE(num_controls.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(num_controls.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(num_controls.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(num_controls.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+num_controls.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+num_controls.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    num_controls.parm;
+    num_controls.multilist;
+}
+
+buildclusters.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("buildclusters", "Build Clusters") toggle VALUE(buildclusters.val);
+
+}
+
+num_clusters.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ num_clusters.label = PARM_LABEL("Clusters", "num_clusters") WIDTH(1.5);
+ PARM(integer, 1, "num_clusters", none, none) RANGE(1,100)
+	LOCK_RANGE_MIN LABELREF(num_clusters.label) HSTRETCH;
+
+}
+
+random_seed.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ random_seed.label = PARM_LABEL("Seed", "random_seed") WIDTH(1.5);
+ PARM(integer, 1, "random_seed", none, none) RANGE(0,100)
+	 LABELREF(random_seed.label) HSTRETCH;
+
+}
+
+iterations.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ iterations.label = PARM_LABEL("Refinement Iterations", "iterations") WIDTH(1.5);
+ PARM(integer, 1, "iterations", none, none) RANGE(0,100)
+	 LABELREF(iterations.label) HSTRETCH;
+
+}
+threshold_attrib.row.join =		
+{
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+threshold_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    threshold_attrib.label = PARM_LABEL("Threshold Attribute", "threshold_attrib") WIDTH(1.5);
+    PARM_FIELD(string, "threshold_attrib") VALUE(threshold_attrib.val) 
+	LABELREF(threshold_attrib.label) HSTRETCH;
+
+}
+
+threshold_weight.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ threshold_weight.label = PARM_LABEL("Weight", "threshold_weight") ;
+ PARM(float, 1, "threshold_weight", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(threshold_weight.label) HSTRETCH;
+
+}
+}	// Template join.bot
+
+
+initial_time_thresh.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ initial_time_thresh.label = PARM_LABEL("Initial Threshold", "initial_time_thresh") WIDTH(1.5);
+ PARM(float, 1, "initial_time_thresh", none, none) RANGE(0,10)
+	 LABELREF(initial_time_thresh.label) HSTRETCH;
+
+}
+
+time_thresh.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ time_thresh.label = PARM_LABEL("Goal Threshold", "time_thresh") WIDTH(1.5);
+ PARM(float, 1, "time_thresh", none, none) RANGE(0,10)
+	 LABELREF(time_thresh.label) HSTRETCH;
+
+}
+
+keep_attributes.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keep_attributes", "Copy Point Attributes From Cluster") toggle VALUE(keep_attributes.val);
+
+}
+
+maxsamplecount.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxsamplecount.label = PARM_LABEL("Max Sample Count", "maxsamplecount") WIDTH(1.5);
+ PARM(integer, 1, "maxsamplecount", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(maxsamplecount.label) HSTRETCH;
+
+}
+
+size_attribute.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    size_attribute.label = PARM_LABEL("Size Attribute Name", "size_attribute") WIDTH(1.5);
+    PARM_FIELD(string, "size_attribute") VALUE(size_attribute.val) 
+	LABELREF(size_attribute.label) HSTRETCH;
+
+}
+
+size_padding.gad = ROW
+{
+   HSTRETCH
+
+   size_padding.label = PARM_LABEL("Padding Min", "size_padding") WIDTH(1.5);
+
+   PARM(float, 3, "size_padding", none, none, "X,Y,Z") LABELREF(size_padding.label)
+	HSTRETCH;
+
+}
+
+size_padding2.gad = ROW
+{
+   HSTRETCH
+
+   size_padding2.label = PARM_LABEL("Padding Max", "size_padding2") WIDTH(1.5);
+
+   PARM(float, 3, "size_padding2", none, none, "X,Y,Z") LABELREF(size_padding2.label)
+	HSTRETCH;
+
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Cluster Settings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    buildclusters.gad;		
+	    num_clusters.gad;		
+	    random_seed.gad;		
+	    iterations.gad;		
+	    threshold_attrib.row.join;		
+	    initial_time_thresh.gad;		
+	    time_thresh.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Averaging Settings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    keep_attributes.gad;		
+	    maxsamplecount.gad;		
+	    size_attribute.gad;		
+	    size_padding.gad;		
+	    size_padding2.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    attrib_name.row.join; 
+    cluster_filter.gad; 
+    num_controls.gad; 
+    folder0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

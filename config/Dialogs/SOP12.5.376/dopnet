@@ -1,0 +1,340 @@
+// Magic: 535ff13a
+// Automatically generated PSI dialog (PSI version 12.5.376)
+// Tue Jun  4 20:14:33 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+numobj.parm =
+{
+    LAYOUT(horizontal) SPACING(0.02) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Number of Objects", "numobj") WIDTH(1.5);
+    { WIDTH(0.08) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center)  VALUE(numobj.val)
+
+        numobj.field = PARM_FIELD (integer, "numobj")
+				VALUE(numobj.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(numobj.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(numobj.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(numobj.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+numobj.multilist = 
+{
+    LAYOUT(vertical) STRETCH MARGIN(0.05)
+}
+
+numobj.gad =
+{
+    LAYOUT(vertical) STRETCH SPACING(0.02)
+
+    numobj.parm;
+    numobj.multilist;
+}
+
+resimulate.gad = ROW
+{
+
+    { WIDTH(0) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("resimulate", "Reset Simulation") push VALUE(resimulate.val);
+}
+
+initialstate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ initialstate.label = PARM_LABEL("Initial State", "initialstate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "initialstate") LABELREF(initialstate.label)
+	VALUE(initialstate.val) HSTRETCH;
+
+ initialstate.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(initialstate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+timestep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timestep.label = PARM_LABEL("Time Step", "timestep") WIDTH(1.5);
+ PARM(float, 1, "timestep", none, none) RANGE(9.9999997473787516e-06,1)
+	LOCK_RANGE LABELREF(timestep.label) HSTRETCH;
+
+}
+
+substep.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ substep.label = PARM_LABEL("Sub Steps", "substep") WIDTH(1.5);
+ PARM(integer, 1, "substep", none, none) RANGE(1,10)
+	LOCK_RANGE_MIN LABELREF(substep.label) HSTRETCH;
+
+}
+
+timeoffset.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timeoffset.label = PARM_LABEL("Offset Time", "timeoffset") WIDTH(1.5);
+ PARM(float, 1, "timeoffset", none, none) RANGE(-5,5)
+	 LABELREF(timeoffset.label) HSTRETCH;
+
+}
+
+startframe.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ startframe.label = PARM_LABEL("Start Frame", "startframe") WIDTH(1.5);
+ PARM(integer, 1, "startframe", none, none) RANGE(1,240)
+	 LABELREF(startframe.label) HSTRETCH;
+
+}
+
+timescale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ timescale.label = PARM_LABEL("Scale Time", "timescale") WIDTH(1.5);
+ PARM(float, 1, "timescale", none, none) RANGE(0.0010000000474974513,10)
+	LOCK_RANGE_MIN LABELREF(timescale.label) HSTRETCH;
+
+}
+
+maxfeedback.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ maxfeedback.label = PARM_LABEL("Max Feedback Loops", "maxfeedback") WIDTH(1.5);
+ PARM(integer, 1, "maxfeedback", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(maxfeedback.label) HSTRETCH;
+
+}
+
+autoresim.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("autoresim", "Enable Automatic Resimulation") toggle VALUE(autoresim.val);
+
+}
+
+datahints.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("datahints", "Provide Data Hints") toggle VALUE(datahints.val);
+
+}
+
+interpolate.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("interpolate", "Interpolate Display Data") toggle VALUE(interpolate.val);
+
+}
+
+cacheenabled.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cacheenabled", "Cache Simulation") toggle VALUE(cacheenabled.val);
+
+}
+
+compresssims.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("compresssims", "Compress .sim Files") toggle VALUE(compresssims.val);
+
+}
+
+cachetodisk.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cachetodisk", "Allow Caching To Disk") toggle VALUE(cachetodisk.val);
+
+}
+
+cachetodisknoninteractive.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cachetodisknoninteractive", "Cache to Disk in Non-Interactive Sessions") toggle VALUE(cachetodisknoninteractive.val);
+
+}
+
+cachesubsteps.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cachesubsteps", "Cache Substep Data") toggle VALUE(cachesubsteps.val);
+
+}
+
+cachemaxsize.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ cachemaxsize.label = PARM_LABEL("Cache Memory (MB)", "cachemaxsize") WIDTH(1.5);
+ PARM(integer, 1, "cachemaxsize", none, none) RANGE(0,1000)
+	LOCK_RANGE_MIN LABELREF(cachemaxsize.label) HSTRETCH;
+
+}
+
+timeless.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("timeless", "Timeless (No History)") toggle VALUE(timeless.val);
+
+}
+
+explicitcache.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("explicitcache", "Explicit Cache") toggle VALUE(explicitcache.val);
+
+}
+
+explicitcachename.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+ explicitcachename.label = PARM_LABEL("Explicit Cache Files", "explicitcachename") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "explicitcachename") LABELREF(explicitcachename.label)
+	VALUE(explicitcachename.val) HSTRETCH;
+
+ explicitcachename.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(explicitcachename.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+explicitcachensteps.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ explicitcachensteps.label = PARM_LABEL("Explicit Frames To Keep", "explicitcachensteps") WIDTH(1.5);
+ PARM(integer, 1, "explicitcachensteps", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(explicitcachensteps.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Object Merge"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    numobj.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Simulation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    resimulate.gad;		
+	    initialstate.gad;		
+	    timestep.gad;		
+	    substep.gad;		
+	    timeoffset.gad;		
+	    startframe.gad;		
+	    timescale.gad;		
+	    maxfeedback.gad;		
+	    autoresim.gad;		
+	    datahints.gad;		
+	    interpolate.gad;		
+	    cacheenabled.gad;		
+	    compresssims.gad;		
+	    cachetodisk.gad;		
+	    cachetodisknoninteractive.gad;		
+	    cachesubsteps.gad;		
+	    cachemaxsize.gad;		
+	    timeless.gad;		
+	    explicitcache.gad;		
+	    explicitcachename.gad;		
+	    explicitcachensteps.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

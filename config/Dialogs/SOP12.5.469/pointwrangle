@@ -1,0 +1,63 @@
+// Magic: 38a77677
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep 23 18:39:30 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    group.label = PARM_LABEL("Point Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+snippet.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, top)
+
+    snippet.label = PARM_LABEL("VEX Snippet", "snippet") WIDTH(1.5);
+
+    MULTILINE_PARM_FIELD ("snippet") 
+    	LABELREF(snippet.label) 
+    	VALUE(snippet.val) 
+    	SYNTAX("vex") 
+    	LINES(10) 
+    	HSTRETCH;
+
+}
+
+exportlist.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    exportlist.label = PARM_LABEL("Attributes to Create", "exportlist") WIDTH(1.5);
+    PARM_FIELD(string, "exportlist") VALUE(exportlist.val) 
+	LABELREF(exportlist.label) HSTRETCH;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    group.gad; 
+    snippet.gad; 
+    exportlist.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

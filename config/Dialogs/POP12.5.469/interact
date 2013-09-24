@@ -1,0 +1,278 @@
+// Magic: 6c0c53fd
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:30:00 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+activate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ activate.label = PARM_LABEL("Activation", "activate") WIDTH(1.5);
+ PARM(float, 1, "activate", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(activate.label) HSTRETCH;
+
+}
+
+source.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    source.label = PARM_LABEL("Source Group", "source") WIDTH(1.5);
+    PARM_FIELD(string, "source") VALUE(source.val) 
+	LABELREF(source.label) HSTRETCH;
+
+    source.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+}
+
+usepradius.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Particle Radius", "usepradius") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    usepradius.menu;
+
+}
+
+pscale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pscale.label = PARM_LABEL("Scale", "pscale") WIDTH(1.5);
+ PARM(float, 1, "pscale", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(pscale.label) HSTRETCH;
+
+}
+
+pradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ pradius.label = PARM_LABEL("Radius", "pradius") WIDTH(1.5);
+ PARM(float, 1, "pradius", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(pradius.label) HSTRETCH;
+
+}
+
+useeradius.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Effect Radius", "useeradius") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    useeradius.menu;
+
+}
+
+escale.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ escale.label = PARM_LABEL("Scale", "escale") WIDTH(1.5);
+ PARM(float, 1, "escale", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(escale.label) HSTRETCH;
+
+}
+
+eradius.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ eradius.label = PARM_LABEL("Radius", "eradius") WIDTH(1.5);
+ PARM(float, 1, "eradius", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(eradius.label) HSTRETCH;
+
+}
+
+overlap.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Overlap Behavior", "overlap") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    overlap.menu;
+
+}
+
+influence.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Influence Type", "influence") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    influence.menu;
+
+}
+
+chargebehavior.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Charge Behavior", "chargebehavior") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    chargebehavior.menu;
+
+}
+
+exponent.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ exponent.label = PARM_LABEL("Rolloff Exponent", "exponent") WIDTH(1.5);
+ PARM(float, 1, "exponent", none, none) RANGE(0,5)
+	LOCK_RANGE_MIN LABELREF(exponent.label) HSTRETCH;
+
+}
+
+multiplier.gad = ROW
+{
+   HSTRETCH
+
+   multiplier.label = PARM_LABEL("Force Multiplier", "multiplier") WIDTH(1.5);
+
+   PARM(float, 3, "multiplier", none, none, "X,Y,Z") LABELREF(multiplier.label)
+	HSTRETCH;
+
+}
+
+ignorecharge.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignorecharge", "Ignore Charge") toggle VALUE(ignorecharge.val);
+
+}
+
+overridecharge.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridecharge", "Override Charge") toggle VALUE(overridecharge.val);
+
+}
+
+charge.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ charge.label = PARM_LABEL("Charge", "charge") WIDTH(1.5);
+ PARM(float, 1, "charge", none, none) RANGE(-1,1)
+	 LABELREF(charge.label) HSTRETCH;
+
+}
+
+ignoremass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ignoremass", "Ignore Mass") toggle VALUE(ignoremass.val);
+
+}
+
+overridemass.gad = ROW
+{
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("overridemass", "Override Mass") toggle VALUE(overridemass.val);
+
+}
+
+mass.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ mass.label = PARM_LABEL("Mass", "mass") WIDTH(1.5);
+ PARM(float, 1, "mass", none, none) RANGE(0.0010000000474974513,5)
+	LOCK_RANGE_MIN LABELREF(mass.label) HSTRETCH;
+
+}
+
+stdswitcher.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG
+    { 
+	VALUE(stdswitcher.gad.val) STRETCH(1,0)
+
+	TAB "Influence"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    usepradius.gad;		
+	    pscale.gad;		
+	    pradius.gad;		
+	    useeradius.gad;		
+	    escale.gad;		
+	    eradius.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Behavior"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    overlap.gad;		
+	    influence.gad;		
+	    chargebehavior.gad;		
+	    exponent.gad;		
+	    multiplier.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+
+	TAB "Defaults"
+	{
+	    LAYOUT(vertical) STRETCH
+
+	    MARGIN(0.05) SPACING(2p)
+	    ignorecharge.gad;		
+	    overridecharge.gad;		
+	    charge.gad;		
+	    ignoremass.gad;		
+	    overridemass.gad;		
+	    mass.gad;		
+
+	    { STRETCH(1,1) LOOK(plain) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    activate.gad; 
+    source.gad; 
+    stdswitcher.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

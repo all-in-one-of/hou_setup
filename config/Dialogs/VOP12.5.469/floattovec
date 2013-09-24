@@ -1,0 +1,117 @@
+// Magic: e2f24aff
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  9 15:10:45 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+signature.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+
+	HSTRETCH
+
+    PARM_LABEL_SIMPLE("Signature", "signature") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    signature.menu;
+
+	{ HSTRETCH } signature.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(signature.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval1.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval1.label = PARM_LABEL("Component 1", "fval1") WIDTH(1.5);
+ PARM(float, 1, "fval1", none, none) RANGE(0,1)
+	 LABELREF(fval1.label) HSTRETCH;
+
+	fval1.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval1.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval2.label = PARM_LABEL("Component 2", "fval2") WIDTH(1.5);
+ PARM(float, 1, "fval2", none, none) RANGE(0,1)
+	 LABELREF(fval2.label) HSTRETCH;
+
+	fval2.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval2.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval3.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval3.label = PARM_LABEL("Component 3", "fval3") WIDTH(1.5);
+ PARM(float, 1, "fval3", none, none) RANGE(0,1)
+	 LABELREF(fval3.label) HSTRETCH;
+
+	fval3.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval3.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval1_uv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval1_uv.label = PARM_LABEL("Component 1", "fval1_uv") WIDTH(1.5);
+ PARM(float, 1, "fval1_uv", none, none) RANGE(0,1)
+	 LABELREF(fval1_uv.label) HSTRETCH;
+
+	fval1_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval1_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval2_uv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval2_uv.label = PARM_LABEL("Component 2", "fval2_uv") WIDTH(1.5);
+ PARM(float, 1, "fval2_uv", none, none) RANGE(0,1)
+	 LABELREF(fval2_uv.label) HSTRETCH;
+
+	fval2_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval2_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+fval3_uv.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+
+ fval3_uv.label = PARM_LABEL("Component 3", "fval3_uv") WIDTH(1.5);
+ PARM(float, 1, "fval3_uv", none, none) RANGE(0,1)
+	 LABELREF(fval3_uv.label) HSTRETCH;
+
+	fval3_uv.exportbtn = PARM_EXPORTBUTTON "SOP_sphere" VALUE(fval3_uv.export) LOOKFLAT HELP("Open Shader Effects menu (Ctrl+LMB to promote this parameter)") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH LOOK(plain) 
+    signature.gad; 
+    fval1.gad; 
+    fval2.gad; 
+    fval3.gad; 
+    fval1_uv.gad; 
+    fval2_uv.gad; 
+    fval3_uv.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

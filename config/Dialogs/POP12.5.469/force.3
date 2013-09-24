@@ -1,0 +1,53 @@
+// Magic: 57574320
+// Automatically generated PSI dialog (PSI version 12.5.469)
+// Mon Sep  2 17:28:55 2013
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+forcepath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+
+ forcepath.label = PARM_LABEL("Reference Object", "forcepath") ;
+ PARM_FIELD(pathstring, "forcepath") VALUE(forcepath.val) 
+	LABELREF(forcepath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(forcepath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(forcepath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+}
+
+force.gad = ROW
+{
+   HSTRETCH
+
+   force.label = PARM_LABEL("Force", "force") ;
+
+   PARM(float, 3, "force", none, none, "X,Y,Z") LABELREF(force.label)
+	HSTRETCH;
+
+}
+
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":12 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":13 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":14 Macro "LOOK_PLAIN" redefined.  Using later definition
+# warning cpp warning: "Templates/GenV3/subdialog.top.ui":15 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH  JUSTIFY(left, center)
+    forcepath.gad; 
+    force.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val) HSTRETCH
+
+    dialog_norm.gad;
+}
